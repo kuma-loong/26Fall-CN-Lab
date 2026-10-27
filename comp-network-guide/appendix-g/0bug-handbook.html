@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 典型 Bug 排查手册 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2. Lab2 常见问题（Eth）" href="lab2.html" />
+    <link rel="prev" title="常见问题" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">常见问题</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="0bug-handbook.html#">1. 典型 Bug 排查手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0bug-handbook.html#id1">1.1. 校验和错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0bug-handbook.html#tcp">1.2. TCP 序列号与确认号更新错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0bug-handbook.html#arp">1.3. ARP 表未更新导致反复广播</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0bug-handbook.html#ip">1.4. IP 分片偏移单位错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0bug-handbook.html#id2">1.5. 协议字段填写错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0bug-handbook.html#id3">1.6. 环境兼容性问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab2.html">2. Lab2 常见问题（Eth）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab3.html">3. Lab3 常见问题（ARP）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab7.html">4. Lab7 常见问题（UDP）</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">常见问题</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>典型 Bug 排查手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-g/0bug-handbook.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bug">
+<h1><span class="section-number">1. </span>典型 Bug 排查手册<a class="headerlink" href="0bug-handbook.html#bug" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2><span class="section-number">1.1. </span>校验和错误<a class="headerlink" href="0bug-handbook.html#id1" title="Link to this heading"></a></h2>
+<p><strong>典型现象</strong></p>
+<ul class="simple">
+<li><p>Wireshark 抓到的 IP / UDP / TCP checksum 显示为 0。</p></li>
+<li><p>组件测试通过，但 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 抓包结果异常。</p></li>
+<li><p>接收端始终把包丢弃，或者调试工具能发包但收不到回包。</p></li>
+</ul>
+<p><strong>优先排查</strong></p>
+<ol class="arabic simple">
+<li><p>是否开启了硬件校验和卸载（Checksum Offload）。</p></li>
+<li><p>计算校验和前，相关字段是否先清零。</p></li>
+<li><p>参与计算的数据长度若为奇数，末尾是否补了一个 <code class="docutils literal notranslate"><span class="pre">0</span></code> 字节。</p></li>
+<li><p>TCP / UDP 是否正确使用了伪首部，且伪首部中的协议号、源 / 目的 IP 正确。</p></li>
+</ol>
+<p><strong>排查路径</strong></p>
+<ul class="simple">
+<li><p>环境问题优先参考 <a class="reference internal" href="../appendix-b/0checklist.html"><span class="doc">环境配置检查清单</span></a> 与 <a class="reference internal" href="lab7.html"><span class="doc">Lab7 常见问题（UDP）</span></a>。</p></li>
+<li><p>IP 校验和重点检查 <a class="reference internal" href="../lab5/index.html"><span class="doc">Lab5：协议栈之IP协议实现</span></a> 中 <code class="docutils literal notranslate"><span class="pre">checksum16()</span></code> 的实现。</p></li>
+<li><p>UDP / TCP 校验和重点检查 <a class="reference internal" href="../lab7/index.html"><span class="doc">Lab7：协议栈之UDP协议实现</span></a>、<a class="reference internal" href="../lab9-tcp/index.html"><span class="doc">Lab9：小型Web服务器的设计与实现</span></a> 中 <code class="docutils literal notranslate"><span class="pre">transport_checksum()</span></code> 的实现与调用顺序。</p></li>
+</ul>
+</section>
+<section id="tcp">
+<h2><span class="section-number">1.2. </span>TCP 序列号与确认号更新错误<a class="headerlink" href="0bug-handbook.html#tcp" title="Link to this heading"></a></h2>
+<p><strong>典型现象</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 局部通过，但 <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 无法建立连接。</p></li>
+<li><p>三次握手后立刻被对端重置，或者四次挥手停在中间状态。</p></li>
+<li><p>HTTP 请求能发出，但浏览器迟迟等不到完整响应。</p></li>
+</ul>
+<p><strong>优先排查</strong></p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SYN</span></code> 和 <code class="docutils literal notranslate"><span class="pre">FIN</span></code> 都各自占用一个序号。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACK</span></code> 表示“下一个期望收到的字节序号”，不是“最后收到的字节序号”。</p></li>
+<li><p>回复报文时，<code class="docutils literal notranslate"><span class="pre">seq</span></code>、<code class="docutils literal notranslate"><span class="pre">ack</span></code>、标志位、状态迁移是否同步更新。</p></li>
+<li><p>发送纯 ACK 包、携带数据包、关闭连接包时，序列号递增规则是否一致。</p></li>
+</ol>
+<p><strong>排查路径</strong></p>
+<ul class="simple">
+<li><p>对照 <a class="reference internal" href="../lab9-tcp/index.html"><span class="doc">Lab9：小型Web服务器的设计与实现</span></a> 中三次握手、四次挥手和状态机说明。</p></li>
+<li><p>抓包时按连接过程逐包对齐：先看 <code class="docutils literal notranslate"><span class="pre">SYN</span></code> / <code class="docutils literal notranslate"><span class="pre">SYN|ACK</span></code> / <code class="docutils literal notranslate"><span class="pre">ACK</span></code>，再看数据包，最后看 <code class="docutils literal notranslate"><span class="pre">FIN</span></code> / <code class="docutils literal notranslate"><span class="pre">ACK</span></code>。</p></li>
+</ul>
+</section>
+<section id="arp">
+<h2><span class="section-number">1.3. </span>ARP 表未更新导致反复广播<a class="headerlink" href="0bug-handbook.html#arp" title="Link to this heading"></a></h2>
+<p><strong>典型现象</strong></p>
+<ul class="simple">
+<li><p>每次发包前都重新广播 ARP Request。</p></li>
+<li><p>Wireshark 中能看到 ARP Response，但后续 IP 包仍发不出去。</p></li>
+<li><p>Ping 或 UDP 测试中，ARP 包往返正常，但业务数据始终没有继续向下传。</p></li>
+</ul>
+<p><strong>优先排查</strong></p>
+<ol class="arabic simple">
+<li><p>收到 ARP Request / Response 后，是否都正确更新了 ARP 表。</p></li>
+<li><p>发送到异网主机时，ARP 查询的对象是否是下一跳网关，而不是最终目的主机。</p></li>
+<li><p>ARP 表的 key / value 是否按正确的 IP 和 MAC 填写。</p></li>
+<li><p>ARP 表项是否因为超时、覆盖或未命中而被反复丢弃。</p></li>
+</ol>
+<p><strong>排查路径</strong></p>
+<ul class="simple">
+<li><p>对照 <a class="reference internal" href="../lab3/index.html"><span class="doc">Lab3：协议栈之ARP协议实现</span></a> 中 ARP 表与同网段 / 异网段解析流程。</p></li>
+<li><p>如果看到“ARP 正常、IP 不走”，优先核对 <code class="docutils literal notranslate"><span class="pre">map_set()</span></code> / <code class="docutils literal notranslate"><span class="pre">map_get()</span></code> 的调用时机与参数。</p></li>
+</ul>
+</section>
+<section id="ip">
+<h2><span class="section-number">1.4. </span>IP 分片偏移单位错误<a class="headerlink" href="0bug-handbook.html#ip" title="Link to this heading"></a></h2>
+<p><strong>典型现象</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code> 无法通过。</p></li>
+<li><p>分片数量看起来正确，但接收端重组失败。</p></li>
+<li><p>Wireshark 中 <code class="docutils literal notranslate"><span class="pre">fragment</span> <span class="pre">offset</span></code> 明显不对，或者后续分片起始位置错位。</p></li>
+</ul>
+<p><strong>优先排查</strong></p>
+<ol class="arabic simple">
+<li><p>IP 分片偏移字段的单位是 <strong>8 字节</strong>，不是字节数本身。</p></li>
+<li><p>除最后一个分片外，其余分片的数据长度都应是 8 的整数倍。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MF</span></code> 位只有最后一个分片为 0，其余分片都应为 1。</p></li>
+<li><p>所有分片的 <code class="docutils literal notranslate"><span class="pre">id</span></code> 必须一致。</p></li>
+</ol>
+<p><strong>排查路径</strong></p>
+<ul class="simple">
+<li><p>对照 <a class="reference internal" href="../lab5/index.html"><span class="doc">Lab5：协议栈之IP协议实现</span></a> 中 IP 分片示意图与分片步骤。</p></li>
+<li><p>先打印每个分片的 payload 长度、offset、MF，再和抓包结果逐项比对。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">1.5. </span>协议字段填写错误<a class="headerlink" href="0bug-handbook.html#id2" title="Link to this heading"></a></h2>
+<p><strong>典型现象</strong></p>
+<ul class="simple">
+<li><p>报文看起来发出去了，但上层根本收不到。</p></li>
+<li><p>接收路径落到了“协议不可达”或“端口不可达”分支。</p></li>
+<li><p>Wireshark 能识别出 IP 包，但不能正确识别上层协议。</p></li>
+</ul>
+<p><strong>优先排查</strong></p>
+<ol class="arabic simple">
+<li><p>IP 首部中的 <code class="docutils literal notranslate"><span class="pre">protocol</span></code> 字段填写的是上层协议号，不是端口号。</p></li>
+<li><p>TCP / UDP 的源端口、目的端口要和应用层监听端口对应。</p></li>
+<li><p>端口号、长度、校验和等 16 位字段要做网络字节序转换。</p></li>
+<li><p>EtherType、ARP opcode、IP protocol 等常量值不要混淆。</p></li>
+</ol>
+<p><strong>排查路径</strong></p>
+<ul class="simple">
+<li><p>链路层问题先看 <a class="reference internal" href="../lab2/index.html"><span class="doc">Lab2：协议栈之Eth协议实现</span></a>。</p></li>
+<li><p>IP 协议号问题重点看 <a class="reference internal" href="../lab5/index.html"><span class="doc">Lab5：协议栈之IP协议实现</span></a>。</p></li>
+<li><p>UDP / TCP 端口问题重点看 <a class="reference internal" href="../lab7/index.html"><span class="doc">Lab7：协议栈之UDP协议实现</span></a>、<a class="reference internal" href="../lab9-tcp/index.html"><span class="doc">Lab9：小型Web服务器的设计与实现</span></a>。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">1.6. </span>环境兼容性问题<a class="headerlink" href="0bug-handbook.html#id3" title="Link to this heading"></a></h2>
+<p><strong>典型现象</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PacketSendPacket</span> <span class="pre">failed</span></code>、<code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">interface</span> <span class="pre">found</span></code>、<code class="docutils literal notranslate"><span class="pre">have</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">ip</span> <span class="pre">with</span> <span class="pre">me</span></code>。</p></li>
+<li><p>Windows 下抓包正常，但调试工具就是收不到响应。</p></li>
+<li><p>无线网卡抓包结果长期异常，且无法关闭校验和卸载。</p></li>
+</ul>
+<p><strong>优先排查</strong></p>
+<ol class="arabic simple">
+<li><p>Windows 环境下 Npcap 是否使用课程建议版本 <code class="docutils literal notranslate"><span class="pre">1.31</span></code>。</p></li>
+<li><p>安装时是否开启 <code class="docutils literal notranslate"><span class="pre">WinPcap</span> <span class="pre">API-compatible</span> <span class="pre">Mode</span></code>。</p></li>
+<li><p>是否抓错网卡、写错 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>，或把协议栈 IP 配成了真实网卡 IP。</p></li>
+<li><p>若只有无线网卡且无法关闭 Offload，是否应直接切到 <a class="reference internal" href="../appendix-b/3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a>。</p></li>
+</ol>
+<p><strong>排查路径</strong></p>
+<ul class="simple">
+<li><p>环境优先参考 <a class="reference internal" href="../appendix-b/0checklist.html"><span class="doc">环境配置检查清单</span></a>。</p></li>
+<li><p>Windows / 无线网卡 / Npcap 相关问题继续看 <a class="reference internal" href="lab7.html"><span class="doc">Lab7 常见问题（UDP）</span></a>。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="常见问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="lab2.html" class="btn btn-neutral float-right" title="2. Lab2 常见问题（Eth）" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

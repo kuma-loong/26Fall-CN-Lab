@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>附录 A：Wireshark 入门 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="附录 B：网络编程实验环境" href="../appendix-b/index.html" />
+    <link rel="prev" title="8. 网络全面IPv6化（IPv6 Only）" href="../proplus/8IPv6only.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="index.html#">附录 A：Wireshark 入门</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#wireshark">Wireshark安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id1">Wireshark 三步上手</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">看懂界面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id3">一些技巧</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id4">先记住这几条</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id5">最常用的过滤器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id6">实验里最常用的操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#id7">按这个顺序排查</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">附录 A：Wireshark 入门</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-a/index.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="a-wireshark">
+<h1>附录 A：Wireshark 入门<a class="headerlink" href="index.html#a-wireshark" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Wireshark 是实验里最常用的抓包工具。它的作用很直接：</p>
+<ul class="simple">
+<li><p>看你的程序有没有真的发出报文</p></li>
+<li><p>看报文里的字段是不是填对了</p></li>
+<li><p>出现 bug 时快速定位问题出在哪一层</p></li>
+</ul>
+<p>第一次使用时，不需要把所有功能都学会。先学会抓包、筛选报文、查看字段，这三件事就够用了。</p>
+<section id="wireshark">
+<h2>Wireshark安装<a class="headerlink" href="index.html#wireshark" title="Link to this heading"></a></h2>
+<p>实验室电脑已经安装好 Wireshark，可直接使用。如果你想在自己的电脑上安装，可从 <a class="reference external" href="https://www.wireshark.org/download.html">https://www.wireshark.org/download.html</a> 下载并安装。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>安装 Wireshark 时，安装程序可能会提示同时安装或升级 Npcap。请不要勾选升级 Npcap 的选项，尽量保持课程要求的版本不变。</p>
+<p>如果你当前环境已经可以正常完成 UDP/TCP 实验，就不要因为安装 Wireshark 而顺手升级 Npcap，否则后续实验中的 server 端可能出现异常。</p>
+</div>
+</section>
+<section id="id1">
+<h2>Wireshark 三步上手<a class="headerlink" href="index.html#id1" title="Link to this heading"></a></h2>
+<p><strong>Step1</strong>：启动 Wireshark，选择要抓包的网卡。</p>
+<p>通常应选择当前正在收发数据的网卡。如果你不确定选哪一个，可以先观察哪个网卡右侧的流量曲线在变化，或者先发一个 <code class="docutils literal notranslate"><span class="pre">ping</span></code> 再判断。</p>
+<img alt="../_images/capture.png" src="../_images/capture.png" />
+<p><strong>Step2</strong>：单击开始按钮，然后再去执行实验操作。</p>
+<p>建议先开始抓包，再运行客户端、服务器或测试命令，否则关键报文可能已经错过。</p>
+<img alt="../_images/start.png" src="../_images/start.png" />
+<p><strong>Step3</strong>：完成实验操作后，停止抓包；如果有需要，再保存抓包文件。</p>
+<img alt="../_images/stop.png" src="../_images/stop.png" />
+</section>
+<section id="id2">
+<h2>看懂界面<a class="headerlink" href="index.html#id2" title="Link to this heading"></a></h2>
+<img alt="../_images/wireshark%E4%BB%8B%E7%BB%8D.png" src="../_images/wireshark介绍.png" />
+<p>Wireshark 的界面主要看三个窗口：</p>
+<ul class="simple">
+<li><p>最上面是 <code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">List</span></code>：每一行就是一个报文，用来快速浏览。</p></li>
+<li><p>中间是 <code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">Details</span></code>：按协议层次展开报文内容，用来查看字段含义。</p></li>
+<li><p>最下面是 <code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">Bytes</span></code>：显示原始字节，用来核对十六进制内容、字段偏移和大小端。</p></li>
+</ul>
+<p>刚开始用时，先盯住两个地方就够了：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Protocol</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Info</span></code> 列，看这个报文大概是什么</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">Details</span></code> 窗口，看字段的具体值是否正确</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>一些技巧<a class="headerlink" href="index.html#id3" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>先记住这几条<a class="headerlink" href="index.html#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>先开始抓包，再做实验操作。</p></li>
+<li><p>每次只关注一个问题，不要同时开太多程序。</p></li>
+<li><p>看不懂一大堆报文时，先用过滤器把范围缩小。</p></li>
+<li><p>排查时按链路层、网络层、传输层的顺序往上看。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>最常用的过滤器<a class="headerlink" href="index.html#id5" title="Link to this heading"></a></h3>
+<p>实验里最常用的是 <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Filter</span></code>，也就是先抓包，再筛选显示结果。下面这些表达式基本够用：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arp</span></code>：只看 ARP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icmp</span></code>：只看 ICMP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip.addr</span> <span class="pre">==</span> <span class="pre">10.0.0.1</span></code>：只看某个 IP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eth.addr</span> <span class="pre">==</span> <span class="pre">00:11:22:33:44:55</span></code>：只看某个 MAC</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">udp.port</span> <span class="pre">==</span> <span class="pre">2000</span></code>：只看某个 UDP 端口</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.port</span> <span class="pre">==</span> <span class="pre">80</span></code>：只看某个 TCP 端口</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.flags.syn</span> <span class="pre">==</span> <span class="pre">1</span> <span class="pre">&amp;&amp;</span> <span class="pre">tcp.flags.ack</span> <span class="pre">==</span> <span class="pre">0</span></code>：看三次握手的第一个 SYN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp.flags.fin</span> <span class="pre">==</span> <span class="pre">1</span></code>：看 FIN 报文</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip.flags.mf</span> <span class="pre">==</span> <span class="pre">1</span> <span class="pre">||</span> <span class="pre">ip.frag_offset</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>：看 IP 分片</p></li>
+</ul>
+<p>如果你不确定过滤表达式怎么写，可以先在 <code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">Details</span></code> 里点中某个字段，然后右键选择 <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">as</span> <span class="pre">Filter</span></code>，让 Wireshark 自动生成。</p>
+<p>如果想在抓包前就减少无关报文，也可以使用 <code class="docutils literal notranslate"><span class="pre">Capture</span> <span class="pre">Filter</span></code>，例如：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">host</span> <span class="pre">10.249.8.1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp</span> <span class="pre">port</span> <span class="pre">80</span></code></p></li>
+</ul>
+<p>不过在课程实验里，更推荐先正常抓包，再用 <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Filter</span></code> 慢慢缩小范围，这样不容易漏掉关键报文。</p>
+</section>
+<section id="id6">
+<h3>实验里最常用的操作<a class="headerlink" href="index.html#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>对字段右键选择 <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">as</span> <span class="pre">Column</span></code>，可以把端口号、序列号、确认号等加到上方列表里，方便对比多个报文。</p></li>
+<li><p>对某个报文右键选择 <code class="docutils literal notranslate"><span class="pre">Set/Unset</span> <span class="pre">Time</span> <span class="pre">Reference</span></code>，可以把它当作时间起点，方便看请求和应答之间隔了多久。</p></li>
+<li><p>TCP 实验中可以使用 <code class="docutils literal notranslate"><span class="pre">Follow</span> <span class="pre">TCP</span> <span class="pre">Stream</span></code>，快速查看一条连接中的完整数据交换。</p></li>
+<li><p>遇到自定义协议或字段填错的问题时，要结合 <code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">Details</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Packet</span> <span class="pre">Bytes</span></code> 一起看。</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>按这个顺序排查<a class="headerlink" href="index.html#id7" title="Link to this heading"></a></h3>
+<p>抓到报文以后，建议按下面的顺序检查：</p>
+<ol class="arabic simple">
+<li><p>先看链路层：源 MAC、目的 MAC、Type 是否正确。</p></li>
+<li><p>再看网络层：源 IP、目的 IP、协议号、总长度、分片信息是否正确。</p></li>
+<li><p>最后看传输层：端口号、序列号、确认号、标志位、负载内容是否正确。</p></li>
+</ol>
+<p>不同实验里，可以额外注意这些点：</p>
+<ul class="simple">
+<li><p>ARP 实验：有没有发出 ARP 请求，是否收到了 ARP 应答，ARP 表是否更新。</p></li>
+<li><p>UDP 实验：IP 协议号是否为 17，端口号是否正确，校验和是否合理。</p></li>
+<li><p>TCP 实验：三次握手和四次挥手是否完整，<code class="docutils literal notranslate"><span class="pre">SYN</span></code> 和 <code class="docutils literal notranslate"><span class="pre">FIN</span></code> 是否各占一个序列号。</p></li>
+<li><p>IP 分片实验：同一组分片的 <code class="docutils literal notranslate"><span class="pre">Identification</span></code> 是否一致，<code class="docutils literal notranslate"><span class="pre">Fragment</span> <span class="pre">Offset</span></code> 是否按 8 字节为单位递增。</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>发送端抓包时，如果网卡开启了硬件校验和卸载（Checksum Offload），Wireshark 里可能会看到“校验和错误”或校验和字段暂时为 0。这不一定说明你的程序有错，可能只是校验和还没有由网卡硬件补上。</p>
+<p>所以，遇到校验和问题时，建议优先在接收端抓包验证，或临时关闭网卡卸载功能后再检查。</p>
+</div>
+<p>更多过滤表达式和高级用法，可参考 Wireshark 官方文档：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.wireshark.org/CaptureFilters">https://wiki.wireshark.org/CaptureFilters</a></p></li>
+<li><p><a class="reference external" href="https://wiki.wireshark.org/DisplayFilters">https://wiki.wireshark.org/DisplayFilters</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../proplus/8IPv6only.html" class="btn btn-neutral float-left" title="8. 网络全面IPv6化（IPv6 Only）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../appendix-b/index.html" class="btn btn-neutral float-right" title="附录 B：网络编程实验环境" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

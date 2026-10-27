@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows 协议栈实验提交与自检 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Linux 协议栈实验提交与自检" href="linux.html" />
+    <link rel="prev" title="协议栈实验提交与自检" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">协议栈实验提交与自检</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">1. 协议栈提交内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id3">2. 协议栈实验报告要求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id5">3. 提交前的代码准备</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id6">4. 分平台提交与自检</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="windows.html#">Windows 协议栈实验提交与自检</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linux.html">Linux 协议栈实验提交与自检</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id7">5. 协议栈最终提交检查</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">协议栈实验提交与自检</a></li>
+      <li class="breadcrumb-item active">Windows 协议栈实验提交与自检</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/submission/windows.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="windows">
+<h1>Windows 协议栈实验提交与自检<a class="headerlink" href="windows.html#windows" title="Link to this heading"></a></h1>
+<p>本页适用于 Windows + PowerShell 环境。请先完成 <a class="reference internal" href="../appendix-b/1win.html"><span class="doc">Windows开发环境搭建</span></a> 中的 Git、CMake 3.13 或更新版本、MinGW / TDM-GCC 和 Npcap 配置。以下命令均在 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录执行。</p>
+<p><strong>1. Windows 环境下完成全部实验测试</strong></p>
+<p>在项目根目录配置、编译并运行全部组件测试：</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>以下命令必须在 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录执行，不能在 <code class="docutils literal notranslate"><span class="pre">net-lab\build</span></code> 目录执行。运行命令前可先执行 <code class="docutils literal notranslate"><span class="pre">Test-Path</span> <span class="pre">.\CMakeLists.txt</span></code>，输出 <code class="docutils literal notranslate"><span class="pre">True</span></code> 才表示当前目录正确。如果 PowerShell 提示符以 <code class="docutils literal notranslate"><span class="pre">\net-lab\build&gt;</span></code> 结尾，请先执行 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code> 返回项目根目录。</p>
+</div>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="n">-S</span> <span class="p">.</span> <span class="n">-B</span> <span class="n">build</span> <span class="n">-G</span> <span class="s2">&quot;MinGW Makefiles&quot;</span> <span class="n">-DCMAKE_C_COMPILER</span><span class="p">=</span><span class="n">gcc</span> <span class="n">-DCMAKE_CXX_COMPILER</span><span class="p">=</span><span class="n">g</span><span class="p">++</span>
+<span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="n">build</span> <span class="p">-</span><span class="n">-target</span> <span class="n">eth_in</span> <span class="n">eth_out</span> <span class="n">arp_test</span> <span class="n">ip_test</span> <span class="n">ip_frag_test</span> <span class="n">icmp_test</span> <span class="n">udp_test</span> <span class="n">tcp_test</span>
+<span class="n">cmake</span> <span class="n">-E</span> <span class="nb">chdir </span><span class="n">build</span> <span class="n">ctest</span> <span class="p">-</span><span class="n">-output-on-failure</span>
+</pre></div>
+</div>
+<p>最后一条命令会在 <code class="docutils literal notranslate"><span class="pre">build</span></code> 目录中运行 CTest，输出中应实际列出 8 项测试，并以 <code class="docutils literal notranslate"><span class="pre">100%</span> <span class="pre">tests</span> <span class="pre">passed</span></code> 结束。若显示 <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">tests</span> <span class="pre">were</span> <span class="pre">found</span></code>，说明测试没有运行，不能视为通过。</p>
+<p>组件测试使用固定的测试地址，无需以管理员权限运行。以上命令仅编译组件测试目标；UDP、TCP 和 HTTP 的集成测试请按 <a class="reference internal" href="../lab7/0intro.html"><span class="doc">Lab7（UDP）</span></a> 和 <a class="reference internal" href="../lab9-tcp/0intro.html"><span class="doc">Lab9（TCP 与 HTTP）</span></a> 中的方法完成。Lab9 完成后的统一提交要求全部组件测试和上述集成测试通过。</p>
+<p><strong>2. Windows 环境下保存实现并生成补丁</strong></p>
+<p>如果首次执行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> 提示缺少姓名或邮箱，请在项目根目录配置当前仓库后再提交：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s2">&quot;你的姓名&quot;</span>
+<span class="n">git</span> <span class="n">config</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="s2">&quot;你的邮箱&quot;</span>
+</pre></div>
+</div>
+<p>请确认当前位于保存自己实现的开发分支，并且课程初始标签 <code class="docutils literal notranslate"><span class="pre">net-lab-base</span></code> 可用。使用课程仓库 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> 获取代码时，该标签会自动获取。</p>
+<p>确认只包含必要的实验文件后，保存实现并导出补丁：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="n">-m</span> <span class="s2">&quot;Complete protocol stack labs&quot;</span>
+<span class="n">cmake</span> <span class="n">-P</span> <span class="n">tools</span><span class="p">/</span><span class="n">export_patch</span><span class="p">.</span><span class="n">cmake</span>
+</pre></div>
+</div>
+<p>执行成功后，项目根目录会生成 <code class="docutils literal notranslate"><span class="pre">commit.patch</span></code>，包含 Eth 到 HTTP 的全部已提交修改。后续修改实现时，需要重新提交并导出补丁。</p>
+<a class="reference internal image-reference" href="../_images/commit-patch.png"><img alt="../_images/commit-patch.png" src="../_images/commit-patch.png" style="width: 591.0px; height: 326.0px;" /></a>
+<p><strong>3. Windows 环境下在干净初始代码上还原自检</strong></p>
+<p>这一步检查的是：老师能否仅靠你提交的 <code class="docutils literal notranslate"><span class="pre">commit.patch</span></code>，在课程初始版本 <code class="docutils literal notranslate"><span class="pre">net-lab-base</span></code> 上还原代码，并重新编译、运行测试。</p>
+<p><strong>3.1 Windows：备份补丁并切换到初始版本</strong></p>
+<p>将补丁复制到项目外备份，并检查工作区状态：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Copy-Item</span> <span class="p">.\</span><span class="n">commit</span><span class="p">.</span><span class="n">patch</span> <span class="p">..\</span><span class="n">net-lab-commit</span><span class="p">.</span><span class="n">patch</span>
+<span class="n">git</span> <span class="n">status</span> <span class="p">-</span><span class="n">-short</span>
+</pre></div>
+</div>
+<p>如果有需要纳入实验的未提交修改，请先提交并重新导出、备份补丁。若只是其他需要暂时保留的额外改动，可执行：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">push</span> <span class="n">-u</span> <span class="n">-m</span> <span class="s2">&quot;before patch check&quot;</span>
+</pre></div>
+</div>
+<p>这些额外改动不会进入已经生成的补丁。确认 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span> <span class="pre">--short</span></code> 没有输出后，再切换到课程初始版本：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="k">switch</span> <span class="p">-</span><span class="n">-detach</span> <span class="n">net-lab-base</span>
+</pre></div>
+</div>
+<p>此时进入“分离 HEAD”状态，工作区恢复为课程初始代码。这是补丁自检的正常步骤，后续还会返回开发分支。</p>
+<p><strong>3.2 Windows：应用补丁还原实现</strong></p>
+<p>复制回备份的补丁，先检查能否应用，再正式应用：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Copy-Item</span> <span class="p">..\</span><span class="n">net-lab-commit</span><span class="p">.</span><span class="n">patch</span> <span class="p">.\</span><span class="n">commit</span><span class="p">.</span><span class="n">patch</span>
+<span class="n">git</span> <span class="n">apply</span> <span class="p">-</span><span class="n">-check</span> <span class="n">commit</span><span class="p">.</span><span class="n">patch</span>
+<span class="n">git</span> <span class="n">apply</span> <span class="n">commit</span><span class="p">.</span><span class="n">patch</span>
+</pre></div>
+</div>
+<p>两条 Git 命令均无报错，说明补丁能够应用到课程初始代码。若报错，请核对初始标签及补丁是否正确，返回开发分支处理后重新导出。</p>
+<p><strong>3.3 Windows：重新编译并验证还原结果</strong></p>
+<p>在独立的 <code class="docutils literal notranslate"><span class="pre">build/patch-check</span></code> 目录重新配置、编译并运行全部组件测试：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="n">-S</span> <span class="p">.</span> <span class="n">-B</span> <span class="n">build</span><span class="p">/</span><span class="n">patch-check</span> <span class="n">-G</span> <span class="s2">&quot;MinGW Makefiles&quot;</span> <span class="n">-DCMAKE_C_COMPILER</span><span class="p">=</span><span class="n">gcc</span> <span class="n">-DCMAKE_CXX_COMPILER</span><span class="p">=</span><span class="n">g</span><span class="p">++</span>
+<span class="n">cmake</span> <span class="p">-</span><span class="n">-build</span> <span class="n">build</span><span class="p">/</span><span class="n">patch-check</span> <span class="p">-</span><span class="n">-clean-first</span> <span class="p">-</span><span class="n">-target</span> <span class="n">eth_in</span> <span class="n">eth_out</span> <span class="n">arp_test</span> <span class="n">ip_test</span> <span class="n">ip_frag_test</span> <span class="n">icmp_test</span> <span class="n">udp_test</span> <span class="n">tcp_test</span>
+<span class="n">cmake</span> <span class="n">-E</span> <span class="nb">chdir </span><span class="n">build</span><span class="p">/</span><span class="n">patch-check</span> <span class="n">ctest</span> <span class="p">-</span><span class="n">-output-on-failure</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--clean-first</span></code> 会清理该目录的旧编译结果，确保运行的是刚还原的源码。输出中必须实际执行 8 项组件测试且全部通过；<code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">tests</span> <span class="pre">were</span> <span class="pre">found</span></code> 不表示通过。</p>
+<p>以上命令仅编译组件测试目标；UDP、TCP 和 HTTP 的集成测试请按 <a class="reference internal" href="../lab7/0intro.html"><span class="doc">Lab7（UDP）</span></a> 和 <a class="reference internal" href="../lab9-tcp/0intro.html"><span class="doc">Lab9（TCP 与 HTTP）</span></a> 中的方法完成。</p>
+<p><strong>3.4 Windows：返回开发分支</strong></p>
+<p>测试结束后返回开发分支，下文以 <code class="docutils literal notranslate"><span class="pre">main</span></code> 为例：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-f</span> <span class="n">main</span>
+</pre></div>
+</div>
+<p>这会丢弃自检期间的未提交修改，并恢复 <code class="docutils literal notranslate"><span class="pre">main</span></code> 中已提交的实验实现。执行前请备份自检期间需要保留的新修改。</p>
+<p>如果 3.1 节执行过 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>，返回开发分支后再恢复暂存的改动：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">pop</span>
+</pre></div>
+</div>
+<p>若恢复的改动属于最终实现，请重新提交、导出补丁并自检。<code class="docutils literal notranslate"><span class="pre">commit.patch</span></code> 已被 Git 忽略，无需再对补丁执行 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> 或 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="协议栈实验提交与自检" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="linux.html" class="btn btn-neutral float-right" title="Linux 协议栈实验提交与自检" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Lab9：小型Web服务器的设计与实现" href="../lab9-tcp/index.html" />
+    <link rel="prev" title="Lab8：IPv6网络过渡实验" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Lab8：IPv6网络过渡实验</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="0huawei-ipv6.html#">1. 实验目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0huawei-ipv6.html#id2">2. 实验任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0huawei-ipv6.html#id3">3. 实验原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#ipv6">3.1. IPv6地址</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#pa-provider-aggregatable-address-space">3.1.1. PA地址空间（Provider-Aggregatable address space）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#pi-provider-indepedent-address-space">3.1.2. PI地址空间（Provider-Indepedent address space）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id4">3.1.3. IPv6地址规划</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id5">3.1.4. IPv6地址格式</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#id6">3.2. IPv6过渡技术</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id7">3.2.1. 双协议栈技术</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id8">3.2.2. 协议转换技术</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id9">3.2.3. 隧道技术</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#ipv6-over-ipv4">3.3. 隧道技术：IPv6 over IPv4隧道</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id10">3.3.1. IPv6 over IPv4手动隧道</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="0huawei-ipv6.html#id11">4. 实验环境与分组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0huawei-ipv6.html#id12">5. 实验组网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0huawei-ipv6.html#id13">6. 实验思路</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0huawei-ipv6.html#id14">7. 实验步骤</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#id15">7.1. 登陆设备</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#step1">7.1.1. Step1：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#step2">7.1.2. Step2：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#step3">7.1.3. Step3：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#id16">7.2. 清空配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id17">7.2.1. Step1：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id18">7.2.2. Step2：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#id19">7.3. 导入初始配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#r1r2sw1ipv4">7.4. 完成R1、R2及SW1的接口IPv4地址配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#r1">7.4.1. R1的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#r2">7.4.2. R2的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#sw1">7.4.3. SW1的配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#r1r2sw1">7.5. 在R1、R2及SW1上完成配置，使得这三台设备之间能够相互通信</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#r1r2">7.5.1. 测试R1和R2的连通性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id20">7.5.2. 添加R1、R2静态路由</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#r1sw1r2pcapcc-pcapcc">7.6. 在R1、SW1、R2、PCA及PCC上完成配置，使得PCA与PCC所在网段能够相互通信</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#pcapccip">7.6.1. 配置PCA和PCC的IP</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#r1r2ipv6-over-ipv4">7.7. 在R1和R2之间构建IPv6 Over IPv4隧道</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id21">7.7.1. R1的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id22">7.7.2. R2的配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0huawei-ipv6.html#pcapccipv6">7.8. 实现PCA与PCC的IPv6通信</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id23">7.8.1. R1的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id24">7.8.2. R2的配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0huawei-ipv6.html#id25">7.8.3. PCA和PCC增加IPv6地址</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Lab8：IPv6网络过渡实验</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>实验目的</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lab8-ipv6/0huawei-ipv6.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="0huawei-ipv6.html#id1" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>掌握路由器的 IPv6 基础配置方法。</p></li>
+<li><p>深入理解静态 IPv6 路由的基础配置，明晰 IPv6 数据报文的路由过程。</p></li>
+<li><p>全面掌握 IPv6 Over IPv4 隧道技术的配置与实现，透彻领会其基本原理。</p></li>
+<li><p>了解IPv6过渡技术的简单应用场景以及网络迁移的方法。</p></li>
+</ol>
+</section>
+<section id="id2">
+<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="0huawei-ipv6.html#id2" title="Link to this heading"></a></h1>
+<p>某企业设有一个总部及两个分支，总部与分支之间通过广域专线直接相连。在企业发展初期，网络中仅存在 IPv4 终端与服务器。为实现总部与分支、分支与分支之间的相互访问，网络中部署了静态路由。如今，两个分支出现了用于试点 IPv6 业务的终端，要求在不对网络进行大规模改动的前提下，迅速达成 IPv6 终端的互联互通。</p>
+<img alt="../_images/11.png" src="../_images/11.png" />
+<img alt="../_images/21.png" src="../_images/21.png" />
+</section>
+<section id="id3">
+<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="0huawei-ipv6.html#id3" title="Link to this heading"></a></h1>
+<p>随着 IPv4 地址短缺问题的日益严峻，产业互联网的逐步升级，以及国家政策的大力推动，从 IPv4 网络向 IPv6 网络迁移已然成为当下各网络的重点工作。然而，出于业务延续性的考量，IPv4 网络仍将在相当长的一段时间内继续保留。在网络向 IPv6 演进的进程中，部署 IPv4 与 IPv6 地址共存的网络成为必然选择。</p>
+<section id="ipv6">
+<h2><span class="section-number">3.1. </span>IPv6地址<a class="headerlink" href="0huawei-ipv6.html#ipv6" title="Link to this heading"></a></h2>
+<p>IPv6 地址规范作为互联网协议第六版（IPv6）中用于唯一标识网络节点或接口的标准，其地址由 128 位构成，相较于 IPv4 的 32 位地址，提供了更为庞大的地址空间。</p>
+<section id="pa-provider-aggregatable-address-space">
+<h3><span class="section-number">3.1.1. </span>PA地址空间（Provider-Aggregatable address space）<a class="headerlink" href="0huawei-ipv6.html#pa-provider-aggregatable-address-space" title="Link to this heading"></a></h3>
+<p>PA 地址空间是指由区域互联网注册管理机构分配给互联网服务提供商（Internet Service Provider，ISP）的一段 IP 地址。ISP 可依据用户需求进一步分配地址块，即 PA 地址会随专线、Internet 专线等服务一同提供给用户。此方式适用于中小型企业，成本相对较低。但弊端在于，若更换 ISP，则需重新分配地址。</p>
+</section>
+<section id="pi-provider-indepedent-address-space">
+<h3><span class="section-number">3.1.2. </span>PI地址空间（Provider-Indepedent address space）<a class="headerlink" href="0huawei-ipv6.html#pi-provider-indepedent-address-space" title="Link to this heading"></a></h3>
+<p>PI 地址空间是由区域互联网注册管理机构直接分配给最终用户的一段 IP 地址。获取此类地址的用户，必须另行联系 ISP 以获取互联网接入服务，并将到达相关地址段的路由在互联网上进行通告。</p>
+<p>PI 地址与 ISP 相互独立，用户可接入多个 ISP，且地址能够自主规划，适用于大中型企业。不过，PI 地址的使用成本较高。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.1.3. </span>IPv6地址规划<a class="headerlink" href="0huawei-ipv6.html#id4" title="Link to this heading"></a></h3>
+<p>在 IPv6 地址体系中，固定前缀和接口 ID 是两个关键组成部分。固定前缀用于标识特定的网络或子网，这些前缀由国际注册服务机构和互联网服务提供商（ISP）进行分配，并呈现出层次化结构。接口 ID 作为 IPv6 地址的另一部分，用于在网络中唯一标识特定的设备或接口。接口 ID 的长度通常为 64 位，其生成方式多样，包括手动配置、系统通过软件自动生成，或者按照 IEEE EUI - 64 规范生成。在多数情况下，接口 ID 由设备的 MAC 地址转换而来，以此确保其唯一性。</p>
+<img alt="../_images/61.png" src="../_images/61.png" />
+</section>
+<section id="id5">
+<h3><span class="section-number">3.1.4. </span>IPv6地址格式<a class="headerlink" href="0huawei-ipv6.html#id5" title="Link to this heading"></a></h3>
+<p>IPv6 地址由 128 个二进制位组成。以 16 位为一个分组，共分成 8 组，每个 16 位分组用 4 个十六进制数表示，组与组之间用冒号分隔。其常见表示形式为：XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX，其中每个 “XXXX” 均代表一个 16 位的十六进制数。</p>
+<p>在实际应用场景中，为简化地址的表示，IPv6 引入了一种压缩表示法。若地址中存在一连串的 0，这些 0 无需逐一显式表示，可统一用一个双冒号（::）替代。但需特别注意，在一个 IPv6 地址中，双冒号只能出现一次，以避免地址解析时产生歧义。</p>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">3.2. </span>IPv6过渡技术<a class="headerlink" href="0huawei-ipv6.html#id6" title="Link to this heading"></a></h2>
+<p>IPv6 过渡技术旨在实现 IPv6 网络区域（“小岛”）之间以及 IPv6 网络区域与 IPv4 网络（“海洋”）之间的相互通信。目前，主要存在三种主流的过渡技术：双协议栈技术、协议转换技术、隧道技术。这些过渡技术均致力于在 IPv4 与 IPv6 之间构建平稳的过渡路径，确保网络的连续性与稳定性。具体选用哪种技术，需依据实际网络环境和需求来确定。</p>
+<section id="id7">
+<h3><span class="section-number">3.2.1. </span>双协议栈技术<a class="headerlink" href="0huawei-ipv6.html#id7" title="Link to this heading"></a></h3>
+<p>双协议栈技术是指在终端各类应用系统、运营支撑系统以及各网络节点中，同时运行 IPv4 和 IPv6 协议栈（两者基于相同的硬件平台），进而实现与 IPv4 或 IPv6 节点之间的信息交互。具备 IPv4/IPv6 双协议栈的节点被称为双栈节点，这类节点既能收发 IPv4 报文，也能收发 IPv6 报文。</p>
+<p>IPv4/IPv6 在网络中并存且独立部署，对现有 IPv4 业务的影响较小。此演进方案简单易懂，网络规划设计的工作量相对较少。</p>
+<a class="reference internal image-reference" href="../_images/71.png"><img alt="../_images/71.png" class="align-center" src="../_images/71.png" style="width: 358.5px; height: 265.8px;" /></a>
+</section>
+<section id="id8">
+<h3><span class="section-number">3.2.2. </span>协议转换技术<a class="headerlink" href="0huawei-ipv6.html#id8" title="Link to this heading"></a></h3>
+<p>协议转换技术是一种有状态的网络地址与协议转换技术，典型代表如 NAT64。它通常仅支持由 IPv6 网络侧用户主动发起连接，以访问 IPv4 侧网络资源。不过，NAT64 也可通过手动配置静态映射关系，实现 IPv4 网络主动发起连接访问 IPv6 网络。</p>
+<p>该技术适用于纯 IPv4 网络与纯 IPv6 网络之间的通信场景，需在网络中部署 NAT、DNS 等相关组件。</p>
+<a class="reference internal image-reference" href="../_images/81.png"><img alt="../_images/81.png" class="align-center" src="../_images/81.png" style="width: 310.2px; height: 153.9px;" /></a>
+</section>
+<section id="id9">
+<h3><span class="section-number">3.2.3. </span>隧道技术<a class="headerlink" href="0huawei-ipv6.html#id9" title="Link to this heading"></a></h3>
+<p>隧道技术主要包含以下两种方式：</p>
+<p>（1）IPv6 over IPv4隧道：将 IPv6 流量封装在 IPv4 隧道内，借此在 IPv4 网络中实现 IPv6 网络区域之间的互联互通。常见的实现方式包括手动隧道、自动隧道、6PE、6VPE、VXLAN 等。</p>
+<a class="reference internal image-reference" href="../_images/91.png"><img alt="../_images/91.png" class="align-center" src="../_images/91.png" style="width: 435.3px; height: 109.2px;" /></a>
+<p>（2）IPv4 over IPv6隧道：将 IPv4 流量封装在 IPv6 隧道内，适用于在 IPv6 传输网络中达成 IPv4 网络区域之间的互通。例如手动隧道、SRv6 等。</p>
+<a class="reference internal image-reference" href="../_images/101.png"><img alt="../_images/101.png" class="align-center" src="../_images/101.png" style="width: 435.3px; height: 109.2px;" /></a>
+</section>
+</section>
+<section id="ipv6-over-ipv4">
+<h2><span class="section-number">3.3. </span>隧道技术：IPv6 over IPv4隧道<a class="headerlink" href="0huawei-ipv6.html#ipv6-over-ipv4" title="Link to this heading"></a></h2>
+<p>本次实验主要运用 IPv6 over IPv4 隧道技术来完成，以下将对该技术展开详细介绍。</p>
+<p>在 IPv6 over IPv4 隧道中，源 IPv4 地址必须手动配置，而目的 IPv4 地址的获取方式有手动配置和自动获取两种。根据隧道目的 IPv4 地址获取方式的差异，可将 IPv6 over IPv4 隧道分为手动隧道和自动隧道。本次实验仅涉及手动隧道，自动隧道方案的配置，同学们可自行通过网络查阅资料，本实验不再赘述。</p>
+<section id="id10">
+<h3><span class="section-number">3.3.1. </span>IPv6 over IPv4手动隧道<a class="headerlink" href="0huawei-ipv6.html#id10" title="Link to this heading"></a></h3>
+<img alt="../_images/121.png" src="../_images/121.png" />
+<ul class="simple">
+<li><p>应用场景：适用于两个 IPv6 网络区域之间的点对点连接场景，且对数据密文传输无需求。</p></li>
+<li><p>配置实现：要求隧道两端的网络设备支持双栈功能，并通过手动方式创建隧道。</p></li>
+<li><p>方案特点：该技术成熟度高，实现过程相对简单。但缺点是需要手动配置，且仅支持点到点的连接方式。</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id11">
+<h1><span class="section-number">4. </span>实验环境与分组<a class="headerlink" href="0huawei-ipv6.html#id11" title="Link to this heading"></a></h1>
+<p>路由器2台，二层交换机2台，三层交换机1台，计算机3台，4人一组。</p>
+</section>
+<section id="id12">
+<h1><span class="section-number">5. </span>实验组网<a class="headerlink" href="0huawei-ipv6.html#id12" title="Link to this heading"></a></h1>
+<p>如下图，用户通过R1、R2及SW1构建了一个简单的路由器组网，其中R1和R2分别接入了一些终端，当前整个网络是纯IPv4的网络，但是设备都支持IPv6功能。</p>
+<img alt="../_images/31.png" src="../_images/31.png" />
+<p>鉴于用户计划在 PCA 及 PCC 上部署软件应用，并期望通过 IPv6 实现应用信息的交互。因此，首先在 PCA 和 PCC 上启用双栈模式，即同时开启 IPv4 和 IPv6 功能，并分别配置相应的 IPv4 和 IPv6 地址。随后，用户期望 PCA 和 PCC 之间的 IPv4 和 IPv6 流量交互均能顺利进行。为快速达成 PCA 与 PCC 之间的 IPv6 通信，可在 R1 和 R2 之间构建一条 IPv6 Over IPv4 手工隧道。</p>
+<p>IPv6 Over IPv4 手工隧道是由网络管理员手动在设备上创建的隧道。配置时，需在隧道两端的设备分别进行设置。该隧道能够使 IPv6 流量搭载在 IPv4 之上进行传输，具体做法是在 IPv6 报文的外层封装一个新的 IPv4 头部（即隧道头部），这样报文就能在 IPv4 网络中进行转发。对于中途的转发设备而言，它们仅依据外层的 IPv4 头部进行报文转发，而不会对内层的 IPv6 报文进行解析。</p>
+<p>网络的演进状态如下：</p>
+<img alt="../_images/41.png" src="../_images/41.png" />
+</section>
+<section id="id13">
+<h1><span class="section-number">6. </span>实验思路<a class="headerlink" href="0huawei-ipv6.html#id13" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>完成 R1、R2 及 SW1 的基础配置。</p></li>
+<li><p>在 R1、R2 及 SW1 上进行配置，确保这三台设备之间能够实现 IPv4 通信。</p></li>
+<li><p>在 R1、R2、SW1、PCA 及 PCC 上完成相关配置，使得 PCA 与 PCC 所在网段能够实现 IPv4 通信。</p></li>
+<li><p>在 R1 与 R2 之间构建 IPv6 Over IPv4 隧道，使 PCA 与 PCC 的 IPv6 通信流量能够借助该隧道穿越 IPv4 网络。</p></li>
+</ol>
+</section>
+<section id="id14">
+<h1><span class="section-number">7. </span>实验步骤<a class="headerlink" href="0huawei-ipv6.html#id14" title="Link to this heading"></a></h1>
+<section id="id15">
+<h2><span class="section-number">7.1. </span>登陆设备<a class="headerlink" href="0huawei-ipv6.html#id15" title="Link to this heading"></a></h2>
+<section id="step1">
+<h3><span class="section-number">7.1.1. </span>Step1：<a class="headerlink" href="0huawei-ipv6.html#step1" title="Link to this heading"></a></h3>
+<p>打开SecureCRT，点击窗口中的“快速连接”图标，如图所示：</p>
+<img alt="../_images/1-25.jpg" src="../_images/1-25.jpg" />
+</section>
+<section id="step2">
+<h3><span class="section-number">7.1.2. </span>Step2：<a class="headerlink" href="0huawei-ipv6.html#step2" title="Link to this heading"></a></h3>
+<p>在弹出的窗口中，输入需通过telnet访问的设备IP（见表 <a class="reference internal" href="../lab8/0intro.html#atm"><span class="std std-ref">ATM管理机地址表</span></a> ）和端口号，然后点击“连接”即可。</p>
+<img alt="../_images/1-35.jpg" src="../_images/1-35.jpg" />
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>交换机 <strong>不需要输入用户名和密码</strong> 。</p>
+<p>路由器R1和R2的  <strong>用户名：admin，密码：Admin&#64;huawei</strong></p>
+</div>
+<img alt="../_images/2-35.jpg" src="../_images/2-35.jpg" />
+</section>
+<section id="step3">
+<h3><span class="section-number">7.1.3. </span>Step3：<a class="headerlink" href="0huawei-ipv6.html#step3" title="Link to this heading"></a></h3>
+<p>登录成功后，即进入用户视图。在用户视图下，用户可以完成查看运行状态和统计信息等功能，此时屏幕上显示:</p>
+<img alt="../_images/1-55.jpg" src="../_images/1-55.jpg" />
+</section>
+</section>
+<section id="id16">
+<h2><span class="section-number">7.2. </span>清空配置<a class="headerlink" href="0huawei-ipv6.html#id16" title="Link to this heading"></a></h2>
+<p>每次做实验前，先清空上一次的配置，本次实验需清空R1、R2、SW1、SW2、SW3的配置。</p>
+<section id="id17">
+<h3><span class="section-number">7.2.1. </span>Step1：<a class="headerlink" href="0huawei-ipv6.html#id17" title="Link to this heading"></a></h3>
+<p>在用户视图下，使用如下命令进行配置的清空</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>reset<span class="w"> </span>saved-configuration<span class="w"> </span>//清除配置
+<span class="linenos">2</span>The<span class="w"> </span>device<span class="w"> </span>configurations<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>erased<span class="w"> </span>to<span class="w"> </span>reconfigure.<span class="w"> </span>Are<span class="w"> </span>you<span class="w"> </span>sure?<span class="o">(</span>y/n<span class="o">)</span>:y<span class="w"> </span>//输入y继续删除
+<span class="linenos">3</span>display<span class="w"> </span>saved-configuration<span class="w"> </span>//查看删除后的配置
+</pre></div>
+</div>
+<p>查看删除后的配置：</p>
+<img alt="../_images/2-45.jpg" src="../_images/2-45.jpg" />
+</section>
+<section id="id18">
+<h3><span class="section-number">7.2.2. </span>Step2：<a class="headerlink" href="0huawei-ipv6.html#id18" title="Link to this heading"></a></h3>
+<p>在用户视图下，使用如下命令进行重启</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>reboot<span class="w"> </span>//重启
+<span class="linenos">2</span>All<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>next<span class="w"> </span>startup<span class="w"> </span>configuration.<span class="w"> </span>Continue?<span class="w"> </span><span class="o">[</span>y/n<span class="o">]</span>:n<span class="w"> </span>//输入n不保存到启动配置
+<span class="linenos">3</span>System<span class="w"> </span>will<span class="w"> </span>reboot!<span class="w"> </span>Continue?<span class="w"> </span><span class="o">[</span>y/n<span class="o">]</span>:<span class="w"> </span>//输入y，继续重新启动
+<span class="linenos">4</span>display<span class="w"> </span>current-configuration<span class="w"> </span>//重启后查看当前配置
+</pre></div>
+</div>
+<img alt="../_images/2-55.jpg" src="../_images/2-55.jpg" />
+</section>
+</section>
+<section id="id19">
+<h2><span class="section-number">7.3. </span>导入初始配置<a class="headerlink" href="0huawei-ipv6.html#id19" title="Link to this heading"></a></h2>
+<p>R1导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w"> </span>system-view
+<span class="linenos"> 2</span><span class="w"> </span>sysname<span class="w"> </span>R1
+<span class="linenos"> 3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+<span class="linenos"> 4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+<span class="linenos"> 5</span><span class="w"> </span>quit
+<span class="linenos"> 6</span><span class="w"> </span>int<span class="w"> </span>G0/0/9
+<span class="linenos"> 7</span><span class="w"> </span>undo<span class="w"> </span>ip<span class="w"> </span>add
+<span class="linenos"> 8</span><span class="w"> </span>quit
+<span class="linenos"> 9</span><span class="w"> </span>int<span class="w"> </span>G0/0/8
+<span class="linenos">10</span><span class="w"> </span>shutdown
+<span class="linenos">11</span><span class="w"> </span>quit
+<span class="linenos">12</span><span class="w"> </span>quit
+</pre></div>
+</div>
+<p>R2导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w"> </span>system-view
+<span class="linenos"> 2</span><span class="w"> </span>sysname<span class="w"> </span>R2
+<span class="linenos"> 3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+<span class="linenos"> 4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+<span class="linenos"> 5</span><span class="w"> </span>quit
+<span class="linenos"> 6</span><span class="w"> </span>int<span class="w"> </span>G0/0/9
+<span class="linenos"> 7</span><span class="w"> </span>undo<span class="w"> </span>ip<span class="w"> </span>add
+<span class="linenos"> 8</span><span class="w"> </span>quit
+<span class="linenos"> 9</span><span class="w"> </span>int<span class="w"> </span>G0/0/8
+<span class="linenos">10</span><span class="w"> </span>shutdown
+<span class="linenos">11</span><span class="w"> </span>quit
+<span class="linenos">12</span><span class="w"> </span>quit
+</pre></div>
+</div>
+<p>SW1导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w"> </span>system-view
+<span class="linenos"> 2</span><span class="w"> </span>sysname<span class="w"> </span>SW1
+<span class="linenos"> 3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+<span class="linenos"> 4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+<span class="linenos"> 5</span><span class="w"> </span>quit
+<span class="linenos"> 6</span><span class="w"> </span>int<span class="w"> </span>range<span class="w"> </span>G0/0/1<span class="w"> </span>to<span class="w"> </span>G0/0/4
+<span class="linenos"> 7</span><span class="w"> </span>shutdown
+<span class="linenos"> 8</span><span class="w"> </span>quit
+<span class="linenos"> 9</span><span class="w"> </span>observe-port<span class="w"> </span><span class="m">1</span><span class="w"> </span>interface<span class="w"> </span>G0/0/12
+<span class="linenos">10</span><span class="w"> </span>interface<span class="w"> </span>G0/0/47
+<span class="linenos">11</span><span class="w"> </span>port-mirroring<span class="w"> </span>to<span class="w"> </span>observe-port<span class="w"> </span><span class="m">1</span><span class="w"> </span>both
+<span class="linenos">12</span><span class="w"> </span>quit
+<span class="linenos">13</span><span class="w"> </span>quit
+</pre></div>
+</div>
+<p>在 SW1 中，进行端口镜像配置旨在方便在 PCB 上捕获 R1 和 R2 之间的报文。<cite>observe - port 1 interface G0/0/12</cite> 命令将 G0/0/12 设置为观察口；<cite>interface G0/0/47</cite> 命令进入 G0/0/47 接口视图；<cite>port - mirroring to observe - port 1 both</cite> 命令把 G0/0/47 设置为 observe - port 1 的被观察口。如此，所有经过 SW1 的 G0/0/47 接口的流量，都会被复制到 G0/0/12 观察端口，从而可在 PCB 上观察到所有经过 SW1 的 G0/0/47 接口的报文，即 R1 和 R2 之间的报文。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><strong>端口镜像</strong></p>
+<p>通常应用于网络监控、故障排查和安全审计等场景。通过将流量镜像到观察端口，管理员或安全设备能够实时查看和分析网络中的数据包，进而发现潜在问题或威胁。</p>
+</div>
+<p>SW2导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span>system-view
+<span class="linenos">2</span><span class="w"> </span>sysname<span class="w"> </span>SW2
+<span class="linenos">3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+<span class="linenos">4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+<span class="linenos">5</span><span class="w"> </span>quit
+<span class="linenos">6</span><span class="w"> </span>int<span class="w"> </span>range<span class="w"> </span>G0/0/1<span class="w"> </span>to<span class="w"> </span>G0/0/4
+<span class="linenos">7</span><span class="w"> </span>shutdown
+<span class="linenos">8</span><span class="w"> </span>quit
+<span class="linenos">9</span><span class="w"> </span>quit
+</pre></div>
+</div>
+<p>SW3导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span>system-view
+<span class="linenos">2</span><span class="w"> </span>sysname<span class="w"> </span>SW3
+<span class="linenos">3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+<span class="linenos">4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+<span class="linenos">5</span><span class="w"> </span>quit
+<span class="linenos">6</span><span class="w"> </span>int<span class="w"> </span>range<span class="w"> </span>G0/0/1<span class="w"> </span>to<span class="w"> </span>G0/0/4
+<span class="linenos">7</span><span class="w"> </span>shutdown
+<span class="linenos">8</span><span class="w"> </span>quit
+<span class="linenos">9</span><span class="w"> </span>quit
+</pre></div>
+</div>
+<p>导入信息步骤如下图所示：
+复制以上的代码并分别粘贴入SW2、SW3。</p>
+<img alt="../_images/2-65.jpg" src="../_images/2-65.jpg" />
+<img alt="../_images/2-75.jpg" src="../_images/2-75.jpg" />
+</section>
+<section id="r1r2sw1ipv4">
+<h2><span class="section-number">7.4. </span>完成R1、R2及SW1的接口IPv4地址配置<a class="headerlink" href="0huawei-ipv6.html#r1r2sw1ipv4" title="Link to this heading"></a></h2>
+<section id="r1">
+<h3><span class="section-number">7.4.1. </span>R1的配置<a class="headerlink" href="0huawei-ipv6.html#r1" title="Link to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">system</span><span class="o">-</span><span class="n">view</span>
+<span class="linenos">2</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">9</span>
+<span class="linenos">3</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">10.1.12.1</span><span class="w"> </span><span class="mf">255.255.255.0</span>
+<span class="linenos">4</span><span class="n">quit</span>
+<span class="linenos">5</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="linenos">6</span><span class="n">undo</span><span class="w"> </span><span class="n">portswitch</span><span class="w"> </span><span class="c1">//把G0/0/0默认的二层接口转为三层接口</span>
+<span class="linenos">7</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">10.1.1.254</span><span class="w"> </span><span class="mf">255.255.255.0</span>
+<span class="linenos">8</span><span class="n">quit</span>
+</pre></div>
+</div>
+</section>
+<section id="r2">
+<h3><span class="section-number">7.4.2. </span>R2的配置<a class="headerlink" href="0huawei-ipv6.html#r2" title="Link to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">system</span><span class="o">-</span><span class="n">view</span>
+<span class="linenos">2</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">9</span>
+<span class="linenos">3</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">10.1.23.3</span><span class="w"> </span><span class="mf">255.255.255.0</span>
+<span class="linenos">4</span><span class="n">quit</span>
+<span class="linenos">5</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="linenos">6</span><span class="n">undo</span><span class="w"> </span><span class="n">portswitch</span><span class="w"> </span><span class="c1">//把G0/0/0默认的二层接口转为三层接口</span>
+<span class="linenos">7</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">10.2.2.254</span><span class="w"> </span><span class="mf">255.255.255.0</span>
+<span class="linenos">8</span><span class="n">quit</span>
+</pre></div>
+</div>
+</section>
+<section id="sw1">
+<h3><span class="section-number">7.4.3. </span>SW1的配置<a class="headerlink" href="0huawei-ipv6.html#sw1" title="Link to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">system</span><span class="o">-</span><span class="n">view</span>
+<span class="linenos"> 2</span><span class="n">vlan</span><span class="w"> </span><span class="n">batch</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="c1">//创建vlan 10和vlan 11</span>
+<span class="linenos"> 3</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">47</span>
+<span class="linenos"> 4</span><span class="n">port</span><span class="w"> </span><span class="n">link</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">access</span>
+<span class="linenos"> 5</span><span class="n">port</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">vlan</span><span class="w"> </span><span class="mi">10</span>
+<span class="linenos"> 6</span><span class="n">quit</span>
+<span class="linenos"> 7</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">48</span>
+<span class="linenos"> 8</span><span class="n">port</span><span class="w"> </span><span class="n">link</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="n">access</span>
+<span class="linenos"> 9</span><span class="n">port</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">vlan</span><span class="w"> </span><span class="mi">11</span>
+<span class="linenos">10</span><span class="n">quit</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">interface</span><span class="w"> </span><span class="n">Vlanif</span><span class="w"> </span><span class="mi">10</span>
+<span class="linenos">13</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">10.1.12.2</span><span class="w"> </span><span class="mf">255.255.255.0</span>
+<span class="linenos">14</span><span class="n">quit</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="n">interface</span><span class="w"> </span><span class="n">Vlanif</span><span class="w"> </span><span class="mi">11</span>
+<span class="linenos">17</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">10.1.23.2</span><span class="w"> </span><span class="mf">255.255.255.0</span>
+<span class="linenos">18</span><span class="n">quit</span>
+</pre></div>
+</div>
+<p>在 SW1 交换机上，配置了两个 Access 接口（G0/0/47 和 G0/0/48），分别连接到 VLAN 10 和 VLAN 11，并为这两个 VLAN 的接口分配了 IP 地址。</p>
+</section>
+</section>
+<section id="r1r2sw1">
+<h2><span class="section-number">7.5. </span>在R1、R2及SW1上完成配置，使得这三台设备之间能够相互通信<a class="headerlink" href="0huawei-ipv6.html#r1r2sw1" title="Link to this heading"></a></h2>
+<section id="r1r2">
+<h3><span class="section-number">7.5.1. </span>测试R1和R2的连通性<a class="headerlink" href="0huawei-ipv6.html#r1r2" title="Link to this heading"></a></h3>
+<p>完成上述配置后，R1 与 SW1、SW1 与 R2 能够相互通信。以 R1 和 SW1 为例，对于设备间的直接链路，当在 R1 设备上配置 G0/0/9 的 IPv4 地址后，设备会自动在其路由器中生成到达该接口所在网段的直连路由，因此它可直接通过直连路由到达 SW1，无需人工干预路由信息。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在SW1三层交换机上配置了两个VLAN，为什么不同VLAN也能ping通呢？</p>
+<p>这是因为 SW1 是三层交换机，除具备传统二层交换机的功能外，还拥有路由功能。这意味着它能够处理 IP 数据包，并依据路由表决定数据包的转发路径。当交换机收到 VLAN10 的计算机发送的数据帧后，会根据目标地址和路由表来确定数据包的转发方向。若目标地址在 VLA11 的网段内，三层交换机会将数据包路由到 VLAN11，从而实现 VLAN 间的通信。</p>
+</div>
+<p>然而，此时 R1 无法与 R2 相互访问。可在 R1 上执行如下命令：</p>
+<img alt="../_images/11-11.jpg" src="../_images/11-11.jpg" />
+<p>从上述输出可知，R1 无法 ping 通 R2。出现这种现象的原因是 R1 的路由表中没有到达 R2 的路由信息。</p>
+<p>请使用 <cite>display ip routing - table</cite> 查看 R1 和 R2 的路由表。</p>
+<img alt="../_images/11-21.jpg" src="../_images/11-21.jpg" />
+<img alt="../_images/11-31.jpg" src="../_images/11-31.jpg" />
+</section>
+<section id="id20">
+<h3><span class="section-number">7.5.2. </span>添加R1、R2静态路由<a class="headerlink" href="0huawei-ipv6.html#id20" title="Link to this heading"></a></h3>
+<p>现在为R1配置到达10.1.23.3的路由。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">ip</span><span class="w"> </span><span class="n">route</span><span class="o">-</span><span class="k">static</span><span class="w"> </span><span class="mf">10.1.23.0</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="mf">10.1.12.2</span>
+</pre></div>
+</div>
+<p>ip route-static 10.1.23.0 24 10.1.12.2 是一条静态路由配置命令。当路由器需要发送数据包到10.1.23.0/24这个网络时，它应该将数据包发送到10.1.12.2这个地址。下面是对这条命令各部分的解释：</p>
+<ul class="simple">
+<li><p>ip route-static：这是命令的关键字，用于添加静态路由条目。</p></li>
+<li><p>10.1.23.0：这是目的网络的IP地址。</p></li>
+<li><p>24：这是子网掩码的长度，表示子网掩码为255.255.255.0。</p></li>
+<li><p>10.1.12.2：这是下一跳地址，也就是数据包应该被发送到的下一个路由器的IP地址，用于到达目的网络10.1.23.0/24。</p></li>
+</ul>
+<p>再在R1上查看IPv4路由表：</p>
+<img alt="../_images/11-41.jpg" src="../_images/11-41.jpg" />
+<p>R1的路由表中已成功添加到达10.1.23.0/24的路由，那么，此时R1是否已经能够ping通R2呢？</p>
+<p>经测试会发现，R1 依然无法 ping 通 R2。这是因为应用程序触发的数据交互过程通常是双向的，有去必有回。此时 R1 发往 R2 的报文能够到达下一跳 SW1，而 SW1 又可根据直连路由将报文转发给 R2，但 R2 的应答报文却无法到达 R1，原因是 R2 此时并无到达 R1 的路由。</p>
+<p>在R2上添加路由：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">ip</span><span class="w"> </span><span class="n">route</span><span class="o">-</span><span class="k">static</span><span class="w"> </span><span class="mf">10.1.12.0</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="mf">10.1.23.2</span>
+</pre></div>
+</div>
+<p>此时，请自行测试是否能在R1 ping通R2？</p>
+</section>
+</section>
+<section id="r1sw1r2pcapcc-pcapcc">
+<h2><span class="section-number">7.6. </span>在R1、SW1、R2、PCA及PCC上完成配置，使得PCA与PCC所在网段能够相互通信<a class="headerlink" href="0huawei-ipv6.html#r1sw1r2pcapcc-pcapcc" title="Link to this heading"></a></h2>
+<section id="pcapccip">
+<h3><span class="section-number">7.6.1. </span>配置PCA和PCC的IP<a class="headerlink" href="0huawei-ipv6.html#pcapccip" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>实验室电脑配备两个有线网卡，我们需配置的是第二块网卡，即 “以太网 2”。由于一台电脑只能有一个默认网关，因此需要删掉 “以太网” 的默认网关，方可配置 “以太网 2” 的默认网关。注意，仅删掉 “以太网” 的默认网关，其他设置请勿改动！！！</p>
+</div>
+<p>PCA的配置如下：</p>
+<p>IP：10.1.1.1/24
+网关：10.1.1.254</p>
+<p>PCC的配置如下：</p>
+<p>IP：10.2.2.2/24
+网关：10.2.2.254</p>
+<p>在PCA上去ping PCC会发现无法ping通。</p>
+<p>分析原因可知，当 PC1 ping PC2 时，PC1 发出的 ICMP Echo Reply 报文的源 IPv4 地址是 PCA 的地址 10.1.1.254，目的地址是 PCC 的地址 10.2.2.2。该报文从 PCA 发送给其缺省网关 10.1.1.254，即 R1，然而 R1 并无到达目的网段的路由，因此该报文被丢弃。</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>为了让PCA与PCC能够相互通信，我们需要：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>让R1知道如何达到10.2.2.0/24网段；</p></li>
+<li><p>让SW1知道如何达到10.1.1.0/24网段和10.2.2.0/24网段；</p></li>
+<li><p>让R2知道如何达到10.1.1.0/24网段。</p></li>
+</ol>
+</div></blockquote>
+<p><strong>请同学们在R1、SW1及R2上自行完成上面3个配置要求，使得PCA与PCC能够相互通信</strong>。可参考上述静态路由的配置方法：）</p>
+</div>
+<p>完成上述配置后，在PCA ping PCC：</p>
+<img alt="../_images/11-61.jpg" src="../_images/11-61.jpg" />
+</section>
+</section>
+<section id="r1r2ipv6-over-ipv4">
+<h2><span class="section-number">7.7. </span>在R1和R2之间构建IPv6 Over IPv4隧道<a class="headerlink" href="0huawei-ipv6.html#r1r2ipv6-over-ipv4" title="Link to this heading"></a></h2>
+<p>我们在前述步骤中所做的配置不仅仅使得PCA与PCC能够进行IPv4通信，三台网络设备之间亦实现了基于IPv4的相互通信，这为本步骤提供了基础。</p>
+<p>鉴于用户将在 PCA 与 PCC 上启用 IPv6 并期望通过网络进行通信，而当前由 R1、SW1 及 R2 构成的网络是纯 IPv4 网络，无法直接转发 IPv6 流量，因此需部署 IPv6 过渡技术。在本实验中，我们将采用 IPv6 Over IPv4 隧道技术，在 R1 与 R2 之间构建一条此类隧道。如此，PC 发给 R1 或 R2 的 IPv6 流量到达 R1 或 R2 后，会被封装到该隧道中，在 IPv6 流量外层添加一个 IPv4 的外层头部，并转发给 SW1，再由 SW1 转发到对端路由器。</p>
+<section id="id21">
+<h3><span class="section-number">7.7.1. </span>R1的配置<a class="headerlink" href="0huawei-ipv6.html#id21" title="Link to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">R1</span><span class="p">]</span><span class="n">IPv6</span>
+<span class="linenos">2</span><span class="n">interface</span><span class="w"> </span><span class="n">Tunnel0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="w"> </span><span class="c1">//创建隧道</span>
+<span class="linenos">3</span><span class="n">tunnel</span><span class="o">-</span><span class="n">protocol</span><span class="w"> </span><span class="n">ipv6</span><span class="o">-</span><span class="n">ipv4</span><span class="w"> </span><span class="c1">//指定为IPv6 Over IPv4类型</span>
+<span class="linenos">4</span><span class="n">source</span><span class="w"> </span><span class="mf">10.1.12.1</span><span class="w">  </span><span class="c1">//隧道的源地址</span>
+<span class="linenos">5</span><span class="n">destination</span><span class="w"> </span><span class="mf">10.1.23.3</span><span class="w">   </span><span class="c1">////隧道的目的地址</span>
+<span class="linenos">6</span><span class="n">ipv6</span><span class="w"> </span><span class="n">enable</span><span class="w">    </span><span class="c1">//激活IPv6</span>
+<span class="linenos">7</span><span class="n">ipv6</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">FC00</span><span class="o">:</span><span class="mi">12</span><span class="o">::</span><span class="mi">1</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="c1">//隧道接口的IPv6地址</span>
+<span class="linenos">8</span><span class="n">quit</span>
+</pre></div>
+</div>
+<p>在上述配置过程中，我们首先在 R1 设备上全局开启 IPv6 功能。接着，通过 <cite>interface Tunnel0/0/0</cite> 命令创建了一个编号为 0/0/0 的隧道（Tunnel）接口，随后进入该接口的配置视图。在这个配置视图里，通过 <cite>tunnel-protocol ipv6-ipv4</cite> 命令明确该隧道接口的类型为 IPv6 Over IPv4 类型。<cite>source 10.1.12.1</cite> 和 <cite>destination 10.1.23.3</cite> 这两条命令分别指定了隧道的源地址和目的地址，这两个地址代表着隧道的两个端点。由于当前网络中已经部署了静态路由，所以这两个 IPv4 地址之间是可以相互访问的。另外，<cite>ipv6 enable</cite> 命令的作用是激活隧道接口的 IPv6 功能，而 <cite>ipv6 address FC00:12::1 64</cite> 命令则是为该隧道接口配置了一个 IPv6 地址。经过这样的配置后，对于 R1 设备而言，它会认为自身新增了一个逻辑接口，这个接口具备 IPv6 地址，并且其对端设备就是 R2。</p>
+</section>
+<section id="id22">
+<h3><span class="section-number">7.7.2. </span>R2的配置<a class="headerlink" href="0huawei-ipv6.html#id22" title="Link to this heading"></a></h3>
+<p>R2 需要进行与 R1 类似的配置，具体如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">R2</span><span class="p">]</span><span class="n">IPv6</span>
+<span class="linenos">2</span><span class="n">interface</span><span class="w"> </span><span class="n">Tunnel0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="linenos">3</span><span class="n">tunnel</span><span class="o">-</span><span class="n">protocol</span><span class="w"> </span><span class="n">ipv6</span><span class="o">-</span><span class="n">ipv4</span>
+<span class="linenos">4</span><span class="n">source</span><span class="w"> </span><span class="mf">10.1.23.3</span>
+<span class="linenos">5</span><span class="n">destination</span><span class="w"> </span><span class="mf">10.1.12.1</span>
+<span class="linenos">6</span><span class="n">ipv6</span><span class="w"> </span><span class="n">enable</span>
+<span class="linenos">7</span><span class="n">ipv6</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">FC00</span><span class="o">:</span><span class="mi">12</span><span class="o">::</span><span class="mi">2</span><span class="w"> </span><span class="mi">64</span>
+<span class="linenos">8</span><span class="n">quit</span>
+</pre></div>
+</div>
+<p>当完成上述 R1 和 R2 的配置后，我们可以在 R1 设备上对 R2 的 Tunnel0/0/0 接口地址进行 ping 测试，测试情况如图所示：</p>
+<img alt="../_images/11-51.jpg" src="../_images/11-51.jpg" />
+</section>
+</section>
+<section id="pcapccipv6">
+<h2><span class="section-number">7.8. </span>实现PCA与PCC的IPv6通信<a class="headerlink" href="0huawei-ipv6.html#pcapccipv6" title="Link to this heading"></a></h2>
+<p>目前，R1 与 R2 之间的 IPv6 Over IPv4 隧道已经成功建立。接下来，为了实现 PCA 与 PCC 之间的 IPv6 通信，我们需要先对 R1 的 G0/0/0 接口和 R2 的 G0/0/0 接口进行 IPv6 配置，这两个接口将分别作为 PCA 和 PCC 的 IPv6 网关。此外，以 PCA 向 PCC 发送流量为例，PCA 会先把流量发送给其网关 R1，R1 则需要将接收到的 IPv6 流量引入到它与 R2 之间的 IPv6 Over IPv4 隧道中。我们将通过配置静态路由的方式来引导流量，把这些流量导向 Tunnel0/0/0 接口，这样流量就能通过隧道到达 SW1，再由 SW1 对数据进行封装后转发给 PCC。</p>
+<section id="id23">
+<h3><span class="section-number">7.8.1. </span>R1的配置<a class="headerlink" href="0huawei-ipv6.html#id23" title="Link to this heading"></a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+<span class="linenos">2</span><span class="n">ipv6</span><span class="w"> </span><span class="n">enable</span>
+<span class="linenos">3</span><span class="n">ipv6</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="n">FC00</span><span class="o">:</span><span class="mi">1</span><span class="o">::</span><span class="n">FFFF</span><span class="w"> </span><span class="mi">64</span>
+<span class="linenos">4</span><span class="n">quit</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="n">ipv6</span><span class="w"> </span><span class="n">route</span><span class="o">-</span><span class="k">static</span><span class="w"> </span><span class="n">FC00</span><span class="o">:</span><span class="mi">2</span><span class="o">::</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="n">Tunnel</span><span class="w"> </span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>在上述配置里，<cite>ipv6 route-static FC00:2:: 64 Tunnel 0/0/0</cite> 命令的作用是配置一条 IPv6 静态路由。这条路由的目的网段是 FC00:2::/64，也就是 PCC 所在的网段，而到达该网段的出接口是 Tunnel 0/0/0。当从 PCA 发往 PCC 的流量到达 R1 后，R1 会在其 IPv6 路由表中查找目的 IPv6 地址 FC00:2::1，找到匹配的路由后，发现出接口为 Tunnel 0/0/0 接口。由于该接口是 IPv6 Over IPv4 类型，其隧道源地址为 10.1.12.1，隧道目的地址为 10.1.23.3，所以 R1 会将 IPv6 报文进行 IPv4 封装，在 IPv4 报文头部写入相应的源地址和目的地址，然后将封装后的报文转发给 SW1，最后由 SW1 把报文转发到目的地 R2。</p>
+</section>
+<section id="id24">
+<h3><span class="section-number">7.8.2. </span>R2的配置<a class="headerlink" href="0huawei-ipv6.html#id24" title="Link to this heading"></a></h3>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>R2 的配置与 R1 大体相似，不过要留意 IPv6 地址和网段的变化。 <strong>请同学们自行完成 R2 的隧道配置</strong>。</p>
+</div>
+</section>
+<section id="id25">
+<h3><span class="section-number">7.8.3. </span>PCA和PCC增加IPv6地址<a class="headerlink" href="0huawei-ipv6.html#id25" title="Link to this heading"></a></h3>
+<p>在PCA上配置IPv6地址：FC00:1::1/64，网关：FC00:1::FFFF</p>
+<p>在PCC上配置IPv6地址：FC00:2::1/64，网关：FC00:2::FFFF</p>
+<p>现在，从 PCA 对 PCC 进行 ping 测试，结果如图所示：</p>
+<img alt="../_images/11-71.jpg" src="../_images/11-71.jpg" />
+<p>从测试结果可以看出，PCA 与 PCC 之间的 IPv6 通信已经恢复正常。此时，当在 PCA 上对 PCC 进行 ping 测试时，我们可以在 PCB 上捕获到 R1 发往 R2 的 ICMPv6 报文，具体情况如图所示：</p>
+<img alt="../_images/51.png" src="../_images/51.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p><strong>选做：网络全面IPv6化（IPv6 Only），IPv4业务退网</strong></p>
+<p>要求：将分支互联网络过渡到 IPv6 网络环境，部署 IPv6 静态路由，实现 R1、SW1、R2 这三个站点之间的 IPv6 互联互通，同时取消 IPv4 路由协议的使用，并删除 IPv6 Over IPv4 隧道。</p>
+<p>完成上述配置后，从 PCA 对 PCC（FC00:2::1）进行 ping 测试，并捕获和分析 ICMPv6 报文。</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="Lab8：IPv6网络过渡实验" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../lab9-tcp/index.html" class="btn btn-neutral float-right" title="Lab9：小型Web服务器的设计与实现" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

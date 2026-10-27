@@ -1,0 +1,18 @@
+附录 B：网络编程实验环境
+================================================
+
+.. toctree::
+   :maxdepth: 4
+   :titlesonly:
+   :numbered:
+
+   0checklist
+   1win
+   3linux_physical
+   4oslab_ubuntu
+
+.. note:: 
+   本章按 Windows、纯 Linux/WSL2、OSLab Ubuntu 虚拟机的顺序介绍开发环境配置。请根据实际使用的环境选择对应教程。
+
+.. important::
+   正式开始协议栈实验前，请先完成 :doc:`0checklist`。

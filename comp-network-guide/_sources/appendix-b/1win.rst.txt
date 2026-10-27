@@ -1,0 +1,705 @@
+
+Windows开发环境搭建
+==================================================
+
+.. important:: 
+   为了给同学们演示如何下载、编译、调试net-lab，我们录制了演示视频，请到bilibili上观看。
+
+   【计算机网络协议栈编译和调试】 https://www.bilibili.com/video/BV1TkZ4YGEZz/?share_source=copy_web&vd_source=a822dcda3537564ccdd0bb45aa0afe33
+
+实验工具
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+本实验需要安装 VSCode、npcap、cmake、gcc 等工具，以下是实验工具介绍：
+
+VSCode
+------------------------------ 
+Visual Studio Code 是一款功能强大的代码编辑器, 适用于几乎任何语言并可在任何操作系统上运行。通过 VSCode 的强大扩展库，我们可以在 VSCode 上一站式创建，编辑，构建，运行和调试远程主机上的工程文件，就像使用 Code::Blocks 操作本地工程一样。
+
+在https://code.visualstudio.com/ 下载并在物理机上安装 VSCode 软件。
+
+Git
+------------------------------
+Git 用于从课程仓库获取实验代码，并保存实验过程中的代码版本。
+
+如果尚未安装 Git，请访问 `Git for Windows <https://git-scm.com/download/win>`_ 下载并运行安装程序。安装过程中保持默认选项即可；如果安装程序询问是否将 Git 加入 PATH，请选择允许从命令行使用 Git。
+
+安装完成后，打开 PowerShell，执行下面的命令检查 Git 是否安装成功：
+
+.. code-block:: powershell
+
+   git --version
+
+如果输出类似 ``git version 2.47.1.windows.1`` 的版本号，说明安装成功。若提示 ``git`` 不是命令，请重新打开 PowerShell；如果仍然无法识别，请重新运行 Git 安装程序并确认将 Git 加入 PATH。
+
+npcap
+------------------------------ 
+npcap是一个网络数据包抓包工具，它是WinPcap的改进版，支持WIndows平台的回环数据包采集和发送。
+
+.. _点这里下载: https://file.cs-lab.top/s/ZvX5EPOqBUx15bs
+
+npcap下载地址：（`点这里下载`_）
+
+也可以到官网下载：
+
+https://npcap.com/#download
+
+.. important::
+   课程当前建议使用 **Npcap 1.31**，不要升级到最新版。
+
+   若你已经安装了较新的 Npcap，并在 ``udp_server`` / ``tcp_server`` 集成测试中遇到无法收发、``PacketSendPacket failed``、抓包现象异常等问题，建议先卸载当前版本，再回退到 1.31。
+
+   安装时必须勾选 ``Install Npcap in WinPcap API-compatible Mode``。
+
+.. note::
+   开始安装前，建议先对照 :doc:`0checklist` 完成环境检查。
+
+.. image:: npcap.png
+
+
+cmake
+------------------------------ 
+CMake 是一款跨平台的编译工具，其优势在于能够跨平台生成对应平台可用的 Makefile，这大大减轻了手动修改 Makefile 的工作量，使用起来十分方便。那它又是根据什么生成的makefile呢？就是一个叫CMakeLists.txt文件去生成Makefile，当然，这个CMakefile.txt是要我们自己编写的。本实验已经提供好了CMakefile.txt文件，可大家学习参考：）
+
+此外，CMake 自带 ctest 工具，可用于代码测试。当使用 CMakeLists.txt 文件编译工程时，CTest 会自动完成配置、构建、测试并展示测试结果。
+
+CMake的下载地址：（`点这里下载`_）
+
+也可以到官网下载：
+
+https://cmake.org/download/
+
+Windows 64位系统建议选择下面标红框框的版本：
+
+.. image:: cmake.png
+
+下载完成后，双击进行安装。在安装过程建议选择“Add CMake to the system PATH for all users”
+
+.. image:: cmake1.png
+   :scale: 70%
+
+gcc
+------------------------------ 
+强烈推荐大家安装 tdm - gcc，它是专门为 Windows 系统设计的编译器套件，集成了 gcc、g++ 等多种实用工具，功能全面且工具齐全。
+
+tdm64-gcc下载地址：（`点这里下载`_）
+
+也可以从这里下载：
+
+https://github.com/jmeubank/tdm-gcc/releases/download/v10.3.0-tdm64-2/tdm64-gcc-10.3.0-2.exe
+
+不要勾选“Check for updated files on the TDM-GCC server”。
+
+Windows下编译和调试
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+确认 Git 已安装后，在准备存放实验项目的目录中打开 PowerShell，执行：
+
+.. code-block:: powershell
+
+   git clone https://git.cs-lab.top/cslab/net-lab.git
+
+执行后，当前目录下会生成 ``net-lab`` 文件夹。以后需要获取仓库的新版本时，可在这个项目文件夹中执行 ``git pull``。
+
+
+打开VSCode软件，在左侧边栏的扩展商店搜索并安装以下扩展：
+
+1. Chinese (Simplified) Language Pack for Visual Studio Code
+#. C/C++
+#. CMake Tools
+
+安装完成后重启VSCode。
+
+在 VS Code 中选择“文件 → 打开文件夹”，打开刚才下载的 ``net-lab`` 文件夹，即可进行后续操作。
+
+..  attention:: 
+  确保CMakeLists.txt处于当前根目录中，也就是用VSCode软件直接打开net-lab实验包，net-lab必须是工程的根目录，否则编译不了。
+
+.. image:: win-vscode.jpg
+   :scale: 50 %
+
+
+首次配置会弹出选择编译工具的提示，选择带有x86_64 GCC的选项。
+
+.. image:: vscode3.png
+
+若未弹出此提示，通过快捷键 `Ctrl+Shift+P` (Windows/Linux) ，打开命令面板。在命令面板中输入 `CMake: Select a Kit`。
+
+.. image:: vscode8.png
+
+需注意的是，只有安装 TDM-GCC 后，才能找到 GCC 相关选项。选择 CMake Kit 时，**必须选择名称中包含** ``x86_64 GCC`` **的选项**。倘若安装 TDM-GCC 后仍未显示该选项，可点击 “[Scan for kits] Search for compilers on this computer”，手动搜索 GCC。若搜索后依旧未能找到，建议重启电脑再尝试。
+
+
+
+在配置好VSCode环境之后，即可使用CMake工具栏完成编译和调试操作。
+
+.. important::
+   在第一次编译 ``udp_server`` / ``tcp_server`` 前，请再确认以下三项：
+
+   - ``cmake``、``gcc``、``gdb`` 能在终端中直接找到；
+   - CMake Kit 已选到 MinGW / GCC；
+   - 已按 :ref:`Windows 网卡与协议栈 IP 配置 <windows-integration-ip>` 填写 ``include/config.h`` 中 ``#else`` 分支的 ``NET_IF_IP``。
+
+..  tip:: 
+
+   若你在配置VSCode环境时遇到问题，请按以下步骤处理：
+
+   - 查阅 :doc:`/appendix-g/lab2` 文档中的常见问题解答（FAQ），尝试对应解决方案；
+   - 若问题仍未解决，请直接联系课程教师或助教协助处理。
+
+.. _调试方法:
+
+组件测试的调试方法
+------------------------------
+
+本节为以太网、ARP、IP、ICMP、UDP 和 TCP 等协议的离线组件测试提供 GDB 调试配置。将配置文件一次填写好后，切换协议时只需在“运行和调试”的下拉菜单中选择对应配置，不必反复修改 ``program`` 和 ``args``。
+
+.. contents:: 本节导航
+   :local:
+   :depth: 1
+   :backlinks: none
+
+创建 ``.vscode`` 配置目录和文件
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+请先确认 VS Code 打开的是 ``net-lab`` 项目根目录，而不是 ``build`` 或其他目录；项目根目录中应能看到 ``CMakeLists.txt``。
+
+1. 如果根目录下还没有 ``.vscode`` 文件夹，点击资源管理器中的“新建文件夹”创建。文件夹名开头的英文句点 ``.`` 不要漏掉；如果已经存在，则直接打开。
+#. 在 ``.vscode`` 中创建或打开 ``settings.json``、``launch.json`` 和 ``tasks.json``，按下面各小节填写并保存。
+
+.. figure:: win-json.jpg
+   :alt: VS Code 项目文件列表，.vscode 文件夹中包含 launch.json 和 tasks.json
+   :align: center
+   :width: 100%
+
+   配置文件位置示例：图中的 ``settings.json``、``launch.json`` 和 ``tasks.json`` 都位于项目根目录下的 ``.vscode`` 文件夹中。
+
+设置统一的 GDB 路径
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+先在 ``.vscode/settings.json`` 中填写 GDB 的实际路径：
+
+.. code-block:: json
+
+   {
+       "cmake.debugConfig": {
+           "miDebuggerPath": "C:/TDM-GCC-64/bin/gdb.exe"
+       }
+   }
+
+如果 TDM-GCC 安装在其他位置，只需修改这里的 ``miDebuggerPath``。例如，安装在 D 盘时改为 ``D:/TDM-GCC-64/bin/gdb.exe``。路径末尾应包含 ``gdb.exe``，不要只填写 ``bin`` 文件夹。这里使用正斜杠 ``/``，无需额外转义。
+
+.. _launch.json说明:
+
+填写 ``launch.json``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+下面的完整配置同时包含八个组件测试，以及后文使用的 ``udp_server``、``tcp_server`` 和 ``web_server`` 三个集成测试程序。将以下完整内容复制到 ``.vscode/launch.json`` 并保存：
+
+.. code-block:: json
+
+   {
+       "version": "0.2.0",
+       "configurations": [
+           {
+               "name": "eth_in (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\eth_in.exe",
+               "args": [
+                   "testing\\data\\eth_in"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "eth_out (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\eth_out.exe",
+               "args": [
+                   "testing\\data\\eth_out"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "arp_test (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\arp_test.exe",
+               "args": [
+                   "testing\\data\\arp_test"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "ip_test (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\ip_test.exe",
+               "args": [
+                   "testing\\data\\ip_test"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "ip_frag_test (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\ip_frag_test.exe",
+               "args": [
+                   "testing\\data\\ip_frag_test"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "icmp_test (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\icmp_test.exe",
+               "args": [
+                   "testing\\data\\icmp_test"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "udp_test (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\udp_test.exe",
+               "args": [
+                   "testing\\data\\udp_test"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "tcp_test (Windows component test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\tcp_test.exe",
+               "args": [
+                   "testing\\data\\tcp_test"
+               ],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "udp_server (Windows integration test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\udp_server.exe",
+               "args": [],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "tcp_server (Windows integration test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\tcp_server.exe",
+               "args": [],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           },
+           {
+               "name": "web_server (Windows integration test)",
+               "type": "cppdbg",
+               "request": "launch",
+               "program": "${workspaceFolder}\\build\\web_server.exe",
+               "args": [],
+               "stopAtEntry": false,
+               "cwd": "${workspaceFolder}",
+               "environment": [],
+               "externalConsole": false,
+               "MIMode": "gdb",
+               "miDebuggerPath": "${config:cmake.debugConfig.miDebuggerPath}",
+               "preLaunchTask": "build component tests",
+               "setupCommands": [
+                   {
+                       "description": "Enable pretty-printing for gdb",
+                       "text": "-enable-pretty-printing",
+                       "ignoreFailures": true
+                   }
+               ]
+           }
+       ]
+   }
+
+上面的 ``launch.json`` 为每个组件测试和集成测试程序提供了一个调试配置，其中几个关键字段的含义如下：
+
+* ``name``：在“运行和调试”下拉菜单中显示的配置名称，用于选择要调试的程序。
+* ``program``：要启动的程序，指向 ``build`` 目录下对应的 ``.exe`` 文件。
+* ``args``：传给程序的参数。组件测试填写对应的测试数据目录，不要直接填写 ``in.pcap`` 或 ``in.txt`` 文件路径；三个集成测试程序保持空数组 ``[]``。
+* ``cwd``：程序运行时的工作目录，设为 ``${workspaceFolder}``，即 VS Code 当前打开的 ``net-lab`` 项目根目录；``args`` 中的相对路径从这里开始查找。
+* ``miDebuggerPath``：GDB 路径，保持为 ``${config:cmake.debugConfig.miDebuggerPath}`` 即可。VS Code 会读取前面 ``settings.json`` 中统一设置的路径，不需要手动替换变量。
+* ``preLaunchTask``：启动调试前执行的构建任务，必须与下面 ``tasks.json`` 中的 ``label`` 一致。
+
+例如，``arp_test`` 配置会启动 ``build/arp_test.exe``，并读取 ``testing/data/arp_test`` 中的测试数据。``ip_frag_test`` 读取其目录中的 ``in.txt``，其他组件读取各自目录中的 ``in.pcap``。
+
+填写 ``tasks.json``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+将以下完整内容复制到 ``.vscode/tasks.json`` 并保存：
+
+.. code-block:: json
+
+   {
+       "version": "2.0.0",
+       "tasks": [
+           {
+               "label": "build component tests",
+               "type": "shell",
+               "command": "cmake",
+               "args": [
+                   "--build",
+                   "${workspaceFolder}/build"
+               ],
+               "options": {
+                   "cwd": "${workspaceFolder}"
+               },
+               "problemMatcher": [
+                   "$gcc"
+               ],
+               "group": {
+                   "kind": "build",
+                   "isDefault": true
+               }
+           }
+       ]
+   }
+
+``launch.json`` 中的 ``preLaunchTask`` 与 ``tasks.json`` 中的 ``label`` 均为 ``build component tests``，这样按 ``F5`` 调试前就会自动编译。构建任务使用独立的 ``command`` 和 ``args``，无需在命令中拼接 ``cd``，也能处理项目路径中包含空格的情况。
+
+这里 ``tasks.json`` 中的 ``args`` 是传给 ``cmake`` 的构建参数：``--build`` 表示执行编译，后面的 ``${workspaceFolder}/build`` 指定构建目录；它与 ``launch.json`` 中传给测试程序的 ``args`` 用途不同。
+
+默认构建任务会编译项目的全部目标，因此切换协议时不需要修改构建任务。如果希望只编译某个组件，可在任务的 ``args`` 中添加 ``--target`` 和组件名。例如，只编译 ``arp_test`` 时，将 ``args`` 数组改为：
+
+.. code-block:: json
+
+   "args": [
+       "--build",
+       "${workspaceFolder}/build",
+       "--target",
+       "arp_test"
+   ]
+
+使用 ``--target`` 后，每次切换组件都要同步修改目标名称；它必须与 ``launch.json`` 中 ``program`` 指向的程序名一致，但不带 ``.exe`` 后缀。若不想重复修改，保留默认的全量编译配置即可。
+
+.. _windows-component-build-check:
+
+设置协议栈 IP 并确认构建配置
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+首次调试前，需要先填写协议栈 IP，再检查 CMake 配置。组件测试本身使用固定的测试 IP，但本节默认的构建任务还会编译 ``udp_server``、``tcp_server`` 和 ``web_server`` 等集成测试程序。如果 ``include/config.h`` 中 ``#else`` 分支的 ``NET_IF_IP`` 仍保留 ``XX`` 占位符，编译时就会报 ``XX`` 未定义。
+
+1. 先完成 :ref:`2.3.2 的 Windows 网卡与协议栈 IP 配置 <windows-integration-ip>`：根据 Windows 上选定网卡的 IPv4 地址和子网掩码，填写 ``include/config.h`` 中 ``#else`` 分支的 ``NET_IF_IP``，并保存文件。``#ifdef TEST`` 分支中的测试 IP 和 MAC 地址保持默认值。
+#. 按 ``Ctrl+Shift+P`` 打开命令面板，执行 ``CMake: Select a Kit``，确认选择的是前面安装的 ``x86_64 GCC`` 工具包。
+
+选择对应协议并启动调试
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. 在 VS Code 左侧打开“运行和调试”。
+#. 在顶部配置下拉菜单中选择要调试的协议对应的测试配置。例如，调试 ARP 协议时选择 ``arp_test (Windows component test)``；调试以太网接收或发送流程时，分别选择 ``eth_in`` 或 ``eth_out`` 配置。
+#. 打开对应的源文件，在希望程序停下的可执行语句旁设置断点，保存文件后按 ``F5`` 启动调试。不要选择“生成和调试活动文件”，也不需要使用 ``cl.exe``。
+
+本节的构建任务和调试配置都使用项目根目录下的 ``build`` 目录。如果按 ``F5`` 时提示 ``build`` 目录不存在或尚未配置，请执行 ``CMake: Configure`` 后重试。如果你曾修改 CMake 的构建目录，请将 ``tasks.json`` 中 ``--build`` 后面的目录，以及 ``launch.json`` 中 ``program`` 指向的目录同步改为实际位置。
+
+.. figure:: vscode-run-gdb.jpg
+   :alt: VS Code 运行和调试配置下拉菜单，包含 eth_in、eth_out 和 arp_test 等组件测试
+   :align: center
+   :width: 100%
+
+   调试某个协议时，应在图示下拉菜单中选择该协议对应的配置；例如调试 ``arp_out()`` 时选择 ``arp_test``。
+
+.. figure:: gdb-6.png
+   :alt: VS Code 运行和调试入口、源代码断点及调试工具栏
+   :align: center
+   :width: 100%
+
+   界面位置示意。调试配置名称以本节提供的配置为准，请选择当前协议对应的配置。
+
+如果选择了其他协议的配置，程序可能不会执行当前要调试的函数，断点也就不会命中。例如，调试 ``src/arp.c`` 中的 ``arp_out()`` 时应选择 ``arp_test``。
+
+命令行验证
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+也可以在 VS Code 的 Windows 终端中运行组件测试。先确认终端当前目录为 ``net-lab`` 根目录，再执行：
+
+.. code-block:: powershell
+
+   .\build\eth_in.exe testing/data/eth_in
+   .\build\arp_test.exe testing/data/arp_test
+   .\build\ip_frag_test.exe testing/data/ip_frag_test
+
+如果提示找不到输入文件，先检查 VS Code 打开的是否为项目根目录，以及 ``program`` 和 ``args`` 是否属于同一个组件。
+
+集成测试的调试方法
+------------------------------------------
+
+调试 ``udp_server``、``tcp_server`` 或 ``web_server`` 等集成测试程序时，可以使用 CMake 工具栏，也可以使用 ``launch.json`` 配置。下面分别介绍这两种方法。
+
+.. contents:: 本节导航
+   :local:
+   :depth: 1
+   :backlinks: none
+
+使用 CMake 工具栏调试
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+udp_server、tcp_server或web_server程序的调试方法和上述的Eth、ARP、IP或ICMP程序的调试方法是不一样的。如果想要对udp_server、tcp_server或web_server进行编译和调试，可以在udp_server、tcp_server或web_server这一项点击右键，再点击“生成”进行编译。
+
+.. image:: vscode10.png
+
+
+编译完成后，可以在代码行前增加断点，然后选择“调试”，接下来，也可以愉快地进行暂停、单步跳过、单步调试、单步跳出、重启、停止等这些调试操作了。
+
+.. image:: vscode9.png
+
+使用 ``launch.json`` 配置调试
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+使用前文 :ref:`2.2.1.3 的完整 launch.json 配置 <launch.json说明>`，并参照后续的调试步骤即可。在“运行和调试”下拉菜单中选择 ``udp_server``、``tcp_server`` 或 ``web_server`` 对应的 ``Windows integration test`` 配置，设置断点后按 ``F5`` 启动调试。
+
+程序启动后，使用 UDP/TCP 调试工具或浏览器访问已配置的协议栈 IP，触发对应的协议处理流程。
+
+
+.. _windows-test-network:
+
+实验测试环境及网卡配置说明
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+本节说明两类测试分别使用什么 IP 地址。按前面的默认构建任务编译项目时，请先完成 :ref:`集成测试的 IP 配置 <windows-integration-ip>`；填写完成后，回到 :ref:`2.2.1.5 设置协议栈 IP 并确认构建配置 <windows-component-build-check>`，继续配置 CMake 和启动调试。
+
+组件测试（Eth/ARP/IP/ICMP/UDP/TCP）
+----------------------------------------- 
+
+- **测试范围**
+
+Eth（以太网）、ARP、IP、ICMP、UDP、TCP协议的功能验证。本实验采用离线数据包测试框架，通过驱动层（testing文件夹）实现。
+
+- **测试框架说明**
+
+   - **离线数据包驱动**：通过自定义驱动层读写预置的离线数据包（.pcap格式）
+
+   - **自动化验证机制**：比对协议栈生成的日志文件（.log）与标准数据包捕获文件（.pcap）的差异
+
+   - 关键配置约束：
+   
+      ⚠️ **必须保持config.h中测试网卡宏定义的默认值**：
+
+.. code-block:: c
+   :linenos: 
+
+   #ifdef TEST
+   #define NET_IF_IP          \
+       {                      \
+           192, 168, 163, 103 \
+       }  // 测试用网卡ip地址
+   #define NET_IF_MAC                         \
+       {                                      \
+           0x11, 0x22, 0x33, 0x44, 0x55, 0x66 \
+       }  // 测试用网卡mac地址
+
+
+协议接收测试流程（以ethernet_in为例）：
+
+   .. image:: env-win-1.png
+      :alt: ethernet_in协议栈接收数据包验证流程
+
+
+协议发送测试流程（以ethernet_out为例）： 
+
+   .. image:: env-win-2.png
+      :alt: ethernet_out协议栈发送数据包验证流程
+
+
+.. _windows-integration-ip:
+
+Windows 本地集成测试（UDP/TCP/HTTP）
+------------------------------------------
+
+本节只适用于 **Windows 本地 + Npcap** 方案。
+
+``udp_server``、``tcp_server`` 和 ``web_server`` 用于验证整个协议栈的收发功能。Windows 本地方案通过 Npcap 在一张 **现有网卡** 上捕获和注入报文，不会在 Windows 中创建新的网卡。这里有两个不同的 IP 地址：
+
+* **Windows 网卡 IP**：网卡当前在 Windows 网络设置中已有的 IPv4 地址，保持不变。
+* **协议栈 IP（ NET_IF_IP）**：实验协议栈在收发报文时使用的地址，填写在 ``include/config.h`` 的 ``#else`` 分支中；它不是 Windows 网卡的配置地址，不要把它填入 Windows 网络设置。
+
+使用本方案时，协议栈 IP 必须与选定 Windows 网卡的 IPv4 地址处于同一子网，并使用不同且未被占用的主机地址。测试客户端应访问协议栈 IP；Wireshark 则在同一张 Windows 网卡上抓包。配置关系如下：
+
+.. image:: win-ip.jpg
+   :alt: 双网卡通信拓扑示意
+
+按以下步骤配置：
+
+1. 在 Windows 的 PowerShell 或命令提示符中执行：
+
+   .. code-block:: powershell
+
+      ipconfig
+
+   找到用于实验且具有有效 IPv4 地址的网卡，记录其 IPv4 地址和子网掩码。如果有多个网卡，可以选用以太网、Wi-Fi 或已有的虚拟机网卡；后续抓包时也应选择同一张网卡。
+
+#. 根据这张网卡的地址和掩码，选择同一网段内一个未被占用的地址，作为协议栈 IP。例如，所选网卡为 ``192.168.56.1``，子网掩码为 ``255.255.255.0``，且 ``192.168.56.2`` 未被占用时，可使用以下地址关系：
+
+   .. list-table:: IP 地址示例（请按自己的网卡信息填写）
+      :header-rows: 1
+      :widths: 55 45
+
+      * - 配置项
+        - 示例值
+      * - Windows 所选网卡的 IPv4 地址
+        - ``192.168.56.1``
+      * - Windows 所选网卡的子网掩码
+        - ``255.255.255.0``
+      * - 协议栈 IP（``NET_IF_IP``）
+        - ``192.168.56.2``
+
+   此例中前三段相同、最后一段不同，是因为掩码为 ``255.255.255.0``；其他掩码应按实际网络号判断。
+
+#. 在 VS Code 中打开 ``include/config.h``，找到 ``#else`` 分支下标注“自定义网卡ip地址”的 ``NET_IF_IP``，将四个 ``XX`` 替换为所选 IP 的四个数字。以上面的协议栈 IP 为例，修改为：
+
+   .. code-block:: c
+
+      #define NET_IF_IP        \
+          {                    \
+              192, 168, 56, 2 \
+          }  // 自定义网卡ip地址
+
+   ``#ifdef TEST`` 分支中的测试 IP 和 MAC 地址保持默认值，不要改成自己的网卡地址。
+
+#. 保存 ``config.h``，返回 :ref:`2.2.1.5 设置协议栈 IP 并确认构建配置 <windows-component-build-check>`，完成 CMake 配置后再按 ``F5`` 编译并调试。以后更换实验网卡或修改协议栈 IP 时，也需要保存文件并重新编译。
+
+.. figure:: ../lab7/test3.png
+   :alt: config.h 中的两个分支：测试网卡 IP 和 MAC 保持默认，自定义网卡 IP 根据实验环境填写
+   :align: center
+   :width: 100%
+
+   只修改 ``#else`` 分支的自定义网卡 IP，保留 ``#ifdef TEST`` 分支的测试配置。
+
+运行集成测试时，UDP/TCP 调试工具或浏览器应访问填写的协议栈 IP，例如 ``192.168.56.2``；Windows 网卡自身的 IP 在此例中为 ``192.168.56.1``。

@@ -1,0 +1,142 @@
+Lab2 常见问题（Eth）
+================================================
+
+.. toctree::
+   :hidden:
+   :maxdepth: 5
+
+进行环境配置时，选择编译器后报错？
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+如下图所示
+
+.. image:: lab2-12.png
+
+解决方案：
+当前根目录下（即你通过VSCode的打开文件夹功能打开的文件夹）缺少“.code-workspace”文件，需要点击“文件”->“将工作区另存为”，见下图.
+
+.. image:: lab2-13.png
+   :scale: 80%
+
+然后工作区就会出现“.code-workspace”文件，见下图
+
+.. image:: lab2-14.png
+
+
+打开“.code-workspace”文件，然后在settings中添加配置：
+
+.. code-block:: json
+   :linenos:
+
+   "cmake.generator": "MinGW Makefiles"
+
+.. image:: lab2-15.png
+
+安装完CMAKE和TDM GCC后，VSCode的CMAKE上找不到项目的可执行程序？
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+如下图所示，找不到项目的可执行程序。
+
+.. image:: lab2.png
+   :scale: 50 %
+
+步骤1：检查CMake工具包配置
+
+首先，你需要先检查 "C:\\Users\\你自己电脑的用户名\\AppData\\Local\\CMakeTools\\CMakeTools-tools-kits.json"文件，该文件正常的配置应该如下图所示。
+
+.. image:: lab2-2.png
+
+.. code-block:: json
+   :linenos:
+
+   [
+     {
+       "name": "GCC 10.3.0 x86_64-w64-mingw32",
+       "compilers": {
+         "C": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-gcc.exe",
+         "CXX": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe"
+       },
+       "preferredGenerator": {
+         "name": "MinGW Makefiles"
+       },
+       "environmentVariables": {
+         "CMT_MINGW_PATH": "C:\\TDM-GCC-64\\bin"
+       }
+     }
+   ]
+
+步骤2：修改CMake生成器设置
+
+1. 打开VSCode设置
+   如果配置文件中GCC路径不正确（如显示为C:\TDM-GCC-64\bin\gcc.exe），请按以下步骤操作：
+
+   单击VSCode的左下角齿轮图标，选择“设置”。
+
+   .. image:: lab2-6.png
+
+2. 配置CMake生成器
+   在弹出的窗口中输入“cmake generator”，然后在“Cmake: Generator 要使用的CMake生成器”中输入“MinGW Makefiles”，将Cmake生成器强制指定为MinGW Makefiles。
+
+   .. image:: lab2-7.png
+
+步骤3：重新扫描并选择工具包
+
+通过快捷键 Ctrl+Shift+P (Windows/Linux) ，打开命令面板。在命令面板中输入 CMake: Select a Kit。重新扫描[Scan for kits]，重新选择GCC，应该选择的是C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-gcc.exe。
+
+.. image:: lab2-4.png
+
+.. image:: lab2-3.png
+
+如果还不行，删掉本工程目录下的.vscode\\settings.json文件，再重新扫描[Scan for kits]。
+
+CMake报错
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CMake报错的情况以下几种情况：
+
+1、首先参考上一题的解决方案，先确保GCC是选对了。
+
+2、检测一下你的工程目录是不是实验包的根目录。
+
+正常的VSCode工程目录应该是这样的：
+
+.. image:: vscode2.png
+   :scale: 50 %
+
+下图的工程目录是不对的：
+
+.. image:: lab2-8.png
+
+同学们可以自行检查。
+
+
+ctest运行报错
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+如果出现下图的情况，一般是代码有段错误了，可以用GDB跟踪调试。
+
+.. image:: lab2-9.png
+
+
+能用CMAKE编译，不能用GDB调试？
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+如下图，能编译，但GDB调试不了。
+
+.. image:: lab2-10.png
+
+该同学的GCC安装在D:/program Files (x86)/TDM-GCC-64/目录下，launch.json配置如下：
+
+.. image:: lab2-11.png
+
+原因分析：
+
+GDB路径配置存在转义字符缺失问题：
+
+.. code-block:: json
+   :linenos:
+
+   // 错误配置（路径转义不完整）
+   "miDebuggerPath": "D:\\Program Files (x86)\\TDM-GCC-64\bin\\gdb.exe",
+
+   // 正确配置（双反斜杠转义）
+   "miDebuggerPath": "D:\\Program Files (x86)\\TDM-GCC-64\\bin\\gdb.exe",
+
+注：Windows系统路径中的反斜杠在JSON配置中需要进行转义处理。

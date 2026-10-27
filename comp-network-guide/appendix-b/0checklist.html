@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 环境配置检查清单 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2. Windows开发环境搭建" href="1win.html" />
+    <link rel="prev" title="附录 B：网络编程实验环境" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">附录 B：网络编程实验环境</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="0checklist.html#">1. 环境配置检查清单</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0checklist.html#id2">1.1. 环境路线选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0checklist.html#windows">1.2. Windows 环境检查清单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0checklist.html#linux-wsl">1.3. Linux / WSL 环境检查清单</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0checklist.html#id3">1.4. 一键检查脚本</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1win.html">2. Windows开发环境搭建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3linux_physical.html">3. 纯 Linux/WSL2 环境配置（veth）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4oslab_ubuntu.html">4. OSLab Ubuntu 环境配置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">附录 B：网络编程实验环境</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>环境配置检查清单</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-b/0checklist.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>环境配置检查清单<a class="headerlink" href="0checklist.html#id1" title="Link to this heading"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>开始 Eth、ARP、IP、ICMP、UDP、TCP、HTTP 实验前，请先完成本页检查。</p>
+<p>如果你在 Windows + 无线网卡环境下持续遇到校验和显示为 0、<code class="docutils literal notranslate"><span class="pre">udp_server</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 无法正常收发、Wireshark 抓包结果与程序行为不一致等问题，建议优先切换到 Linux 环境：<a class="reference internal" href="3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 或 <a class="reference internal" href="4oslab_ubuntu.html"><span class="doc">OSLab Ubuntu 环境配置</span></a> 完成环境配置并使用 <code class="docutils literal notranslate"><span class="pre">veth</span></code>。</p>
+</div>
+<section id="id2">
+<h2><span class="section-number">1.1. </span>环境路线选择<a class="headerlink" href="0checklist.html#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">+</span> <span class="pre">有线网卡</span></code></dt><dd><p>沿用 <a class="reference internal" href="1win.html"><span class="doc">Windows开发环境搭建</span></a> 的流程。优先使用课程已验证的 Npcap 版本，并在实验前确认能关闭校验和卸载。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">+</span> <span class="pre">仅无线网卡</span></code></dt><dd><p>如果网卡高级属性里找不到 Checksum Offload 相关选项，不建议继续在当前无线网卡环境下排查，建议优先切换到 <a class="reference internal" href="3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 的 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 方案。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">纯</span> <span class="pre">Linux</span> <span class="pre">/</span> <span class="pre">WSL2</span></code></dt><dd><p>推荐直接使用 <a class="reference internal" href="3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 的 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 环境，抓包更纯净、问题更少。</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">OSLab</span> <span class="pre">Ubuntu</span> <span class="pre">虚拟机</span></code></dt><dd><p>如果使用 T2102、T2210、T2507、T2608 实验室中预装的 OSLab Ubuntu 虚拟机，请按照 <a class="reference internal" href="4oslab_ubuntu.html"><span class="doc">OSLab Ubuntu 环境配置</span></a> 完成依赖安装、远程连接、编译、<code class="docutils literal notranslate"><span class="pre">veth</span></code> 配置和组件调试。</p>
+</dd>
+</dl>
+</section>
+<section id="windows">
+<h2><span class="section-number">1.2. </span>Windows 环境检查清单<a class="headerlink" href="0checklist.html#windows" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Npcap 版本建议使用 <code class="docutils literal notranslate"><span class="pre">1.31</span></code>，不要升级到最新版。</p></li>
+<li><p>安装 Npcap 时必须勾选 <code class="docutils literal notranslate"><span class="pre">Install</span> <span class="pre">Npcap</span> <span class="pre">in</span> <span class="pre">WinPcap</span> <span class="pre">API-compatible</span> <span class="pre">Mode</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span></code>、<code class="docutils literal notranslate"><span class="pre">gcc</span></code>、<code class="docutils literal notranslate"><span class="pre">gdb</span></code> 需要能在终端中直接找到，VSCode 的 CMake Kit 需要选到 MinGW / GCC。</p></li>
+<li><p>打开工程时，必须直接打开 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 根目录，不能只打开子目录。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code> 需要与物理机网卡同网段、不同主机号。</p></li>
+<li><p>Wireshark 抓包时要选对网卡，并打开 IPv4 / UDP / TCP 的 checksum 校验选项。</p></li>
+<li><p>如果抓包中 checksum 总是 0，先排查是否开启了硬件校验和卸载，不要立刻判断代码错误。</p></li>
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 出现异常，先排查 Npcap 版本，再排查无线网卡和防火墙问题。</p></li>
+</ol>
+</section>
+<section id="linux-wsl">
+<h2><span class="section-number">1.3. </span>Linux / WSL 环境检查清单<a class="headerlink" href="0checklist.html#linux-wsl" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>系统中需要有 <code class="docutils literal notranslate"><span class="pre">sudo</span></code>、<code class="docutils literal notranslate"><span class="pre">gcc</span></code>、<code class="docutils literal notranslate"><span class="pre">cmake</span></code>、<code class="docutils literal notranslate"><span class="pre">gdb</span></code>、<code class="docutils literal notranslate"><span class="pre">ip</span></code>、<code class="docutils literal notranslate"><span class="pre">ethtool</span></code>。</p></li>
+<li><p>按照 <a class="reference internal" href="3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 创建 <code class="docutils literal notranslate"><span class="pre">veth0</span></code> / <code class="docutils literal notranslate"><span class="pre">veth1</span></code>，并确保协议栈 IP 与 <code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code> 中 <code class="docutils literal notranslate"><span class="pre">STACK_IP</span></code> 一致。</p></li>
+<li><p>路由表里应存在发往实验网段、走 <code class="docutils literal notranslate"><span class="pre">veth1</span></code> 的路由。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">veth0</span></code> / <code class="docutils literal notranslate"><span class="pre">veth1</span></code> 的 Checksum Offload 需要关闭，否则抓包与实际发包行为可能不一致。</p></li>
+<li><p>如果使用 WSL2，请确认当前发行版拥有完整的网络管理权限，并可正常执行 <code class="docutils literal notranslate"><span class="pre">ip</span></code> / <code class="docutils literal notranslate"><span class="pre">ethtool</span></code> / <code class="docutils literal notranslate"><span class="pre">sysctl</span></code>。</p></li>
+</ol>
+</section>
+<section id="id3">
+<h2><span class="section-number">1.4. </span>一键检查脚本<a class="headerlink" href="0checklist.html#id3" title="Link to this heading"></a></h2>
+<p>我们提供了两份简单的环境检测脚本，用于在开始实验前快速检查常见配置项。请按自己的系统下载对应脚本进行检查。</p>
+<p><strong>Windows 检查脚本（PowerShell）</strong></p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/a8b8330fcf7b50f8a6c72286c454b3c0/env_check_win.ps1"><code class="xref download docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">环境检测脚本</span></code></a></p></li>
+</ul>
+<p>打开 PowerShell 的方式：点击开始菜单，搜索 <code class="docutils literal notranslate"><span class="pre">PowerShell</span></code> 并打开；也可以在脚本所在文件夹的地址栏输入 <code class="docutils literal notranslate"><span class="pre">powershell</span></code> 后回车。</p>
+<p>如果脚本下载到了“下载”目录：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd </span><span class="nv">$env:USERPROFILE</span><span class="p">\</span><span class="n">Downloads</span>
+</pre></div>
+</div>
+<p>然后再执行：</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="p">.\</span><span class="n">env_check_win</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+<p>如果提示脚本执行策略受限，请确认使用的是上面的完整命令，不要直接双击运行 <code class="docutils literal notranslate"><span class="pre">.ps1</span></code> 文件。</p>
+<p><strong>Linux / WSL 检查脚本（Bash）</strong></p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/a27fe558f351c7b579daf2fad1a9fc28/env_check_linux.sh"><code class="xref download docutils literal notranslate"><span class="pre">Linux</span> <span class="pre">/</span> <span class="pre">WSL</span> <span class="pre">环境检测脚本</span></code></a></p></li>
+</ul>
+<p>如果脚本下载到了“下载”目录：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Downloads
+</pre></div>
+</div>
+<p>然后再执行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>./env_check_linux.sh
+./env_check_linux.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>上述脚本只能帮助你快速发现常见问题，不能替代人工确认。若脚本输出正常，但实验仍异常，请继续参考 <a class="reference internal" href="../appendix-g/0bug-handbook.html"><span class="doc">典型 Bug 排查手册</span></a> 与各实验的常见问题页面排查。</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="附录 B：网络编程实验环境" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="1win.html" class="btn btn-neutral float-right" title="2. Windows开发环境搭建" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

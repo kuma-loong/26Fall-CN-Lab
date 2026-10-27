@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. IPv6 双协议栈 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6. 搭建简易FTP服务器" href="4FTP.html" />
+    <link rel="prev" title="4. IP重组" href="2IP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">附加题（选做）</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0vlan.html">1. 组建小型公司局域网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0route.html">2. 组网排错</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1ping.html">3. ping实现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2IP.html">4. IP重组</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="3IPv6.html#">5. IPv6 双协议栈</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3IPv6.html#id1">5.1. 实验提交</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4FTP.html">6. 搭建简易FTP服务器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5Monitor.html">7. 协议栈可视化监控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8IPv6only.html">8. 网络全面IPv6化（IPv6 Only）</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">附加题（选做）</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>IPv6 双协议栈</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/proplus/3IPv6.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ipv6">
+<h1><span class="section-number">5. </span>IPv6 双协议栈<a class="headerlink" href="3IPv6.html#ipv6" title="Link to this heading"></a></h1>
+<p>在完成基础实验的情况下，本附加题实验得分可加 1 分（总分不超过 20 分）。在基础网络协议栈中，通常仅实现了 IPv4 协议，而 IPv6 作为下一代互联网协议，具有诸多优势。本实验要求在现有协议栈基础上实现 IPv6 双协议栈，使系统能够同时支持 IPv4 和 IPv6 协议。</p>
+<blockquote>
+<div><p>具体的实验要求为：</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>协议栈修改</strong>：在现有代码基础上进行修改，可在 ip.c 或相关文件中添加对 IPv6 协议的处理逻辑。同时，需要添加新的数据结构来存储 IPv6 地址、头部信息等。</p></li>
+<li><p><strong>地址转换与映射</strong>：实现 IPv4 和 IPv6 地址之间的转换和映射机制，确保系统能够正确处理不同类型的地址。例如，对于 IPv4 映射的 IPv6 地址（如 ::FFFF:w.x.y.z），需要能够正确识别和处理。</p></li>
+<li><p><strong>双栈通信支持</strong>：确保系统能够同时处理 IPv4 和 IPv6 的数据包，实现双栈之间的通信。例如，当接收到 IPv4 或 IPv6 数据包时，能够正确解析并处理。</p></li>
+</ul>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>实验提交<a class="headerlink" href="3IPv6.html#id1" title="Link to this heading"></a></h2>
+<p>请提交实验报告和代码。实验报告需要给出设计方案（包括数据结构设计、算法流程等）、实验结果（如双栈通信测试结果）及分析（如遇到的问题及解决方法等）。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="2IP.html" class="btn btn-neutral float-left" title="4. IP重组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="4FTP.html" class="btn btn-neutral float-right" title="6. 搭建简易FTP服务器" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

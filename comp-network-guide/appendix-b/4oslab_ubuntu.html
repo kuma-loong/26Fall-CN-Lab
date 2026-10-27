@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. OSLab Ubuntu 环境配置 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="附录 C：网络实验室环境及设备简介" href="../appendix-c/index.html" />
+    <link rel="prev" title="3. 纯 Linux/WSL2 环境配置（veth）" href="3linux_physical.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">附录 B：网络编程实验环境</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0checklist.html">1. 环境配置检查清单</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1win.html">2. Windows开发环境搭建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3linux_physical.html">3. 纯 Linux/WSL2 环境配置（veth）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="4oslab_ubuntu.html#">4. OSLab Ubuntu 环境配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#osa">4.1. 配置 OSA 校内软件源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#id2">4.2. 安装实验依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#net-lab">4.3. 下载和编译 net-lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#vs-code-net-lab">4.3.1. 在远程 VS Code 中打开 net-lab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#ip">4.3.2. 修改协议栈 IP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#cmake">4.3.3. 使用 CMake 配置并编译</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#veth">4.4. 配置 veth 环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#linux-component-debug">4.5. 组件测试与调试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#vscode">4.5.1. 创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#launch-json">4.5.2. 填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#tasks-json">4.5.3. 填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id5">4.5.4. 配置说明与按需编译</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id6">4.5.5. 运行调试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id7">4.5.6. 命令行验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#udptcp-web">4.6. UDP、TCP 与 Web 服务的测试和调试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id8">4.6.1. 测试环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#udp">4.6.2. UDP 服务测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#tcp">4.6.3. TCP 服务测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#http">4.6.4. HTTP 服务测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id9">4.6.5. 断点调试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#wireshark">4.6.6. Wireshark 抓包</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">附录 B：网络编程实验环境</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>OSLab Ubuntu 环境配置</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-b/4oslab_ubuntu.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="oslab-ubuntu">
+<h1><span class="section-number">4. </span>OSLab Ubuntu 环境配置<a class="headerlink" href="4oslab_ubuntu.html#oslab-ubuntu" title="Link to this heading"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>开始配置前，请先将宿主机连接校园网，并完成统一身份认证登录。后续安装编译、抓包、虚拟网卡和测试所需的软件时，需要能够正常访问网络；如果未连接校园网或未完成认证，软件安装可能失败。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>本节适用于 T2102、T2210、T2507、T2608 实验室中预装的 OSLab Ubuntu 虚拟机。</p>
+<p>该虚拟机可以与操作系统实验共用，不需要重新安装或创建新的虚拟机。OSLab 虚拟机固定为 Ubuntu 20.04，登录用户拥有 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 权限，并且已经预装 SSH 服务。</p>
+<p>只需按照本节补装计算机网络实验所需的工具。两门实验的代码分别放在各自的项目目录中，不会影响彼此的源代码。</p>
+<p>虚拟机的启动、网络和基本使用方法请参考 <a class="reference external" href="https://os-labs.p.cs-lab.top/vm_env.html">OSLab 虚拟机使用指南</a>。</p>
+</div>
+<p>本节介绍虚拟机启动、校内软件源、实验依赖、代码编译、<code class="docutils literal notranslate"><span class="pre">veth</span></code> 配置和 VS Code 远程开发；配置完成后，请按照 <a class="reference internal" href="3linux_physical.html#linux-veth-usage"><span class="std std-ref">Linux/veth 使用步骤</span></a> 运行协议栈并进行集成测试。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p><strong>T2102 实验室：配置 Host-only IP</strong></p>
+<p>此步骤仅适用于 T2102 实验室中使用预装 OSLab 虚拟机的同学。T2210、T2507、T2608 实验室和个人电脑使用者不需要修改 Host-only 网卡。</p>
+<p>启动虚拟机前，在 VirtualBox 中完成以下配置：</p>
+<ol class="arabic simple">
+<li><p>打开 VirtualBox，先不要启动虚拟机。</p></li>
+<li><p>点击左侧“工具”，进入“仅主机（Host-Only）网络”页面。</p></li>
+<li><p>选中 <code class="docutils literal notranslate"><span class="pre">VirtualBox</span> <span class="pre">Host-Only</span> <span class="pre">Ethernet</span> <span class="pre">Adapter</span></code>。</p></li>
+<li><p>选择“手动配置网卡”，将 IPv4 地址设为 <code class="docutils literal notranslate"><span class="pre">192.168.56.1</span></code>。</p></li>
+<li><p>点击“应用”保存，然后启动 <code class="docutils literal notranslate"><span class="pre">oslab2</span></code> 虚拟机。</p></li>
+</ol>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/T2102-hostonly.png"><img alt="VirtualBox 中配置 T2102 的 Host-only 网卡 IPv4 地址为 192.168.56.1" src="../_images/T2102-hostonly.png" style="width: 95%;" /></a>
+<figcaption>
+<p><span class="caption-text">配置 Host-only IP（截图来源：OSLab 虚拟机使用指南）。</span><a class="headerlink" href="4oslab_ubuntu.html#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div>
+<p><strong>OSLab 虚拟机登录信息</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>用户名</p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">oslab</span></code></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>密码</p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">123456</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>远程连接与实验步骤</strong></p>
+<p>虚拟机启动后，请参考 <a class="reference external" href="https://os-labs.p.cs-lab.top/vm_env.html">OSLab 虚拟机使用指南</a> 的第 2.1 至 2.3 节：获取虚拟机 IP、准备远程连接工具，并使用 VS Code Remote-SSH 连接虚拟机。Host-only 虚拟机地址通常为 <code class="docutils literal notranslate"><span class="pre">192.168.56.xxx</span></code>，连接时使用第 2.1 节查到的实际地址。</p>
+<p>连接成功后，不需要继续参考该指南的第 2.4 节“运行 XV6 实验”。直接回到本页，配置网络实验软件源和依赖，并下载 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 开始计算机网络实验。</p>
+<section id="osa">
+<h2><span class="section-number">4.1. </span>配置 OSA 校内软件源<a class="headerlink" href="4oslab_ubuntu.html#osa" title="Link to this heading"></a></h2>
+<p>以下软件源由学校 <strong>开源技术协会（Open Source Association，OSA）</strong> 搭建和维护。OSLab 虚拟机在校内网络中访问该镜像站时，网络路径更短，下载 Ubuntu 软件包的速度通常会比访问校外源快很多，可以明显缩短安装实验依赖所需的时间。感谢开源技术协会（OSA）为实验室提供校内镜像服务以及相关技术支持。</p>
+<p>下面首次执行 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 命令时，终端会要求输入虚拟机登录密码（默认 <code class="docutils literal notranslate"><span class="pre">123456</span></code>，如果已经修改过密码则输入修改后的密码）。输入时屏幕不会显示字符或星号，这是正常现象；输入完成后按回车即可。</p>
+<p>修改软件源前先备份原配置：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span><span class="s2">&quot;/etc/apt/sources.list.bak.</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>将 <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list</span></code> 的内容替换为以下配置：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
+<span class="s">deb https://mirrors.osa.moe/ubuntu/ focal main restricted universe multiverse</span>
+<span class="s">deb https://mirrors.osa.moe/ubuntu/ focal-updates main restricted universe multiverse</span>
+<span class="s">deb https://mirrors.osa.moe/ubuntu/ focal-backports main restricted universe multiverse</span>
+<span class="s">deb https://mirrors.osa.moe/ubuntu/ focal-security main restricted universe multiverse</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>然后更新软件包索引：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>如果 <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">update</span></code> 报告其他第三方软件源失效，请先检查 <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list.d/</span></code> 中的配置。只有在确认该软件源不再使用后，才禁用或删除对应配置，不要修改本节给出的校内 Ubuntu 源。</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>安装实验依赖<a class="headerlink" href="4oslab_ubuntu.html#id2" title="Link to this heading"></a></h2>
+<p>建议一次性安装编译、抓包、虚拟网卡和测试所需的软件：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>git<span class="w"> </span>ca-certificates<span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>gdb<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libpcap-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>iproute2<span class="w"> </span>ethtool<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>libreadline-dev<span class="w"> </span>libncurses-dev<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>wireshark<span class="w"> </span>tshark<span class="w"> </span>netcat-openbsd<span class="w"> </span>curl
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>安装 <code class="docutils literal notranslate"><span class="pre">wireshark</span></code> 时，终端可能会先显示 <code class="docutils literal notranslate"><span class="pre">README.Debian</span></code> 说明，并出现 <code class="docutils literal notranslate"><span class="pre">[More]</span></code> 提示。此时仍处于分页阅读状态，不是安装报错：</p>
+<ul class="simple">
+<li><p>按空格键（<code class="docutils literal notranslate"><span class="pre">Space</span></code>）显示下一页，按回车键只向下滚动一行；</p></li>
+<li><p>阅读完毕或不需要查看说明时，按 <code class="docutils literal notranslate"><span class="pre">q</span></code> 退出分页。</p></li>
+</ul>
+<p>退出分页后，安装程序可能询问是否允许普通用户抓包。这个提示可能显示为弹窗，也可能出现在终端中：</p>
+<p><code class="docutils literal notranslate"><span class="pre">Should</span> <span class="pre">non-superusers</span> <span class="pre">be</span> <span class="pre">able</span> <span class="pre">to</span> <span class="pre">capture</span> <span class="pre">packets?</span> <span class="pre">[yes/no]</span></code></p>
+<p>本实验需要使用 Wireshark 或 TShark <strong>实时抓取</strong> <code class="docutils literal notranslate"><span class="pre">veth</span></code> 网卡上的数据包，请选择 <code class="docutils literal notranslate"><span class="pre">Yes</span></code> 并确认。如果终端显示选项窗口，可用 <code class="docutils literal notranslate"><span class="pre">Tab</span></code> 或方向键选中 <code class="docutils literal notranslate"><span class="pre">Yes</span></code>，再按回车；如果只显示文字提示，则输入 <code class="docutils literal notranslate"><span class="pre">yes</span></code> 并回车。</p>
+</div>
+<p>其中：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gcc</span></code>、<code class="docutils literal notranslate"><span class="pre">g++</span></code>、<code class="docutils literal notranslate"><span class="pre">make</span></code>、<code class="docutils literal notranslate"><span class="pre">cmake</span></code> 用于编译 net-lab；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libpcap-dev</span></code> 用于编译 Linux 下的抓包驱动；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iproute2</span></code>、<code class="docutils literal notranslate"><span class="pre">ethtool</span></code> 用于创建和配置 <code class="docutils literal notranslate"><span class="pre">veth</span></code>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gdb</span></code> 用于普通 GDB 调试；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wireshark</span></code>、<code class="docutils literal notranslate"><span class="pre">tshark</span></code> 用于查看和分析抓包；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">netcat-openbsd</span></code>、<code class="docutils literal notranslate"><span class="pre">curl</span></code> 用于 UDP、TCP 和 HTTP 集成测试。</p></li>
+</ul>
+<p>默认情况下不需要安装 <code class="docutils literal notranslate"><span class="pre">gdbserver</span></code>。只有在 VS Code 中调试需要 Raw Socket 权限的集成程序时才需要，见本页后文说明。</p>
+</section>
+<section id="net-lab">
+<h2><span class="section-number">4.3. </span>下载和编译 net-lab<a class="headerlink" href="4oslab_ubuntu.html#net-lab" title="Link to this heading"></a></h2>
+<section id="vs-code-net-lab">
+<h3><span class="section-number">4.3.1. </span>在远程 VS Code 中打开 net-lab<a class="headerlink" href="4oslab_ubuntu.html#vs-code-net-lab" title="Link to this heading"></a></h3>
+<p>先在 Ubuntu 虚拟机的终端中查看 IP 地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname<span class="w"> </span>-I
+</pre></div>
+</div>
+<p>然后在 Windows 的 VS Code 中使用 Remote-SSH 连接 <code class="docutils literal notranslate"><span class="pre">oslab&#64;&lt;虚拟机IP&gt;</span></code>，将占位符替换为刚查到的实际 IP；Host-only 地址通常为 <code class="docutils literal notranslate"><span class="pre">192.168.56.xxx</span></code>。连接步骤可参考 <a class="reference external" href="https://os-labs.p.cs-lab.top/vm_env.html">OSLab 虚拟机使用指南</a> 第 2.1 至 2.3 节。如果前面配置软件源和依赖时已经连接了虚拟机，继续使用该远程窗口即可。</p>
+<p>连接成功后，在 VS Code 的远程终端中下载实验代码（如果已有 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code>，则直接进入该目录）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
+git<span class="w"> </span>clone<span class="w"> </span>https://git.cs-lab.top/cslab/net-lab.git
+<span class="nb">cd</span><span class="w"> </span>~/net-lab
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/oslab-clone.png"><img alt="在 OSLab Ubuntu 终端中克隆并进入 net-lab 仓库" src="../_images/oslab-clone.png" style="width: 100%;" /></a>
+</figure>
+<p>在 VS Code 远程窗口中选择“文件 → 打开文件夹”，打开 <code class="docutils literal notranslate"><span class="pre">/home/oslab/net-lab</span></code>。确认左下角显示 SSH 远程连接状态，且打开的是 Linux 上的项目目录。</p>
+<p>确认 C/C++ 和 CMake Tools 扩展安装在远程主机侧。VS Code 集成终端应显示 Linux shell，并且以下命令能正常执行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+cmake<span class="w"> </span>--version
+gdb<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+<section id="ip">
+<h3><span class="section-number">4.3.2. </span>修改协议栈 IP<a class="headerlink" href="4oslab_ubuntu.html#ip" title="Link to this heading"></a></h3>
+<p>在 VS Code 中打开 <code class="docutils literal notranslate"><span class="pre">~/net-lab/include/config.h</span></code>，只修改非 <code class="docutils literal notranslate"><span class="pre">TEST</span></code> 分支中的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>。将原来的：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NET_IF_IP        \</span>
+<span class="cp">    {                    \</span>
+<span class="cp">        XX, XX, XX, XX   \</span>
+<span class="cp">    }  </span><span class="c1">// 自定义网卡ip地址</span>
+</pre></div>
+</div>
+<p>改成：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NET_IF_IP        \</span>
+<span class="cp">    {                    \</span>
+<span class="cp">        192, 168, 254, 2 \</span>
+<span class="cp">    }  </span><span class="c1">// 与 setup_veth.sh 中的 STACK_IP 一致</span>
+</pre></div>
+</div>
+<p>不要修改 <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支中的测试地址。<code class="docutils literal notranslate"><span class="pre">eth_in</span></code>、<code class="docutils literal notranslate"><span class="pre">arp_test</span></code> 等组件测试使用离线 pcap 和固定测试配置；<code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">web_server</span></code> 等集成测试才使用上面修改的协议栈 IP。</p>
+</section>
+<section id="cmake">
+<h3><span class="section-number">4.3.3. </span>使用 CMake 配置并编译<a class="headerlink" href="4oslab_ubuntu.html#cmake" title="Link to this heading"></a></h3>
+<p>保存 <code class="docutils literal notranslate"><span class="pre">config.h</span></code> 后，在 VS Code 远程终端中执行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug
+cmake<span class="w"> </span>--build<span class="w"> </span>build
+</pre></div>
+</div>
+</section>
+</section>
+<section id="veth">
+<h2><span class="section-number">4.4. </span>配置 veth 环境<a class="headerlink" href="4oslab_ubuntu.html#veth" title="Link to this heading"></a></h2>
+<p>在已连接虚拟机的 VS Code 远程窗口中，打开 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code> 文件夹，点击资源管理器中的“新建文件”，将文件命名为 <code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code>。把下面的脚本完整复制到文件中，按 <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> 保存。</p>
+<p>脚本使用与 <a class="reference internal" href="3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 相同的默认地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Configuration</span>
+<span class="nv">STACK_IP</span><span class="o">=</span><span class="s2">&quot;192.168.254.2&quot;</span>
+<span class="nv">NET_PREFIX</span><span class="o">=</span><span class="s2">&quot;192.168.254&quot;</span>
+<span class="nv">VETH_USER</span><span class="o">=</span><span class="s2">&quot;veth0&quot;</span>
+<span class="nv">VETH_KERNEL</span><span class="o">=</span><span class="s2">&quot;veth1&quot;</span>
+
+<span class="nv">VETH_USER_IP</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">NET_PREFIX</span><span class="si">}</span><span class="s2">.3/24&quot;</span>
+<span class="nv">VETH_KERNEL_IP</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">NET_PREFIX</span><span class="si">}</span><span class="s2">.1/24&quot;</span>
+<span class="nv">SUBNET</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">NET_PREFIX</span><span class="si">}</span><span class="s2">.0/24&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Setting up veth pair for Net-Lab ===&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Configuration:&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  Stack IP:   </span><span class="nv">$STACK_IP</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  Prefix:     </span><span class="nv">$NET_PREFIX</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  Interfaces: </span><span class="nv">$VETH_USER</span><span class="s2"> &lt;-&gt; </span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+
+<span class="k">if</span><span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Removing existing </span><span class="nv">$VETH_USER</span><span class="s2">...&quot;</span>
+<span class="w">    </span>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>del<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Creating veth pair: </span><span class="nv">$VETH_USER</span><span class="s2"> &lt;-&gt; </span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span><span class="w"> </span><span class="nb">type</span><span class="w"> </span>veth<span class="w"> </span>peer<span class="w"> </span>name<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Bringing up interfaces...&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span><span class="w"> </span>up
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span><span class="w"> </span>up
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Assigning IP </span><span class="nv">$VETH_USER_IP</span><span class="s2"> to </span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER_IP</span><span class="s2">&quot;</span><span class="w"> </span>dev<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Assigning IP </span><span class="nv">$VETH_KERNEL_IP</span><span class="s2"> to </span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL_IP</span><span class="s2">&quot;</span><span class="w"> </span>dev<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleting kernel route for </span><span class="nv">$VETH_USER</span><span class="s2">...&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SUBNET</span><span class="s2">&quot;</span><span class="w"> </span>dev<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Disabling checksum offload...&quot;</span>
+sudo<span class="w"> </span>ethtool<span class="w"> </span>-K<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span><span class="w"> </span>rx<span class="w"> </span>off<span class="w"> </span>tx<span class="w"> </span>off
+sudo<span class="w"> </span>ethtool<span class="w"> </span>-K<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span><span class="w"> </span>rx<span class="w"> </span>off<span class="w"> </span>tx<span class="w"> </span>off
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Configuring IPv6...&quot;</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;net.ipv6.conf.</span><span class="nv">$VETH_USER</span><span class="s2">.disable_ipv6=0&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;net.ipv6.conf.</span><span class="nv">$VETH_KERNEL</span><span class="s2">.disable_ipv6=0&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+
+<span class="nv">VETH_KERNEL_IP6</span><span class="o">=</span><span class="s2">&quot;fd00::1/64&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Assigning IPv6 </span><span class="nv">$VETH_KERNEL_IP6</span><span class="s2"> to </span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>-6<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL_IP6</span><span class="s2">&quot;</span><span class="w"> </span>dev<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_KERNEL</span><span class="s2">&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Disabling ARP on </span><span class="nv">$VETH_USER</span><span class="s2">...&quot;</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>dev<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span><span class="w"> </span>arp<span class="w"> </span>off
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Setup Complete ===&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;User Stack Interface: </span><span class="nv">$VETH_USER</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Kernel Interface:     </span><span class="nv">$VETH_KERNEL</span><span class="s2"> (IP: </span><span class="nv">$VETH_KERNEL_IP</span><span class="s2">)&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;UDP/TCP Test:         nc </span><span class="nv">$STACK_IP</span><span class="s2"> 60000&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Web Test:             curl http://</span><span class="nv">$STACK_IP</span><span class="s2">/&quot;</span>
+</pre></div>
+</div>
+<p>保存后，在虚拟机的终端执行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+chmod<span class="w"> </span>+x<span class="w"> </span>setup_veth.sh
+sudo<span class="w"> </span>./setup_veth.sh
+</pre></div>
+</div>
+<p>脚本默认使用以下地址关系：</p>
+<ul class="simple">
+<li><p>协议栈 IP（<code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>）：<code class="docutils literal notranslate"><span class="pre">192.168.254.2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">veth0</span></code>：<code class="docutils literal notranslate"><span class="pre">192.168.254.3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">veth1</span></code>：<code class="docutils literal notranslate"><span class="pre">192.168.254.1</span></code></p></li>
+</ul>
+<p>协议栈 IP 必须是 <code class="docutils literal notranslate"><span class="pre">192.168.254.2</span></code>，不能改成 <code class="docutils literal notranslate"><span class="pre">veth0</span></code> 的地址 <code class="docutils literal notranslate"><span class="pre">192.168.254.3</span></code>。脚本执行后可以检查接口和路由：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>veth0
+ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>veth1
+ip<span class="w"> </span>route<span class="w"> </span>show<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">192</span>.168.254
+</pre></div>
+</div>
+<p>虚拟机重启后，<code class="docutils literal notranslate"><span class="pre">veth</span></code> 设备和相关路由可能会消失，需要重新执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./setup_veth.sh</span></code>。</p>
+</section>
+<section id="linux-component-debug">
+<span id="id4"></span><h2><span class="section-number">4.5. </span>组件测试与调试<a class="headerlink" href="4oslab_ubuntu.html#linux-component-debug" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">eth_in</span></code>、<code class="docutils literal notranslate"><span class="pre">eth_out</span></code>、<code class="docutils literal notranslate"><span class="pre">arp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code>、<code class="docutils literal notranslate"><span class="pre">icmp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">udp_test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 都是离线组件测试。它们通过 <code class="docutils literal notranslate"><span class="pre">testing/faker/driver.c</span></code> 或其他 faker 模块读取测试目录中的输入文件，不访问真实网卡，因此调试这些组件不需要执行 <code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code>，也不需要 sudo 或 gdbserver。</p>
+<p>注意，<code class="docutils literal notranslate"><span class="pre">udp_test</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 是离线组件测试；<code class="docutils literal notranslate"><span class="pre">udp_server</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 则属于后文介绍的在线集成测试，两者不要混淆。</p>
+<section id="vscode">
+<h3><span class="section-number">4.5.1. </span>创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件<a class="headerlink" href="4oslab_ubuntu.html#vscode" title="Link to this heading"></a></h3>
+<p>请先确认 VS Code 打开的文件夹是 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code> 项目根目录，而不是 <code class="docutils literal notranslate"><span class="pre">~/net-lab/build</span></code> 或其他目录。<code class="docutils literal notranslate"><span class="pre">${workspaceFolder}</span></code> 在下面的配置中应当指向 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code>。</p>
+<p>可以通过 VS Code 界面创建文件：</p>
+<ol class="arabic simple">
+<li><p>在左侧资源管理器中打开 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code>。</p></li>
+<li><p>如果项目根目录下还没有 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹，点击“新建文件夹”创建。文件夹名开头的英文句点 <code class="docutils literal notranslate"><span class="pre">.</span></code> 不要漏掉；如果已经存在，则直接打开它，不需要重复创建。</p></li>
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 下还没有 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code>，右键点击 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹，选择“新建文件”创建；如果已经存在，则直接打开并修改。</p></li>
+<li><p>用同样的方法创建或打开 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code>。</p></li>
+</ol>
+<p>也可以在 VS Code 的 Linux 终端中执行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">.vscode</span></code> 不会覆盖已有的 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹。</p>
+<p>执行后，在 VS Code 资源管理器中创建或打开 <code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code> 和 <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code>，分别将下面对应的完整内容复制到文件中并保存。</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/vscode-json.jpg"><img alt="VS Code 远程窗口中的 net-lab 文件列表，.vscode 文件夹包含 launch.json 和 tasks.json" src="../_images/vscode-json.jpg" style="width: 85%;" /></a>
+<figcaption>
+<p><span class="caption-text">文件位置示例：<code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹内，<code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录。</span><a class="headerlink" href="4oslab_ubuntu.html#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="launch-json">
+<h3><span class="section-number">4.5.2. </span>填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code><a class="headerlink" href="4oslab_ubuntu.html#launch-json" title="Link to this heading"></a></h3>
+<p>将以下完整内容复制到 <code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code> 并保存。前八项用于普通组件测试；最后三项用于连接后文以 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">gdbserver</span></code> 启动的集成测试程序。</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eth_in (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/eth_in&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/eth_in&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eth_out (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/eth_out&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/eth_out&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arp_test (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/arp_test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/arp_test&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ip_test (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/ip_test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/ip_test&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ip_frag_test (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/ip_frag_test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/ip_frag_test&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;icmp_test (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/icmp_test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/icmp_test&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;udp_test (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/udp_test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/udp_test&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcp_test (Linux component test)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/tcp_test&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;testing/data/tcp_test&quot;</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;udp_server (Linux integration test via gdbserver)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/udp_server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerServerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:1234&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcp_server (Linux integration test via gdbserver)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/tcp_server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerServerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:1234&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;web_server (Linux integration test via gdbserver)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/build/web_server&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;miDebuggerServerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:1234&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;setupCommands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enable pretty-printing for gdb&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-enable-pretty-printing&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;ignoreFailures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="tasks-json">
+<h3><span class="section-number">4.5.3. </span>填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code><a class="headerlink" href="4oslab_ubuntu.html#tasks-json" title="Link to this heading"></a></h3>
+<p>将以下完整内容复制到 <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code> 并保存：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build component tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;--build&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;${workspaceFolder}/build&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;$gcc&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">4.5.4. </span>配置说明与按需编译<a class="headerlink" href="4oslab_ubuntu.html#id5" title="Link to this heading"></a></h3>
+<p>组件测试和集成测试的配置方式不同：</p>
+<ul class="simple">
+<li><p>前八个组件测试使用普通 GDB 启动；<code class="docutils literal notranslate"><span class="pre">program</span></code> 指向 <code class="docutils literal notranslate"><span class="pre">build</span></code> 目录下对应的可执行文件，<code class="docutils literal notranslate"><span class="pre">args</span></code> 传入对应的测试数据目录，而不是直接传入 <code class="docutils literal notranslate"><span class="pre">in.pcap</span></code> 或 <code class="docutils literal notranslate"><span class="pre">in.txt</span></code> 文件；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eth_in</span></code>、<code class="docutils literal notranslate"><span class="pre">eth_out</span></code>、<code class="docutils literal notranslate"><span class="pre">arp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_test</span></code>、<code class="docutils literal notranslate"><span class="pre">icmp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">udp_test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 默认读取各自目录中的 <code class="docutils literal notranslate"><span class="pre">in.pcap</span></code>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code> 默认读取 <code class="docutils literal notranslate"><span class="pre">testing/data/ip_frag_test/in.txt</span></code>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 的 <code class="docutils literal notranslate"><span class="pre">args</span></code> 必须保持为空；它们通过 <code class="docutils literal notranslate"><span class="pre">miDebuggerServerAddress</span></code> 连接本机 <code class="docutils literal notranslate"><span class="pre">localhost:1234</span></code> 上的 gdbserver，而非由 VS Code 直接启动；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 编译整个 <code class="docutils literal notranslate"><span class="pre">build</span></code> 目录，因此切换组件时不需要修改 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code>。</p></li>
+</ul>
+<p>默认的 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 会编译整个 <code class="docutils literal notranslate"><span class="pre">build</span></code> 目录。但如果希望只编译某个组件，应修改该任务的 <code class="docutils literal notranslate"><span class="pre">args</span></code> 数组。</p>
+<p>例如，调试 <code class="docutils literal notranslate"><span class="pre">eth_in</span></code> 时，将 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 原来的：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;--build&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;${workspaceFolder}/build&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>替换为：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;--build&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;${workspaceFolder}/build&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;--target&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;eth_in&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>此时 <code class="docutils literal notranslate"><span class="pre">--target</span></code> 后面的名称必须与 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 中 <code class="docutils literal notranslate"><span class="pre">program</span></code> 的可执行文件名一致。使用 <code class="docutils literal notranslate"><span class="pre">--target</span></code> 时，每次切换到其他组件都要同步修改这里；如果不想重复修改，保留默认的全量编译配置即可。</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">4.5.5. </span>运行调试<a class="headerlink" href="4oslab_ubuntu.html#id6" title="Link to this heading"></a></h3>
+<p>在 VS Code 中运行调试：</p>
+<ol class="arabic simple">
+<li><p>在 VS Code 左侧打开“运行和调试”。</p></li>
+<li><p>在顶部配置下拉菜单中选择要调试的协议对应的测试配置：调试哪个协议，就选择哪个协议的配置。例如，调试 ARP 协议时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span> <span class="pre">(Linux</span> <span class="pre">component</span> <span class="pre">test)</span></code>，调试以太网协议时选择 <code class="docutils literal notranslate"><span class="pre">eth_in</span></code> 或 <code class="docutils literal notranslate"><span class="pre">eth_out</span></code> 配置。</p></li>
+<li><p>打开对应的源文件，在希望程序停下的可执行语句旁设置断点，然后按 <code class="docutils literal notranslate"><span class="pre">F5</span></code> 启动调试。</p></li>
+</ol>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/vscode-run-gdb.jpg"><img alt="VS Code 运行和调试配置下拉菜单，包含 eth_in、eth_out 和 arp_test 等组件测试" src="../_images/vscode-run-gdb.jpg" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">调试某个协议时，应在图示下拉菜单中选择该协议对应的配置；例如调试 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>。</span><a class="headerlink" href="4oslab_ubuntu.html#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>如果选择了其他协议的配置，程序可能不会执行当前要调试的函数，断点也就不会命中。例如，调试 <code class="docutils literal notranslate"><span class="pre">src/arp.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">eth_in</span></code> 或 <code class="docutils literal notranslate"><span class="pre">eth_out</span></code>，这两个测试使用的是模拟 ARP 函数，不会执行 <code class="docutils literal notranslate"><span class="pre">src/arp.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code>。若选择了对应配置仍未停下，请检查断点是否设在函数内的可执行语句上；仅有 <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">TO-DO</span></code> 注释的行无法设置有效断点。</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../_images/gdb-6.png"><img alt="VS Code 左侧运行和调试入口、顶部调试配置下拉菜单和代码中的断点位置" src="../_images/gdb-6.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">“运行和调试”入口及断点位置示例。</span><a class="headerlink" href="4oslab_ubuntu.html#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id7">
+<h3><span class="section-number">4.5.6. </span>命令行验证<a class="headerlink" href="4oslab_ubuntu.html#id7" title="Link to this heading"></a></h3>
+<p>也可以在 VS Code 远程终端中运行组件测试：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+./build/eth_in<span class="w"> </span>testing/data/eth_in
+./build/arp_test<span class="w"> </span>testing/data/arp_test
+./build/ip_frag_test<span class="w"> </span>testing/data/ip_frag_test
+</pre></div>
+</div>
+<p>如果提示找不到输入文件，优先检查以下项目：</p>
+<ol class="arabic simple">
+<li><p>VS Code 的 <code class="docutils literal notranslate"><span class="pre">workspaceFolder</span></code> 是否为 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 根目录；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 的 <code class="docutils literal notranslate"><span class="pre">program</span></code> 和 <code class="docutils literal notranslate"><span class="pre">args</span></code> 是否属于同一个组件；</p></li>
+<li><p>对应测试目录是否存在，且 <code class="docutils literal notranslate"><span class="pre">args</span></code> 传入的是目录路径；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code> 是否使用了 <code class="docutils literal notranslate"><span class="pre">testing/data/ip_frag_test</span></code>，该目录中的输入文件名是 <code class="docutils literal notranslate"><span class="pre">in.txt</span></code>，不是 <code class="docutils literal notranslate"><span class="pre">in.pcap</span></code>。</p></li>
+</ol>
+</section>
+</section>
+<section id="udptcp-web">
+<h2><span class="section-number">4.6. </span>UDP、TCP 与 Web 服务的测试和调试<a class="headerlink" href="4oslab_ubuntu.html#udptcp-web" title="Link to this heading"></a></h2>
+<p>组件测试（如 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_test</span></code>）读取离线数据，不需要 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 或 <code class="docutils literal notranslate"><span class="pre">sudo</span></code>。<code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">web_server</span></code> 是在线集成测试，必须以 root 权限运行；CMake Tools 的普通“运行”不会自动提权。</p>
+<section id="id8">
+<h3><span class="section-number">4.6.1. </span>测试环境准备<a class="headerlink" href="4oslab_ubuntu.html#id8" title="Link to this heading"></a></h3>
+<p>在 VS Code 远程终端中先执行一次：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+sudo<span class="w"> </span>./setup_veth.sh
+</pre></div>
+</div>
+<p>然后每次只启动一个服务，并在 Ubuntu 虚拟机内运行对应客户端。<code class="docutils literal notranslate"><span class="pre">192.168.254.2</span></code> 是虚拟机内部 veth 网络的协议栈 IP，Windows 宿主机不能直接访问。</p>
+</section>
+<section id="udp">
+<h3><span class="section-number">4.6.2. </span>UDP 服务测试<a class="headerlink" href="4oslab_ubuntu.html#udp" title="Link to this heading"></a></h3>
+<p>在一个远程终端启动服务：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/udp_server
+</pre></div>
+</div>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../_images/oslab-udp.png"><img alt="OSLab 终端中运行 udp_server 并显示收到的 UDP 数据" src="../_images/oslab-udp.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">UDP 服务端启动并收到客户端发送的数据。</span><a class="headerlink" href="4oslab_ubuntu.html#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>在另一个远程终端运行客户端，输入文本并回车：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc<span class="w"> </span>-u<span class="w"> </span>-v<span class="w"> </span><span class="m">192</span>.168.254.2<span class="w"> </span><span class="m">60000</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../_images/oslab-udp-2.png"><img alt="在 OSLab 终端中使用 netcat 发送 UDP 数据并收到回显" src="../_images/oslab-udp-2.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">UDP 客户端发送数据并收到服务端回显。</span><a class="headerlink" href="4oslab_ubuntu.html#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>服务端应打印收到的内容，客户端应收到相同的回显。测试完成后，先在运行 <code class="docutils literal notranslate"><span class="pre">nc</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 退出客户端，再回到运行 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 停止服务。</p>
+</section>
+<section id="tcp">
+<h3><span class="section-number">4.6.3. </span>TCP 服务测试<a class="headerlink" href="4oslab_ubuntu.html#tcp" title="Link to this heading"></a></h3>
+<p>在服务端终端启动 TCP 服务：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/tcp_server
+</pre></div>
+</div>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../_images/oslab-tcp.png"><img alt="OSLab 终端中运行 tcp_server 并显示收到的 TCP 数据" src="../_images/oslab-tcp.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">TCP 服务端启动并收到客户端发送的数据。</span><a class="headerlink" href="4oslab_ubuntu.html#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>在另一个远程终端运行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc<span class="w"> </span>-v<span class="w"> </span><span class="m">192</span>.168.254.2<span class="w"> </span><span class="m">60000</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../_images/oslab-tcp-2.png"><img alt="使用 nc -v 连接 TCP 服务并收到回显" src="../_images/oslab-tcp-2.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">TCP 客户端连接成功，发送数据后收到服务端回显。</span><a class="headerlink" href="4oslab_ubuntu.html#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>输入文本并回车，客户端应收到回显，服务端也应打印收到的内容。测试完成后，先在运行 <code class="docutils literal notranslate"><span class="pre">nc</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 退出客户端，再回到运行 <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 停止服务。</p>
+</section>
+<section id="http">
+<h3><span class="section-number">4.6.4. </span>HTTP 服务测试<a class="headerlink" href="4oslab_ubuntu.html#http" title="Link to this heading"></a></h3>
+<p>在服务端终端启动 Web 服务：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/web_server
+</pre></div>
+</div>
+<p>在 Ubuntu 虚拟机桌面内打开浏览器，访问 <code class="docutils literal notranslate"><span class="pre">http://192.168.254.2/</span></code>；</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../_images/oslab-web.png"><img alt="在 OSLab 虚拟机内的 Firefox 浏览器中打开 Web 服务首页" src="../_images/oslab-web.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">在 OSLab 虚拟机内访问 Web 服务首页。</span><a class="headerlink" href="4oslab_ubuntu.html#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>也可以在另一个远程终端运行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>http://192.168.254.2/
+</pre></div>
+</div>
+<p>浏览器或终端应显示 Web Server 返回的首页内容。测试完成后停止客户端，再回到服务端终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 停止服务。虚拟机重启后，需重新执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./setup_veth.sh</span></code>；若出现 <code class="docutils literal notranslate"><span class="pre">pcap_open_live</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Operation</span> <span class="pre">not</span> <span class="pre">permitted</span></code>，请确认服务是用 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 启动的。</p>
+</section>
+<section id="id9">
+<h3><span class="section-number">4.6.5. </span>断点调试<a class="headerlink" href="4oslab_ubuntu.html#id9" title="Link to this heading"></a></h3>
+<p>先检查是否已安装 gdbserver：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdbserver<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>如果显示版本号，说明已安装；如果提示找不到命令，再执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">gdbserver</span></code>。</p>
+<p>之后将服务启动命令改为以下形式（以 UDP 为例）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
+sudo<span class="w"> </span>gdbserver<span class="w"> </span>localhost:1234<span class="w"> </span>./build/udp_server
+</pre></div>
+</div>
+<p>调试 TCP 或 HTTP 时，将命令末尾分别替换为 <code class="docutils literal notranslate"><span class="pre">./build/tcp_server</span></code> 或 <code class="docutils literal notranslate"><span class="pre">./build/web_server</span></code>。</p>
+<p>终端显示 <code class="docutils literal notranslate"><span class="pre">Listening</span> <span class="pre">on</span> <span class="pre">port</span> <span class="pre">1234</span></code> 后，在 VS Code“运行和调试”中选择对应的 <code class="docutils literal notranslate"><span class="pre">udp_server</span> <span class="pre">(Linux</span> <span class="pre">integration</span> <span class="pre">test</span> <span class="pre">via</span> <span class="pre">gdbserver)</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span> <span class="pre">(Linux</span> <span class="pre">integration</span> <span class="pre">test</span> <span class="pre">via</span> <span class="pre">gdbserver)</span></code> 或 <code class="docutils literal notranslate"><span class="pre">web_server</span> <span class="pre">(Linux</span> <span class="pre">integration</span> <span class="pre">test</span> <span class="pre">via</span> <span class="pre">gdbserver)</span></code> 配置并按 <code class="docutils literal notranslate"><span class="pre">F5</span></code>；若停在入口断点，继续运行后按相应小节测试。结束时停止调试，并在 gdbserver 终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code>。</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../_images/oslab-udp-gdb.png"><img alt="VS Code 通过 gdbserver 远程调试 udp_server" src="../_images/oslab-udp-gdb.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">VS Code 连接 gdbserver 并在 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> 中命中断点。</span><a class="headerlink" href="4oslab_ubuntu.html#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="wireshark">
+<h3><span class="section-number">4.6.6. </span>Wireshark 抓包<a class="headerlink" href="4oslab_ubuntu.html#wireshark" title="Link to this heading"></a></h3>
+<p>抓包前确认已经运行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./setup_veth.sh</span></code>，并且 <code class="docutils literal notranslate"><span class="pre">veth0</span></code>、<code class="docutils literal notranslate"><span class="pre">veth1</span></code> 已创建。Wireshark 需要在 OSLab Ubuntu 虚拟机内打开；Windows 宿主机上的 Wireshark 看不到虚拟机内部的 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 流量。</p>
+<p>在 Ubuntu 虚拟机桌面中打开终端，启动 Wireshark：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>wireshark
+</pre></div>
+</div>
+<p>在接口列表中选择 <code class="docutils literal notranslate"><span class="pre">veth0</span></code> 开始抓包。<code class="docutils literal notranslate"><span class="pre">veth0</span></code> 连接用户态协议栈，是本实验推荐的抓包接口；也可以选择 <code class="docutils literal notranslate"><span class="pre">veth1</span></code> 查看 Linux 内核侧的流量。开始抓包后，再在另一个终端运行 UDP、TCP 或 HTTP 测试；测试完成后停止抓包并查看报文。</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../_images/oslab-wireshark.png"><img alt="普通用户启动 Wireshark 后未显示本机网络接口，仅显示远程抓包源" src="../_images/oslab-wireshark.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">wireshark</span></code> 启动</span><a class="headerlink" href="4oslab_ubuntu.html#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../_images/oslab-wireshark-2.png"><img alt="Wireshark 在 veth0 接口抓到 HTTP 测试报文" src="../_images/oslab-wireshark-2.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-text">使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">wireshark</span></code> 在 <code class="docutils literal notranslate"><span class="pre">veth0</span></code> 上抓取 HTTP 测试报文。</span><a class="headerlink" href="4oslab_ubuntu.html#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="3linux_physical.html" class="btn btn-neutral float-left" title="3. 纯 Linux/WSL2 环境配置（veth）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../appendix-c/index.html" class="btn btn-neutral float-right" title="附录 C：网络实验室环境及设备简介" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+Windows 协议栈实验提交与自检
+==================================================
+
+本页适用于 Windows + PowerShell 环境。请先完成 :doc:`/appendix-b/1win` 中的 Git、CMake 3.13 或更新版本、MinGW / TDM-GCC 和 Npcap 配置。以下命令均在 ``net-lab`` 项目根目录执行。
+
+**1. Windows 环境下完成全部实验测试**
+
+在项目根目录配置、编译并运行全部组件测试：
+
+.. attention::
+
+   以下命令必须在 ``net-lab`` 项目根目录执行，不能在 ``net-lab\build`` 目录执行。运行命令前可先执行 ``Test-Path .\CMakeLists.txt``，输出 ``True`` 才表示当前目录正确。如果 PowerShell 提示符以 ``\net-lab\build>`` 结尾，请先执行 ``cd ..`` 返回项目根目录。
+
+.. code-block:: powershell
+
+   cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++
+   cmake --build build --target eth_in eth_out arp_test ip_test ip_frag_test icmp_test udp_test tcp_test
+   cmake -E chdir build ctest --output-on-failure
+
+最后一条命令会在 ``build`` 目录中运行 CTest，输出中应实际列出 8 项测试，并以 ``100% tests passed`` 结束。若显示 ``No tests were found``，说明测试没有运行，不能视为通过。
+
+组件测试使用固定的测试地址，无需以管理员权限运行。以上命令仅编译组件测试目标；UDP、TCP 和 HTTP 的集成测试请按 :doc:`Lab7（UDP） </lab7/0intro>` 和 :doc:`Lab9（TCP 与 HTTP） </lab9-tcp/0intro>` 中的方法完成。Lab9 完成后的统一提交要求全部组件测试和上述集成测试通过。
+
+**2. Windows 环境下保存实现并生成补丁**
+
+如果首次执行 ``git commit`` 提示缺少姓名或邮箱，请在项目根目录配置当前仓库后再提交：
+
+.. code-block:: powershell
+
+   git config user.name "你的姓名"
+   git config user.email "你的邮箱"
+
+请确认当前位于保存自己实现的开发分支，并且课程初始标签 ``net-lab-base`` 可用。使用课程仓库 ``git clone`` 获取代码时，该标签会自动获取。
+
+确认只包含必要的实验文件后，保存实现并导出补丁：
+
+.. code-block:: powershell
+
+   git add .
+   git commit -m "Complete protocol stack labs"
+   cmake -P tools/export_patch.cmake
+
+执行成功后，项目根目录会生成 ``commit.patch``，包含 Eth 到 HTTP 的全部已提交修改。后续修改实现时，需要重新提交并导出补丁。
+
+.. image:: commit-patch.png
+   :scale: 100%
+
+**3. Windows 环境下在干净初始代码上还原自检**
+
+这一步检查的是：老师能否仅靠你提交的 ``commit.patch``，在课程初始版本 ``net-lab-base`` 上还原代码，并重新编译、运行测试。
+
+**3.1 Windows：备份补丁并切换到初始版本**
+
+将补丁复制到项目外备份，并检查工作区状态：
+
+.. code-block:: powershell
+
+   Copy-Item .\commit.patch ..\net-lab-commit.patch
+   git status --short
+
+如果有需要纳入实验的未提交修改，请先提交并重新导出、备份补丁。若只是其他需要暂时保留的额外改动，可执行：
+
+.. code-block:: powershell
+
+   git stash push -u -m "before patch check"
+
+这些额外改动不会进入已经生成的补丁。确认 ``git status --short`` 没有输出后，再切换到课程初始版本：
+
+.. code-block:: powershell
+
+   git switch --detach net-lab-base
+
+此时进入“分离 HEAD”状态，工作区恢复为课程初始代码。这是补丁自检的正常步骤，后续还会返回开发分支。
+
+**3.2 Windows：应用补丁还原实现**
+
+复制回备份的补丁，先检查能否应用，再正式应用：
+
+.. code-block:: powershell
+
+   Copy-Item ..\net-lab-commit.patch .\commit.patch
+   git apply --check commit.patch
+   git apply commit.patch
+
+两条 Git 命令均无报错，说明补丁能够应用到课程初始代码。若报错，请核对初始标签及补丁是否正确，返回开发分支处理后重新导出。
+
+**3.3 Windows：重新编译并验证还原结果**
+
+在独立的 ``build/patch-check`` 目录重新配置、编译并运行全部组件测试：
+
+.. code-block:: powershell
+
+   cmake -S . -B build/patch-check -G "MinGW Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++
+   cmake --build build/patch-check --clean-first --target eth_in eth_out arp_test ip_test ip_frag_test icmp_test udp_test tcp_test
+   cmake -E chdir build/patch-check ctest --output-on-failure
+
+``--clean-first`` 会清理该目录的旧编译结果，确保运行的是刚还原的源码。输出中必须实际执行 8 项组件测试且全部通过；``No tests were found`` 不表示通过。
+
+以上命令仅编译组件测试目标；UDP、TCP 和 HTTP 的集成测试请按 :doc:`Lab7（UDP） </lab7/0intro>` 和 :doc:`Lab9（TCP 与 HTTP） </lab9-tcp/0intro>` 中的方法完成。
+
+**3.4 Windows：返回开发分支**
+
+测试结束后返回开发分支，下文以 ``main`` 为例：
+
+.. code-block:: powershell
+
+   git checkout -f main
+
+这会丢弃自检期间的未提交修改，并恢复 ``main`` 中已提交的实验实现。执行前请备份自检期间需要保留的新修改。
+
+如果 3.1 节执行过 ``git stash``，返回开发分支后再恢复暂存的改动：
+
+.. code-block:: powershell
+
+   git stash pop
+
+若恢复的改动属于最终实现，请重新提交、导出补丁并自检。``commit.patch`` 已被 Git 忽略，无需再对补丁执行 ``git add`` 或 ``git commit``。

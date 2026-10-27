@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Lab2 常见问题（Eth） &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3. Lab3 常见问题（ARP）" href="lab3.html" />
+    <link rel="prev" title="1. 典型 Bug 排查手册" href="0bug-handbook.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0bug-handbook.html">1. 典型 Bug 排查手册</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="lab2.html#">2. Lab2 常见问题（Eth）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html#id1">2.1. 进行环境配置时，选择编译器后报错？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html#cmaketdm-gcc-vscodecmake">2.2. 安装完CMAKE和TDM GCC后，VSCode的CMAKE上找不到项目的可执行程序？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html#cmake">2.3. CMake报错</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html#ctest">2.4. ctest运行报错</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab2.html#cmake-gdb">2.5. 能用CMAKE编译，不能用GDB调试？</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lab3.html">3. Lab3 常见问题（ARP）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab7.html">4. Lab7 常见问题（UDP）</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">常见问题</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Lab2 常见问题（Eth）</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-g/lab2.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab2-eth">
+<h1><span class="section-number">2. </span>Lab2 常见问题（Eth）<a class="headerlink" href="lab2.html#lab2-eth" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>进行环境配置时，选择编译器后报错？<a class="headerlink" href="lab2.html#id1" title="Link to this heading"></a></h2>
+<p>如下图所示</p>
+<img alt="../_images/lab2-12.png" src="../_images/lab2-12.png" />
+<p>解决方案：
+当前根目录下（即你通过VSCode的打开文件夹功能打开的文件夹）缺少“.code-workspace”文件，需要点击“文件”-&gt;“将工作区另存为”，见下图.</p>
+<a class="reference internal image-reference" href="../_images/lab2-13.png"><img alt="../_images/lab2-13.png" src="../_images/lab2-13.png" style="width: 510.40000000000003px; height: 499.20000000000005px;" /></a>
+<p>然后工作区就会出现“.code-workspace”文件，见下图</p>
+<img alt="../_images/lab2-14.png" src="../_images/lab2-14.png" />
+<p>打开“.code-workspace”文件，然后在settings中添加配置：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nt">&quot;cmake.generator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MinGW Makefiles&quot;</span>
+</pre></div>
+</div>
+<img alt="../_images/lab2-15.png" src="../_images/lab2-15.png" />
+</section>
+<section id="cmaketdm-gcc-vscodecmake">
+<h2><span class="section-number">2.2. </span>安装完CMAKE和TDM GCC后，VSCode的CMAKE上找不到项目的可执行程序？<a class="headerlink" href="lab2.html#cmaketdm-gcc-vscodecmake" title="Link to this heading"></a></h2>
+<p>如下图所示，找不到项目的可执行程序。</p>
+<a class="reference internal image-reference" href="../_images/lab2.png"><img alt="../_images/lab2.png" src="../_images/lab2.png" style="width: 235.0px; height: 291.0px;" /></a>
+<p>步骤1：检查CMake工具包配置</p>
+<p>首先，你需要先检查 “C:\Users\你自己电脑的用户名\AppData\Local\CMakeTools\CMakeTools-tools-kits.json”文件，该文件正常的配置应该如下图所示。</p>
+<img alt="../_images/lab2-2.png" src="../_images/lab2-2.png" />
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span>
+<span class="linenos"> 2</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GCC 10.3.0 x86_64-w64-mingw32&quot;</span><span class="p">,</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&quot;compilers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="nt">&quot;C&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-gcc.exe&quot;</span><span class="p">,</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="nt">&quot;CXX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe&quot;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="p">},</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="nt">&quot;preferredGenerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MinGW Makefiles&quot;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p">},</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">&quot;environmentVariables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">12</span><span class="w">      </span><span class="nt">&quot;CMT_MINGW_PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\TDM-GCC-64\\bin&quot;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="p">}</span>
+<span class="linenos">14</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">15</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>步骤2：修改CMake生成器设置</p>
+<ol class="arabic">
+<li><p>打开VSCode设置
+如果配置文件中GCC路径不正确（如显示为C:TDM-GCC-64bingcc.exe），请按以下步骤操作：</p>
+<p>单击VSCode的左下角齿轮图标，选择“设置”。</p>
+<img alt="../_images/lab2-6.png" src="../_images/lab2-6.png" />
+</li>
+<li><p>配置CMake生成器
+在弹出的窗口中输入“cmake generator”，然后在“Cmake: Generator 要使用的CMake生成器”中输入“MinGW Makefiles”，将Cmake生成器强制指定为MinGW Makefiles。</p>
+<img alt="../_images/lab2-7.png" src="../_images/lab2-7.png" />
+</li>
+</ol>
+<p>步骤3：重新扫描并选择工具包</p>
+<p>通过快捷键 Ctrl+Shift+P (Windows/Linux) ，打开命令面板。在命令面板中输入 CMake: Select a Kit。重新扫描[Scan for kits]，重新选择GCC，应该选择的是C:\TDM-GCC-64\bin\x86_64-w64-mingw32-gcc.exe。</p>
+<img alt="../_images/lab2-4.png" src="../_images/lab2-4.png" />
+<img alt="../_images/lab2-3.png" src="../_images/lab2-3.png" />
+<p>如果还不行，删掉本工程目录下的.vscode\settings.json文件，再重新扫描[Scan for kits]。</p>
+</section>
+<section id="cmake">
+<h2><span class="section-number">2.3. </span>CMake报错<a class="headerlink" href="lab2.html#cmake" title="Link to this heading"></a></h2>
+<p>CMake报错的情况以下几种情况：</p>
+<p>1、首先参考上一题的解决方案，先确保GCC是选对了。</p>
+<p>2、检测一下你的工程目录是不是实验包的根目录。</p>
+<p>正常的VSCode工程目录应该是这样的：</p>
+<a class="reference internal image-reference" href="../_images/vscode2.png"><img alt="../_images/vscode2.png" src="../_images/vscode2.png" style="width: 311.5px; height: 385.0px;" /></a>
+<p>下图的工程目录是不对的：</p>
+<img alt="../_images/lab2-8.png" src="../_images/lab2-8.png" />
+<p>同学们可以自行检查。</p>
+</section>
+<section id="ctest">
+<h2><span class="section-number">2.4. </span>ctest运行报错<a class="headerlink" href="lab2.html#ctest" title="Link to this heading"></a></h2>
+<p>如果出现下图的情况，一般是代码有段错误了，可以用GDB跟踪调试。</p>
+<img alt="../_images/lab2-9.png" src="../_images/lab2-9.png" />
+</section>
+<section id="cmake-gdb">
+<h2><span class="section-number">2.5. </span>能用CMAKE编译，不能用GDB调试？<a class="headerlink" href="lab2.html#cmake-gdb" title="Link to this heading"></a></h2>
+<p>如下图，能编译，但GDB调试不了。</p>
+<img alt="../_images/lab2-10.png" src="../_images/lab2-10.png" />
+<p>该同学的GCC安装在D:/program Files (x86)/TDM-GCC-64/目录下，launch.json配置如下：</p>
+<img alt="../_images/lab2-11.png" src="../_images/lab2-11.png" />
+<p>原因分析：</p>
+<p>GDB路径配置存在转义字符缺失问题：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1">// 错误配置（路径转义不完整）</span>
+<span class="linenos">2</span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;D:\\Program Files (x86)\\TDM-GCC-64\bin\\gdb.exe&quot;</span><span class="p">,</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1">// 正确配置（双反斜杠转义）</span>
+<span class="linenos">5</span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;D:\\Program Files (x86)\\TDM-GCC-64\\bin\\gdb.exe&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>注：Windows系统路径中的反斜杠在JSON配置中需要进行转义处理。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="0bug-handbook.html" class="btn btn-neutral float-left" title="1. 典型 Bug 排查手册" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="lab3.html" class="btn btn-neutral float-right" title="3. Lab3 常见问题（ARP）" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

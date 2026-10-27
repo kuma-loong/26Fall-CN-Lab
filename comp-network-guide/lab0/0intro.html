@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 实验简介 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2. 实验探索指南" href="1guide.html" />
+    <link rel="prev" title="计算机网络实验概述" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">计算机网络实验概述</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="0intro.html#">1. 实验简介</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id2">1.1. 实验内容与要求</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id3">1.1.1. 配置验证型实验</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id4">1.1.2. 协议栈编程设计型实验</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id5">1.2. 实验课课表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id6">1.2.1. 配置实验课表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id7">1.2.2. 协议栈编程实验课表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1guide.html">2. 实验探索指南</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">计算机网络实验概述</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>实验简介</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lab0/0intro.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>实验简介<a class="headerlink" href="0intro.html#id1" title="Link to this heading"></a></h1>
+<section id="id2">
+<h2><span class="section-number">1.1. </span>实验内容与要求<a class="headerlink" href="0intro.html#id2" title="Link to this heading"></a></h2>
+<p>本学期计算机网络实验总计12学时，分6次开展（每次2学时）。实验内容分为 <strong>配置验证型</strong> 和 <strong>编程设计型</strong> 两类，共包含9个小实验。</p>
+<section id="id3">
+<h3><span class="section-number">1.1.1. </span>配置验证型实验<a class="headerlink" href="0intro.html#id3" title="Link to this heading"></a></h3>
+<p><strong>该类实验共 3 次课，每次完成后需进行现场验收</strong>，核心目标是掌握网络设备的基础配置与协议验证方法。</p>
+<p><strong>实验内容</strong>：VLAN与接口模式配置、RIP路由配置及协议分析、IPv6网络过渡实验。</p>
+<p><strong>实验要求</strong>：验证型实验需在本课程提供的实验环境中完成。在开始实验前，请先阅读 <a class="reference internal" href="../appendix-c/index.html"><span class="doc">附录 C：网络实验室环境及设备简介</span></a>，了解网络实验室布局及设备的基本使用方法，以便更好地理解和完成实验任务。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">1.1.2. </span>协议栈编程设计型实验<a class="headerlink" href="0intro.html#id4" title="Link to this heading"></a></h3>
+<p>该类实验为递进式开发任务，最终需完成小型 Web 服务器搭建，重点锻炼网络协议的编程实现能力。</p>
+<p><strong>实验内容</strong>：在本课程提供的代码框架上，依次实现以太网收发 → ARP解析 → IP实现 → ping响应 → UDP收发 → TCP收发 → HTTP协议，最终搭建属于你自己的小型Web服务器！</p>
+<p><strong>实验环境</strong>：网络编程实验环境的安装与配置详见附录B <a class="reference internal" href="../appendix-b/index.html"><span class="doc">网络编程实验环境</span></a> 。</p>
+<p><strong>实验提交</strong>：协议栈实验的提交要求与自检步骤见 <a class="reference internal" href="../submission/index.html"><span class="doc">协议栈实验提交与自检</span></a>。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>正式开始协议栈实验前，请先完成 <a class="reference internal" href="../appendix-b/0checklist.html"><span class="doc">环境配置检查清单</span></a>。</p>
+<p>若你在实验过程中反复遇到环境兼容性、校验和、ARP 表、TCP 序列号等问题，请优先查阅 <a class="reference internal" href="../appendix-g/0bug-handbook.html"><span class="doc">典型 Bug 排查手册</span></a>，再回到对应实验章节继续排查。</p>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">1.2. </span>实验课课表<a class="headerlink" href="0intro.html#id5" title="Link to this heading"></a></h2>
+<p>若存在课程时间冲突，可参考课表自主调整，具体规则如下：</p>
+<ul class="simple">
+<li><p>时间冲突处理：优先按原课表上课，确有冲突时可选择课表中的其他时段。</p></li>
+<li><p>调整要求：选定新时段后，<strong>必须提前联系实验任课老师</strong>，确认上课安排。</p></li>
+<li><p>重要提醒：未提前沟通擅自调整时段，将视为缺课，影响实验成绩。</p></li>
+</ul>
+<section id="id6">
+<h3><span class="section-number">1.2.1. </span>配置实验课表<a class="headerlink" href="0intro.html#id6" title="Link to this heading"></a></h3>
+<p>配置实验总共有 16 个小组，每组 3 次课，每次课均需现场验收。</p>
+<div class="schedule-grid docutils container">
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">配置实验第1组（授课教师：华夏）</span><a class="headerlink" href="0intro.html#id8" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>5</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>1</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>3</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">配置实验第2组（授课教师：仇洁婷、刘圣鑫）</span><a class="headerlink" href="0intro.html#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>2</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>2</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">配置实验第3组（授课教师：仇洁婷）</span><a class="headerlink" href="0intro.html#id10" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>2</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>2</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">配置实验第4组（授课教师：华夏、杨金宇）</span><a class="headerlink" href="0intro.html#id11" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">配置实验第5组（授课教师：仇洁婷）</span><a class="headerlink" href="0intro.html#id12" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>1</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>1</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">配置实验第6组（授课教师：苏婷）</span><a class="headerlink" href="0intro.html#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>4</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>4</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>4</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">配置实验第7组（授课教师：华夏）</span><a class="headerlink" href="0intro.html#id14" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>5</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>5</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">配置实验第8组（授课教师：华夏、王德胜）</span><a class="headerlink" href="0intro.html#id15" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>1</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>1</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">配置实验第9组（授课教师：仇洁婷、堵宏伟）</span><a class="headerlink" href="0intro.html#id16" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>3</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>3</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">配置实验第10组（授课教师：仇洁婷）</span><a class="headerlink" href="0intro.html#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">配置实验第11组（授课教师：吴宇琳、苏婷）</span><a class="headerlink" href="0intro.html#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>3</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>3</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">配置实验第12组（授课教师：苏婷）</span><a class="headerlink" href="0intro.html#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">配置实验第13组（授课教师：苏婷、邵睿）</span><a class="headerlink" href="0intro.html#id20" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">配置实验第14组（授课教师：华夏）</span><a class="headerlink" href="0intro.html#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>5</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>5</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>5</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">配置实验第15组（授课教师：张凯皓、苏婷）</span><a class="headerlink" href="0intro.html#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>2</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>2</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>2</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">配置实验第16组（授课教师：苏婷）</span><a class="headerlink" href="0intro.html#id23" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>3</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>3</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>3</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2606</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">1.2.2. </span>协议栈编程实验课表<a class="headerlink" href="0intro.html#id7" title="Link to this heading"></a></h3>
+<p>编程实验有 8 个小组，每组 3 次课。</p>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">协议栈编程实验第1组（授课教师：仇洁婷、刘圣鑫、华夏）</span><a class="headerlink" href="0intro.html#id24" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2210</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>3</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2210</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>3</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2210</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">协议栈编程实验第2组（授课教师：仇洁婷、华夏、杨金宇）</span><a class="headerlink" href="0intro.html#id25" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2210</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2210</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>4</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2210</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">协议栈编程实验第3组（授课教师：华夏、王德胜、苏婷）</span><a class="headerlink" href="0intro.html#id26" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>3</p></td>
+<td><p>第七节-第八节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>5</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2608</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">协议栈编程实验第4组（授课教师：苏婷）</span><a class="headerlink" href="0intro.html#id27" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>2</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2507</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>2</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>2</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2608</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">协议栈编程实验第5组（授课教师：仇洁婷、堵宏伟）</span><a class="headerlink" href="0intro.html#id28" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2210</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>1</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2210</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>1</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2210</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">协议栈编程实验第6组（授课教师：吴宇琳、苏婷）</span><a class="headerlink" href="0intro.html#id29" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>1</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>1</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>1</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2608</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">协议栈编程实验第7组（授课教师：华夏、苏婷、邵睿）</span><a class="headerlink" href="0intro.html#id30" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>3</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2102</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>3</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2102</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>3</p></td>
+<td><p>第一节-第二节</p></td>
+<td><p>T2102</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">协议栈编程实验第8组（授课教师：张凯皓、苏婷）</span><a class="headerlink" href="0intro.html#id31" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 38.5%" />
+<col style="width: 30.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周次</p></th>
+<th class="head"><p>星期</p></th>
+<th class="head"><p>节次</p></th>
+<th class="head"><p>地点</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>1</p></td>
+<td><p>第五节-第六节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>1</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2608</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>1</p></td>
+<td><p>第三节-第四节</p></td>
+<td><p>T2608</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="计算机网络实验概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="1guide.html" class="btn btn-neutral float-right" title="2. 实验探索指南" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

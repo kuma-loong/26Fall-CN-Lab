@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="协议栈实验提交与自检" href="../submission/index.html" />
+    <link rel="prev" title="Lab9：小型Web服务器的设计与实现" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Lab9：小型Web服务器的设计与实现</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="0intro.html#">1. 实验目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id2">2. 实验任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id3">3. 实验原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#tcp">3.1. TCP协议概要</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id4">3.1.1. TCP头部</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id5">3.1.2. TCP建立连接：三次“握手”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id6">3.1.3. TCP断开连接：四次“挥手”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id7">3.1.4. 实验框架简介</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="0intro.html#id9">3.1.4.1. TCP 连接对象</a></li>
+<li class="toctree-l5"><a class="reference internal" href="0intro.html#id10">3.1.4.2. 简化与不足</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#http">3.2. HTTP协议概要</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#http-1-1">3.2.1. HTTP/1.1 交互过程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id11">3.2.2. HTTP/1.1 协议格式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="0intro.html#id12">3.2.2.1. 请求消息</a></li>
+<li class="toctree-l5"><a class="reference internal" href="0intro.html#id13">3.2.2.2. 响应消息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id14">4. 代码实现</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id15">4.1. 简易TCP协议</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id16">4.1.1. TCP数据报输出处理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id17">4.1.2. TCP数据报输入处理</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#web">4.2. 小型Web服务器</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id18">5. 实验自测</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#tcp-test">5.1. tcp_test 测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#tcp-server">5.2. tcp_server 测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id20">5.3. web系统测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Lab9：小型Web服务器的设计与实现</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>实验目的</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lab9-tcp/0intro.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="0intro.html#id1" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>熟悉 TCP 头部结构及各字段功能。</p></li>
+<li><p>掌握 TCP 协议的序列号、确认应答、连接状态机等关键机制，理解三次 “握手” 和四次 “挥手” 过程。</p></li>
+<li><p>熟悉HTTP/1.1 协议的交互过程与格式。</p></li>
+</ol>
+</section>
+<section id="id2">
+<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="0intro.html#id2" title="Link to this heading"></a></h1>
+<p>本次实验包括以下两个子任务：</p>
+<ol class="arabic simple">
+<li><p>在完成协议栈ICMP协议的基础上，实现仅支持服务端逻辑的简化版TCP协议。该实现包含序列号机制、确认应答机制、以及连接状态机，以实现面向连接的基础可靠传输功能。</p></li>
+<li><p>基于上述简化版 TCP 协议，构建一个小型Web服务器，使其能够处理并响应简单的HTTP请求。</p></li>
+</ol>
+<p>最终构建的系统应支持基本的网页浏览功能，并且要通过实验评测系统的测试验证。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><strong>常见坑点预警</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SYN</span></code> 和 <code class="docutils literal notranslate"><span class="pre">FIN</span></code> 都各占用一个序号；不要只在“携带数据”时才更新 <code class="docutils literal notranslate"><span class="pre">seq</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACK</span></code> 表示“下一个期望收到的字节序号”，不是“最后收到的那个字节序号”。</p></li>
+<li><p>TCP 校验和覆盖伪首部、TCP 头部和数据区；计算前同样要先把校验和字段清零。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 通过并不代表 <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 一定正确；三次握手、四次挥手和 HTTP 集成测试仍要抓包核对。</p></li>
+<li><p>若连接卡在握手 / 挥手中间状态，请优先参考 <a class="reference internal" href="../appendix-g/0bug-handbook.html"><span class="doc">典型 Bug 排查手册</span></a> 中“TCP 序列号与确认号更新错误”。</p></li>
+</ul>
+</div>
+</section>
+<section id="id3">
+<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="0intro.html#id3" title="Link to this heading"></a></h1>
+<section id="tcp">
+<h2><span class="section-number">3.1. </span>TCP协议概要<a class="headerlink" href="0intro.html#tcp" title="Link to this heading"></a></h2>
+<p>TCP（Transmission Control Protocol）协议是一种面向连接、可靠且基于字节流的传输层通信协议。与 UDP（User Datagram Protocol）不同，UDP 不保证数据传输的可靠性，而 TCP 通过一系列机制来实现可靠传输。具体而言，TCP 会先建立连接，利用序列号确保数据有序传输，借助确认应答机制保证接收方正确收到数据，同时通过超时重传机制修复可能丢失的数据。此外，TCP 还具备流量控制和拥塞控制机制，能够根据网络状况动态调节发送速率，避免网络过载。这些特性使得 TCP 特别适用于文件传输、电子邮件和网页浏览等对数据可靠性要求较高的通信场景。</p>
+<p>在本次实验中，我们只需实现支持服务端逻辑的简化版 TCP 协议，重点关注连接的建立以及确认应答机制，从而实现基础的可靠传输能力。</p>
+<section id="id4">
+<h3><span class="section-number">3.1.1. </span>TCP头部<a class="headerlink" href="0intro.html#id4" title="Link to this heading"></a></h3>
+<p>传输层位于网络层之上，其数据包结构如下图所示：</p>
+<img alt="../_images/TCP-1.png" src="../_images/TCP-1.png" />
+<p>TCP 的头部结构长度通常为 20 字节，若包含可变长的选项部分，最长可达 60 字节。</p>
+<img alt="../_images/TCP-2.png" src="../_images/TCP-2.png" />
+<ol class="arabic simple">
+<li><p><strong>源端口号（Source Port）</strong>：长度 16
+位。标识数据发送方的端口号，用于区分同一主机上多个应用程序或进程。</p></li>
+<li><p><strong>目的端口号（Destination Port）</strong>：长度 16
+位。标识数据接收方的端口号。与源端口号一起，用于确定传输数据的源应用和目标应用。</p></li>
+<li><p><strong>序号（Sequence Number）</strong>：长度 32
+位。表示数据包中第一个字节的序列号，用于数据有序传输和丢包重传。在连接建立时（SYN
+报文），该值为初始序列号（ISN）；在数据传输时，序号随着数据的传输按字节递增。</p></li>
+<li><p><strong>确认序号（Acknowledgment Number）</strong>：长度 32
+位。期望从对方接收数据的字节序号，累计确认，用于实现可靠数据传输。只有当
+ACK 位被置为 1
+时，该字段才有效。表示期望接收的下一个数据字节的序列号。</p></li>
+<li><p><strong>首部长度（Header Length/Data Offset）</strong>：长度 4 位。指示 TCP
+首部的长度，单位是 4
+字节。例如：首部长度为20字节，则该字段值为20/4=5。</p></li>
+<li><p><strong>保留（Reserved）</strong>：长度 3 位。保留字段，必须设置为 0。</p></li>
+<li><p><strong>标志位（Flags）</strong>：长度 9 位。用于标识 TCP
+报文段的状态和控制数据传输，本次实验主要关注以下几个标志位：</p>
+<ul class="simple">
+<li><p><strong>ACK</strong>：确认标志，标识确认序号字段有效。</p></li>
+<li><p><strong>RST</strong>：复位标志，用于异常中断、重新建立TCP连接。</p></li>
+<li><p><strong>SYN</strong>：表示该TCP段是一个建立新连接请求控制段。</p></li>
+<li><p><strong>FIN</strong>：表明请求释放TCP连接。</p></li>
+</ul>
+</li>
+<li><p><strong>窗口大小（Window Size）</strong>：长度 16
+位。表示接收方的接收窗口大小（缓冲区剩余空间），用于流量控制，控制发送方的发送速率，避免网络拥塞。</p></li>
+<li><p><strong>校验和（Checksum）</strong>：长度 16
+位。用于差错检测，包括TCP伪首部、TCP首部和应用层数据三部分。</p></li>
+<li><p><strong>紧急指针（Urgent Pointer）</strong>：长度 16 位。本实验默认置零。</p></li>
+<li><p><strong>数据（Data）</strong>：可变长度。实际要传输的应用层数据。</p></li>
+</ol>
+</section>
+<section id="id5">
+<h3><span class="section-number">3.1.2. </span>TCP建立连接：三次“握手”<a class="headerlink" href="0intro.html#id5" title="Link to this heading"></a></h3>
+<p>TCP建立连接的过程如下所示：</p>
+<ol class="arabic simple">
+<li><p>服务器最初处于 LISTEN（监听）状态，等待客户端的连接请求。</p></li>
+<li><p>客户端初始化序列号 seq = x，并向服务器发送 SYN 报文，该报文用于请求建立新连接。</p></li>
+<li><p>服务器收到SYN报文后进入SYN_RCVD状态，初始化服务端序列号seq=y，并向客户端回复SYN
+| ACK报文，确认号ack_seq=x+1。</p></li>
+<li><p>客户端收到SYN |
+ACK报文后，回复ACK报文，序列号seq=x+1，确认号ack_seq=y+1，报文可能携带数据。</p></li>
+<li><p>服务器收到ACK报文后，转移到ESTABLISHED状态，连接建立完成，进行数据传输。</p></li>
+</ol>
+<img alt="../_images/TCP-3.png" src="../_images/TCP-3.png" />
+</section>
+<section id="id6">
+<h3><span class="section-number">3.1.3. </span>TCP断开连接：四次“挥手”<a class="headerlink" href="0intro.html#id6" title="Link to this heading"></a></h3>
+<p>TCP断开连接的过程如下所示：</p>
+<ol class="arabic simple">
+<li><p>服务器最初处于ESTABLISHED状态。</p></li>
+<li><p>客户端发送FIN报文，请求关闭连接。</p></li>
+<li><p>如果服务器没有还要传输的数据，则跳到步骤4；否则，回复ACK确认关闭请求，并进入CLOSE_WAIT状态。</p></li>
+<li><p>服务器发送FIN |
+ACK报文给客户端，表明准备关闭连接，进入LAST_ACK状态。</p></li>
+<li><p>客户端收到FIN报文后，回复ACK确认。客户端会进入等待状态，等待2倍MSL（报文最大存活时间），确保所有报文被接收后，正式关闭连接。</p></li>
+<li><p>服务器收到ACK，连接关闭。</p></li>
+</ol>
+<img alt="../_images/TCP-4.png" src="../_images/TCP-4.png" />
+</section>
+<section id="id7">
+<span id="id8"></span><h3><span class="section-number">3.1.4. </span>实验框架简介<a class="headerlink" href="0intro.html#id7" title="Link to this heading"></a></h3>
+<section id="id9">
+<h4><span class="section-number">3.1.4.1. </span>TCP 连接对象<a class="headerlink" href="0intro.html#id9" title="Link to this heading"></a></h4>
+<p>实验框架可以串行地同时支持多个 TCP 连接。</p>
+<p>TCP 连接的上下文信息通过 <code class="docutils literal notranslate"><span class="pre">tcp_connection</span></code> 结构体表示，定义于 <code class="docutils literal notranslate"><span class="pre">tcp.h</span></code>
+文件：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tcp_connection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* TCP connection states */</span>
+<span class="w">    </span><span class="n">tcp_state_t</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">        </span><span class="c1">// 当前 TCP 连接的状态（如 LISTEN、ESTABLISHED）</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">not_send_empty_ack</span><span class="p">;</span><span class="w"> </span><span class="c1">// 标识是否需要发送空 ACK</span>
+<span class="w">    </span><span class="cm">/* TCP communication states */</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 连接对应的本地端口号</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">seq</span><span class="p">;</span><span class="w">             </span><span class="c1">// 当前发送序列号</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ack</span><span class="p">;</span><span class="w">             </span><span class="c1">// 当前确认号</span>
+<span class="p">}</span><span class="w"> </span><span class="n">tcp_conn_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>TCP 连接表 <code class="docutils literal notranslate"><span class="pre">tcp_conn_table</span></code>
+是一个哈希表（<code class="docutils literal notranslate"><span class="pre">map_t</span></code>），用于管理所有当前的 TCP 连接，定义于
+<code class="docutils literal notranslate"><span class="pre">tcp.c</span></code> 文件：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="n">map_t</span><span class="w"> </span><span class="n">tcp_conn_table</span><span class="p">;</span><span class="w">  </span><span class="c1">// [src_ip, src_port, dst_port] -&gt; tcp_conn</span>
+</pre></div>
+</div>
+<p>其键为一个三元组（<code class="docutils literal notranslate"><span class="pre">tcp_key_t</span></code> ），由远端 IP
+(<code class="docutils literal notranslate"><span class="pre">remote_ip</span></code>)、远端端口 (<code class="docutils literal notranslate"><span class="pre">remote_port</span></code>) 和本地端口 (<code class="docutils literal notranslate"><span class="pre">host_port</span></code>)
+组成；值为对应的 TCP 连接对象 (<code class="docutils literal notranslate"><span class="pre">tcp_conn_t</span></code>)。</p>
+<p>当接收到一个 TCP
+数据包时，系统可以通过<code class="docutils literal notranslate"><span class="pre">tcp_get_connection()</span></code>函数查找或者新建对应的
+TCP 连接；系统也可以通过<code class="docutils literal notranslate"><span class="pre">tcp_close_connection()</span></code>函数关闭特定的 TCP
+连接。</p>
+</section>
+<section id="id10">
+<h4><span class="section-number">3.1.4.2. </span>简化与不足<a class="headerlink" href="0intro.html#id10" title="Link to this heading"></a></h4>
+<p>本实验仅实现了一个简易的用于服务端的TCP协议（runnable），包括如下基本功能：</p>
+<ol class="arabic">
+<li><p><strong>连接管理</strong>：通过状态机实现服务端TCP连接的生命周期，包含“三握手”连接建立和“四挥手”连接释放。</p>
+<img alt="../_images/TCP-5.png" src="../_images/TCP-5.png" />
+</li>
+<li><p><strong>基础可靠传输</strong>：实现了基本的序列号和确认号机制，实现了简单的包乱序处理，可以保证上层应用接收到的数据包有序。</p></li>
+</ol>
+<p>不过，该简化版 TCP 协议存在以下剪枝和不足：</p>
+<ol class="arabic simple">
+<li><p><strong>流量控制/拥塞控制</strong>：固定窗口大小不变（为最大大小）、未实现慢启动和拥塞避免等算法。</p></li>
+<li><p><strong>可靠传输</strong>：未实现超时重传、未对乱序包进行高效处理，故而仅适用于网络环境稳定的场景。</p></li>
+<li><p><strong>未实现客户端逻辑</strong>：仅支持服务端逻辑，无法作为客户端与其他服务器建立连接。</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="http">
+<h2><span class="section-number">3.2. </span>HTTP协议概要<a class="headerlink" href="0intro.html#http" title="Link to this heading"></a></h2>
+<p>HTTP（HyperText Transfer
+Protocol，超文本传输协议）是万维网应用层的通信协议，采用C/S架构，用于客户端与服务器之间的数据传输。客户端（如浏览器）通过发送HTTP请求获取服务器上的资源，服务器则返回网页、图片或视频等对象作为响应内容。HTTP基于TCP协议，依靠其可靠的传输机制保证数据的完整性和有序性。同时，HTTP是无状态的，每次请求都是独立的，不会保留之前的交互信息。</p>
+<p>HTTP/1.0是最早的HTTP协议版本，每请求一个对象都会建立和关闭一次TCP连接，导致频繁的连接开销，效率较低。HTTP/1.1在此基础上进行了多项改进，最显著的变化是引入了持久连接（Persistent
+Connection），默认开启<code class="docutils literal notranslate"><span class="pre">Connection:</span> <span class="pre">keep-alive</span></code>，允许在一个TCP连接上进行多次对象的请求和响应，显著减少了连接建立和释放的开销。HTTP/1.1是当前Web通信的主流协议。</p>
+<p>在本次实验中，我们需要基于简易TCP协议实现一个小型的Web服务器，能够处理并响应简单的HTTP/1.1请求，实现基本的网页访问功能。</p>
+<section id="http-1-1">
+<h3><span class="section-number">3.2.1. </span>HTTP/1.1 交互过程<a class="headerlink" href="0intro.html#http-1-1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>HTTP服务器监听请求</strong>：HTTP服务器默认在80端口等待客户端的连接请求。</p></li>
+<li><p><strong>建立TCP连接</strong>：HTTP客户端（如浏览器）向服务器发起连接请求，服务器接受请求后，双方通过三次握手建立TCP连接。</p></li>
+<li><p><strong>客户端发送HTTP请求</strong>：客户端通过已建立的TCP连接发送HTTP请求，消息中的URL用于标识客户端请求的资源。请求过程通常如下：</p>
+<ul class="simple">
+<li><p>客户端首先请求index.html文件，该文件中可能包含对其他资源的引用。</p></li>
+<li><p>客户端根据这些引用，并行发起多个请求，获取页面中涉及的所有对象，如JPEG图片、视频文件、动态脚本等。</p></li>
+</ul>
+</li>
+<li><p><strong>服务器响应请求</strong>：服务器解析客户端的HTTP请求，生成包含所请求资源的HTTP响应消息，并通过TCP连接发送给客户端。</p></li>
+<li><p><strong>关闭连接</strong>：当所有资源传输完成后，客户端主动关闭TCP连接（发送FIN报文），释放网络资源。</p></li>
+</ol>
+</section>
+<section id="id11">
+<h3><span class="section-number">3.2.2. </span>HTTP/1.1 协议格式<a class="headerlink" href="0intro.html#id11" title="Link to this heading"></a></h3>
+<p>由上述交互过程可以看到，HTTP协议有两类消息：请求消息（request）和响应消息（response）。</p>
+<section id="id12">
+<h4><span class="section-number">3.2.2.1. </span>请求消息<a class="headerlink" href="0intro.html#id12" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>GET<span class="w"> </span>/somedir/page.html<span class="w"> </span>HTTP/1.1&lt;CR&gt;&lt;LF&gt;<span class="w"> </span><span class="c1"># 请求行，包含GET、URL、协议版本</span>
+Host:<span class="w"> </span>www.someschool.edu&lt;CR&gt;&lt;LF&gt;<span class="w">        </span><span class="c1"># 首部行（本实验不涉及）</span>
+User-agent:<span class="w"> </span>Mozilla/4.0&lt;CR&gt;&lt;LF&gt;
+Connection:<span class="w"> </span>close&lt;CR&gt;&lt;LF&gt;
+Accept-language:fr&lt;CR&gt;&lt;LF&gt;
+&lt;CR&gt;&lt;LF&gt;
+<span class="o">(</span>extra<span class="w"> </span>carriage<span class="w"> </span><span class="k">return</span>,<span class="w"> </span>line<span class="w"> </span>feed<span class="o">)</span><span class="w">      </span><span class="c1"># 请求体（本实验不涉及）</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>注：&lt;CR&gt;和&lt;LF&gt;分别指回车符（Carriage Return）和换行符（Line
+Feed），即\r和\n。</p>
+</div></blockquote>
+</section>
+<section id="id13">
+<h4><span class="section-number">3.2.2.2. </span>响应消息<a class="headerlink" href="0intro.html#id13" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK&lt;CR&gt;&lt;LF&gt;<span class="w">         </span><span class="c1"># 状态行(协议版本， 状态码，相应状态信息)</span>
+Connection:<span class="w"> </span>Keep-Alive&lt;CR&gt;&lt;LF&gt;<span class="w">  </span><span class="c1"># HTTP/1.1 默认开启长连接</span>
+Content-Type:<span class="w"> </span>text/html&lt;CR&gt;&lt;LF&gt;<span class="w"> </span><span class="c1"># 响应体的MIME类型</span>
+Content-Length:<span class="w"> </span><span class="m">6821</span>&lt;CR&gt;&lt;LF&gt;<span class="w">    </span><span class="c1"># 响应体长度</span>
+&lt;CR&gt;&lt;LF&gt;<span class="w">                        </span><span class="c1"># (注意此处需要有一个&lt;CR&gt;&lt;LF&gt;)</span>
+data<span class="w"> </span>data<span class="w"> </span>data<span class="w"> </span>data<span class="w"> </span>data<span class="w"> </span>...<span class="w">    </span><span class="c1"># 数据</span>
+</pre></div>
+</div>
+<p>其中，状态代码可以是“200 OK”、“404 NOT FOUND”等。</p>
+</section>
+</section>
+</section>
+</section>
+<section id="id14">
+<h1><span class="section-number">4. </span>代码实现<a class="headerlink" href="0intro.html#id14" title="Link to this heading"></a></h1>
+<section id="id15">
+<h2><span class="section-number">4.1. </span>简易TCP协议<a class="headerlink" href="0intro.html#id15" title="Link to this heading"></a></h2>
+<p>同学们需仔细研读本实验提供的代码框架，将 src/tcp.c 文件中的相关函数补充完整。关于实验系统框架的详细介绍，可查阅 <a class="reference internal" href="0intro.html#id7"><span class="std std-ref">实验框架简介</span></a>。</p>
+<section id="id16">
+<h3><span class="section-number">4.1.1. </span>TCP数据报输出处理<a class="headerlink" href="0intro.html#id16" title="Link to this heading"></a></h3>
+<p>同学们要自主实现 tcp_out() 函数，其具体功能和步骤如下：</p>
+<p><strong>Step1</strong> 添加 TCP 报头：</p>
+<p>首先调用buf_add_header()函数添加TCP报头。</p>
+<p><strong>Step2</strong> 填充 TCP 首部字段：</p>
+<p>将 win 字段设置为最大 TCP 窗口大小（TCP_MAX_WINDOW_SIZE），uptr 字段置为零。操作时需注意字节序问题。</p>
+<p><strong>Step3</strong> 计算并填充校验和：</p>
+<p>先把校验和字段填充为 0，接着调用 transport_checksum() 函数计算校验和，最后将计算得到的校验和结果填入校验和字段。</p>
+<p><strong>Step4</strong> 发送 TCP 数据报：</p>
+<p>调用 ip_out() 函数，将处理好的 TCP 数据报发送出去。</p>
+</section>
+<section id="id17">
+<h3><span class="section-number">4.1.2. </span>TCP数据报输入处理<a class="headerlink" href="0intro.html#id17" title="Link to this heading"></a></h3>
+<p>同学们要自行实现 tcp_in() 函数中的状态转移和响应部分，具体功能及步骤如下：</p>
+<p><strong>Step1</strong> 更新连接状态与回复报文标志：</p>
+<p>依据接收包的数据，更新当前 TCP 连接的内部状态，并填写回复报文的标志部分。</p>
+<p><strong>Step2</strong> 数据交付与错误处理：</p>
+<p>如果接收报文携带数据，则将数据部分交付给上层应用。调用map_get()函数查询tcp_handler_table是否有该目的端口号对应的处理函数（回调函数）。如果没有找到，则调用buf_add_header()函数增加IPv4数据报头部，再调用icmp_unreachable()函数发送一个端口不可达的ICMP差错报文。如果能找到，则去掉TCP报头，调用处理函数来做相应处理。</p>
+<p><strong>Step3</strong> 发送回复报文并更新序列号：</p>
+<p>调用 tcp_out() 函数发送回复报文，同时更新 TCP 连接的序列号。详细步骤可参考代码注释。</p>
+</section>
+</section>
+<section id="web">
+<h2><span class="section-number">4.2. </span>小型Web服务器<a class="headerlink" href="0intro.html#web" title="Link to this heading"></a></h2>
+<p>同学们需认真阅读本实验提供的代码框架，补充完整 <strong>app/web_server.c</strong> 文件中的http_respond()函数，具体步骤如下：</p>
+<p><strong>Step1</strong> ：依照注释补充发送 404 响应的代码</p>
+<p><strong>Step2/3</strong> ：依照注释补充发送 200 响应的代码</p>
+</section>
+</section>
+<section id="id18">
+<h1><span class="section-number">5. </span>实验自测<a class="headerlink" href="0intro.html#id18" title="Link to this heading"></a></h1>
+<p>本实验包含tcp_test 测试（组件测试）、tcp_server 测试（集成测试）以及 Web 系统测试，请按顺序依次完成这些实验自测。</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>对比维度</p></th>
+<th class="head"><p>tcp_test 测试（组件测试）</p></th>
+<th class="head"><p>tcp_server 测试（集成测试）</p></th>
+<th class="head"><p>Web 系统测试</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>测试目标</p></td>
+<td><p>验证 TCP 协议基础收发功能</p></td>
+<td><p>验证 TCP 协议栈与物理网络的协同</p></td>
+<td><p>验证端到端 HTTP 服务功能（应用层实现）</p></td>
+</tr>
+<tr class="row-odd"><td><p>测试层次</p></td>
+<td><p>协议层单点测试</p></td>
+<td><p>协议栈集成测试</p></td>
+<td><p>业务系统级测试</p></td>
+</tr>
+<tr class="row-even"><td><p>测试范围</p></td>
+<td><p>仅 TCP 协议模块</p></td>
+<td><p>Eth/ARP/IP/TCP 协议栈</p></td>
+<td><p>TCP + HTTP + 文件系统交互</p></td>
+</tr>
+<tr class="row-odd"><td><p>测试环境</p></td>
+<td><p>虚拟网卡 + 离线数据包（无真实网络）</p></td>
+<td><p>真实物理网卡 + 调试工具</p></td>
+<td><p>真实浏览器 + 网络协议栈</p></td>
+</tr>
+<tr class="row-even"><td><p>输入数据</p></td>
+<td><p>预生成的 .pcap 测试包</p></td>
+<td><p>人工输入的测试字符串（如 “HITSZ”）</p></td>
+<td><p>浏览器 HTTP 请求（GET 等）</p></td>
+</tr>
+<tr class="row-odd"><td><p>输出验证方式</p></td>
+<td><p>对比日志与预存数据包</p></td>
+<td><p>Wireshark 抓包分析 + 调试工具回显</p></td>
+<td><p>浏览器页面渲染效果 + Wireshark 抓包</p></td>
+</tr>
+</tbody>
+</table>
+<p>本节后续截图和网卡配置步骤基于 Windows。使用 Linux 环境进行自测时，请按实际环境选择对应指南：</p>
+<ul class="simple">
+<li><p><strong>Linux 物理机、WSL2 或自建 Linux 虚拟机</strong>：<a class="reference internal" href="../appendix-b/3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境（veth）</span></a>。</p></li>
+<li><p><strong>OSLab Ubuntu 虚拟机</strong>：<a class="reference internal" href="../appendix-b/4oslab_ubuntu.html"><span class="doc">OSLab Ubuntu 虚拟机环境</span></a>。</p></li>
+</ul>
+<p>两份指南都包含组件测试和基于 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 的在线集成测试步骤；Lab9 还可按指南测试 <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code>。</p>
+<section id="tcp-test">
+<h2><span class="section-number">5.1. </span>tcp_test 测试<a class="headerlink" href="0intro.html#tcp-test" title="Link to this heading"></a></h2>
+<p>与UDP类似，TCP自测也需要通过tcp_test测试。</p>
+<img alt="../_images/TCP-test1.png" src="../_images/TCP-test1.png" />
+<p>接着，打开VSCode的终端，到build目录下，输入ctest -R tcp_test进行自测。</p>
+<img alt="../_images/TCP-test2.png" src="../_images/TCP-test2.png" />
+<p>✅ 成功：终端显示 100% tests passed</p>
+<p>❌ 失败：根据错误日志排查问题，可参考 Eth协议调试指南</p>
+<p><strong>注意，该组件测试未涉及对序列号、确认号和校验和的测试，通过测试不意味着实现完全正确，还需进行下一节的集成测试。</strong></p>
+</section>
+<section id="tcp-server">
+<h2><span class="section-number">5.2. </span>tcp_server 测试<a class="headerlink" href="0intro.html#tcp-server" title="Link to this heading"></a></h2>
+<p>与 udp_server 测试类似，进行 tcp_server 测试前，需要确保自定义网卡的 IP 地址配置正确，即网络号与物理机网卡相同，主机号与物理机网卡不同。若实验环境与 udp_server 测试时一致，则无需再次修改。</p>
+<p>tcp_server自测步骤如下：</p>
+<p><strong>Step1：编译tcp_server</strong></p>
+<p>在 VSCode 中执行 CMake 编译</p>
+<p>选择 “在终端中运行”（生成可执行文件）</p>
+<img alt="../_images/TCP-test3.png" src="../_images/TCP-test3.png" />
+<p><strong>Step2：配置抓包工具（Wireshark）</strong></p>
+<p>打开 wireshark， <strong>选择物理机的计算机网卡作为抓包对象</strong> ，并设置过滤条件为：</p>
+<p>eth.addr == XX.XX.XX.XX</p>
+<p>XX.XX.XX.XX 是自定义虚拟网卡的MAC地址，详见include/config.h头文件。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="cp">#define NET_IF_MAC                      \</span>
+<span class="linenos">2</span><span class="cp">     {                                      \</span>
+<span class="linenos">3</span><span class="cp">         0x00, 0x11, 0x22, 0x33, 0x44, 0x55 \</span>
+<span class="linenos">4</span><span class="cp">     } </span><span class="c1">//自定义网卡mac地址</span>
+</pre></div>
+</div>
+<img alt="../_images/cmake32.png" src="../_images/cmake32.png" />
+<p><strong>Step3：启动协议栈</strong></p>
+<p>在 VSCode 中选择“在终端中运行”</p>
+<img alt="../_images/TCP-test4.png" src="../_images/TCP-test4.png" />
+<p>终端显示如下：</p>
+<img alt="../_images/TCP-test5.png" src="../_images/TCP-test5.png" />
+<p><strong>Step4：建立TCP连接</strong></p>
+<p>打开TCP&amp;UDPDebug调试工具（<a class="reference external" href="https://file.cs-lab.top/s/ZvX5EPOqBUx15bs">点这里下载</a>），点击“创建连接”，类型选择“TCP”，目标 IP：10.249.14.101（ <strong>该目标IP地址需要改成你自己代码中config.h中定义的IP地址</strong> ），目标端口号：60000，本机端口：随机端口。设置完成，点击创建。</p>
+<img alt="../_images/TCP-test6.png" src="../_images/TCP-test6.png" />
+<p>点击连接</p>
+<img alt="../_images/TCP-test7.png" src="../_images/TCP-test7.png" />
+<p><strong>Step5：发送测试数据</strong></p>
+<p>在TCP&amp;UDPDebug调试工具的发送窗口输入“HITSZ”测试字符串，点击发送。此时调试工具能够接收到虚拟网卡回送的数据包。如下图所示。</p>
+<img alt="../_images/TCP-test8.png" src="../_images/TCP-test8.png" />
+<p>在终端上也能看见tcp_server的运行结果。</p>
+<img alt="../_images/TCP-test9.png" src="../_images/TCP-test9.png" />
+<p>此时，Wireshark上也有数据包的交互。</p>
+<img alt="../_images/TCP-test10.png" src="../_images/TCP-test10.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>请仔细分析 Wireshark 捕获到的报文（包括 ARP、TCP 报文），并将分析结果记录到实验报告中。</p>
+</div>
+</section>
+<section id="id20">
+<h2><span class="section-number">5.3. </span>web系统测试<a class="headerlink" href="0intro.html#id20" title="Link to this heading"></a></h2>
+<p><strong>Step1：编译运行 web_server</strong></p>
+<p>在终端中编译运行web_server：</p>
+<img alt="../_images/http-test1.png" src="../_images/http-test1.png" />
+<img alt="../_images/http-test2.png" src="../_images/http-test2.png" />
+<p><strong>Step2：访问 Web 服务器</strong></p>
+<p>打开浏览器（或者使用wget、curl等命令行工具），访问10.249.14.101（ <strong>该目标IP地址需要改成你自己代码中config.h中定义的IP地址</strong> ），即可看到对应界面：</p>
+<img alt="../_images/TCP-12.png" src="../_images/TCP-12.png" />
+<p><strong>Step3：链接测试</strong></p>
+<p>点击两个链接测试可看到如下效果：</p>
+<p>“哈工大深圳，春色正浓”网页显示：</p>
+<img alt="../_images/TCP-13.png" src="../_images/TCP-13.png" />
+<p>404页面显示：</p>
+<img alt="../_images/TCP-14.png" src="../_images/TCP-14.png" />
+<p><strong>Step4：观察数据包交互</strong></p>
+<p>Wireshark上也有数据包的交互：</p>
+<img alt="../_images/TCP-15.png" src="../_images/TCP-15.png" />
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>在testing/data/http_test目录下，有正确实现下的HTTP抓包的.pcap文件，可以根据其进行debug。并且，由于实现剪枝，暂不支持服务端主动关闭连接，所以可能需要手动关闭浏览器，并等10-30s，由客户端关闭连接，才可以在Wireshark中观察到FIN报文。</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>请分析你自己用Wireshark抓包工具捕获到的相关报文（包含ARP、TCP、HTTP报文），解析报文内容，并写到最终统一提交的协议栈实验报告中。</p>
+</div>
+<p>完成 Lab9 后，请按 <a class="reference internal" href="../submission/index.html"><span class="doc">协议栈实验提交与自检</span></a> 的说明统一提交协议栈实验材料。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="Lab9：小型Web服务器的设计与实现" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../submission/index.html" class="btn btn-neutral float-right" title="协议栈实验提交与自检" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

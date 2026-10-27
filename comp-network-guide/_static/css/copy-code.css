@@ -1,0 +1,69 @@
+/* Keep the copy control inside the code block without covering its content. */
+.highlight {
+  position: relative;
+}
+
+.highlight.copy-code-ready > pre {
+  padding-top: 2.8rem;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.65rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid rgba(107, 114, 128, 0.28);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 1px 3px rgba(31, 41, 55, 0.12);
+  color: #5b6573;
+  cursor: pointer;
+  line-height: 1;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, color 0.15s ease;
+}
+
+.copy-code-button:hover,
+.copy-code-button:focus-visible {
+  background: #ffffff;
+  border-color: #6b9bd1;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+  color: #2563a8;
+  outline: 2px solid rgba(107, 155, 209, 0.24);
+  outline-offset: 1px;
+}
+
+.copy-code-button[data-copied="true"] {
+  background: #effaf5;
+  border-color: #82c9a8;
+  color: #237a50;
+}
+
+.copy-code-button[data-copy-error="true"] {
+  background: #fff4f4;
+  border-color: #e8a0a0;
+  color: #b23a3a;
+}
+
+.copy-code-button svg {
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+@media (max-width: 480px) {
+  .copy-code-button {
+    right: 0.45rem;
+  }
+}

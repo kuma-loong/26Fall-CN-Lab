@@ -1,0 +1,19 @@
+/* Show compact lab schedules in two columns on wider screens. */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.schedule-grid > table.docutils {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

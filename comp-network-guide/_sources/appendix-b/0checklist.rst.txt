@@ -1,0 +1,88 @@
+环境配置检查清单
+==================================================
+
+.. important::
+   开始 Eth、ARP、IP、ICMP、UDP、TCP、HTTP 实验前，请先完成本页检查。
+
+   如果你在 Windows + 无线网卡环境下持续遇到校验和显示为 0、``udp_server`` / ``tcp_server`` 无法正常收发、Wireshark 抓包结果与程序行为不一致等问题，建议优先切换到 Linux 环境：:doc:`3linux_physical` 或 :doc:`4oslab_ubuntu` 完成环境配置并使用 ``veth``。
+
+环境路线选择
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``Windows + 有线网卡``
+   沿用 :doc:`1win` 的流程。优先使用课程已验证的 Npcap 版本，并在实验前确认能关闭校验和卸载。
+
+``Windows + 仅无线网卡``
+   如果网卡高级属性里找不到 Checksum Offload 相关选项，不建议继续在当前无线网卡环境下排查，建议优先切换到 :doc:`3linux_physical` 的 ``veth`` 方案。
+
+``纯 Linux / WSL2``
+   推荐直接使用 :doc:`3linux_physical` 的 ``veth`` 环境，抓包更纯净、问题更少。
+
+``OSLab Ubuntu 虚拟机``
+   如果使用 T2102、T2210、T2507、T2608 实验室中预装的 OSLab Ubuntu 虚拟机，请按照 :doc:`4oslab_ubuntu` 完成依赖安装、远程连接、编译、``veth`` 配置和组件调试。
+
+Windows 环境检查清单
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Npcap 版本建议使用 ``1.31``，不要升级到最新版。
+2. 安装 Npcap 时必须勾选 ``Install Npcap in WinPcap API-compatible Mode``。
+3. ``cmake``、``gcc``、``gdb`` 需要能在终端中直接找到，VSCode 的 CMake Kit 需要选到 MinGW / GCC。
+4. 打开工程时，必须直接打开 ``net-lab`` 根目录，不能只打开子目录。
+5. ``include/config.h`` 中的 ``NET_IF_IP`` 需要与物理机网卡同网段、不同主机号。
+6. Wireshark 抓包时要选对网卡，并打开 IPv4 / UDP / TCP 的 checksum 校验选项。
+7. 如果抓包中 checksum 总是 0，先排查是否开启了硬件校验和卸载，不要立刻判断代码错误。
+8. 如果 ``udp_server`` / ``tcp_server`` 出现异常，先排查 Npcap 版本，再排查无线网卡和防火墙问题。
+
+Linux / WSL 环境检查清单
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 系统中需要有 ``sudo``、``gcc``、``cmake``、``gdb``、``ip``、``ethtool``。
+2. 按照 :doc:`3linux_physical` 创建 ``veth0`` / ``veth1``，并确保协议栈 IP 与 ``setup_veth.sh`` 中 ``STACK_IP`` 一致。
+3. 路由表里应存在发往实验网段、走 ``veth1`` 的路由。
+4. ``veth0`` / ``veth1`` 的 Checksum Offload 需要关闭，否则抓包与实际发包行为可能不一致。
+5. 如果使用 WSL2，请确认当前发行版拥有完整的网络管理权限，并可正常执行 ``ip`` / ``ethtool`` / ``sysctl``。
+
+一键检查脚本
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+我们提供了两份简单的环境检测脚本，用于在开始实验前快速检查常见配置项。请按自己的系统下载对应脚本进行检查。
+
+**Windows 检查脚本（PowerShell）**
+
+- :download:`Windows 环境检测脚本 <tools/env_check_win.ps1>`
+
+打开 PowerShell 的方式：点击开始菜单，搜索 ``PowerShell`` 并打开；也可以在脚本所在文件夹的地址栏输入 ``powershell`` 后回车。
+
+如果脚本下载到了“下载”目录：
+
+.. code-block:: powershell
+
+   cd $env:USERPROFILE\Downloads
+
+然后再执行：
+
+.. code-block:: powershell
+
+   powershell -ExecutionPolicy Bypass -File .\env_check_win.ps1
+
+如果提示脚本执行策略受限，请确认使用的是上面的完整命令，不要直接双击运行 ``.ps1`` 文件。
+
+**Linux / WSL 检查脚本（Bash）**
+
+- :download:`Linux / WSL 环境检测脚本 <tools/env_check_linux.sh>`
+
+如果脚本下载到了“下载”目录：
+
+.. code-block:: bash
+
+   cd ~/Downloads
+
+然后再执行：
+
+.. code-block:: bash
+
+   chmod +x ./env_check_linux.sh
+   ./env_check_linux.sh
+
+.. note::
+   上述脚本只能帮助你快速发现常见问题，不能替代人工确认。若脚本输出正常，但实验仍异常，请继续参考 :doc:`/appendix-g/0bug-handbook` 与各实验的常见问题页面排查。

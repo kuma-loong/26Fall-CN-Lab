@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Lab7 常见问题（UDP） &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="3. Lab3 常见问题（ARP）" href="lab3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">常见问题</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0bug-handbook.html">1. 典型 Bug 排查手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab2.html">2. Lab2 常见问题（Eth）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab3.html">3. Lab3 常见问题（ARP）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="lab7.html#">4. Lab7 常见问题（UDP）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#wiresharkudp-udp">4.1. wireshark能捕获到UDP的收发包，但是UDP调试工具没有接收到？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#wiresharkipchecksum0">4.2. 使用wireshark捕获的IP报文的checksum为什么是0？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#udpgdb">4.3. UDP实验不能GDB调试吗？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#udp-wireshark">4.4. UDP调试工具每点击一次发送，Wireshark能捕获到两个包？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#main-exeerror-no-interface-found">4.5. 运行main.exe提示“Error, no interface found.”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#main-exehave-the-same-ip-xx-xx-xx-xx-with-me">4.6. 运行main.exe提示“have the same ip XX.XX.XX.XX with me”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#main-exesend-error-packetsendpacket-failed-31">4.7. 运行main.exe出现“send error: PacketSendPacket failed: 连到系统上的设备没有发挥作用。（31）”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lab7.html#virtualbox-pcap-inbound">4.8. 使用 VirtualBox 实验时 pcap 发出的 inbound 包被网卡忽略</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">常见问题</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Lab7 常见问题（UDP）</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-g/lab7.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lab7-udp">
+<h1><span class="section-number">4. </span>Lab7 常见问题（UDP）<a class="headerlink" href="lab7.html#lab7-udp" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>开始 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 集成测试前，请先确认三件事：</p>
+<ul class="simple">
+<li><p>Npcap 建议使用 1.31，不要升级到最新版；</p></li>
+<li><p>Wireshark 抓的是正确的网卡，并已开启 checksum 校验；</p></li>
+<li><p>如果无线网卡无法关闭 Checksum Offload，优先改用 <a class="reference internal" href="../appendix-b/3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 的 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 方案。</p></li>
+</ul>
+</div>
+<section id="wiresharkudp-udp">
+<h2><span class="section-number">4.1. </span>wireshark能捕获到UDP的收发包，但是UDP调试工具没有接收到？<a class="headerlink" href="lab7.html#wiresharkudp-udp" title="Link to this heading"></a></h2>
+<p>如下图所示：</p>
+<img alt="../_images/lab7-1.png" src="../_images/lab7-1.png" />
+<p>可能的解决方法：</p>
+<p>wireshark有时候不校验IPv4首部校验和及UDP校验和，你需要在wireshark软件的菜单栏单击“编辑” —— “首选项”，在弹出的窗口中选择“Protocols”。</p>
+<img alt="../_images/lab7-2.png" src="../_images/lab7-2.png" />
+<p>找到“IPv4”，选择“Validate the IPv4 checksum if possible”。</p>
+<img alt="../_images/lab7-4.png" src="../_images/lab7-4.png" />
+<p>找到“UDP”，选择“Validate the UDP checksum if possible”。</p>
+<img alt="../_images/lab7-3.png" src="../_images/lab7-3.png" />
+<p>然后在wireshark的包分析窗口，分别检测IP头部和UDP头部的checksum字段是否正常。如果不正常，请自行检测IP的checksum16函数和UDP的udp_checksum函数。</p>
+<img alt="../_images/lab7-5.png" src="../_images/lab7-5.png" />
+</section>
+<section id="wiresharkipchecksum0">
+<h2><span class="section-number">4.2. </span>使用wireshark捕获的IP报文的checksum为什么是0？<a class="headerlink" href="lab7.html#wiresharkipchecksum0" title="Link to this heading"></a></h2>
+<p>根本原因：硬件校验和卸载（Checksum Offload）</p>
+<p>现代网卡支持硬件校验和卸载功能（属于TCP/IP Offload Engine, TOE技术），该功能会将IP、TCP、UDP等协议的校验和计算任务从CPU转移到网卡硬件处理，从而降低系统负载并提升网络吞吐量。</p>
+<ul class="simple">
+<li><p>发送方向：操作系统生成数据包时，主动将校验和字段置为0，由网卡硬件在数据包离开主机前填充正确值。</p></li>
+<li><p>接收方向：网卡硬件会在接收时直接验证校验和，若校验失败则丢弃报文（操作系统和Wireshark可能无法捕获到错误报文）。</p></li>
+</ul>
+<p>因此，Wireshark在本地捕获的流量中，校验和字段可能显示为0x0000，但这并非协议错误，而是硬件优化导致的现象。然而，在协议分析实验中，校验和显示为0会掩盖软件层的逻辑错误（如手动构造错误校验和时无法验证）。</p>
+<p>解决方案：关闭校验和卸载（实验环境建议）</p>
+<p>为在Wireshark中看到真实的校验和值，需禁用网卡的硬件校验和卸载功能：</p>
+<p><strong>Windows系统：</strong></p>
+<blockquote>
+<div><ul>
+<li><p>打开设备管理器 → 展开网络适配器 → 右键目标网卡 → 属性。</p></li>
+<li><p>在高级选项卡中，找到以下选项并设为关闭：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>IPv4 Checksum Offload</p></li>
+<li><p>TCP/UDP Checksum Offload (IPv4/IPv6)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>重启网卡或系统使配置生效。</p>
+</div></blockquote>
+<img alt="../_images/lab7-6.png" src="../_images/lab7-6.png" />
+<a class="reference internal image-reference" href="../_images/lab7-9.png"><img alt="../_images/lab7-9.png" src="../_images/lab7-9.png" style="width: 406.8px; height: 484.2px;" /></a>
+<a class="reference internal image-reference" href="../_images/lab7-10.png"><img alt="../_images/lab7-10.png" src="../_images/lab7-10.png" style="width: 407.7px; height: 478.8px;" /></a>
+<p><strong>Linux系统:</strong></p>
+<p>使用ethtool命令关闭卸载功能（需root权限）：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>ethtool<span class="w"> </span>-K<span class="w"> </span>&lt;网卡名&gt;<span class="w"> </span>tx<span class="w"> </span>off<span class="w"> </span>rx<span class="w"> </span>off<span class="w">  </span><span class="c1"># 关闭发送(tx)和接收(rx)方向的校验和卸载</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>验证与注意事项</p>
+<ul class="simple">
+<li><p>验证方法：</p></li>
+</ul>
+<p>关闭卸载功能后，在Wireshark中发送ICMP（Ping）报文，观察IP头部校验和字段是否变为非零值。</p>
+<ul class="simple">
+<li><p>生产环境权衡：</p></li>
+</ul>
+<p><strong>实验结束后建议重新启用网卡的硬件校验和卸载功能，避免影响服务器或高性能设备的网络效率。</strong></p>
+</div>
+<p>有些同学在使用无线网卡时，在网卡高级属性里没有上述对应的选项，那就无法使能校验和检测功能，建议最好能用有线网卡来测试实验。</p>
+<p>详见Wireshark的官方说明：<a class="reference external" href="https://wiki.wireshark.org/CaptureSetup/Offloading">https://wiki.wireshark.org/CaptureSetup/Offloading</a></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>如果你的电脑只有无线网卡，无法使用有线网卡，可以参考来自某位大佬提供的解决方案：</p>
+<p>当在你的电脑里安装有虚拟机，假设你电脑中虚拟机生成的虚拟网卡的IP地址如下图所示：</p>
+<img alt="../_images/lab7-13.png" src="../_images/lab7-13.png" />
+<p>也可以从“控制面板\网络和 Internet\网络连接”查看是否有“VirtualBox Host-Only Network”网卡，如果有，双击其图标，查看“详细信息”：</p>
+<img alt="../_images/lab7-14.jpg" src="../_images/lab7-14.jpg" />
+<p>注意：此方案必须要安装有虚拟机，这样才会生成虚拟网卡。</p>
+<p>将config.h中的IP地址改成192.168.56.XX，确保和虚拟网卡处在同一个网段内，即可用虚拟机的虚拟网卡与协议栈中的虚拟网卡进行点对点互通。</p>
+</div>
+</section>
+<section id="udpgdb">
+<h2><span class="section-number">4.3. </span>UDP实验不能GDB调试吗？<a class="headerlink" href="lab7.html#udpgdb" title="Link to this heading"></a></h2>
+<p>UDP实验也能用GDB调试，调试方法和Eth、ARP、IP、ICMP实验不一样，可参考 <a class="reference external" href="../appendix-b/1win.html#main">main调试</a> 方法。</p>
+</section>
+<section id="udp-wireshark">
+<h2><span class="section-number">4.4. </span>UDP调试工具每点击一次发送，Wireshark能捕获到两个包？<a class="headerlink" href="lab7.html#udp-wireshark" title="Link to this heading"></a></h2>
+<p>如下图所示：</p>
+<img alt="../_images/lab7-8.png" src="../_images/lab7-8.png" />
+<p>这种情况也算是对的，只要你的协议栈能回复一个包就行。UDP调试工具同时发送两个包估计是npcap的bug，详见：<a class="reference external" href="https://github.com/nmap/npcap/issues/58">https://github.com/nmap/npcap/issues/58</a></p>
+</section>
+<section id="main-exeerror-no-interface-found">
+<h2><span class="section-number">4.5. </span>运行main.exe提示“Error, no interface found.”<a class="headerlink" href="lab7.html#main-exeerror-no-interface-found" title="Link to this heading"></a></h2>
+<p>如下图所示：</p>
+<img alt="../_images/lab7-11.png" src="../_images/lab7-11.png" />
+<p>出现上述错误，原因是IP地址没写对，关于目标IP地址的定义可参考 <a class="reference internal" href="../appendix-b/1win.html"><span class="doc">Windows开发环境搭建</span></a> 最后的提示部分。</p>
+</section>
+<section id="main-exehave-the-same-ip-xx-xx-xx-xx-with-me">
+<h2><span class="section-number">4.6. </span>运行main.exe提示“have the same ip XX.XX.XX.XX with me”<a class="headerlink" href="lab7.html#main-exehave-the-same-ip-xx-xx-xx-xx-with-me" title="Link to this heading"></a></h2>
+<p>如下图所示：</p>
+<img alt="../_images/lab7-12.png" src="../_images/lab7-12.png" />
+<p>出现上述错误，原因是虚拟网卡的IP地址写成真实网卡的IP地址了，关于目标IP地址的定义可参考 <a class="reference internal" href="../appendix-b/1win.html"><span class="doc">Windows开发环境搭建</span></a> 最后的提示部分。</p>
+</section>
+<section id="main-exesend-error-packetsendpacket-failed-31">
+<h2><span class="section-number">4.7. </span>运行main.exe出现“send error: PacketSendPacket failed: 连到系统上的设备没有发挥作用。（31）”<a class="headerlink" href="lab7.html#main-exesend-error-packetsendpacket-failed-31" title="Link to this heading"></a></h2>
+<p>如下图所示：</p>
+<img alt="../_images/lab7-14.png" src="../_images/lab7-14.png" />
+<p>估计是高版本的 Npcap 不兼容，请卸载当前版本并安装课程已验证的 Npcap 1.31，不要升级到最新版。</p>
+<p>Npcap 1.31 下载地址（校内网）：<a class="reference external" href="https://file.cs-lab.top/s/ZvX5EPOqBUx15bs">https://file.cs-lab.top/s/ZvX5EPOqBUx15bs</a></p>
+</section>
+<section id="virtualbox-pcap-inbound">
+<h2><span class="section-number">4.8. </span>使用 VirtualBox 实验时 pcap 发出的 inbound 包被网卡忽略<a class="headerlink" href="lab7.html#virtualbox-pcap-inbound" title="Link to this heading"></a></h2>
+<p>项目自测通过， 使用主程序测试 udp 通讯时出现问题：
+Wireshark 中能看到虚拟设备的 ARP response 和 ICMP reply， 校验显示通过， 但是应用程序无法接收到。 具体表现为 arp 表始终不更新、 手动设置 arp 映射后虚拟网卡仍无法 ping通、 udp 包能收不能发。</p>
+<p>解决方案： 修改虚拟机网卡设置， 开启混杂模式（ 需要重启虚拟机生效）</p>
+<img alt="../_images/lab7-15.png" src="../_images/lab7-15.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="lab3.html" class="btn btn-neutral float-left" title="3. Lab3 常见问题（ARP）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

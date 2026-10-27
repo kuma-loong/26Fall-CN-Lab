@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. 实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script src="../_static/js/baidu-tongji.js"></script>
+        <script src="../_static/js/copy-code.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Lab6：协议栈之ICMP协议实现" href="../lab6/index.html" />
+    <link rel="prev" title="Lab5：协议栈之IP协议实现" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Lab5：协议栈之IP协议实现</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="0intro.html#">1. 实验目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id2">2. 实验任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id3">3. 实验原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#ip">3.1. IP协议概要</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id4">3.1.1. IP地址</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id5">3.1.2. IP协议</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id6">3.2. IP数据包格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id7">3.3. IP分片</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id8">3.4. 校验和计算</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id10">3.4.1. IP头部校验和</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0intro.html#id11">3.4.2. 反码求和</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="0intro.html#id12">4. 代码实现与检测</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id13">4.1. IP数据报输入处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id14">4.2. 校验和算法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id15">4.3. IP数据报输出处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id16">4.4. IP数据报输出处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id17">4.5. 实验自测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="0intro.html#id18">4.6. IP重组（选做）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Lab5：协议栈之IP协议实现</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>实验目的</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lab5/0intro.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="0intro.html#id1" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>熟悉IP数据包格式，包括各个字段的含义和作用。</p></li>
+<li><p>掌握IP数据包的的发送和接收处理过程，理解其中的关键环节和机制。</p></li>
+</ol>
+</section>
+<section id="id2">
+<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="0intro.html#id2" title="Link to this heading"></a></h1>
+<p>在完成协议栈之 ARP 协议的基础上，编写 IP 报文的发送、接收、IP 分片以及计算校验和函数。确保程序能够准确无误地发送和接收 IP 数据报文，并且顺利通过实验评测系统的严格测试。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><strong>常见坑点预警</strong></p>
+<ul class="simple">
+<li><p>IP 头部校验和只覆盖 <strong>IP 首部</strong>，计算前必须先把校验和字段清零。</p></li>
+<li><p>分片偏移字段的单位是 <strong>8 字节</strong>，不是字节数本身；除最后一个分片外，其余分片长度都应为 8 的整数倍。</p></li>
+<li><p>IP 头部中的 <code class="docutils literal notranslate"><span class="pre">protocol</span></code> 字段填写的是上层协议号（如 ICMP=1、TCP=6、UDP=17），不要和端口号混淆。</p></li>
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code> 长期过不去，请优先对照 <a class="reference internal" href="../appendix-g/0bug-handbook.html"><span class="doc">典型 Bug 排查手册</span></a> 中“IP 分片偏移单位错误”和“协议字段填写错误”排查。</p></li>
+</ul>
+</div>
+</section>
+<section id="id3">
+<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="0intro.html#id3" title="Link to this heading"></a></h1>
+<section id="ip">
+<h2><span class="section-number">3.1. </span>IP协议概要<a class="headerlink" href="0intro.html#ip" title="Link to this heading"></a></h2>
+<p>从之前的实验我们了解到，数据链路层仅能提供两个直连设备之间的通信功能。当数据需要跨越不同的数据链路时，就必须借助网络层来实现。IP（Internet Protocol，网际协议）是 TCP/IP 协议网络层的核心协议，其主要作用是 “实现终端节点之间的通信”，也就是所谓的 “点对点（point - to - point）通信”。IP 大致可分为三大作用模块，分别是 IP 寻址、IP 分包与组包以及路由转发。不过，在本次实验中，路由转发功能涉及到的路由协议并非重点内容，暂不做详细介绍。</p>
+<section id="id4">
+<h3><span class="section-number">3.1.1. </span>IP地址<a class="headerlink" href="0intro.html#id4" title="Link to this heading"></a></h3>
+<p>在 TCP/IP 通信环境中，所有的主机或路由器都必须为自己设定一个 IP 地址。严格来讲，每块网卡至少要配置一个或多个 IP 地址。在目前广泛使用的 IPv4 协议中，IP 地址以 32 位二进制数字的形式表示，同时需要使用子网掩码来区分网络地址和主机地址。通过将 IP 地址与子网掩码进行 “与” 运算，可以得到网络地址；将 IP 地址与子网掩码的非进行 “与” 运算，则可获得主机地址。网络地址用于标识同一个物理网络上的所有宿主机，而主机地址则用于标识该物理网络上的每一个具体宿主机。如果把 IP 地址类比为信封上的地址，那么网络地址就如同 “城市名”，主机地址则相当于 “门牌号”。</p>
+<img alt="../_images/IP%E5%9C%B0%E5%9D%80.png" src="../_images/IP地址.png" />
+<p>其中，IP 地址后面会使用 “/（斜线号）” 来分隔 IP 地址与子网掩码的位数。</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">3.1.2. </span>IP协议<a class="headerlink" href="0intro.html#id5" title="Link to this heading"></a></h3>
+<p>IP 协议提供了一种尽力而为、无连接的数据报交付服务。“尽力而为” 意味着 IP 协议并不保证 IP 数据报一定能够成功到达目的地。“无连接” 则表示 IP 协议不会维护网络单元（即路由器）中与数据报相关的任何链接状态信息，每个数据报都独立于其他数据报进行处理，这也导致 IP 数据报可能不会按照发送顺序进行交付。</p>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p><strong>为什么 IP 要采用面向无连接的方式呢？</strong></p>
+<p>主要有两个原因：一是为了简化协议的实现过程，减少不必要的复杂性；二是为了提高数据处理的速度，因为面向连接的通信方式在每次通信之前都需要事先建立连接，这会在一定程度上降低处理速度。当 IP 需要建立连接时，可以委托上一层协议来提供相应的服务。</p>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">3.2. </span>IP数据包格式<a class="headerlink" href="0intro.html#id6" title="Link to this heading"></a></h2>
+<p>网络层位于数据链路层之上，其数据包的结构如下所示：</p>
+<img alt="../_images/IP%E5%8D%8F%E8%AE%AE.png" src="../_images/IP协议.png" />
+<p>本实验是基于 IPv4 协议展开的，下面将重点介绍 IPv4 版本的 IP 协议。IPv4 的头部结构长度固定为 20 字节，如果包含可变长的选项部分，最多可达 60 字节。</p>
+<img alt="../_images/IP%E9%A6%96%E9%83%A8.PNG" src="../_images/IP首部.PNG" />
+<ol class="arabic simple">
+<li><p><strong>版本号（Version）</strong> ：长度4比特。标识目前采用的IP协议的版本号。一般的值为0100（IPv4），0110（IPv6）。</p></li>
+<li><p><strong>首部长度（Header Length）</strong> ：长度4比特。这个字段的作用是为了描述IP包头的长度，因为在IP包头中有变长的可选部分。IP包头最小长度为20字节，则首部长度可设为5，4bit*5 =20字节。</p></li>
+<li><p><strong>区分服务(Type Of Service，TOS)</strong> ：3位优先权字段(现已被忽略) + 4位TOS字段 + 1位保留字段(须为0)。4位TOS字段分别表示最小延时、最大吞吐量、最高可靠性、最小费用，其中最多有一个能置为1。应用程序根据实际需要来设置TOS值，如ssh和telnet这样的登录程序需要的是最小延时的服务，文件传输ftp需要的是最大吞吐量的服务。本实验中，可将TOS设置为0。</p></li>
+<li><p><strong>总长度</strong> : 指整个 IP 数据报的长度，单位为字节，即 IP 数据报的最大长度为 65535 字节（2 的 16 次方）。但由于 MTU（最大传输单元）的限制，长度超过 MTU 的数据报都将被分片传输，因此实际传输的 IP 分片数据报的长度远远小于这个最大值。</p></li>
+</ol>
+<p>标识、标志、位偏移：这三个字段用于描述如何实现数据报的分片与重组。</p>
+<ol class="arabic simple" start="5">
+<li><p><strong>标识</strong> ：唯一地标识主机发送的每一个数据报，其初始值是随机生成的，每发送一个数据报，该值就会加 1。同一个数据报的所有分片都具有相同的标识值。在本实验中，标识字段可从 0 开始计数，然后逐步自增。</p></li>
+<li><p><strong>标志</strong> : 共 3 位，位 1 为保留位；位 2 表示禁止分片（DF），若设置了此位，IP 模块将不会对数据报进行分片。在此情况下，如果 IP 数据报超过 MTU，IP 模块将丢弃该数据报并返回一个 ICMP 差错报文；位 3 标识更多分片（MF），除了数据报的最后一个分片外，其他分片都要将该位设置为 1。</p></li>
+<li><p><strong>位偏移</strong> ：表示分片相对原始 IP 数据报数据部分的偏移。实际的偏移值为该值左移 3 位后得到的结果，所以除了最后一个 IP 数据报分片外，每个 IP 分片的数据部分的长度都必须是 8 的整数倍。</p></li>
+<li><p><strong>生存时间</strong> ：数据报在到达目的地之前允许经过的路由器跳数。TTL 值由发送端进行设置，通常设置为 64。数据报在转发过程中，每经过一个路由器，该值就会被路由器减 1。当 TTL 值为 0 时，路由器会将该数据包丢弃，并向源端发送一个 ICMP 差错报文。TTL 的作用是防止数据报陷入路由循环。</p></li>
+<li><p><strong>协议</strong> : 用于区分 IP 协议上的上层协议。在 Linux 系统的 /etc/protocols 文件中，定义了所有上层协议对应的协议字段，例如 ICMP 为 1，TCP 为 6，UDP 为 17。</p></li>
+<li><p><strong>头部校验和</strong> ： 由发送端进行填充，接收端使用 CRC 算法对其进行校验，用于检查 IP 数据报头部在传输过程中是否损坏。</p></li>
+<li><p><strong>源IP地址和目的IP地址</strong> : 分别表示数据报的发送端和接收端。一般情况下，这两个地址在整个数据报传递过程中保持不变，无论中间经过多少个路由器。</p></li>
+<li><p><strong>选项</strong> ：可变长的可选信息，最多包含 40 字节。[RFC0791] 介绍了大多数的选项，在 IPv4 设计阶段，Internet 的规模相对较小，对来自恶意用户的威胁关注较少。由于 IPv4 头部大小的限制以及相关的安全问题，很多选项如今已不再实用或可取。</p></li>
+</ol>
+</section>
+<section id="id7">
+<h2><span class="section-number">3.3. </span>IP分片<a class="headerlink" href="0intro.html#id7" title="Link to this heading"></a></h2>
+<p>从前面的介绍我们知道，通过 IP 数据报头部中的标识、标志、位偏移这三个字段，可以稳定地完成数据报的分片与重组操作。下图展示了一个 UDP 包长度为 3000 字节的 UDP 数据报（该报文头部为 8 字节，负载为 2992 字节）被分片成三个 IPv4 分组（不包含选项）的过程，其中 UDP 头部只出现在第一个分片里。</p>
+<img alt="../_images/IP%E5%88%86%E7%89%87.PNG" src="../_images/IP分片.PNG" />
+</section>
+<section id="id8">
+<span id="id9"></span><h2><span class="section-number">3.4. </span>校验和计算<a class="headerlink" href="0intro.html#id8" title="Link to this heading"></a></h2>
+<section id="id10">
+<h3><span class="section-number">3.4.1. </span>IP头部校验和<a class="headerlink" href="0intro.html#id10" title="Link to this heading"></a></h3>
+<p>IP 头部校验和仅针对 IP 首部进行校验，对其负载数据的校验由上层协议负责，IP 协议无需关心负载数据在传输过程中是否出错。IP 数据报在转发过程中，其头部字段可能会发生改变（例如修改 TTL 等），但负载数据字段通常不会改变。因此，通过只校验 IP 头部的方式，可以提高路由器处理分组的效率。</p>
+</section>
+<section id="id11">
+<h3><span class="section-number">3.4.2. </span>反码求和<a class="headerlink" href="0intro.html#id11" title="Link to this heading"></a></h3>
+<p>IP 头部校验和采用反码求和的方式进行校验。这种校验方式不仅在 IP 层使用，在 ICMP、UDP、TCP 等协议中，也用于计算它们头部以及整个数据区的校验和。那么，反码求和是如何计算的呢？简单来说，它是将二进制数据的各位依次取反，然后再进行求和运算。不过，由于对每个二进制数都取反码会带来一定的内存和时间开销，所以在反码求和函数中，我们通常采用以下步骤：</p>
+<ol class="arabic simple">
+<li><p>对两个二进制数直接进行加法运算。</p></li>
+<li><p>如果相加过程中产生进位，则将进位加到下一列。</p></li>
+<li><p>若最高位相加仍产生进位，则要在最后的结果中加 1。</p></li>
+<li><p>对最后结果取反码。</p></li>
+</ol>
+<p>在发送端发送数据之前，首先将校验和字段置为 0，然后把需要计算校验和的数据看成由一串 16bit 的半字组成，并对每个 16bit 依次进行反码求和运算，最后将最终结果保存在校验和字段中。</p>
+<p>接收端收到数据后，首先备份校验和字段，接着将接收报文中的校验和字段置为 0，然后把需要计算校验和的数据同样看成是一串 16bit 的半字组成，并对每个 16bit 依次进行反码求和。最后，比较备份的校验和与计算出来的校验和是否一致，如果一致，则说明传输过程中没有出现任何差错；反之，则认为接收到的报文有错，将其丢弃不予处理。</p>
+</section>
+</section>
+</section>
+<section id="id12">
+<h1><span class="section-number">4. </span>代码实现与检测<a class="headerlink" href="0intro.html#id12" title="Link to this heading"></a></h1>
+<p>同学们需仔细研读本实验所提供的代码框架，将 src/ip.c 文件中的 ip_in() 函数、ip_out() 函数和 ip_fragment_out() 函数，以及 src/utils.c 文件中的 checksum16() 函数补充完整。</p>
+<section id="id13">
+<h2><span class="section-number">4.1. </span>IP数据报输入处理<a class="headerlink" href="0intro.html#id13" title="Link to this heading"></a></h2>
+<p>同学们要自行实现 ip_in() 函数，其具体功能步骤如下：</p>
+<p><strong>Step1</strong> 检查数据包长度：</p>
+<p>若数据包的长度小于 IP 头部长度，表明该数据包不完整，将其丢弃，不予处理。</p>
+<p><strong>Step2</strong> 进行报头检测：</p>
+<p>对 IP 报头进行详细检查，检查内容至少涵盖：IP 头部的版本号是否为 IPv4，总长度字段是否小于或等于收到的数据包长度等。若不符合这些要求，说明该数据包存在异常，将其丢弃。</p>
+<p><strong>Step3</strong> 校验头部校验和：</p>
+<p>先把 IP 头部的头部校验和字段用其他变量保存起来，接着将该头部校验和字段置为 0。随后调用 checksum16 函数来计算头部校验和，将计算结果与 IP 头部原本的首部校验和字段进行对比。若不一致，说明数据包在传输过程中可能出现损坏，将其丢弃；若一致，则再将该头部校验和字段恢复成原来的值。</p>
+<p><strong>Step4</strong> 对比目的 IP 地址：</p>
+<p>对比目的 IP 地址是否为本机的 IP 地址。若不是，说明该数据包并非发送给本机，将其丢弃。</p>
+<p><strong>Step5</strong> 去除填充字段：</p>
+<p>如果接收到的数据包的长度大于 IP 头部的总长度字段，说明该数据包存在填充字段。此时可调用 buf_remove_padding() 函数去除填充字段。</p>
+<p><strong>Step6</strong> 去掉 IP 报头：</p>
+<p>调用 buf_remove_header() 函数去掉 IP 报头，以便后续将数据传递给上层协议。</p>
+<p><strong>Step7</strong> 向上层传递数据包：</p>
+<p>调用 net_in() 函数向上层传递数据包。</p>
+<p>若遇到不能识别的协议类型（通过net_in的返回结果判断），调用 icmp_unreachable() 函数返回 ICMP 协议不可达信息。需要特别注意的是，在 Step 6 中已经去掉了 IP 报头，因此在发出 ICMP 协议报文前，需重新加入 IP 报头，以确保报文格式的完整性。</p>
+<p>考虑到目前大家还未实现 ICMP 协议，只需调用 icmp_unreachable() 这个空函数，并传入 ICMP_CODE_PROTOCOL_UNREACH（ICMP 协议不可达信息）即可。</p>
+</section>
+<section id="id14">
+<h2><span class="section-number">4.2. </span>校验和算法<a class="headerlink" href="0intro.html#id14" title="Link to this heading"></a></h2>
+<p>同学们需要自行实现 checksum16() 函数，可参考上述实验原理中的 <a class="reference internal" href="0intro.html#id8">校验和计算说明</a> ：</p>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>checksum16() 函数位于 src/utils.c 文件中。</p>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span><span class="w"> </span><span class="nf">checksum16</span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Step1</strong> 按 16 位分组相加：</p>
+<p>把 data 看成是每 16 个 bit（即 2 个字节）组成一个数，依次相加。由于 16 位加法的结果可能会超过 16 位，因此加法结果需要用 32 位数来保存。</p>
+<p><strong>Step2</strong> 处理剩余 8 位：</p>
+<p>如果最后还剩 8 个 bit 值，也要将这个 8bit 值与之前的和相加。</p>
+<p><strong>Step3</strong> 循环处理高 16 位：</p>
+<p>判断相加后 32bit 结果值的高 16 位是否为 0。如果不为 0，则将高 16 位和低 16 位相加，如此循环，直至高 16 位为 0 为止。</p>
+<p><strong>Step4</strong> 取反得到校验和：</p>
+<p>将上述处理后的和（低 16 位）取反，即得到校验和。</p>
+</section>
+<section id="id15">
+<h2><span class="section-number">4.3. </span>IP数据报输出处理<a class="headerlink" href="0intro.html#id15" title="Link to this heading"></a></h2>
+<p>同学们要自行实现 ip_out() 函数，其具体功能步骤如下：</p>
+<p><strong>Step1</strong> 检查数据报包长：</p>
+<p>首先检查从上层传递下来的数据报包长是否大于 IP 协议最大负载包长（1500 字节（MTU）减去 IP 首部长度）。</p>
+<p><strong>Step2</strong> 分片处理：</p>
+<p>若数据报包长超过 IP 协议最大负载包长，则需要进行分片发送。具体操作如下：</p>
+<ul class="simple">
+<li><p>首先调用 buf_init() 初始化一个 ip_buf。</p></li>
+<li><p>将数据报包长截断，每个截断后的包长等于 IP 协议最大负载包长（1500 字节 - IP 首部长度），调用 ip_fragment_out() 函数发送出去。</p></li>
+<li><p>如果截断后最后的一个分片小于或等于 IP 协议最大负载包长，调用 buf_init() 初始化一个 ip_buf，其大小等于该分片大小，再调用 ip_fragment_out() 函数发送出去。需要注意的是，最后一个分片的 MF（更多分片标志）应置为 0。</p></li>
+</ul>
+<p><strong>Step3</strong> 直接发送：</p>
+<p>若数据报包长没有超过 IP 协议最大负载包长，则直接调用 ip_fragment_out() 函数发送出去。</p>
+</section>
+<section id="id16">
+<h2><span class="section-number">4.4. </span>IP数据报输出处理<a class="headerlink" href="0intro.html#id16" title="Link to this heading"></a></h2>
+<p>同学们需要自行实现 ip_fragment_out() 函数，其具体功能步骤如下：</p>
+<p><strong>Step1</strong> 增加头部缓存空间：</p>
+<p>调用 buf_add_header() 函数增加 IP 数据报头部缓存空间，为后续填写头部信息做准备。</p>
+<p><strong>Step2</strong> 填写头部字段：</p>
+<p>按照 IP 协议的规范，填写 IP 数据报头部的各个字段，如版本号、首部长度、区分服务、总长度等。</p>
+<p><strong>Step3</strong> 计算并填写校验和：</p>
+<p>先把 IP 头部的首部校验和字段填为 0，再调用 checksum16 函数计算校验和，然后把计算出来的校验和填入首部校验和字段。</p>
+<p><strong>Step4</strong> 发送数据：</p>
+<p>调用 arp_out() 函数将封装后的 IP 头部和数据发送出去。</p>
+</section>
+<section id="id17">
+<h2><span class="section-number">4.5. </span>实验自测<a class="headerlink" href="0intro.html#id17" title="Link to this heading"></a></h2>
+<p>IP 自测需要通过 ip_test 和 ip_frag_test 测试。</p>
+<a class="reference internal image-reference" href="../_images/cmake7.png"><img alt="../_images/cmake7.png" src="../_images/cmake7.png" style="height: 500px;" /></a>
+<p>接着，打开 VSCode 的终端，进入 build 目录，分别输入 ctest -R ip_test 和 ctest -R ip_frag_test 进行自测。</p>
+<a class="reference internal image-reference" href="../_images/cmake13.png"><img alt="../_images/cmake13.png" src="../_images/cmake13.png" style="width: 574.6999999999999px; height: 303.79999999999995px;" /></a>
+<p>✅ 成功：终端显示 100% tests passed</p>
+<p>❌ 失败：根据错误日志排查问题，可参考 Eth协议调试指南</p>
+</section>
+<section id="id18">
+<h2><span class="section-number">4.6. </span>IP重组（选做）<a class="headerlink" href="0intro.html#id18" title="Link to this heading"></a></h2>
+<p>在基础实验的网络层开发中，我们完成了IP数据包的分片功能实现（基于RFC 791标准），该功能通过解析IP头部中的标识、分片偏移及标志位字段，结合MTU限制完成数据包切割，属于协议栈实现的初步环节。然而在实际网络传输场景中，IP分片重组面临以下关键挑战：</p>
+<ul class="simple">
+<li><p>分片乱序问题：不同IP包的分片可能交叉到达</p></li>
+<li><p>异构分片处理：同一IP包的分片可能具有非等长特性（最后一个分片除外）</p></li>
+<li><p>分片丢失风险：部分分片可能在传输中丢失</p></li>
+</ul>
+<p>有兴趣的同学可以尝试做一下IP重组附加题，详见 <a class="reference internal" href="../proplus/2IP.html"><span class="doc">IP重组</span></a> 。建议参考Linux内核ip_defrag.c模块的设计思路。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="index.html" class="btn btn-neutral float-left" title="Lab5：协议栈之IP协议实现" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../lab6/index.html" class="btn btn-neutral float-right" title="Lab6：协议栈之ICMP协议实现" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

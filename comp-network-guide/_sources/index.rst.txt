@@ -1,0 +1,150 @@
+.. 计算机网络实验（2026秋季）| 哈工大（深圳） documentation master file, created by
+   sphinx-quickstart on Tue Mar  1 11:08:07 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+==================================================================
+
+..  attention:: 
+  本实验文档仅限于哈尔滨工业大学（深圳）《计算机网络》2026年秋季课程实验使用，如有其他用途，请联系仇老师 qiujieting@hit.edu.cn。
+
+.. important:: 
+  - 坚持独立思考：
+      不要阅读、使用互联网上的任何现成代码，也不要将你的代码公之于众。
+
+  - AI使用准则：
+      - **Do**：把AI当作你的“学习伙伴”，让它帮你解读晦涩的报错，梳理混乱的概念，陪你一起调试程序。
+      - **Don't**：不要让AI成为你的“代码代工”，拒绝直接生成核心逻辑或答案，别让捷径偷走你成长的机会。
+
+   请记住，Coding的过程远比结果重要。
+  
+  请你自己动手实践，日拱一卒，功不唐捐，静心享受Coding带来的快乐吧：）
+
+.. note:: 
+   我们已为自己制定了一个宏伟的目标：了解如何从最底层开始建造计算机网络。要实现这个目标，我们将从基本原理开始，然后提出在建造实际的网络时经常遇到的各种问题。在每一步，我们会利用现有的协议去说明各种可行的设计方案，但是并不将这些人为的协议视作不变的真理。相反，我们要不断地提出（并回答）网络为什么要如此设计的问题。在力求让人们理解现今网络的工作方式的同时认识基本概念是很重要的，因为随着技术的发展和新应用的不断出现，网络的变化日新月异。依照我们的经验，一旦人们理解了基本思想，对于遇到的任何新协议，消化和吸收起来都变得相对容易。
+
+         ————摘自Larry L. Peterson, Bruce S. Davie《计算机网络系统方法》第一章, P4
+
+导读
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+本实验文档为哈尔滨工业大学（深圳）《计算机网络》课程实验指导材料。请同学们首先阅读 :doc:`/lab0/index`，以全面了解实验课程的内容和目标。
+
+- **配置实验**：我们将使用实验机柜中的物理设备进行操作，以模拟真实的网络环境。在开始配置实验之前，请务必阅读 :doc:`/appendix-c/index`，了解网络实验室的布局及设备的基本使用方法，这将有助于你更顺利地完成实验任务。
+
+- **协议栈编程实验**：请先按照 :doc:`/appendix-b/index` 中的说明搭建实验环境，然后从“协议栈之Eth协议实现”开始。对于有兴趣且学有余力的同学，建议挑战 :doc:`/proplus/index`，完成后可能会有意想不到的收获！
+
+.. important::
+   开始协议栈编程实验前，请先完成 :doc:`/appendix-b/0checklist`。
+
+   如果你遇到“Wireshark 抓包现象异常、校验和为 0、``udp_server`` / ``tcp_server`` 无法正常收发”的情况，请优先查阅 :doc:`/appendix-g/0bug-handbook`。
+
+如果同学们对实验内容、安排、指导书或代码框架有任何意见或建议，欢迎随时私信老师或助教。我们期待你的反馈！
+
+
+实验相关链接
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 实验指导书仓库：https://git.cs-lab.top/cslab/comp-network.git
+#. 协议栈编程实验仓库：https://git.cs-lab.top/cslab/net-lab.git
+#. 实验PPT、实验报告和工具下载链接（校内网）：https://file.cs-lab.top/s/ZvX5EPOqBUx15bs
+
+.. 
+    #. 邮件客户端实验仓库：https://gitee.com/q601/maillab.git
+
+.. _协议栈编程实验代码仓库:
+
+获取协议栈编程实验框架代码
+--------------------------
+
+关于协议栈编程实验的实验环境，请参考 :doc:`/appendix-b/index` 
+
+在命令行中执行：
+
+.. code-block:: sh
+   :linenos:
+
+   git clone https://git.cs-lab.top/cslab/net-lab.git
+
+获取框架代码，将克隆net-lab到当前目录。如遇问题请联系老师或助教。
+
+..
+   .. _邮件客户端代码仓库:
+   
+   获取邮件客户端编程实验框架代码
+   -----------------------------------
+   关于邮件客户端实验的实验环境，请参考 :doc:`/appendix-d/index` 
+   
+   在命令中执行：
+   
+   .. code-block:: sh
+      :linenos:
+   
+      $ git clone https://gitee.com/q601/maillab.git
+   
+   获取框架代码，将克隆maillab到当前目录。如遇问题请联系老师或助教。
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 实验
+   :hidden:
+
+   lab0/index
+   lab1-vlan/index
+   lab2/index
+   lab3/index
+   lab4-rip/index
+   lab5/index
+   lab6/index
+   lab7/index
+   lab8-ipv6/index
+   lab9-tcp/index
+   submission/index
+   proplus/index
+
+.. 2023
+   lab0/index
+   lab4/index
+   lab2/index
+   lab3/index
+   lab8/index
+   lab5/index
+   lab6/index
+   lab7/index
+   lab10/index
+   lab9/index   
+   proplus/index
+..
+   lab0/index
+   lab1/index
+   lab2/index
+   lab3/index
+   lab4/index
+   lab5/index
+   lab6/index
+   lab7/index
+   lab8/index
+   lab9/index
+   lab10/index
+   proplus/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 附录
+   :hidden:
+
+   appendix-a/index
+   appendix-b/index
+   appendix-c/index
+   appendix-e/index
+   appendix-f/index
+   appendix-g/index
+   
