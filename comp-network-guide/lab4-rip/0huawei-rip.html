@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. 实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -64,52 +64,52 @@
 <li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Lab4：RIP路由配置及协议分析</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="0huawei-rip.html#">1. 实验目的</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0huawei-rip.html#id2">2. 实验任务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0huawei-rip.html#id3">3. 实验原理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#rip">3.1. RIP概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id4">3.2. RIP协议特点</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id5">3.3. RIP报文格式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 实验目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2. 实验任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3. 实验原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rip">3.1. RIP概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2. RIP协议特点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.3. RIP报文格式</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="0huawei-rip.html#id6">4. 实验环境与分组</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0huawei-rip.html#id7">5. 实验设备和组网要求</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0huawei-rip.html#id8">6. 实验步骤</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id9">6.1. 登陆设备</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#step1">6.1.1. Step1：</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#step2">6.1.2. Step2：</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#step3">6.1.3. Step3：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">4. 实验环境与分组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">5. 实验设备和组网要求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">6. 实验步骤</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.1. 登陆设备</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step1">6.1.1. Step1：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step2">6.1.2. Step2：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step3">6.1.3. Step3：</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id10">6.2. 清空配置</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#id11">6.2.1. Step1：</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#id12">6.2.2. Step2：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">6.2. 清空配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">6.2.1. Step1：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">6.2.2. Step2：</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id13">6.3. 导入初始配置</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#pcip">6.4. 配置三台PC的IP地址</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id14">6.5. 配置路由器、交换机基本信息和计算机的网关</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#id15">6.5.1. 插拔网线</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#r1">6.5.2. 配置R1的基本信息</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#r2">6.5.3. 配置R2的基本信息</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#id16">6.5.4. 配置三台计算机的网关</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#r1ping-r2">6.5.5. 在R1上ping R2验证连通性</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#pcaping-r1">6.5.6. 在PCA上ping R1验证连通性</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#pccping-r2">6.5.7. 在PCC上ping R2验证连通性</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#pcaping-pcc">6.5.8. 在PCA上ping PCC验证连通性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">6.3. 导入初始配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcip">6.4. 配置三台PC的IP地址</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">6.5. 配置路由器、交换机基本信息和计算机的网关</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">6.5.1. 插拔网线</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#r1">6.5.2. 配置R1的基本信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#r2">6.5.3. 配置R2的基本信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">6.5.4. 配置三台计算机的网关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#r1ping-r2">6.5.5. 在R1上ping R2验证连通性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pcaping-r1">6.5.6. 在PCA上ping R1验证连通性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pccping-r2">6.5.7. 在PCC上ping R2验证连通性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pcaping-pcc">6.5.8. 在PCA上ping PCC验证连通性</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id17">6.6. 配置RIP协议及查看路由表，并测试连通性</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#r1rip">6.6.1. 在路由器R1上启用RIP协议</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#r2rip">6.6.2. 在路由器R2上启用RIP协议</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#r1r2">6.6.3. 查看R1和R2的路由表</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#pingpcapcc">6.6.4. 使用ping命令测试PCA到PCC之间的连通性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">6.6. 配置RIP协议及查看路由表，并测试连通性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#r1rip">6.6.1. 在路由器R1上启用RIP协议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#r2rip">6.6.2. 在路由器R2上启用RIP协议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#r1r2">6.6.3. 查看R1和R2的路由表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pingpcapcc">6.6.4. 使用ping命令测试PCA到PCC之间的连通性</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="0huawei-rip.html#id18">6.7. 触发更新和水平分割</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#pcbrip">6.7.1. 观察RIP报文</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#id20">6.7.2. 观察触发更新报文</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0huawei-rip.html#id21">6.7.3. 观察取消水平分割前后报文差异</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">6.7. 触发更新和水平分割</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pcbrip">6.7.1. 观察RIP报文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">6.7.2. 观察触发更新报文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">6.7.3. 观察取消水平分割前后报文差异</a></li>
 </ul>
 </li>
 </ul>
@@ -161,7 +161,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="0huawei-rip.html#id1" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p>了解动态路由协议的原理及其在网络中的实际应用。</p></li>
 <li><p>熟悉RIP协议的特点，水平分割、触发更新和毒性逆转机制在 RIP 协议中的重要作用。</p></li>
@@ -169,17 +169,17 @@
 </ol>
 </section>
 <section id="id2">
-<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="0huawei-rip.html#id2" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
 <p>熟练掌握 RIP 的配置方法，在计算机上运用 Wireshark 工具截取 RIP 报文，通过分析报文深入理解触发更新和水平分割对 RIP 收敛速度的影响以及在避免环路方面的重要作用。</p>
 </section>
 <section id="id3">
-<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="0huawei-rip.html#id3" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="#id3" title="Link to this heading"></a></h1>
 <section id="rip">
-<h2><span class="section-number">3.1. </span>RIP概要<a class="headerlink" href="0huawei-rip.html#rip" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1. </span>RIP概要<a class="headerlink" href="#rip" title="Link to this heading"></a></h2>
 <p>RIP（Routing Information Protocol）是一种基于距离矢量算法的路由协议。它以 “跳数”，也就是数据包所经过的路由器的数量，作为衡量到达目标地址路由距离的指标，在局域网（LAN）中得到了广泛应用。早期，BSD UNIX 系统的 routed 进程采用了 RIP 协议，这使得 RIP 得以迅速普及。</p>
 </section>
 <section id="id4">
-<h2><span class="section-number">3.2. </span>RIP协议特点<a class="headerlink" href="0huawei-rip.html#id4" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.2. </span>RIP协议特点<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>RIP协议特点可归纳如下：</p>
 <ol class="arabic simple">
 <li><p><strong>周期性广播路由信息</strong> ：每 30 秒，路由器会将自己所掌握的路由信息以广播的形式发送出去。如果某个路由信息在 180 秒内未得到更新，路由器会认为该网络连接已经断开。</p></li>
@@ -207,9 +207,9 @@
 </div>
 </section>
 <section id="id5">
-<h2><span class="section-number">3.3. </span>RIP报文格式<a class="headerlink" href="0huawei-rip.html#id5" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.3. </span>RIP报文格式<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>RIP 协议利用 UDP 协议的 520 端口进行 RIP 报文的发送和接收。RIP 协议包含两个版本：RIPv1 和 RIPv2。RIPv2 是 RIPv1 的增强版本，在功能上有显著提升，同时增强了对错误的抵抗能力。RIPv1 的响应报文采用广播方式发送，目的地址为 255.255.255.255；为了减轻不接收 RIP 协议数据包的主机的负载，RIPv2 采用组播地址 224.0.0.9 进行周期性广播。RIPv2 的报文格式如下图所示。</p>
-<img alt="../_images/RIP%E6%A0%BC%E5%BC%8F.png" src="../_images/RIP格式.png" />
+<img alt="../_images/RIP%E6%A0%BC%E5%BC%8F.png" src="../_images/RIP%E6%A0%BC%E5%BC%8F.png" />
 <ol class="arabic simple">
 <li><p><strong>命令字(Command)</strong> ：1为请求报文，2为应答报文。</p></li>
 <li><p><strong>版本 (Version)</strong> ：指生成RIP报文时所使用的版本，RIP只有两个版本:版本1和版本2。</p></li>
@@ -224,11 +224,11 @@
 </section>
 </section>
 <section id="id6">
-<h1><span class="section-number">4. </span>实验环境与分组<a class="headerlink" href="0huawei-rip.html#id6" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>实验环境与分组<a class="headerlink" href="#id6" title="Link to this heading"></a></h1>
 <p>路由器2台、二层交换机2台，三层交换机1台，计算机4台，4人一组。</p>
 </section>
 <section id="id7">
-<h1><span class="section-number">5. </span>实验设备和组网要求<a class="headerlink" href="0huawei-rip.html#id7" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5. </span>实验设备和组网要求<a class="headerlink" href="#id7" title="Link to this heading"></a></h1>
 <p>实验机柜设备拓扑详见 <a class="reference internal" href="../lab1-vlan/index.html"><span class="doc">Lab1：VLAN 与接口模式配置</span></a> 的“实验设备和组网要求”。本次实验需要将实验机柜的网络拓扑改成如下结构：</p>
 <img alt="../_images/6-2.JPG" src="../_images/6-2.JPG" />
 <p>IP地址表：</p>
@@ -263,20 +263,20 @@
 </div>
 </section>
 <section id="id8">
-<h1><span class="section-number">6. </span>实验步骤<a class="headerlink" href="0huawei-rip.html#id8" title="Link to this heading"></a></h1>
+<h1><span class="section-number">6. </span>实验步骤<a class="headerlink" href="#id8" title="Link to this heading"></a></h1>
 <section id="id9">
-<h2><span class="section-number">6.1. </span>登陆设备<a class="headerlink" href="0huawei-rip.html#id9" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.1. </span>登陆设备<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <section id="step1">
-<h3><span class="section-number">6.1.1. </span>Step1：<a class="headerlink" href="0huawei-rip.html#step1" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.1.1. </span>Step1：<a class="headerlink" href="#step1" title="Link to this heading"></a></h3>
 <p>打开SecureCRT，点击窗口中的“快速连接”图标，如图所示：</p>
 <img alt="../_images/1-23.jpg" src="../_images/1-23.jpg" />
 </section>
 <section id="step2">
-<h3><span class="section-number">6.1.2. </span>Step2：<a class="headerlink" href="0huawei-rip.html#step2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.1.2. </span>Step2：<a class="headerlink" href="#step2" title="Link to this heading"></a></h3>
 <p>在弹出的窗口中，输入需通过telnet访问的设备IP（见表 <a class="reference internal" href="../lab8/0intro.html#atm"><span class="std std-ref">ATM管理机地址表</span></a> ）和端口号，然后点击“连接”即可。</p>
 <img alt="../_images/1-33.jpg" src="../_images/1-33.jpg" />
 <span id="atm"></span><table class="docutils align-center" id="id22">
-<caption><span class="caption-text">ATM管理机地址表</span><a class="headerlink" href="0huawei-rip.html#id22" title="Link to this table"></a></caption>
+<caption><span class="caption-text">ATM管理机地址表</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 40.0%" />
 <col style="width: 60.0%" />
@@ -321,7 +321,7 @@
 </table>
 </section>
 <section id="step3">
-<h3><span class="section-number">6.1.3. </span>Step3：<a class="headerlink" href="0huawei-rip.html#step3" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.1.3. </span>Step3：<a class="headerlink" href="#step3" title="Link to this heading"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
 <p><strong>交换机不需要输入用户名和密码</strong> 即可进行基本的配置和管理。</p>
@@ -334,10 +334,10 @@
 </section>
 </section>
 <section id="id10">
-<h2><span class="section-number">6.2. </span>清空配置<a class="headerlink" href="0huawei-rip.html#id10" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.2. </span>清空配置<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <p>每次做实验前，先清空上一次的配置，本次实验需清空R1、R2、SW1、SW2、SW3的配置。</p>
 <section id="id11">
-<h3><span class="section-number">6.2.1. </span>Step1：<a class="headerlink" href="0huawei-rip.html#id11" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.1. </span>Step1：<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <p>在用户视图下，使用如下命令进行配置的清空</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">reset</span><span class="w"> </span><span class="n">saved</span><span class="o">-</span><span class="n">configuration</span><span class="w"> </span><span class="c1">//清除配置</span>
 <span class="linenos">2</span><span class="n">The</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="n">configurations</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">erased</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reconfigure</span><span class="p">.</span><span class="w"> </span><span class="n">Are</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">sure</span><span class="o">?</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">:</span><span class="n">y</span><span class="w"> </span><span class="c1">//输入y继续删除</span>
@@ -348,7 +348,7 @@
 <img alt="../_images/2-43.jpg" src="../_images/2-43.jpg" />
 </section>
 <section id="id12">
-<h3><span class="section-number">6.2.2. </span>Step2：<a class="headerlink" href="0huawei-rip.html#id12" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.2. </span>Step2：<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
 <p>在用户视图下，使用如下命令进行重启。注意不要输错。</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">reboot</span><span class="w"> </span><span class="c1">//重启</span>
 <span class="linenos">2</span><span class="n">All</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">startup</span><span class="w"> </span><span class="n">configuration</span><span class="p">.</span><span class="w"> </span><span class="n">Continue</span><span class="o">?</span><span class="w"> </span><span class="p">[</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">]</span><span class="o">:</span><span class="n">n</span><span class="w"> </span><span class="c1">//输入n不保存到启动配置</span>
@@ -360,7 +360,7 @@
 </section>
 </section>
 <section id="id13">
-<h2><span class="section-number">6.3. </span>导入初始配置<a class="headerlink" href="0huawei-rip.html#id13" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.3. </span>导入初始配置<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <p>R1导入下列配置</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">system</span><span class="o">-</span><span class="n">view</span>
 <span class="linenos"> 2</span><span class="n">sysname</span><span class="w"> </span><span class="n">R1</span>
@@ -448,7 +448,7 @@
 <img alt="../_images/2-73.jpg" src="../_images/2-73.jpg" />
 </section>
 <section id="pcip">
-<h2><span class="section-number">6.4. </span>配置三台PC的IP地址<a class="headerlink" href="0huawei-rip.html#pcip" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.4. </span>配置三台PC的IP地址<a class="headerlink" href="#pcip" title="Link to this heading"></a></h2>
 <p>按照下表设置PCA、PCC和PCD这三台电脑的IP地址。</p>
 <p>注意，实验室电脑上有两个有线网卡，我们需要配置的是第二块网卡，即“以太网2”。</p>
 <table class="docutils align-default">
@@ -471,9 +471,9 @@
 </table>
 </section>
 <section id="id14">
-<h2><span class="section-number">6.5. </span>配置路由器、交换机基本信息和计算机的网关<a class="headerlink" href="0huawei-rip.html#id14" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.5. </span>配置路由器、交换机基本信息和计算机的网关<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <section id="id15">
-<h3><span class="section-number">6.5.1. </span>插拔网线<a class="headerlink" href="0huawei-rip.html#id15" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.1. </span>插拔网线<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <p>按照组网图正确组网，打开机柜，把 PCB 的网线接口接到 SW1 的 G0/0/12 上。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
@@ -497,7 +497,7 @@
 </div>
 </section>
 <section id="r1">
-<h3><span class="section-number">6.5.2. </span>配置R1的基本信息<a class="headerlink" href="0huawei-rip.html#r1" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.2. </span>配置R1的基本信息<a class="headerlink" href="#r1" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">system</span><span class="o">-</span><span class="n">view</span><span class="w"> </span><span class="c1">//进入系统视图</span>
 <span class="linenos"> 2</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">9</span><span class="w"> </span><span class="c1">//进入G0/0/9接口模式</span>
 <span class="linenos"> 3</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">192.168.1.1</span><span class="w"> </span><span class="mf">255.255.255.0</span><span class="w"> </span><span class="c1">//配置G0/0/0接口ip地址</span>
@@ -513,7 +513,7 @@
 </div>
 </section>
 <section id="r2">
-<h3><span class="section-number">6.5.3. </span>配置R2的基本信息<a class="headerlink" href="0huawei-rip.html#r2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.3. </span>配置R2的基本信息<a class="headerlink" href="#r2" title="Link to this heading"></a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">system</span><span class="o">-</span><span class="n">view</span><span class="w"> </span><span class="c1">//进入系统视图</span>
 <span class="linenos">2</span><span class="n">interface</span><span class="w"> </span><span class="n">G0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">9</span><span class="w"> </span><span class="c1">//进入G0/0/9接口模式</span>
 <span class="linenos">3</span><span class="n">ip</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="mf">192.168.1.2</span><span class="w"> </span><span class="mf">255.255.255.0</span><span class="w"> </span><span class="c1">//配置G0/0/0接口ip地址</span>
@@ -526,25 +526,25 @@
 </div>
 </section>
 <section id="id16">
-<h3><span class="section-number">6.5.4. </span>配置三台计算机的网关<a class="headerlink" href="0huawei-rip.html#id16" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.4. </span>配置三台计算机的网关<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <p>注意，一台电脑只能有一个默认网关，需要把“以太网”的默认网关删掉，才能配置“以太网2”的默认网关。</p>
 <p>PCA网关为192.168.2.1，PCC和PCD网关为192.168.3.1</p>
 <p>PCA通过默认网关将发往未知网络的数据交由R1处理。同理PCC和PCD通过默认网关将数据交给R2。</p>
 </section>
 <section id="r1ping-r2">
-<h3><span class="section-number">6.5.5. </span>在R1上ping R2验证连通性<a class="headerlink" href="0huawei-rip.html#r1ping-r2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.5. </span>在R1上ping R2验证连通性<a class="headerlink" href="#r1ping-r2" title="Link to this heading"></a></h3>
 <img alt="../_images/6-3.jpg" src="../_images/6-3.jpg" />
 </section>
 <section id="pcaping-r1">
-<h3><span class="section-number">6.5.6. </span>在PCA上ping R1验证连通性<a class="headerlink" href="0huawei-rip.html#pcaping-r1" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.6. </span>在PCA上ping R1验证连通性<a class="headerlink" href="#pcaping-r1" title="Link to this heading"></a></h3>
 <img alt="../_images/6-4.jpg" src="../_images/6-4.jpg" />
 </section>
 <section id="pccping-r2">
-<h3><span class="section-number">6.5.7. </span>在PCC上ping R2验证连通性<a class="headerlink" href="0huawei-rip.html#pccping-r2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.7. </span>在PCC上ping R2验证连通性<a class="headerlink" href="#pccping-r2" title="Link to this heading"></a></h3>
 <img alt="../_images/6-5.jpg" src="../_images/6-5.jpg" />
 </section>
 <section id="pcaping-pcc">
-<h3><span class="section-number">6.5.8. </span>在PCA上ping PCC验证连通性<a class="headerlink" href="0huawei-rip.html#pcaping-pcc" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.5.8. </span>在PCA上ping PCC验证连通性<a class="headerlink" href="#pcaping-pcc" title="Link to this heading"></a></h3>
 <img alt="../_images/6-6.jpg" src="../_images/6-6.jpg" />
 <p>此时，还没有设置RIP路由协议，PCA和PCC还不能相互连通。</p>
 <div class="admonition attention">
@@ -554,10 +554,10 @@
 </section>
 </section>
 <section id="id17">
-<h2><span class="section-number">6.6. </span>配置RIP协议及查看路由表，并测试连通性<a class="headerlink" href="0huawei-rip.html#id17" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.6. </span>配置RIP协议及查看路由表，并测试连通性<a class="headerlink" href="#id17" title="Link to this heading"></a></h2>
 <p>为两台路由器和三层交换配置RIP协议，并通告其网络。具体命令如下：</p>
 <section id="r1rip">
-<h3><span class="section-number">6.6.1. </span>在路由器R1上启用RIP协议<a class="headerlink" href="0huawei-rip.html#r1rip" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.6.1. </span>在路由器R1上启用RIP协议<a class="headerlink" href="#r1rip" title="Link to this heading"></a></h3>
 <p>在R1的系统视图下：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="n">system</span><span class="o">-</span><span class="n">view</span><span class="w"> </span><span class="c1">//进入系统视图</span>
 <span class="linenos">2</span><span class="w"> </span><span class="n">rip</span><span class="w">  </span><span class="c1">//启用RIP协议</span>
@@ -571,7 +571,7 @@
 </div>
 </section>
 <section id="r2rip">
-<h3><span class="section-number">6.6.2. </span>在路由器R2上启用RIP协议<a class="headerlink" href="0huawei-rip.html#r2rip" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.6.2. </span>在路由器R2上启用RIP协议<a class="headerlink" href="#r2rip" title="Link to this heading"></a></h3>
 <p>R2-系统视图：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="n">system</span><span class="o">-</span><span class="n">view</span><span class="w"> </span><span class="c1">//进入系统视图</span>
 <span class="linenos">2</span><span class="w"> </span><span class="n">rip</span><span class="w">  </span><span class="c1">//启用RIP协议</span>
@@ -584,7 +584,7 @@
 </div>
 </section>
 <section id="r1r2">
-<h3><span class="section-number">6.6.3. </span>查看R1和R2的路由表<a class="headerlink" href="0huawei-rip.html#r1r2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.6.3. </span>查看R1和R2的路由表<a class="headerlink" href="#r1r2" title="Link to this heading"></a></h3>
 <p>使用display ip routing-table命令在R1和R2上查看路由表信息</p>
 <p>R1路由表:</p>
 <img alt="../_images/6-7.jpg" src="../_images/6-7.jpg" />
@@ -592,7 +592,7 @@
 <img alt="../_images/6-8.jpg" src="../_images/6-8.jpg" />
 </section>
 <section id="pingpcapcc">
-<h3><span class="section-number">6.6.4. </span>使用ping命令测试PCA到PCC之间的连通性<a class="headerlink" href="0huawei-rip.html#pingpcapcc" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.6.4. </span>使用ping命令测试PCA到PCC之间的连通性<a class="headerlink" href="#pingpcapcc" title="Link to this heading"></a></h3>
 <img alt="../_images/6-9.jpg" src="../_images/6-9.jpg" />
 <p>配置RIP路由协议后，PCA能访问到PCC了。</p>
 <div class="admonition attention">
@@ -602,9 +602,9 @@
 </section>
 </section>
 <section id="id18">
-<h2><span class="section-number">6.7. </span>触发更新和水平分割<a class="headerlink" href="0huawei-rip.html#id18" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.7. </span>触发更新和水平分割<a class="headerlink" href="#id18" title="Link to this heading"></a></h2>
 <section id="pcbrip">
-<span id="id19"></span><h3><span class="section-number">6.7.1. </span>观察RIP报文<a class="headerlink" href="0huawei-rip.html#pcbrip" title="Link to this heading"></a></h3>
+<span id="id19"></span><h3><span class="section-number">6.7.1. </span>观察RIP报文<a class="headerlink" href="#pcbrip" title="Link to this heading"></a></h3>
 <p>分别打开PCA 、PCB、PCC三台计算机的Wireshark抓取rip协议包，具体操作见三层交换中arp抓包实验。</p>
 <p>此时查看PCA上截获 R1 g0/0/0 发出的报文，有4条路由信息。其中，到192.168.3.0路由需要2跳。从下图可知，每两条RIP报文相差间隔差不多是30s，这也验证了RIP是每30s将自己所知道的路由信息广播出去。</p>
 <img alt="../_images/671PCA.PNG" src="../_images/671PCA.PNG" />
@@ -614,7 +614,7 @@
 <img alt="../_images/671PCC.PNG" src="../_images/671PCC.PNG" />
 </section>
 <section id="id20">
-<h3><span class="section-number">6.7.2. </span>观察触发更新报文<a class="headerlink" href="0huawei-rip.html#id20" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.7.2. </span>观察触发更新报文<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
 <p>然后在R1上使用命令 undo interface loopback1断开回环地址loopback1，四台PC都连接不到loopback1，PCA、PCB和PCC结果如下图所示。</p>
 <p>PCA截获到1.1.1.1网段不可达。</p>
 <div class="admonition attention">
@@ -633,7 +633,7 @@
 </div>
 </section>
 <section id="id21">
-<h3><span class="section-number">6.7.3. </span>观察取消水平分割前后报文差异<a class="headerlink" href="0huawei-rip.html#id21" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.7.3. </span>观察取消水平分割前后报文差异<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <p>RIP配置后，默认启动水平分割。水平分割就是此接口接收到的信息不从这个接口发回去。从上面    <a class="reference internal" href="../lab8/0huawei-rip.html#pcbrip"><span class="std std-ref">观察RIP报文</span></a> 的PCB报文图中可以看出，从R1 g0/0/9 接收到的192.168.1.0 和 192.168.3.0 路由信息，将不再从R1 g0/0/9 发出这两条信息。</p>
 <p>接下来，你需要 <strong>重新配置loopback1</strong> （配置方法参考上述给出的配置命令），使个路由器运行RIP，正常工作。然后， <strong>取消路由器R1和R2的水平分割功能</strong> ，以R1的g0/0/9接口为例命令如下，观察取消水平分割后的RIP报文。</p>
 <p>R1基本配置</p>

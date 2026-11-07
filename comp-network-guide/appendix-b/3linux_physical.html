@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. 纯 Linux/WSL2 环境配置（veth） &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -78,31 +78,31 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">附录 B：网络编程实验环境</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="0checklist.html">1. 环境配置检查清单</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1win.html">2. Windows开发环境搭建</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="3linux_physical.html#">3. 纯 Linux/WSL2 环境配置（veth）</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#linux">3.1. 安装 Linux 实验依赖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#vs-code">3.2. 配置 VS Code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#linux-wsl2">3.2.1. 本地 Linux 或 WSL2 开发</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#id1">3.2.2. 连接其他 Linux 主机或自建虚拟机</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. 纯 Linux/WSL2 环境配置（veth）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux">3.1. 安装 Linux 实验依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vs-code">3.2. 配置 VS Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux-wsl2">3.2.1. 本地 Linux 或 WSL2 开发</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">3.2.2. 连接其他 Linux 主机或自建虚拟机</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#id2">3.3. 下载并编译实验代码</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#id3">3.4. 离线组件测试与调试</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#id4">3.5. 原理对比</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#windows-linux-nat">3.5.1. 传统方式：Windows / Linux 虚拟机 (NAT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#linux-veth-packet-socket">3.5.2. Linux 路径 (veth + Packet Socket)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.3. 下载并编译实验代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.4. 离线组件测试与调试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.5. 原理对比</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows-linux-nat">3.5.1. 传统方式：Windows / Linux 虚拟机 (NAT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-veth-packet-socket">3.5.2. Linux 路径 (veth + Packet Socket)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#setup-veth-sh">3.6. 环境搭建脚本 (setup_veth.sh)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#ip">3.6.1. IP 地址选择说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-veth-sh">3.6. 环境搭建脚本 (setup_veth.sh)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ip">3.6.1. IP 地址选择说明</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#linux-veth-usage">3.7. 使用步骤</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#id6">3.8. 调试方法</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#vs-code-launch-json-tasks-json">3.8.1. VS Code 调试配置 (launch.json + tasks.json)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3linux_physical.html#sudo-gdb">3.8.2. 命令行调试 (sudo gdb)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-veth-usage">3.7. 使用步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.8. 调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vs-code-launch-json-tasks-json">3.8.1. VS Code 调试配置 (launch.json + tasks.json)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sudo-gdb">3.8.2. 命令行调试 (sudo gdb)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3linux_physical.html#docker">3.9. Docker 环境 (可选)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">3.9. Docker 环境 (可选)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="4oslab_ubuntu.html">4. OSLab Ubuntu 环境配置</a></li>
@@ -141,7 +141,7 @@
            <div itemprop="articleBody">
              
   <section id="linux-wsl2-veth">
-<h1><span class="section-number">3. </span>纯 Linux/WSL2 环境配置（veth）<a class="headerlink" href="3linux_physical.html#linux-wsl2-veth" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3. </span>纯 Linux/WSL2 环境配置（veth）<a class="headerlink" href="#linux-wsl2-veth" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>本节适用于所有拥有完整 Linux 环境（包括 Linux 物理机、Linux 虚拟机、WSL2 等）并拥有 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 权限的同学。</p>
@@ -156,7 +156,7 @@
 <li><p><strong>配置简单</strong>：提供自动化脚本，一键完成环境搭建，无需手动配置复杂的网络参数。</p></li>
 </ol>
 <section id="linux">
-<h2><span class="section-number">3.1. </span>安装 Linux 实验依赖<a class="headerlink" href="3linux_physical.html#linux" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1. </span>安装 Linux 实验依赖<a class="headerlink" href="#linux" title="Link to this heading"></a></h2>
 <p>在 Linux 终端中执行：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
@@ -170,13 +170,13 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <p>安装 Wireshark 时，如果出现 <code class="docutils literal notranslate"><span class="pre">[More]</span></code>，可按空格翻页或按 <code class="docutils literal notranslate"><span class="pre">q</span></code> 退出说明；随后若询问是否允许普通用户抓包，请选择 <code class="docutils literal notranslate"><span class="pre">Yes</span></code> 并确认。</p>
 </section>
 <section id="vs-code">
-<h2><span class="section-number">3.2. </span>配置 VS Code<a class="headerlink" href="3linux_physical.html#vs-code" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.2. </span>配置 VS Code<a class="headerlink" href="#vs-code" title="Link to this heading"></a></h2>
 <section id="linux-wsl2">
-<h3><span class="section-number">3.2.1. </span>本地 Linux 或 WSL2 开发<a class="headerlink" href="3linux_physical.html#linux-wsl2" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.2.1. </span>本地 Linux 或 WSL2 开发<a class="headerlink" href="#linux-wsl2" title="Link to this heading"></a></h3>
 <p>在 Linux 桌面中打开 VS Code，安装 Microsoft 发布的 <strong>C/C++</strong> 和 <strong>CMake Tools</strong> 扩展。使用 WSL2 时，在 Windows 的 VS Code 中安装 Microsoft 发布的 <strong>WSL</strong> 扩展，并通过该扩展连接 Linux 发行版；C/C++ 和 CMake Tools 应安装在 WSL 侧。</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">3.2.2. </span>连接其他 Linux 主机或自建虚拟机<a class="headerlink" href="3linux_physical.html#id1" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.2.2. </span>连接其他 Linux 主机或自建虚拟机<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>如果从 Windows 等系统远程连接 Linux，请先在 Linux 主机或虚拟机中安装并启动 SSH 服务：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>openssh-server
 sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>ssh
@@ -189,7 +189,7 @@ hostname<span class="w"> </span>-I
 </section>
 </section>
 <section id="id2">
-<h2><span class="section-number">3.3. </span>下载并编译实验代码<a class="headerlink" href="3linux_physical.html#id2" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.3. </span>下载并编译实验代码<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>在 Linux、WSL 或 SSH 远程窗口的终端中下载实验代码：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
 git<span class="w"> </span>clone<span class="w"> </span>https://git.cs-lab.top/cslab/net-lab.git
@@ -215,7 +215,7 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build
 </div>
 </section>
 <section id="id3">
-<h2><span class="section-number">3.4. </span>离线组件测试与调试<a class="headerlink" href="3linux_physical.html#id3" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.4. </span>离线组件测试与调试<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">eth_in</span></code>、<code class="docutils literal notranslate"><span class="pre">eth_out</span></code>、<code class="docutils literal notranslate"><span class="pre">arp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code>、<code class="docutils literal notranslate"><span class="pre">icmp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">udp_test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 是离线组件测试，读取各自测试目录中的输入文件，不需要 veth、sudo 或 gdbserver。</p>
 <p>可以在项目根目录运行，例如：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
@@ -228,15 +228,15 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build
 <p><code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 属于在线集成测试，请继续完成下面的 veth 配置和使用步骤。</p>
 </section>
 <section id="id4">
-<h2><span class="section-number">3.5. </span>原理对比<a class="headerlink" href="3linux_physical.html#id4" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.5. </span>原理对比<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <section id="windows-linux-nat">
-<h3><span class="section-number">3.5.1. </span>传统方式：Windows / Linux 虚拟机 (NAT)<a class="headerlink" href="3linux_physical.html#windows-linux-nat" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.5.1. </span>传统方式：Windows / Linux 虚拟机 (NAT)<a class="headerlink" href="#windows-linux-nat" title="Link to this heading"></a></h3>
 <p>Windows 的 Npcap 方案与传统 Linux 虚拟机的 NAT 网卡方案，都通过已有网卡收发实验数据包。</p>
 <p>在这些环境下，我们通常依赖 Npcap (Windows) 或直接在网络接口上 (Linux) 捕获和注入数据包。这些接口通常承担着访问互联网的功能（通过 NAT 或桥接），因此会有大量的背景流量（如 ARP 广播、SSDP 等）。</p>
 <img alt="Windows Npcap Path" class="align-center" src="../_images/env-pure-linux-1.png" />
 </section>
 <section id="linux-veth-packet-socket">
-<h3><span class="section-number">3.5.2. </span>Linux 路径 (veth + Packet Socket)<a class="headerlink" href="3linux_physical.html#linux-veth-packet-socket" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.5.2. </span>Linux 路径 (veth + Packet Socket)<a class="headerlink" href="#linux-veth-packet-socket" title="Link to this heading"></a></h3>
 <p>在 Linux 环境下，我们利用 <code class="docutils literal notranslate"><span class="pre">veth</span></code> pair 构建虚拟链路。<code class="docutils literal notranslate"><span class="pre">veth</span></code> 就像一根虚拟的网线，连接着两端：</p>
 <ul class="simple">
 <li><p>一端 (<code class="docutils literal notranslate"><span class="pre">veth1</span></code>) 连接到 Linux 内核协议栈（扮演“客户端/对端主机”）。</p></li>
@@ -251,11 +251,11 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build
 </section>
 </section>
 <section id="setup-veth-sh">
-<h2><span class="section-number">3.6. </span>环境搭建脚本 (setup_veth.sh)<a class="headerlink" href="3linux_physical.html#setup-veth-sh" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.6. </span>环境搭建脚本 (setup_veth.sh)<a class="headerlink" href="#setup-veth-sh" title="Link to this heading"></a></h2>
 <p>为了简化 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 设备的创建、IP 配置、路由设置以及关闭 Checksum Offload 等繁琐步骤，我们提供了一个自动化脚本 <code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code>。</p>
 <p>你可以直接下载 <a class="reference download internal" download="" href="../_downloads/e223886520cbd77a1118e150a1b0c336/setup_veth.sh"><code class="xref download docutils literal notranslate"><span class="pre">setup_veth.sh</span></code></a>，保存到 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录；也可以按下面的内容手动创建该脚本，并赋予执行权限 (<code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">setup_veth.sh</span></code>)。</p>
 <section id="ip">
-<h3><span class="section-number">3.6.1. </span>IP 地址选择说明<a class="headerlink" href="3linux_physical.html#ip" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.6.1. </span>IP 地址选择说明<a class="headerlink" href="#ip" title="Link to this heading"></a></h3>
 <p>本方案利用 Linux 的路由机制将流量导向虚拟设备，因此 <strong>协议栈的 IP 地址无需与物理网卡处于同一网段</strong>。</p>
 <p>为了避免与物理网络（如校园网 <code class="docutils literal notranslate"><span class="pre">10.x.x.x</span></code> 或家庭 WiFi <code class="docutils literal notranslate"><span class="pre">192.168.1.x</span></code>）发生路由冲突，建议选择一个独立的私有网段（例如 <code class="docutils literal notranslate"><span class="pre">192.168.254.x</span></code>）。</p>
 <p>配置完成后，通过 <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code> 命令可以看到清晰的路由隔离：</p>
@@ -373,7 +373,7 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build
 </section>
 </section>
 <section id="linux-veth-usage">
-<span id="id5"></span><h2><span class="section-number">3.7. </span>使用步骤<a class="headerlink" href="3linux_physical.html#linux-veth-usage" title="Link to this heading"></a></h2>
+<span id="id5"></span><h2><span class="section-number">3.7. </span>使用步骤<a class="headerlink" href="#linux-veth-usage" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p><strong>修改 config.h</strong>:
 确保 <code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中非 <code class="docutils literal notranslate"><span class="pre">TEST</span></code> 分支的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code> 与脚本中的 <code class="docutils literal notranslate"><span class="pre">STACK_IP</span></code> 一致；如果修改了地址，请保存并重新编译。</p>
@@ -420,10 +420,10 @@ curl<span class="w"> </span>http://192.168.254.2/
 </ol>
 </section>
 <section id="id6">
-<h2><span class="section-number">3.8. </span>调试方法<a class="headerlink" href="3linux_physical.html#id6" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.8. </span>调试方法<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>在 Linux 环境下，你可以使用 GDB 或 VS Code 进行调试。</p>
 <section id="vs-code-launch-json-tasks-json">
-<span id="linux-vscode-gdbserver"></span><h3><span class="section-number">3.8.1. </span>VS Code 调试配置 (launch.json + tasks.json)<a class="headerlink" href="3linux_physical.html#vs-code-launch-json-tasks-json" title="Link to this heading"></a></h3>
+<span id="linux-vscode-gdbserver"></span><h3><span class="section-number">3.8.1. </span>VS Code 调试配置 (launch.json + tasks.json)<a class="headerlink" href="#vs-code-launch-json-tasks-json" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 需要 Raw Socket 权限。使用普通用户登录 VS Code 时，可以用 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 启动 <code class="docutils literal notranslate"><span class="pre">gdbserver</span></code>，再让 VS Code 连接进行调试。</p>
 <p>先在 Linux 终端执行 <code class="docutils literal notranslate"><span class="pre">gdbserver</span> <span class="pre">--version</span></code>。如果显示版本号，说明已经安装；如果提示找不到命令，再执行：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gdbserver
@@ -512,7 +512,7 @@ curl<span class="w"> </span>http://192.168.254.2/
 </div>
 </section>
 <section id="sudo-gdb">
-<h3><span class="section-number">3.8.2. </span>命令行调试 (sudo gdb)<a class="headerlink" href="3linux_physical.html#sudo-gdb" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.8.2. </span>命令行调试 (sudo gdb)<a class="headerlink" href="#sudo-gdb" title="Link to this heading"></a></h3>
 <p>如果你更喜欢命令行，可以直接使用 sudo 运行 gdb：</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>build
@@ -523,7 +523,7 @@ sudo<span class="w"> </span>gdb<span class="w"> </span>./udp_server
 </section>
 </section>
 <section id="docker">
-<h2><span class="section-number">3.9. </span>Docker 环境 (可选)<a class="headerlink" href="3linux_physical.html#docker" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.9. </span>Docker 环境 (可选)<a class="headerlink" href="#docker" title="Link to this heading"></a></h2>
 <p>如果你熟悉 Docker，也可以使用我们提供的 Dockerfile 构建一个包含所有依赖的隔离环境。</p>
 <p><strong>Dockerfile</strong>:</p>
 <div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:22.04</span>

@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. 实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -67,24 +67,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Lab7：协议栈之UDP协议实现</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="0intro.html#">1. 实验目的</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id2">2. 实验任务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id3">3. 实验原理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#udp">3.1. UDP协议概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id4">3.2. UDP头部</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id5">3.3. UDP校验和计算方法</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 实验目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2. 实验任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3. 实验原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#udp">3.1. UDP协议概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2. UDP头部</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.3. UDP校验和计算方法</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id6">4. 代码实现</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id7">4.1. UDP数据报输出处理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id8">4.2. UDP数据报输入处理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id9">4.3. UDP校验和</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">4. 代码实现</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4.1. UDP数据报输出处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">4.2. UDP数据报输入处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">4.3. UDP校验和</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id10">5. 实验自测</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#udp-test">5.1. udp_test 自测</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#udp-server">5.2. udp_server 自测</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#gdb">5.3. GDB调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">5. 实验自测</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#udp-test">5.1. udp_test 自测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#udp-server">5.2. udp_server 自测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gdb">5.3. GDB调试</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +131,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="0intro.html#id1" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p>熟悉UDP数据包格式，了解各个字段的含义与作用。</p></li>
 <li><p>掌握UDP校验和的计算方法，理解其在保证数据传输准确性方面的重要性。</p></li>
@@ -139,7 +139,7 @@
 </ol>
 </section>
 <section id="id2">
-<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="0intro.html#id2" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
 <p>在完成协议栈之ICMP协议的基础上，编写UDP报文的发送、接收函数，使其能够发送和接收UDP数据报文，并且能通过实验评测系统的测试。</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
@@ -154,16 +154,16 @@
 </div>
 </section>
 <section id="id3">
-<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="0intro.html#id3" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="#id3" title="Link to this heading"></a></h1>
 <section id="udp">
-<h2><span class="section-number">3.1. </span>UDP协议概要<a class="headerlink" href="0intro.html#udp" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1. </span>UDP协议概要<a class="headerlink" href="#udp" title="Link to this heading"></a></h2>
 <p>TCP 和 UDP 是 TCP/IP 体系中两个具有代表性的传输层协议。TCP 提供可靠的通信传输，它会确保数据在传输过程中不丢失、不重复且按序到达；而 UDP 是不具有可靠性的数据报协议，它不保证数据的可靠传输，可能会出现数据丢失、乱序等情况。</p>
 <p>有人可能会认为 TCP 一定优于 UDP，但实际上，TCP 与 UDP 的优缺点不能简单、绝对地进行比较。UDP 主要适用于那些对高速传输和实时性有较高要求的通信或广播通信场景。例如，在使用 IP 电话进行通话时，如果采用 TCP 协议，当数据在传输过程中丢失时会被重发，这就会导致通话声音无法流畅传输，影响正常交流。而 UDP 不会进行重发操作，也就不会出现声音大幅度延迟到达的问题。即使有部分数据丢失，也只是会导致画面或声音出现短暂停顿甚至混乱，但相比之下，这点干扰对通信的影响较小。</p>
-<img alt="../_images/UDP%E6%A0%BC%E5%BC%8F.png" src="../_images/UDP格式.png" />
+<img alt="../_images/UDP%E6%A0%BC%E5%BC%8F.png" src="../_images/UDP%E6%A0%BC%E5%BC%8F.png" />
 </section>
 <section id="id4">
-<h2><span class="section-number">3.2. </span>UDP头部<a class="headerlink" href="0intro.html#id4" title="Link to this heading"></a></h2>
-<img alt="../_images/UDP%E5%A4%B4%E9%83%A8.png" src="../_images/UDP头部.png" />
+<h2><span class="section-number">3.2. </span>UDP头部<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<img alt="../_images/UDP%E5%A4%B4%E9%83%A8.png" src="../_images/UDP%E5%A4%B4%E9%83%A8.png" />
 <p>从之前的实验我们知道，数据链路层通过 “类型” 字段来区分上一层所采用的网络协议（如 IP、ARP 等）；网络层的 IP 首部也有一个 “协议” 字段，用于标识上一层采用的传输层协议。同样地，传输层（TCP、UDP）使用 “端口号” 这一类似功能的字段来识别自己所传输的数据应该发给哪个应用程序，因此，端口号也被称为程序地址。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
@@ -176,10 +176,10 @@
 <p><strong>校验和</strong> 其设计目的是为了提供可靠的 UDP 首部和数据，用于检测数据在传输过程中是否发生错误。</p>
 </section>
 <section id="id5">
-<h2><span class="section-number">3.3. </span>UDP校验和计算方法<a class="headerlink" href="0intro.html#id5" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.3. </span>UDP校验和计算方法<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>UDP 校验和的覆盖范围与 IP 首部校验和的覆盖范围不同。UDP 校验和需要覆盖 UDP 头部、UDP 数据和一个伪头部。
 伪头部是在 UDP 头部之前添加的 12 字节头部信息，其中源 IP 地址、目的 IP 地址和协议号来源于 IPv4 的头部，UDP 长度是 UDP 包的总长度（不包含伪头部和任何填充的数据）。此外，如果 “数据” 字段的长度不是偶数个字长，会填充一个值为 0 的字节来计算校验和。需要注意的是，伪头部和任何填充的数据不会与 UDP 数据报一起被传送出去。</p>
-<img alt="../_images/UDP%E4%BC%AA%E5%A4%B4%E9%83%A8.png" src="../_images/UDP伪头部.png" />
+<img alt="../_images/UDP%E4%BC%AA%E5%A4%B4%E9%83%A8.png" src="../_images/UDP%E4%BC%AA%E5%A4%B4%E9%83%A8.png" />
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>如果 UDP 头部的校验和字段填入 0，可以不进行校验和计算，这样能降低协议处理的开销，从而提高数据转发的速度。然而，如果 UDP 首部的端口号或是 IP 首部的 IP 地址在传输过程中损坏，可能会对其他通信造成不良影响。因此，建议使用校验和检查来保证数据传输的准确性。</p>
@@ -194,10 +194,10 @@
 </section>
 </section>
 <section id="id6">
-<h1><span class="section-number">4. </span>代码实现<a class="headerlink" href="0intro.html#id6" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>代码实现<a class="headerlink" href="#id6" title="Link to this heading"></a></h1>
 <p>同学们需仔细研读本实验提供的代码框架，完成 src/udp.c 文件中的 udp_in() 函数和 udp_out() 函数，以及 src/utils.c 文件中的 transport_checksum() 函数的编写。</p>
 <section id="id7">
-<h2><span class="section-number">4.1. </span>UDP数据报输出处理<a class="headerlink" href="0intro.html#id7" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1. </span>UDP数据报输出处理<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>同学们要自行实现 udp_out() 函数，其功能实现步骤如下：</p>
 <p><strong>Step1</strong> 添加 UDP 报头：</p>
 <p>调用 buf_add_header() 函数，为待发送的数据添加 UDP 报头，为后续填充首部字段做准备。</p>
@@ -209,7 +209,7 @@
 <p>调用 ip_out() 函数，将封装好的 UDP 数据报发送出去。</p>
 </section>
 <section id="id8">
-<h2><span class="section-number">4.2. </span>UDP数据报输入处理<a class="headerlink" href="0intro.html#id8" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.2. </span>UDP数据报输入处理<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>同学们需要自行实现 udp_in() 函数，其功能实现步骤如下：</p>
 <p><strong>Step1</strong> 包检查：</p>
 <p>对接收到的数据报进行检查，判断数据报的长度是否小于 UDP 首部长度，或者接收到的包长度是否小于 UDP 首部长度字段给出的长度。如果满足上述条件之一，则说明数据报不完整或存在异常，将其丢弃，不做进一步处理。</p>
@@ -223,7 +223,7 @@
 <p>如果在 udp_table 中能找到对应的处理函数，则去掉 UDP 报头，调用该处理函数对数据进行相应的处理。</p>
 </section>
 <section id="id9">
-<h2><span class="section-number">4.3. </span>UDP校验和<a class="headerlink" href="0intro.html#id9" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>UDP校验和<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
 <p>同学们需要自行实现 transport_checksum() 函数（见src/utils.c），其功能实现步骤如下：</p>
 <p><strong>Step1</strong> 增加 UDP 伪头部：</p>
 <p>调用 buf_add_header() 函数，为 UDP 数据报增加 UDP 伪头部，以便进行校验和计算。</p>
@@ -242,7 +242,7 @@
 </section>
 </section>
 <section id="id10">
-<h1><span class="section-number">5. </span>实验自测<a class="headerlink" href="0intro.html#id10" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5. </span>实验自测<a class="headerlink" href="#id10" title="Link to this heading"></a></h1>
 <p>在 UDP 实验中，我们提供了两种实验自测方式，分别是 udp_test 自测（组件测试）和 udp_server 自测（集成测试），它们在测试目的和方式上各有特点。为确保整个协议栈能正常工作，建议你先完成 udp_test 自测，再进行 udp_server 自测。</p>
 <table class="docutils align-default">
 <thead>
@@ -297,7 +297,7 @@
 </ul>
 <p>两份指南都包含组件测试和基于 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 的在线集成测试步骤。</p>
 <section id="udp-test">
-<h2><span class="section-number">5.1. </span>udp_test 自测<a class="headerlink" href="0intro.html#udp-test" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.1. </span>udp_test 自测<a class="headerlink" href="#udp-test" title="Link to this heading"></a></h2>
 <p>udp_test 自测的方式与之前的 Eth、ARP、IP、ICMP 协议自测相同。通过自构建的测试网卡和驱动层来读写离线数据包，然后对比日志（log）文件和数据包捕获（pcap）文件，以此验证协议的收发功能。具体操作步骤如下：</p>
 <img alt="../_images/test2.png" src="../_images/test2.png" />
 <p>接着，打开VSCode的终端，到build目录下，输入ctest -R udp_test进行自测。</p>
@@ -306,7 +306,7 @@
 <p>❌ 失败：根据错误日志排查问题，可参考 Eth协议调试指南</p>
 </section>
 <section id="udp-server">
-<h2><span class="section-number">5.2. </span>udp_server 自测<a class="headerlink" href="0intro.html#udp-server" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.2. </span>udp_server 自测<a class="headerlink" href="#udp-server" title="Link to this heading"></a></h2>
 <p>udp_server 自测的主要目的是对整个网络协议栈（涵盖之前已实现的 Eth、ARP、IP、UDP 等协议）的收发功能进行全面测试。在这个测试中，我们会使用真实的 UDP/TCP 调试工具与自构建的协议栈进行点对点通信。</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
@@ -363,7 +363,7 @@
 </div>
 </section>
 <section id="gdb">
-<h2><span class="section-number">5.3. </span>GDB调试<a class="headerlink" href="0intro.html#gdb" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>GDB调试<a class="headerlink" href="#gdb" title="Link to this heading"></a></h2>
 <p>本实验支持使用GDB调试，请参考 <a class="reference internal" href="../appendix-b/1win.html"><span class="doc">Windows开发环境搭建</span></a> 中的“Windows下编译和调试”</p>
 </section>
 </section>

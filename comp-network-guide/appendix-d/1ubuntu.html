@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Ubuntu搭建邮件服务器 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Ubuntu搭建邮件服务器</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendix-d/1ubuntu.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ubuntu">
+<h1><span class="section-number">1. </span>Ubuntu搭建邮件服务器<a class="headerlink" href="#ubuntu" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>本文档参考：<a class="reference external" href="https://blog.csdn.net/oolocal/article/details/52861583">https://blog.csdn.net/oolocal/article/details/52861583</a> 和 <a class="reference external" href="https://blog.csdn.net/cpu0606/article/details/89841784">https://blog.csdn.net/cpu0606/article/details/89841784</a></p>
+<section id="id1">
+<h2><span class="section-number">1.1. </span>准备工作<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>你需要提前安装好ubnutu。本文档提供的安装步骤是在20.04版本上完成的，其他版本的安装步骤大同小异。</p>
+</section>
+<section id="postfix">
+<h2><span class="section-number">1.2. </span>安装Postfix<a class="headerlink" href="#postfix" title="Link to this heading"></a></h2>
+<p><strong>Step1：</strong> 更新本地apt包：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo apt-get update</span>
+</pre></div>
+</div>
+<p>如果更新太慢了，可以切换国内更新源（切换更新源可自行百度）</p>
+<p><strong>Step2：</strong> 安装Postfix：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo DEBIAN_PRIORITY=low apt install postfix</span>
+</pre></div>
+</div>
+<p>安装过程有好些提示，我们是这样选择的：</p>
+<p><strong>General type of mail configuration?:</strong>  选择  Internet Site</p>
+<p><strong>System mail name:</strong>  这里填hitsz-lab.com， 以后你用户user的邮箱就是user&#64;hitsz-lab.com。</p>
+<p><strong>Root and postmaster mail recipient:</strong>  比如你的ubuntu用户名是cs，那就填 cs，这样根用户等的邮箱都是cs接收。</p>
+<p><strong>Other destinations to accept mail for:</strong> 新增hitsz-lab.com。</p>
+<p><strong>Force synchronous updates on mail queue?:</strong> 选择 No</p>
+<p><strong>Local networks:</strong> 缺省就好。</p>
+<p><strong>Mailbox size limit:</strong> 邮箱限定封数，0则是不限制。</p>
+<p><strong>Local address extension character:</strong>  + 就是加号，不改。</p>
+<p><strong>Internet protocols to use:</strong> 选All</p>
+<p>选择错了也没关系，可以用下面命令修改：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo dpkg-reconfigure postfix</span>
+</pre></div>
+</div>
+<p>安装mailutils客户端和dovecot-pop3</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo apt-get install mailutils</span>
+<span class="linenos">2</span><span class="go">sudo apt-get install dovecot-pop3d</span>
+</pre></div>
+</div>
+<p>重启动 Postfix 使更改生效：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo systemctl restart postfix</span>
+</pre></div>
+</div>
+<p>打开防火墙：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo ufw allow Postfix</span>
+</pre></div>
+</div>
+<p>使用netstat来查看postfix的监听情况：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo netstat -lnpt</span>
+</pre></div>
+</div>
+<p>需要确保25和110端口已启用。</p>
+<img alt="../_images/mail5.png" src="../_images/mail5.png" />
+<p>如果25和110端口没有启用，请修改防火墙:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo ufw allow 110/tcp</span>
+<span class="linenos">2</span><span class="go">sudo ufw allow 25/tcp</span>
+</pre></div>
+</div>
+<p>创建邮件用户，添加test用户，输入密码，一路回车，最后输入Y完成</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">adduser test</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">1.3. </span>发送测试邮件<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>Postfix在安装时，会同时安装一个sendmail的程序（/usr/sbin/sendmail）。你可以用这个sendmail二进制程序向你的Gmail邮箱发送一封测试邮件。在服务器上输入下面的命令：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">echo &quot;test email&quot; | sendmail cs@hitsz-lab.com</span>
+</pre></div>
+</div>
+<p>这是一条很简单的命令， sendmail从标准输入读取到test email，将test email作为邮件正文，然后发送到hitsz-lab.com邮箱。现在你可以查看你的hitsz-lab.com邮箱，应该会看见你的测试邮件。尽管我们没有指明发件人地址，但Postfix会自动将你的域名添加到发送人地址中。每个用户的邮件保存在/var/spool/mail/&lt;username&gt;和/var/mail/&lt;username&gt;文件中。如果你不知道收件箱保存在哪里，运行这条命令：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">postconf mail_spool_directory</span>
+</pre></div>
+</div>
+<img alt="../_images/install-1.png" src="../_images/install-1.png" />
+</section>
+<section id="mail">
+<h2><span class="section-number">1.4. </span>使用mail程序来发送邮件<a class="headerlink" href="#mail" title="Link to this heading"></a></h2>
+<p>sendmail的功能非常有限，现在让我们来安装一个命令行邮箱客户端。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">sudo apt-get install mailutils</span>
+</pre></div>
+</div>
+<p>使用mail发送邮件的命令为</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">mail cs@hitsz-lab.com</span>
+</pre></div>
+</div>
+<img alt="../_images/install-2.png" src="../_images/install-2.png" />
+<p>输入主题和正文后，按Ctrl+D来发送邮件。</p>
+<p>要查看收件箱，输入mail就行了。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">mail</span>
+</pre></div>
+</div>
+<p>以下是用mail管理收件箱的操作方法。</p>
+<ol class="arabic simple">
+<li><p>要查看第一封邮件，输入数字1。如果邮件只显示了一半，按Enter键来显示剩下的消息。</p></li>
+<li><p>将所有邮件从第一封排序，输入h。</p></li>
+<li><p>要显示最后一屏邮件，输入h$或z。</p></li>
+<li><p>阅读下一封邮件，输入n。</p></li>
+<li><p>删除第一封邮件，输入d 1。</p></li>
+<li><p>删除第一封，第二封和第四封邮件，输入d 1 2 4。</p></li>
+<li><p>删除前10封邮件，输入d 1-10。</p></li>
+<li><p>回复第1封邮件，输入reply 1。</p></li>
+<li><p>退出mail程序，输入q或x。</p></li>
+</ol>
+<p>如果你按q来退出mail程序，那么已经阅读过的邮件将会从/var/mail/&lt;username&gt;移动到/home/&lt;username&gt;/mbox文件中。这意味着其他邮箱客户端将不能阅读这些邮件。如果你不想移动已经阅读的邮件，输入x退出mail程序。</p>
+</section>
+<section id="telnet">
+<h2><span class="section-number">1.5. </span>使用telnet发送测试邮件<a class="headerlink" href="#telnet" title="Link to this heading"></a></h2>
+<p>链接到SMTP本地服务</p>
+<p>命令如下：</p>
+<img alt="../_images/mail6.png" src="../_images/mail6.png" />
+<p>登录到test用户，查看邮件</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">su test</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="go">mail</span>
+</pre></div>
+</div>
+<img alt="../_images/mail7.png" src="../_images/mail7.png" />
+<p>查看邮件后，请用su命令切换原来的用户。</p>
+</section>
+<section id="socket">
+<h2><span class="section-number">1.6. </span>使用socket编程发送测试邮件<a class="headerlink" href="#socket" title="Link to this heading"></a></h2>
+<p>当用本地邮件服务器测试时，不需要输入AUTH login和授权码。具体的命令如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>S:<span class="w"> </span><span class="m">220</span><span class="w"> </span>cs-virtual-machine.localdomain<span class="w"> </span>ESMTP<span class="w"> </span>Postfix<span class="w"> </span><span class="o">(</span>Ubuntu<span class="o">)</span>
+<span class="linenos"> 2</span>C:<span class="w"> </span>EHLO<span class="w"> </span>localhost
+<span class="linenos"> 3</span>S:<span class="w"> </span><span class="m">250</span>-cs-virtual-machine.localdomain
+<span class="linenos"> 4</span><span class="m">250</span>-PIPELINING
+<span class="linenos"> 5</span><span class="m">250</span>-SIZE<span class="w"> </span><span class="m">10240000</span>
+<span class="linenos"> 6</span><span class="m">250</span>-VRFY
+<span class="linenos"> 7</span><span class="m">250</span>-ETRN
+<span class="linenos"> 8</span><span class="m">250</span>-STARTTLS
+<span class="linenos"> 9</span><span class="m">250</span>-ENHANCEDSTATUSCODES
+<span class="linenos">10</span><span class="m">250</span>-8BITMIME
+<span class="linenos">11</span><span class="m">250</span>-DSN
+<span class="linenos">12</span><span class="m">250</span><span class="w"> </span>SMTPUTF8
+<span class="linenos">13</span>C:<span class="w"> </span>MAIL<span class="w"> </span>FROM:<span class="w"> </span>&lt;cs@hitsz-lab.com&gt;
+<span class="linenos">14</span>S:<span class="w"> </span><span class="m">250</span><span class="w"> </span><span class="m">2</span>.1.0<span class="w"> </span>Ok
+<span class="linenos">15</span>C:<span class="w"> </span>RCPT<span class="w"> </span>TO:<span class="w"> </span>&lt;test@hitsz-lab.com&gt;
+<span class="linenos">16</span>S:<span class="w"> </span><span class="m">250</span><span class="w"> </span><span class="m">2</span>.1.5<span class="w"> </span>Ok
+<span class="linenos">17</span>C:<span class="w"> </span>DATA
+<span class="linenos">18</span>S:<span class="w"> </span><span class="m">354</span><span class="w"> </span>End<span class="w"> </span>data<span class="w"> </span>with<span class="w"> </span>&lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+<span class="linenos">19</span>C:<span class="w"> </span>From:<span class="w"> </span>cs@hitsz-lab.com
+<span class="linenos">20</span>C:<span class="w"> </span>To:<span class="w"> </span>test@hitsz-lab.com
+<span class="linenos">21</span>C:<span class="w"> </span>Subject:<span class="w"> </span>Mail<span class="w"> </span>subject
+<span class="linenos">22</span>C:<span class="w"> </span>MIME-Version:<span class="w"> </span><span class="m">1</span>.0
+<span class="linenos">23</span>...
+</pre></div>
+</div>
+</section>
+<section id="wireshark">
+<h2><span class="section-number">1.7. </span>使用wireshark捕获报文<a class="headerlink" href="#wireshark" title="Link to this heading"></a></h2>
+<p>需要注意的是，在当前本地环境中，服务器和客户端都是在同一台机器上，也就是，服务器和客户端的报文交互都是在本地。</p>
+<p>请在当前的linux环境下安装wireshark。</p>
+<p>打开wireshark，选择“Loopback: lo”</p>
+<img alt="../_images/mail8.png" src="../_images/mail8.png" />
+<img alt="../_images/mail9.png" src="../_images/mail9.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

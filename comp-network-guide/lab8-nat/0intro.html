@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+  <ul class="current">
+    <li class="toctree-l1">
+      
+        <a class="reference internal" href="../index.html">首页（导读）</a>
+      
+    </li>
+  </ul>
+  
+              <p class="caption" role="heading"><span class="caption-text">实验</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab0/index.html">计算机网络实验概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab3/index.html">Lab3：协议栈之ARP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab4-rip/index.html">Lab4：RIP路由配置及协议分析</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab5/index.html">Lab5：协议栈之IP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab6/index.html">Lab6：协议栈之ICMP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab7/index.html">Lab7：协议栈之UDP协议实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab8-ipv6/index.html">Lab8：IPv6网络过渡实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab9-tcp/index.html">Lab9：小型Web服务器的设计与实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submission/index.html">协议栈实验提交与自检</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../proplus/index.html">附加题（选做）</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-b/index.html">附录 B：网络编程实验环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-c/index.html">附录 C：网络实验室环境及设备简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-e/index.html">附录 D：参考文献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-f/index.html">附录 E：致谢</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix-g/index.html">常见问题</a></li>
+</ul>
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">计算机网络实验指导书 - 2026秋季 | 哈工大（深圳）</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">实验目的</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lab8-nat/0intro.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>实验目的<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<ol class="arabic simple">
+<li><p>了解网络地址转换的工作原理，掌握网络地址转换的配置方法。</p></li>
+</ol>
+</section>
+<section id="id2">
+<h1>实验任务<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
+<p>掌握静态NAT、动态NAT、NAPT、NAT Server-NAT的配置方法，在计算机上用Wireshark截取ftp报文，理解NAT地址转换技术的原理。</p>
+</section>
+<section id="id3">
+<h1>实验原理<a class="headerlink" href="#id3" title="Link to this heading"></a></h1>
+<section id="nat">
+<h2>NAT概要<a class="headerlink" href="#nat" title="Link to this heading"></a></h2>
+<p>网络地址转换NAT（Network Address Translator）技术是在1994年提出的，主要是为了解决全球 IPv4地址短缺的问题，它将多个内部私有地址映射为少数几个甚至一个公网IP地址，以减少公网IP地址的使用。同时，NAT还起到了隐藏内部网络结构的作用，对内网主机而言具有一定的安全性。</p>
+<p>本实验需要完成4种NAT技术的配置：静态NAT（Static NAT）、动态地址NAT（Pooled NAT）、网络地址与端口转换NAPT（Network Address and Port Translation）、NAT Server-NAT 服务器技术。</p>
+</section>
+<section id="id4">
+<h2>静态NAT<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>静态NAT实现了私有地址和共有地址的一对一映射，其设置最简单、最容易实现的。如果希望一台主机优先使用某个关联地址，或者想要外部网络使用一个指定的公网地址访问内部服务器时，可以使用静态NAT。然而，一个公网IP只会分配给唯一且固定的内网主机，不节省IP地址。</p>
+</section>
+<section id="id5">
+<h2>动态NAT<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>动态NAT是基于地址池来实现私有地址和公有地址的转换。</p>
+<img alt="../_images/NAT%E5%8A%A8%E6%80%811.PNG" src="../_images/NAT%E5%8A%A8%E6%80%811.PNG" />
+<p>当内部主机A和主机B需要与公网种的目标地址通信时，网关RTA会从公网地址池种选择一个未使用的公网地址与之做映射。当网关收到回复报文后，会根据之前的映射再次进行转换之后发给对应主机。当不需要此连接时，对应的地址映射将会删除，公网地址也会被恢复到地址池中待用。</p>
+<p>缺点：动态NAT地址池中的地址用尽以后，只能等待被占用的公用IP释放后，其他主机才能使用它来访问公网。</p>
+<p>静态NAT和动态NAT合成基本NAT，要求同一时刻被映射的内部主机数小于或等于所拥有的外网IP地址数。</p>
+</section>
+<section id="napt">
+<h2>NAPT网络地址端口转换<a class="headerlink" href="#napt" title="Link to this heading"></a></h2>
+<p>NAPT允许多个内部地址映射到同一个公有地址的不同端口。它主要利用TCP/UDP的端口实现多个私网地址到1个公网IP地址的映射，其映射形式如下：</p>
+<p>（私网IP，TCP/UDP端口号） &lt;–&gt;（公网IP，TCP/UDP端口号）</p>
+<p>网络层的ICMP没有端口号，NAPT设备需要对带标记ID字段的ICMP报文单独建立地址映射，其形式为：</p>
+<p>（私网IP，ICMP ID号） &lt;–&gt;（公网IP，ICMP ID号）</p>
+<img alt="../_images/NAPT11.PNG" src="../_images/NAPT11.PNG" />
+<img alt="../_images/NAPT21.PNG" src="../_images/NAPT21.PNG" />
+<p>上图描述了内部主机PCA与外网主机PCB应用地址转换NAPT技术进行通信的过程。其中，内部网络是10.0.1.0/24网段，出口NAT路由器的公网地址只有202.0.0.1一个地址，并且其地址池也只有这唯一的IPv4地址。</p>
+<p>（1）当内部主机PCA向外网主机PCB发送一个FTP连接请求，这时从PCA发出的报文的源IP地址是10.0.1.10，源端口号是1001，目的地址是PCB的IP地址6.1.128.10，目的端口号是21。</p>
+<p>（2）当这个报文被转发到出口NAT路由器时，NAT路由器就会先查看公网地址池，然后再地址转换表中插入一条记录，分别是转换前的源地址、源端口号和转换后的源地址、源端口号。</p>
+<p>（3）NAT路由器按照转换后的源地址和源端口号来重新封装报文，目的地址和端口号不变，并将新报文从出接口发送出去。</p>
+<p>（4）当报文被转发到PCB时，PCB收到报文后，会针对该FTP请求报文，发送应答报文，此时PCB应答报文的源地址是PCB的IP地址6.1.128.10，源端口号是21；目的地址和源端口号是转换后的IP地址202.0.0.1和端口号1044。</p>
+<p>（5）当这个报文被转发到出口NAT路由器时，路由器根据报文的目的地址和端口号，在将报文转发到内网之前，要先查找地址转换表进行地址转换。将目的地址和端口号转换成内网本地地址10.0.1.10和内网端口号1001，才能保证PCA能够收到应答报文。</p>
+<p>（6）路由器将报文重新封装后，将应答报文发送到内部网络，直至报文被转发到PCA。</p>
+<p>这就是内网、外网主机之间通过地址转换技术进行通信的基本过程。</p>
+</section>
+<section id="nat-server-nat">
+<h2>NAT Server-NAT 服务器技术<a class="headerlink" href="#nat-server-nat" title="Link to this heading"></a></h2>
+<p>通过配置NAT服务器,可以使外网用户访问内网服务器。</p>
+<p>NAT在使内网用户访问公网的同时，也屏蔽了公网用户访问私网主机的需求。当一个私网需要向公网用户提供Web和SFTP服务时，私网中的服务器必须随时可供公网用户访问。</p>
+<p>需要配置服务器私网IP地址和端口号转换为公网IP地址和端口号并发布出去。路由器在收到一个公网主机的请求报文后，根据报文的目的IP地址和端口号查询地址转换表项。路由器根据匹配的地址转换表项，将报文的目的IP地址和端口号转换成私网IP地址和端口号，并转发报文到私网中的服务器。</p>
+<img alt="../_images/NAT%E6%9C%8D%E5%8A%A1%E5%99%A81.PNG" src="../_images/NAT%E6%9C%8D%E5%8A%A1%E5%99%A81.PNG" />
+<p>过程分析：主机C需要访问私网服务器，发送报文的目的IP地址是200.10.10.1，目的端口号是80。RTA收到此报文后会查找地址转换表项，并将目的IP地址转换成192.168.1.1，目的端口号保持不变。服务器收到报文后会进行响应，RTA收到私网服务器发来的响应报文后，根据报文的源IP地址192.168.1.1和端口号80查询地址转换表项。然后，路由器根据匹配的地址转换表项，将报文的源IP地址和端口号转换成公网IP地址200.10.10.1和端口号80，并转发报文到目的公网主机。</p>
+</section>
+</section>
+<section id="id6">
+<h1>实验环境与分组<a class="headerlink" href="#id6" title="Link to this heading"></a></h1>
+<p>路由器2台，二层交换机1台，三层交换机1台，计算机3台，4人一组。</p>
+</section>
+<section id="id7">
+<h1>实验组网<a class="headerlink" href="#id7" title="Link to this heading"></a></h1>
+<img alt="../_images/8-31.JPG" src="../_images/8-31.JPG" />
+<p>IP地址表：</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>设备名称</p></th>
+<th class="head"><p>IP地址</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>R1-G0/0/9</p></td>
+<td><p>202.169.10.1/24</p></td>
+</tr>
+<tr class="row-odd"><td><p>R2-G0/0/9</p></td>
+<td><p>202.169.10.2/24</p></td>
+</tr>
+<tr class="row-even"><td><p>R2-G0/0/0</p></td>
+<td><p>192.168.3.1/24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCB</p></td>
+<td><p>202.169.10.100/24</p></td>
+</tr>
+<tr class="row-even"><td><p>PCC</p></td>
+<td><p>192.168.3.13/24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCD（Server）</p></td>
+<td><p>192.168.3.14/24</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h1>实验步骤<a class="headerlink" href="#id8" title="Link to this heading"></a></h1>
+<section id="id9">
+<h2>登陆设备<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<section id="step1">
+<h3>Step1：<a class="headerlink" href="#step1" title="Link to this heading"></a></h3>
+<p>打开SecureCRT，点击窗口中的“快速连接”图标，如图所示：</p>
+<img alt="../_images/1-26.jpg" src="../_images/1-26.jpg" />
+</section>
+<section id="step2">
+<h3>Step2：<a class="headerlink" href="#step2" title="Link to this heading"></a></h3>
+<p>在弹出的窗口中，输入需通过telnet访问的设备IP（见表 <a class="reference internal" href="../lab8/0intro.html#atm"><span class="std std-ref">ATM管理机地址表</span></a> ）和端口号，然后点击“连接”即可。</p>
+<img alt="../_images/1-36.jpg" src="../_images/1-36.jpg" />
+<span id="atm"></span><table class="docutils align-center" id="id38">
+<caption><span class="caption-text">ATM管理机地址表</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>机柜编号</p></th>
+<th class="head"><p>ATM管理路由器的IP地址</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>10.251.130.241</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>10.251.130.242</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>10.251.130.243</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>10.251.130.244</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>10.251.130.245</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>10.251.130.246</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>10.251.130.247</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>10.251.130.248</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>10.251.130.249</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>10.251.130.250</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>交换机 <strong>不需要输入用户名和密码</strong> 。</p>
+<p>路由器R1和R2的  <strong>用户名：admin，密码：Admin&#64;huawei</strong></p>
+</div>
+<img alt="../_images/2-36.jpg" src="../_images/2-36.jpg" />
+</section>
+<section id="step3">
+<h3>Step3：<a class="headerlink" href="#step3" title="Link to this heading"></a></h3>
+<p>登录成功后，即进入用户视图。在用户视图下，用户可以完成查看运行状态和统计信息等功能，此时屏幕上显示:</p>
+<img alt="../_images/1-56.jpg" src="../_images/1-56.jpg" />
+</section>
+</section>
+<section id="id10">
+<h2>清空配置<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
+<p>每次做实验前，先清空上一次的配置，本次实验需清空R1、R2、SW1、SW2、SW3的配置。</p>
+<section id="id11">
+<h3>Step1：<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>在用户视图下，使用如下命令进行配置的清空</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span>reset<span class="w"> </span>saved-configuration<span class="w"> </span>//清除配置
+</span><span class="hll"><span class="linenos">2</span>The<span class="w"> </span>device<span class="w"> </span>configurations<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>erased<span class="w"> </span>to<span class="w"> </span>reconfigure.<span class="w"> </span>Are<span class="w"> </span>you<span class="w"> </span>sure?<span class="o">(</span>y/n<span class="o">)</span>:y<span class="w"> </span>//输入y继续删除
+</span><span class="hll"><span class="linenos">3</span>display<span class="w"> </span>saved-configuration<span class="w"> </span>//查看删除后的配置
+</span></pre></div>
+</div>
+<p>查看删除后的配置：</p>
+<img alt="../_images/2-46.jpg" src="../_images/2-46.jpg" />
+</section>
+<section id="id12">
+<h3>Step2：<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p>在用户视图下，使用如下命令进行重启</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span>reboot<span class="w"> </span>//重启
+</span><span class="hll"><span class="linenos">2</span>All<span class="w"> </span>the<span class="w"> </span>configuration<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>next<span class="w"> </span>startup<span class="w"> </span>configuration.<span class="w"> </span>Continue?<span class="w"> </span><span class="o">[</span>y/n<span class="o">]</span>:n<span class="w"> </span>//输入n不保存到启动配置
+</span><span class="hll"><span class="linenos">3</span>System<span class="w"> </span>will<span class="w"> </span>reboot!<span class="w"> </span>Continue?<span class="w"> </span><span class="o">[</span>y/n<span class="o">]</span>:<span class="w"> </span>//输入y，继续重新启动
+</span><span class="hll"><span class="linenos">4</span>display<span class="w"> </span>current-configuration<span class="w"> </span>//重启后查看当前配置
+</span></pre></div>
+</div>
+<img alt="../_images/2-56.jpg" src="../_images/2-56.jpg" />
+</section>
+</section>
+<section id="id13">
+<h2>导入初始配置<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
+<p>R1导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span><span class="w"> </span>system-view
+</span><span class="hll"><span class="linenos"> 2</span><span class="w"> </span>sysname<span class="w"> </span>R1
+</span><span class="hll"><span class="linenos"> 3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="linenos"> 4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+</span><span class="hll"><span class="linenos"> 5</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos"> 6</span><span class="w"> </span>int<span class="w"> </span>G0/0/9
+</span><span class="hll"><span class="linenos"> 7</span><span class="w"> </span>undo<span class="w"> </span>ip<span class="w"> </span>add
+</span><span class="hll"><span class="linenos"> 8</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos"> 9</span><span class="w"> </span>int<span class="w"> </span>G0/0/8
+</span><span class="hll"><span class="linenos">10</span><span class="w"> </span>shutdown
+</span><span class="hll"><span class="linenos">11</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">12</span><span class="w"> </span>quit
+</span></pre></div>
+</div>
+<p>R2导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span><span class="w"> </span>system-view
+</span><span class="hll"><span class="linenos"> 2</span><span class="w"> </span>sysname<span class="w"> </span>R2
+</span><span class="hll"><span class="linenos"> 3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="linenos"> 4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+</span><span class="hll"><span class="linenos"> 5</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos"> 6</span><span class="w"> </span>int<span class="w"> </span>G0/0/9
+</span><span class="hll"><span class="linenos"> 7</span><span class="w"> </span>undo<span class="w"> </span>ip<span class="w"> </span>add
+</span><span class="hll"><span class="linenos"> 8</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos"> 9</span><span class="w"> </span>int<span class="w"> </span>G0/0/8
+</span><span class="hll"><span class="linenos">10</span><span class="w"> </span>shutdown
+</span><span class="hll"><span class="linenos">11</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">12</span><span class="w"> </span>quit
+</span></pre></div>
+</div>
+<p>SW1导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos"> 1</span><span class="w"> </span>system-view
+</span><span class="hll"><span class="linenos"> 2</span><span class="w"> </span>sysname<span class="w"> </span>SW1
+</span><span class="hll"><span class="linenos"> 3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="linenos"> 4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+</span><span class="hll"><span class="linenos"> 5</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos"> 6</span><span class="w"> </span>int<span class="w"> </span>range<span class="w"> </span>G0/0/1<span class="w"> </span>to<span class="w"> </span>G0/0/4
+</span><span class="hll"><span class="linenos"> 7</span><span class="w"> </span>shutdown
+</span><span class="hll"><span class="linenos"> 8</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos"> 9</span><span class="w"> </span>observe-port<span class="w"> </span><span class="m">1</span><span class="w"> </span>interface<span class="w"> </span>GigabitEthernet<span class="w"> </span><span class="m">0</span>/0/12
+</span><span class="hll"><span class="linenos">10</span><span class="w"> </span>interface<span class="w"> </span>GigabitEthernet<span class="w"> </span><span class="m">0</span>/0/47
+</span><span class="hll"><span class="linenos">11</span><span class="w"> </span>port-mirroring<span class="w"> </span>to<span class="w"> </span>observe-port<span class="w"> </span><span class="m">1</span><span class="w"> </span>both
+</span><span class="hll"><span class="linenos">12</span><span class="w"> </span>interface<span class="w"> </span>GigabitEthernet<span class="w"> </span><span class="m">0</span>/0/48
+</span><span class="hll"><span class="linenos">13</span><span class="w"> </span>port-mirroring<span class="w"> </span>to<span class="w"> </span>observe-port<span class="w"> </span><span class="m">1</span><span class="w"> </span>both
+</span><span class="hll"><span class="linenos">14</span><span class="w"> </span>display<span class="w"> </span>observe-port
+</span><span class="hll"><span class="linenos">15</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">16</span><span class="w"> </span>quit
+</span></pre></div>
+</div>
+<p>SW2导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>system-view
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>sysname<span class="w"> </span>SW2
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+</span><span class="hll"><span class="linenos">5</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">6</span><span class="w"> </span>int<span class="w"> </span>range<span class="w"> </span>G0/0/1<span class="w"> </span>to<span class="w"> </span>G0/0/4
+</span><span class="hll"><span class="linenos">7</span><span class="w"> </span>shutdown
+</span><span class="hll"><span class="linenos">8</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">9</span><span class="w"> </span>quit
+</span></pre></div>
+</div>
+<p>SW3导入下列配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>system-view
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>sysname<span class="w"> </span>SW3
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>user-interface<span class="w"> </span>console<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>idle-timeout<span class="w"> </span><span class="m">60</span>
+</span><span class="hll"><span class="linenos">5</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">6</span><span class="w"> </span>int<span class="w"> </span>range<span class="w"> </span>G0/0/1<span class="w"> </span>to<span class="w"> </span>G0/0/4
+</span><span class="hll"><span class="linenos">7</span><span class="w"> </span>shutdown
+</span><span class="hll"><span class="linenos">8</span><span class="w"> </span>quit
+</span><span class="hll"><span class="linenos">9</span><span class="w"> </span>quit
+</span></pre></div>
+</div>
+<p>导入信息步骤如下图所示：
+复制以上的代码并分别粘贴入SW2、SW3。</p>
+<img alt="../_images/2-66.jpg" src="../_images/2-66.jpg" />
+<img alt="../_images/2-76.jpg" src="../_images/2-76.jpg" />
+</section>
+<section id="id14">
+<h2>配置计算机的网关<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
+<p>配置PCC和PCD网关。注意，一台电脑只能有一个默认网关，需要把“本地连接2”的默认网关删掉，才能配置“本地连接”的默认网关。</p>
+<p>PCC和PCD网关都为192.168.3.1。</p>
+<p>PCC和PCD通过默认网关将数据交给R2。</p>
+</section>
+<section id="id15">
+<h2>配置路由器的基本信息<a class="headerlink" href="#id15" title="Link to this heading"></a></h2>
+<section id="id16">
+<h3>Step1：<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<p>登录R1使用下列命令进行基本信息配置：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>system-view<span class="w"> </span>//进入系统视图
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">202</span>.169.10.1<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>//为G0/0/9配置202.169.10.1/24的IP地址
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+</section>
+<section id="id17">
+<h3>Step2:<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<p>登录R2使用下列命令进行基本信息配置：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>system-view<span class="w"> </span>//进入系统视图
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">202</span>.169.10.2<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>//为G0/0/9配置202.169.10.2/24的IP地址
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span><span class="hll"><span class="linenos">5</span><span class="w"> </span>interface<span class="w"> </span>G0/0/0<span class="w"> </span>//进入G0/0/0接口
+</span><span class="hll"><span class="linenos">6</span><span class="w"> </span>undo<span class="w"> </span>portswitch<span class="w"> </span>//启用三层接口
+</span><span class="hll"><span class="linenos">7</span><span class="w"> </span>ip<span class="w"> </span>address<span class="w"> </span><span class="m">192</span>.168.3.1<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span>//为G0/0/0配置IP地址
+</span><span class="hll"><span class="linenos">8</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+</section>
+<section id="id18">
+<h3>Step3:<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<p>配置完成后，在R2上ping R1验证连通性，如图：</p>
+<img alt="../_images/8-41.jpg" src="../_images/8-41.jpg" />
+</section>
+</section>
+<section id="id19">
+<h2>配置静态NAT端口映射<a class="headerlink" href="#id19" title="Link to this heading"></a></h2>
+<section id="id20">
+<h3>Step1：<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<p>在PCC上ping R1，结果是无法访问</p>
+<img alt="../_images/8-51.jpg" src="../_images/8-51.jpg" />
+</section>
+<section id="id21">
+<h3>Step2：<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<p>登录R2使用下列命令进行基本信息配置：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>nat<span class="w"> </span>static<span class="w"> </span>global<span class="w"> </span><span class="m">202</span>.169.10.3<span class="w"> </span>inside<span class="w"> </span><span class="m">192</span>.168.3.13<span class="w"> </span>//将公网地址202.169.10.3映射到PCA
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">提示</p>
+<p>在内部本地与外部合法地址之间建立静态地址转换的格式：</p>
+<p>nat static global  外部合法地址　内部本地地址</p>
+</div>
+</section>
+<section id="id22">
+<h3>Step3：<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<p>在PCC上使用ping R1，结果可以访问了，如图：</p>
+<img alt="../_images/8-61.jpg" src="../_images/8-61.jpg" />
+</section>
+<section id="step4">
+<h3>Step4：<a class="headerlink" href="#step4" title="Link to this heading"></a></h3>
+<p>在R2上使用命令“display nat static”查看nat地址转换表</p>
+<img alt="../_images/8-71.jpg" src="../_images/8-71.jpg" />
+</section>
+</section>
+<section id="id23">
+<h2>配置动态NAT<a class="headerlink" href="#id23" title="Link to this heading"></a></h2>
+<section id="id24">
+<h3>Step1：<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<p>在进行新的nat配置之前，先清除R2之前的配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>undo<span class="w"> </span>nat<span class="w"> </span>static<span class="w"> </span>global<span class="w"> </span><span class="m">202</span>.169.10.3<span class="w"> </span>inside<span class="w"> </span><span class="m">192</span>.168.3.13<span class="w"> </span>//取消公网地址202.169.10.3映射到<span class="w">   </span>PCA
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+</section>
+<section id="id25">
+<h3>Step2：<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<p>在R2的系统视图下使用下列命令进行基本信息配置：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>acl<span class="w"> </span><span class="m">2000</span><span class="w">  </span>//创建访问控制列表2000
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>rule<span class="w"> </span><span class="m">1</span><span class="w"> </span>permit<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="m">192</span>.168.3.0<span class="w"> </span><span class="m">0</span>.0.0.255<span class="w"> </span>//定义规则允许192.168.3.0网段的通过
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>nat<span class="w"> </span>address-group<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">202</span>.169.10.5<span class="w"> </span><span class="m">202</span>.169.10.10<span class="w"> </span>//配置nat地址池为202.169.10.5<span class="w"> </span>到202.169.10.<span class="w">    </span><span class="m">10</span>
+</span><span class="hll"><span class="linenos">5</span><span class="w"> </span>interface<span class="w"> </span>g0/0/9<span class="w"> </span>//进入g0/0/9接口
+</span><span class="hll"><span class="linenos">6</span><span class="w"> </span>nat<span class="w"> </span>outbound<span class="w"> </span><span class="m">2000</span><span class="w"> </span>address-group<span class="w"> </span><span class="m">1</span><span class="w"> </span>//在接口内应用nat转换
+</span><span class="hll"><span class="linenos">7</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+</section>
+<section id="id26">
+<h3>Step3：<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<p>在PCC上ping R1，如图：</p>
+<img alt="../_images/8-81.jpg" src="../_images/8-81.jpg" />
+</section>
+<section id="id27">
+<h3>Step4：<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<p>在R2上使用命令“display nat session all”查看nat地址转换表</p>
+<img alt="../_images/8-91.jpg" src="../_images/8-91.jpg" />
+<p>每次查看之前需要ping一次</p>
+</section>
+</section>
+<section id="id28">
+<h2>配置NAT端口复用<a class="headerlink" href="#id28" title="Link to this heading"></a></h2>
+<section id="id29">
+<h3>Step1：<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<p>在进行新的nat配置之前，先清除R2之前的配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>undo<span class="w"> </span>nat<span class="w"> </span>outbound<span class="w"> </span><span class="m">2000</span><span class="w"> </span>address-group<span class="w"> </span><span class="m">1</span><span class="w"> </span>//取消在接口内应用nat转换
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>undo<span class="w"> </span>acl<span class="w"> </span><span class="m">2000</span><span class="w"> </span>//取消访问控制列表2000
+</span><span class="hll"><span class="linenos">5</span><span class="w"> </span>undo<span class="w"> </span>nat<span class="w"> </span>address-group<span class="w"> </span><span class="m">1</span><span class="w"> </span>//取消nat<span class="w"> </span>address<span class="w"> </span>group
+</span></pre></div>
+</div>
+</section>
+<section id="id30">
+<h3>Step2：<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<p>登录R2使用下列命令进行基本信息配置：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>acl<span class="w"> </span><span class="m">2000</span><span class="w">  </span>//创建访问控制列表2000
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>rule<span class="w"> </span><span class="m">1</span><span class="w"> </span>permit<span class="w"> </span><span class="nb">source</span><span class="w"> </span><span class="m">192</span>.168.3.0<span class="w"> </span><span class="m">0</span>.0.0.255<span class="w"> </span>//定义规则允许192.168.3.0网段的通过
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w"> </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">5</span><span class="w"> </span>nat<span class="w"> </span>outbound<span class="w"> </span><span class="m">2000</span><span class="w">  </span>//在接口内应用nat
+</span><span class="hll"><span class="linenos">6</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+</section>
+<section id="id31">
+<h3>Step3：<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<p>配置完成后，在PCC上使用ping R1命令测试网络连通性：</p>
+<img alt="../_images/8-101.jpg" src="../_images/8-101.jpg" />
+</section>
+<section id="id32">
+<h3>Step4：<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<p>在R2上使用命令“display nat session all”查看nat地址转换表</p>
+<img alt="../_images/8-111.jpg" src="../_images/8-111.jpg" />
+<p>每次ping一次，查看一次，IP地址都不会改变，但是icmpid会变化。</p>
+</section>
+</section>
+<section id="nat-server">
+<h2>配置NAT Server<a class="headerlink" href="#nat-server" title="Link to this heading"></a></h2>
+<section id="id33">
+<h3>Step1：<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<p>在进行新的nat配置之前，先清除R2之前的配置</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>undo<span class="w"> </span>nat<span class="w"> </span>outbound<span class="w"> </span><span class="m">2000</span><span class="w"> </span>//取消在接口内应用nat转换
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span><span class="hll"><span class="linenos">4</span><span class="w"> </span>undo<span class="w"> </span>acl<span class="w"> </span><span class="m">2000</span><span class="w"> </span>//取消访问控制列表2000
+</span></pre></div>
+</div>
+</section>
+<section id="id34">
+<h3>Step2：<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<p>登录R2使用下列命令进行基本信息配置：
+使用NAT Server命令定义内部服务器映射表，指定服务器通信协议为TCP类型，端口号为21</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">1</span><span class="w"> </span>interface<span class="w"> </span>G0/0/9<span class="w">  </span>//进入G0/0/9接口
+</span><span class="hll"><span class="linenos">2</span><span class="w"> </span>nat<span class="w"> </span>server<span class="w"> </span>protocol<span class="w"> </span>tcp<span class="w"> </span>global<span class="w"> </span><span class="m">202</span>.169.10.3<span class="w"> </span>ftp<span class="w"> </span>inside<span class="w"> </span><span class="m">192</span>.168.3.14<span class="w"> </span>ftp<span class="w"> </span>//将公网地址202.<span class="w">   </span><span class="m">169</span>.10.3映射到PCD上，指定端口号为21，该常用端口号可以直接使用关键字<span class="s2">&quot;ftp&quot;</span>代替。
+</span><span class="hll"><span class="linenos">3</span><span class="w"> </span>quit<span class="w"> </span>//退出接口
+</span></pre></div>
+</div>
+</section>
+<section id="id35">
+<h3>Step3：<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<p>在R2上使用命令“display nat server”查看nat地址转换表</p>
+<img alt="../_images/8-121.jpg" src="../_images/8-121.jpg" />
+</section>
+<section id="id36">
+<h3>Step4：<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<p>在PCD上新建test用户</p>
+<p>打开命令行界面，新建test用户,密码为test，输入：net user test test /add</p>
+<img alt="../_images/8-291.jpg" src="../_images/8-291.jpg" />
+</section>
+<section id="step5">
+<h3>step5：<a class="headerlink" href="#step5" title="Link to this heading"></a></h3>
+<p>在PCD电脑的D盘上，新建lab目录</p>
+</section>
+<section id="step6">
+<h3>Step6：<a class="headerlink" href="#step6" title="Link to this heading"></a></h3>
+<p>在PCD上，打开控制面板—程序与功能—打开或关闭windows功能,找到Internet信息服务下的ftp和iis</p>
+<img alt="../_images/8-141.jpg" src="../_images/8-141.jpg" />
+<p>在IIS控制面板里添加FTP站点</p>
+</section>
+<section id="step7">
+<h3>Step7：<a class="headerlink" href="#step7" title="Link to this heading"></a></h3>
+<p>打开系统和安全里的管理工具</p>
+<img alt="../_images/8-151.jpg" src="../_images/8-151.jpg" />
+</section>
+<section id="step8">
+<h3>Step8：<a class="headerlink" href="#step8" title="Link to this heading"></a></h3>
+<p>打开Internet信息服务（IIS）管理器</p>
+<img alt="../_images/8-161.jpg" src="../_images/8-161.jpg" />
+</section>
+<section id="step9">
+<h3>Step9：<a class="headerlink" href="#step9" title="Link to this heading"></a></h3>
+<p>如图右键添加FTP站点</p>
+<img alt="../_images/8-171.jpg" src="../_images/8-171.jpg" />
+</section>
+<section id="step10">
+<h3>Step10：<a class="headerlink" href="#step10" title="Link to this heading"></a></h3>
+<p>添加站点名称和路径，路径为本机存放文件路径</p>
+<img alt="../_images/8-181.jpg" src="../_images/8-181.jpg" />
+</section>
+<section id="step11">
+<h3>Step11：<a class="headerlink" href="#step11" title="Link to this heading"></a></h3>
+<p>IP地址为本机IP地址，ssl选择无，这里我们为本地传输，无需ssl</p>
+<img alt="../_images/8-191.jpg" src="../_images/8-191.jpg" />
+<img alt="../_images/8-201.jpg" src="../_images/8-201.jpg" />
+<p>此时可以看到网站下面有自己创建的lab</p>
+<img alt="../_images/8-211.jpg" src="../_images/8-211.jpg" />
+</section>
+</section>
+<section id="ftp">
+<h2>抓取ftp传输包<a class="headerlink" href="#ftp" title="Link to this heading"></a></h2>
+<section id="step-1">
+<h3>step 1：<a class="headerlink" href="#step-1" title="Link to this heading"></a></h3>
+<p>在PCB和PCD打开wireshark软件，选用本地连接，过滤规则为ftp</p>
+</section>
+<section id="step-2">
+<h3>step 2：<a class="headerlink" href="#step-2" title="Link to this heading"></a></h3>
+<p>在R1上模拟公网用户访问服务器，使用命令 ftp 202.169.10.3</p>
+<img alt="../_images/8-241.jpg" src="../_images/8-241.jpg" />
+<p>PCB报文:</p>
+<img alt="../_images/8-221.jpg" src="../_images/8-221.jpg" />
+<p>PCD报文:</p>
+<img alt="../_images/8-231.jpg" src="../_images/8-231.jpg" />
+</section>
+<section id="id37">
+<h3>Step3：<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<p>在R2上使用命令“display nat server”查看nat地址转换表</p>
+<img alt="../_images/8-251.JPG" src="../_images/8-251.JPG" />
+<p>请分析PCB和PCD的报文体会NAT Server地址转换技术的原理。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2026, qiu。</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

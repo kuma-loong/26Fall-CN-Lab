@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. OSLab Ubuntu 环境配置 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -79,32 +79,32 @@
 <li class="toctree-l2"><a class="reference internal" href="0checklist.html">1. 环境配置检查清单</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1win.html">2. Windows开发环境搭建</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3linux_physical.html">3. 纯 Linux/WSL2 环境配置（veth）</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="4oslab_ubuntu.html#">4. OSLab Ubuntu 环境配置</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#osa">4.1. 配置 OSA 校内软件源</a></li>
-<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#id2">4.2. 安装实验依赖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#net-lab">4.3. 下载和编译 net-lab</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#vs-code-net-lab">4.3.1. 在远程 VS Code 中打开 net-lab</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#ip">4.3.2. 修改协议栈 IP</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#cmake">4.3.3. 使用 CMake 配置并编译</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. OSLab Ubuntu 环境配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#osa">4.1. 配置 OSA 校内软件源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.2. 安装实验依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#net-lab">4.3. 下载和编译 net-lab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vs-code-net-lab">4.3.1. 在远程 VS Code 中打开 net-lab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ip">4.3.2. 修改协议栈 IP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake">4.3.3. 使用 CMake 配置并编译</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#veth">4.4. 配置 veth 环境</a></li>
-<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#linux-component-debug">4.5. 组件测试与调试</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#vscode">4.5.1. 创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#launch-json">4.5.2. 填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#tasks-json">4.5.3. 填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id5">4.5.4. 配置说明与按需编译</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id6">4.5.5. 运行调试</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id7">4.5.6. 命令行验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#veth">4.4. 配置 veth 环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linux-component-debug">4.5. 组件测试与调试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vscode">4.5.1. 创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#launch-json">4.5.2. 填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tasks-json">4.5.3. 填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.5.4. 配置说明与按需编译</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">4.5.5. 运行调试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">4.5.6. 命令行验证</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="4oslab_ubuntu.html#udptcp-web">4.6. UDP、TCP 与 Web 服务的测试和调试</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id8">4.6.1. 测试环境准备</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#udp">4.6.2. UDP 服务测试</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#tcp">4.6.3. TCP 服务测试</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#http">4.6.4. HTTP 服务测试</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#id9">4.6.5. 断点调试</a></li>
-<li class="toctree-l4"><a class="reference internal" href="4oslab_ubuntu.html#wireshark">4.6.6. Wireshark 抓包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#udptcp-web">4.6. UDP、TCP 与 Web 服务的测试和调试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">4.6.1. 测试环境准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#udp">4.6.2. UDP 服务测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tcp">4.6.3. TCP 服务测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#http">4.6.4. HTTP 服务测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">4.6.5. 断点调试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wireshark">4.6.6. Wireshark 抓包</a></li>
 </ul>
 </li>
 </ul>
@@ -144,7 +144,7 @@
            <div itemprop="articleBody">
              
   <section id="oslab-ubuntu">
-<h1><span class="section-number">4. </span>OSLab Ubuntu 环境配置<a class="headerlink" href="4oslab_ubuntu.html#oslab-ubuntu" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>OSLab Ubuntu 环境配置<a class="headerlink" href="#oslab-ubuntu" title="Link to this heading"></a></h1>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <p>开始配置前，请先将宿主机连接校园网，并完成统一身份认证登录。后续安装编译、抓包、虚拟网卡和测试所需的软件时，需要能够正常访问网络；如果未连接校园网或未完成认证，软件安装可能失败。</p>
@@ -172,7 +172,7 @@
 <figure class="align-center" id="id10">
 <a class="reference internal image-reference" href="../_images/T2102-hostonly.png"><img alt="VirtualBox 中配置 T2102 的 Host-only 网卡 IPv4 地址为 192.168.56.1" src="../_images/T2102-hostonly.png" style="width: 95%;" /></a>
 <figcaption>
-<p><span class="caption-text">配置 Host-only IP（截图来源：OSLab 虚拟机使用指南）。</span><a class="headerlink" href="4oslab_ubuntu.html#id10" title="Link to this image"></a></p>
+<p><span class="caption-text">配置 Host-only IP（截图来源：OSLab 虚拟机使用指南）。</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </div>
@@ -195,7 +195,7 @@
 <p>虚拟机启动后，请参考 <a class="reference external" href="https://os-labs.p.cs-lab.top/vm_env.html">OSLab 虚拟机使用指南</a> 的第 2.1 至 2.3 节：获取虚拟机 IP、准备远程连接工具，并使用 VS Code Remote-SSH 连接虚拟机。Host-only 虚拟机地址通常为 <code class="docutils literal notranslate"><span class="pre">192.168.56.xxx</span></code>，连接时使用第 2.1 节查到的实际地址。</p>
 <p>连接成功后，不需要继续参考该指南的第 2.4 节“运行 XV6 实验”。直接回到本页，配置网络实验软件源和依赖，并下载 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 开始计算机网络实验。</p>
 <section id="osa">
-<h2><span class="section-number">4.1. </span>配置 OSA 校内软件源<a class="headerlink" href="4oslab_ubuntu.html#osa" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1. </span>配置 OSA 校内软件源<a class="headerlink" href="#osa" title="Link to this heading"></a></h2>
 <p>以下软件源由学校 <strong>开源技术协会（Open Source Association，OSA）</strong> 搭建和维护。OSLab 虚拟机在校内网络中访问该镜像站时，网络路径更短，下载 Ubuntu 软件包的速度通常会比访问校外源快很多，可以明显缩短安装实验依赖所需的时间。感谢开源技术协会（OSA）为实验室提供校内镜像服务以及相关技术支持。</p>
 <p>下面首次执行 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 命令时，终端会要求输入虚拟机登录密码（默认 <code class="docutils literal notranslate"><span class="pre">123456</span></code>，如果已经修改过密码则输入修改后的密码）。输入时屏幕不会显示字符或星号，这是正常现象；输入完成后按回车即可。</p>
 <p>修改软件源前先备份原配置：</p>
@@ -221,7 +221,7 @@
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">4.2. </span>安装实验依赖<a class="headerlink" href="4oslab_ubuntu.html#id2" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.2. </span>安装实验依赖<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>建议一次性安装编译、抓包、虚拟网卡和测试所需的软件：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>git<span class="w"> </span>ca-certificates<span class="w"> </span>make<span class="w"> </span>cmake<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>gdb<span class="w"> </span><span class="se">\</span>
@@ -254,9 +254,9 @@
 <p>默认情况下不需要安装 <code class="docutils literal notranslate"><span class="pre">gdbserver</span></code>。只有在 VS Code 中调试需要 Raw Socket 权限的集成程序时才需要，见本页后文说明。</p>
 </section>
 <section id="net-lab">
-<h2><span class="section-number">4.3. </span>下载和编译 net-lab<a class="headerlink" href="4oslab_ubuntu.html#net-lab" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>下载和编译 net-lab<a class="headerlink" href="#net-lab" title="Link to this heading"></a></h2>
 <section id="vs-code-net-lab">
-<h3><span class="section-number">4.3.1. </span>在远程 VS Code 中打开 net-lab<a class="headerlink" href="4oslab_ubuntu.html#vs-code-net-lab" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.1. </span>在远程 VS Code 中打开 net-lab<a class="headerlink" href="#vs-code-net-lab" title="Link to this heading"></a></h3>
 <p>先在 Ubuntu 虚拟机的终端中查看 IP 地址：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname<span class="w"> </span>-I
 </pre></div>
@@ -280,7 +280,7 @@ gdb<span class="w"> </span>--version
 </div>
 </section>
 <section id="ip">
-<h3><span class="section-number">4.3.2. </span>修改协议栈 IP<a class="headerlink" href="4oslab_ubuntu.html#ip" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.2. </span>修改协议栈 IP<a class="headerlink" href="#ip" title="Link to this heading"></a></h3>
 <p>在 VS Code 中打开 <code class="docutils literal notranslate"><span class="pre">~/net-lab/include/config.h</span></code>，只修改非 <code class="docutils literal notranslate"><span class="pre">TEST</span></code> 分支中的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>。将原来的：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NET_IF_IP        \</span>
 <span class="cp">    {                    \</span>
@@ -298,7 +298,7 @@ gdb<span class="w"> </span>--version
 <p>不要修改 <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支中的测试地址。<code class="docutils literal notranslate"><span class="pre">eth_in</span></code>、<code class="docutils literal notranslate"><span class="pre">arp_test</span></code> 等组件测试使用离线 pcap 和固定测试配置；<code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">web_server</span></code> 等集成测试才使用上面修改的协议栈 IP。</p>
 </section>
 <section id="cmake">
-<h3><span class="section-number">4.3.3. </span>使用 CMake 配置并编译<a class="headerlink" href="4oslab_ubuntu.html#cmake" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.3. </span>使用 CMake 配置并编译<a class="headerlink" href="#cmake" title="Link to this heading"></a></h3>
 <p>保存 <code class="docutils literal notranslate"><span class="pre">config.h</span></code> 后，在 VS Code 远程终端中执行：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
 cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug
@@ -308,7 +308,7 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build
 </section>
 </section>
 <section id="veth">
-<h2><span class="section-number">4.4. </span>配置 veth 环境<a class="headerlink" href="4oslab_ubuntu.html#veth" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4. </span>配置 veth 环境<a class="headerlink" href="#veth" title="Link to this heading"></a></h2>
 <p>在已连接虚拟机的 VS Code 远程窗口中，打开 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code> 文件夹，点击资源管理器中的“新建文件”，将文件命名为 <code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code>。把下面的脚本完整复制到文件中，按 <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> 保存。</p>
 <p>脚本使用与 <a class="reference internal" href="3linux_physical.html"><span class="doc">纯 Linux/WSL2 环境配置（veth）</span></a> 相同的默认地址：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -393,11 +393,11 @@ ip<span class="w"> </span>route<span class="w"> </span>show<span class="w"> </sp
 <p>虚拟机重启后，<code class="docutils literal notranslate"><span class="pre">veth</span></code> 设备和相关路由可能会消失，需要重新执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./setup_veth.sh</span></code>。</p>
 </section>
 <section id="linux-component-debug">
-<span id="id4"></span><h2><span class="section-number">4.5. </span>组件测试与调试<a class="headerlink" href="4oslab_ubuntu.html#linux-component-debug" title="Link to this heading"></a></h2>
+<span id="id4"></span><h2><span class="section-number">4.5. </span>组件测试与调试<a class="headerlink" href="#linux-component-debug" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">eth_in</span></code>、<code class="docutils literal notranslate"><span class="pre">eth_out</span></code>、<code class="docutils literal notranslate"><span class="pre">arp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code>、<code class="docutils literal notranslate"><span class="pre">icmp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">udp_test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 都是离线组件测试。它们通过 <code class="docutils literal notranslate"><span class="pre">testing/faker/driver.c</span></code> 或其他 faker 模块读取测试目录中的输入文件，不访问真实网卡，因此调试这些组件不需要执行 <code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code>，也不需要 sudo 或 gdbserver。</p>
 <p>注意，<code class="docutils literal notranslate"><span class="pre">udp_test</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_test</span></code> 是离线组件测试；<code class="docutils literal notranslate"><span class="pre">udp_server</span></code> / <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 则属于后文介绍的在线集成测试，两者不要混淆。</p>
 <section id="vscode">
-<h3><span class="section-number">4.5.1. </span>创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件<a class="headerlink" href="4oslab_ubuntu.html#vscode" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.1. </span>创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件<a class="headerlink" href="#vscode" title="Link to this heading"></a></h3>
 <p>请先确认 VS Code 打开的文件夹是 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code> 项目根目录，而不是 <code class="docutils literal notranslate"><span class="pre">~/net-lab/build</span></code> 或其他目录。<code class="docutils literal notranslate"><span class="pre">${workspaceFolder}</span></code> 在下面的配置中应当指向 <code class="docutils literal notranslate"><span class="pre">~/net-lab</span></code>。</p>
 <p>可以通过 VS Code 界面创建文件：</p>
 <ol class="arabic simple">
@@ -416,12 +416,12 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
 <figure class="align-center" id="id11">
 <a class="reference internal image-reference" href="../_images/vscode-json.jpg"><img alt="VS Code 远程窗口中的 net-lab 文件列表，.vscode 文件夹包含 launch.json 和 tasks.json" src="../_images/vscode-json.jpg" style="width: 85%;" /></a>
 <figcaption>
-<p><span class="caption-text">文件位置示例：<code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹内，<code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录。</span><a class="headerlink" href="4oslab_ubuntu.html#id11" title="Link to this image"></a></p>
+<p><span class="caption-text">文件位置示例：<code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹内，<code class="docutils literal notranslate"><span class="pre">setup_veth.sh</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录。</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="launch-json">
-<h3><span class="section-number">4.5.2. </span>填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code><a class="headerlink" href="4oslab_ubuntu.html#launch-json" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.2. </span>填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code><a class="headerlink" href="#launch-json" title="Link to this heading"></a></h3>
 <p>将以下完整内容复制到 <code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code> 并保存。前八项用于普通组件测试；最后三项用于连接后文以 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">gdbserver</span></code> 启动的集成测试程序。</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
@@ -663,7 +663,7 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
 </div>
 </section>
 <section id="tasks-json">
-<h3><span class="section-number">4.5.3. </span>填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code><a class="headerlink" href="4oslab_ubuntu.html#tasks-json" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.3. </span>填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code><a class="headerlink" href="#tasks-json" title="Link to this heading"></a></h3>
 <p>将以下完整内容复制到 <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code> 并保存：</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
@@ -693,7 +693,7 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
 </div>
 </section>
 <section id="id5">
-<h3><span class="section-number">4.5.4. </span>配置说明与按需编译<a class="headerlink" href="4oslab_ubuntu.html#id5" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.4. </span>配置说明与按需编译<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <p>组件测试和集成测试的配置方式不同：</p>
 <ul class="simple">
 <li><p>前八个组件测试使用普通 GDB 启动；<code class="docutils literal notranslate"><span class="pre">program</span></code> 指向 <code class="docutils literal notranslate"><span class="pre">build</span></code> 目录下对应的可执行文件，<code class="docutils literal notranslate"><span class="pre">args</span></code> 传入对应的测试数据目录，而不是直接传入 <code class="docutils literal notranslate"><span class="pre">in.pcap</span></code> 或 <code class="docutils literal notranslate"><span class="pre">in.txt</span></code> 文件；</p></li>
@@ -722,7 +722,7 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
 <p>此时 <code class="docutils literal notranslate"><span class="pre">--target</span></code> 后面的名称必须与 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 中 <code class="docutils literal notranslate"><span class="pre">program</span></code> 的可执行文件名一致。使用 <code class="docutils literal notranslate"><span class="pre">--target</span></code> 时，每次切换到其他组件都要同步修改这里；如果不想重复修改，保留默认的全量编译配置即可。</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">4.5.5. </span>运行调试<a class="headerlink" href="4oslab_ubuntu.html#id6" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.5. </span>运行调试<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <p>在 VS Code 中运行调试：</p>
 <ol class="arabic simple">
 <li><p>在 VS Code 左侧打开“运行和调试”。</p></li>
@@ -732,19 +732,19 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
 <figure class="align-center" id="id12">
 <a class="reference internal image-reference" href="../_images/vscode-run-gdb.jpg"><img alt="VS Code 运行和调试配置下拉菜单，包含 eth_in、eth_out 和 arp_test 等组件测试" src="../_images/vscode-run-gdb.jpg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">调试某个协议时，应在图示下拉菜单中选择该协议对应的配置；例如调试 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>。</span><a class="headerlink" href="4oslab_ubuntu.html#id12" title="Link to this image"></a></p>
+<p><span class="caption-text">调试某个协议时，应在图示下拉菜单中选择该协议对应的配置；例如调试 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>。</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>如果选择了其他协议的配置，程序可能不会执行当前要调试的函数，断点也就不会命中。例如，调试 <code class="docutils literal notranslate"><span class="pre">src/arp.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">eth_in</span></code> 或 <code class="docutils literal notranslate"><span class="pre">eth_out</span></code>，这两个测试使用的是模拟 ARP 函数，不会执行 <code class="docutils literal notranslate"><span class="pre">src/arp.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code>。若选择了对应配置仍未停下，请检查断点是否设在函数内的可执行语句上；仅有 <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">TO-DO</span></code> 注释的行无法设置有效断点。</p>
 <figure class="align-center" id="id13">
 <a class="reference internal image-reference" href="../_images/gdb-6.png"><img alt="VS Code 左侧运行和调试入口、顶部调试配置下拉菜单和代码中的断点位置" src="../_images/gdb-6.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">“运行和调试”入口及断点位置示例。</span><a class="headerlink" href="4oslab_ubuntu.html#id13" title="Link to this image"></a></p>
+<p><span class="caption-text">“运行和调试”入口及断点位置示例。</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="id7">
-<h3><span class="section-number">4.5.6. </span>命令行验证<a class="headerlink" href="4oslab_ubuntu.html#id7" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.6. </span>命令行验证<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <p>也可以在 VS Code 远程终端中运行组件测试：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
 ./build/eth_in<span class="w"> </span>testing/data/eth_in
@@ -762,10 +762,10 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>.vscode
 </section>
 </section>
 <section id="udptcp-web">
-<h2><span class="section-number">4.6. </span>UDP、TCP 与 Web 服务的测试和调试<a class="headerlink" href="4oslab_ubuntu.html#udptcp-web" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.6. </span>UDP、TCP 与 Web 服务的测试和调试<a class="headerlink" href="#udptcp-web" title="Link to this heading"></a></h2>
 <p>组件测试（如 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>、<code class="docutils literal notranslate"><span class="pre">ip_test</span></code>）读取离线数据，不需要 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 或 <code class="docutils literal notranslate"><span class="pre">sudo</span></code>。<code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">web_server</span></code> 是在线集成测试，必须以 root 权限运行；CMake Tools 的普通“运行”不会自动提权。</p>
 <section id="id8">
-<h3><span class="section-number">4.6.1. </span>测试环境准备<a class="headerlink" href="4oslab_ubuntu.html#id8" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.1. </span>测试环境准备<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <p>在 VS Code 远程终端中先执行一次：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/net-lab
 sudo<span class="w"> </span>./setup_veth.sh
@@ -774,7 +774,7 @@ sudo<span class="w"> </span>./setup_veth.sh
 <p>然后每次只启动一个服务，并在 Ubuntu 虚拟机内运行对应客户端。<code class="docutils literal notranslate"><span class="pre">192.168.254.2</span></code> 是虚拟机内部 veth 网络的协议栈 IP，Windows 宿主机不能直接访问。</p>
 </section>
 <section id="udp">
-<h3><span class="section-number">4.6.2. </span>UDP 服务测试<a class="headerlink" href="4oslab_ubuntu.html#udp" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.2. </span>UDP 服务测试<a class="headerlink" href="#udp" title="Link to this heading"></a></h3>
 <p>在一个远程终端启动服务：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/udp_server
 </pre></div>
@@ -782,7 +782,7 @@ sudo<span class="w"> </span>./setup_veth.sh
 <figure class="align-center" id="id14">
 <a class="reference internal image-reference" href="../_images/oslab-udp.png"><img alt="OSLab 终端中运行 udp_server 并显示收到的 UDP 数据" src="../_images/oslab-udp.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">UDP 服务端启动并收到客户端发送的数据。</span><a class="headerlink" href="4oslab_ubuntu.html#id14" title="Link to this image"></a></p>
+<p><span class="caption-text">UDP 服务端启动并收到客户端发送的数据。</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>在另一个远程终端运行客户端，输入文本并回车：</p>
@@ -792,13 +792,13 @@ sudo<span class="w"> </span>./setup_veth.sh
 <figure class="align-center" id="id15">
 <a class="reference internal image-reference" href="../_images/oslab-udp-2.png"><img alt="在 OSLab 终端中使用 netcat 发送 UDP 数据并收到回显" src="../_images/oslab-udp-2.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">UDP 客户端发送数据并收到服务端回显。</span><a class="headerlink" href="4oslab_ubuntu.html#id15" title="Link to this image"></a></p>
+<p><span class="caption-text">UDP 客户端发送数据并收到服务端回显。</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>服务端应打印收到的内容，客户端应收到相同的回显。测试完成后，先在运行 <code class="docutils literal notranslate"><span class="pre">nc</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 退出客户端，再回到运行 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 停止服务。</p>
 </section>
 <section id="tcp">
-<h3><span class="section-number">4.6.3. </span>TCP 服务测试<a class="headerlink" href="4oslab_ubuntu.html#tcp" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.3. </span>TCP 服务测试<a class="headerlink" href="#tcp" title="Link to this heading"></a></h3>
 <p>在服务端终端启动 TCP 服务：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/tcp_server
 </pre></div>
@@ -806,7 +806,7 @@ sudo<span class="w"> </span>./setup_veth.sh
 <figure class="align-center" id="id16">
 <a class="reference internal image-reference" href="../_images/oslab-tcp.png"><img alt="OSLab 终端中运行 tcp_server 并显示收到的 TCP 数据" src="../_images/oslab-tcp.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">TCP 服务端启动并收到客户端发送的数据。</span><a class="headerlink" href="4oslab_ubuntu.html#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">TCP 服务端启动并收到客户端发送的数据。</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>在另一个远程终端运行：</p>
@@ -816,13 +816,13 @@ sudo<span class="w"> </span>./setup_veth.sh
 <figure class="align-center" id="id17">
 <a class="reference internal image-reference" href="../_images/oslab-tcp-2.png"><img alt="使用 nc -v 连接 TCP 服务并收到回显" src="../_images/oslab-tcp-2.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">TCP 客户端连接成功，发送数据后收到服务端回显。</span><a class="headerlink" href="4oslab_ubuntu.html#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">TCP 客户端连接成功，发送数据后收到服务端回显。</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>输入文本并回车，客户端应收到回显，服务端也应打印收到的内容。测试完成后，先在运行 <code class="docutils literal notranslate"><span class="pre">nc</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 退出客户端，再回到运行 <code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 的终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 停止服务。</p>
 </section>
 <section id="http">
-<h3><span class="section-number">4.6.4. </span>HTTP 服务测试<a class="headerlink" href="4oslab_ubuntu.html#http" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.4. </span>HTTP 服务测试<a class="headerlink" href="#http" title="Link to this heading"></a></h3>
 <p>在服务端终端启动 Web 服务：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/web_server
 </pre></div>
@@ -831,7 +831,7 @@ sudo<span class="w"> </span>./setup_veth.sh
 <figure class="align-center" id="id18">
 <a class="reference internal image-reference" href="../_images/oslab-web.png"><img alt="在 OSLab 虚拟机内的 Firefox 浏览器中打开 Web 服务首页" src="../_images/oslab-web.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">在 OSLab 虚拟机内访问 Web 服务首页。</span><a class="headerlink" href="4oslab_ubuntu.html#id18" title="Link to this image"></a></p>
+<p><span class="caption-text">在 OSLab 虚拟机内访问 Web 服务首页。</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>也可以在另一个远程终端运行：</p>
@@ -841,7 +841,7 @@ sudo<span class="w"> </span>./setup_veth.sh
 <p>浏览器或终端应显示 Web Server 返回的首页内容。测试完成后停止客户端，再回到服务端终端按 <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 停止服务。虚拟机重启后，需重新执行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./setup_veth.sh</span></code>；若出现 <code class="docutils literal notranslate"><span class="pre">pcap_open_live</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Operation</span> <span class="pre">not</span> <span class="pre">permitted</span></code>，请确认服务是用 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 启动的。</p>
 </section>
 <section id="id9">
-<h3><span class="section-number">4.6.5. </span>断点调试<a class="headerlink" href="4oslab_ubuntu.html#id9" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.5. </span>断点调试<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <p>先检查是否已安装 gdbserver：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdbserver<span class="w"> </span>--version
 </pre></div>
@@ -857,12 +857,12 @@ sudo<span class="w"> </span>gdbserver<span class="w"> </span>localhost:1234<span
 <figure class="align-center" id="id19">
 <a class="reference internal image-reference" href="../_images/oslab-udp-gdb.png"><img alt="VS Code 通过 gdbserver 远程调试 udp_server" src="../_images/oslab-udp-gdb.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">VS Code 连接 gdbserver 并在 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> 中命中断点。</span><a class="headerlink" href="4oslab_ubuntu.html#id19" title="Link to this image"></a></p>
+<p><span class="caption-text">VS Code 连接 gdbserver 并在 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code> 中命中断点。</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="wireshark">
-<h3><span class="section-number">4.6.6. </span>Wireshark 抓包<a class="headerlink" href="4oslab_ubuntu.html#wireshark" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.6. </span>Wireshark 抓包<a class="headerlink" href="#wireshark" title="Link to this heading"></a></h3>
 <p>抓包前确认已经运行 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">./setup_veth.sh</span></code>，并且 <code class="docutils literal notranslate"><span class="pre">veth0</span></code>、<code class="docutils literal notranslate"><span class="pre">veth1</span></code> 已创建。Wireshark 需要在 OSLab Ubuntu 虚拟机内打开；Windows 宿主机上的 Wireshark 看不到虚拟机内部的 <code class="docutils literal notranslate"><span class="pre">veth</span></code> 流量。</p>
 <p>在 Ubuntu 虚拟机桌面中打开终端，启动 Wireshark：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>wireshark
@@ -872,13 +872,13 @@ sudo<span class="w"> </span>gdbserver<span class="w"> </span>localhost:1234<span
 <figure class="align-center" id="id20">
 <a class="reference internal image-reference" href="../_images/oslab-wireshark.png"><img alt="普通用户启动 Wireshark 后未显示本机网络接口，仅显示远程抓包源" src="../_images/oslab-wireshark.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">wireshark</span></code> 启动</span><a class="headerlink" href="4oslab_ubuntu.html#id20" title="Link to this image"></a></p>
+<p><span class="caption-text">使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">wireshark</span></code> 启动</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id21">
 <a class="reference internal image-reference" href="../_images/oslab-wireshark-2.png"><img alt="Wireshark 在 veth0 接口抓到 HTTP 测试报文" src="../_images/oslab-wireshark-2.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">wireshark</span></code> 在 <code class="docutils literal notranslate"><span class="pre">veth0</span></code> 上抓取 HTTP 测试报文。</span><a class="headerlink" href="4oslab_ubuntu.html#id21" title="Link to this image"></a></p>
+<p><span class="caption-text">使用 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">wireshark</span></code> 在 <code class="docutils literal notranslate"><span class="pre">veth0</span></code> 上抓取 HTTP 测试报文。</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>

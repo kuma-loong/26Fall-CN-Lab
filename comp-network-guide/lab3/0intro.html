@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. 实验目的 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -63,26 +63,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../lab1-vlan/index.html">Lab1：VLAN 与接口模式配置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab2：协议栈之Eth协议实现</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Lab3：协议栈之ARP协议实现</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="0intro.html#">1. 实验目的</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id2">2. 实验任务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id3">3. 实验原理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#arp">3.1. ARP协议概要</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id4">3.2. ARP的工作机制</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0intro.html#id5">3.2.1. 同一网段的ARP解析过程</a></li>
-<li class="toctree-l4"><a class="reference internal" href="0intro.html#id6">3.2.2. 不同网段的ARP解析过程</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 实验目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2. 实验任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3. 实验原理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arp">3.1. ARP协议概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2. ARP的工作机制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.2.1. 同一网段的ARP解析过程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.2.2. 不同网段的ARP解析过程</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id7">3.3. ARP协议报文格式</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id8">3.4. ARP表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.3. ARP协议报文格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">3.4. ARP表</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="0intro.html#id9">4. 代码实现与检测</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id10">4.1. ARP初始化</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id11">4.2. ARP发送处理过程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id12">4.3. ARP接收处理过程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id13">4.4. ARP响应包</a></li>
-<li class="toctree-l3"><a class="reference internal" href="0intro.html#id14">4.5. 实验自测</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="0intro.html#gdb">4.5.1. GDB调试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">4. 代码实现与检测</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">4.1. ARP初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">4.2. ARP发送处理过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">4.3. ARP接收处理过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">4.4. ARP响应包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">4.5. 实验自测</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gdb">4.5.1. GDB调试</a></li>
 </ul>
 </li>
 </ul>
@@ -135,14 +135,14 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="0intro.html#id1" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1. </span>实验目的<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <ol class="arabic simple">
 <li><p>熟悉ARP数据包格式，掌握ARP映射表的建立与更新过程。</p></li>
 <li><p>掌握ARP数据包的的发送和接收处理过程。</p></li>
 </ol>
 </section>
 <section id="id2">
-<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="0intro.html#id2" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2. </span>实验任务<a class="headerlink" href="#id2" title="Link to this heading"></a></h1>
 <p>在完成协议栈之eth协议的基础上，编写ARP报文的接收、发送和请求报文函数，使其能够发送和接收ARP数据报文，并且能通过实验评测系统的测试。</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
@@ -156,24 +156,24 @@
 </div>
 </section>
 <section id="id3">
-<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="0intro.html#id3" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3. </span>实验原理<a class="headerlink" href="#id3" title="Link to this heading"></a></h1>
 <section id="arp">
-<h2><span class="section-number">3.1. </span>ARP协议概要<a class="headerlink" href="0intro.html#arp" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1. </span>ARP协议概要<a class="headerlink" href="#arp" title="Link to this heading"></a></h2>
 <p>在TCP/IP的网络构造和网络通信中，无需事先知道MAC地址究竟是什么，只要确定了IP地址，就可向这个目标地址发送IP数据报了。然而，在数据链路层使用的是硬件地址（MAC）进行报文传输，IP地址不能被物理网络所识别，因此必须建立IP地址和MAC地址的映射关系，这一过程由 ARP（Address Resolution Protocol，地址解析协议）来完成。</p>
 <p>ARP 协议以目标 IP 地址为线索，用于定位下一个应该接收数据包的网络设备对应的 MAC 地址。若目标主机不在同一链路上，可通过 ARP 查找下一跳网关的 MAC 地址。需要注意的是，ARP 仅适用于 IPv4 网络，不能用于 IPv6 网络。在 IPv6 网络中，可使用 ICMPv6 替代 ARP 发送邻居探索消息。</p>
 </section>
 <section id="id4">
-<h2><span class="section-number">3.2. </span>ARP的工作机制<a class="headerlink" href="0intro.html#id4" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.2. </span>ARP的工作机制<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>那么ARP又是如何知道MAC地址的呢？简单来说，ARP 通过 ARP 请求和 ARP 响应两种类型的数据包来确定 MAC 地址。此外，每台使用 ARP 的主机都会保留一个专用的内存区域（即缓存），用于存放最近的 IP 地址与硬件地址的对应关系。当主机收到 ARP 应答后，会将获得的 IP 地址和硬件地址的对应关系存入缓存。发送报文时，主机会先在缓存中查找相应的映射项，若找到则直接发送报文；若未找到，则利用 ARP 进行地址解析。ARP 缓存信息在一定时间内有效，过期且未更新的缓存项将被删除。</p>
 <section id="id5">
-<h3><span class="section-number">3.2.1. </span>同一网段的ARP解析过程<a class="headerlink" href="0intro.html#id5" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.2.1. </span>同一网段的ARP解析过程<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <p>如下图所示，当主机 A 需要向主机 B 发送报文，且在缓存中未找到相应记录时，就必须先解析主机 B 的硬件地址。主机 A 会在网段内广播 ARP 请求报文，由于广播包能被同一链路上的所有主机和路由器接收，因此该 ARP 请求包会被它们进行解析。主机 B 收到请求报文后，会判断报文的目的 IP 是否为本机的 IP 地址，若是，则将本机的硬件地址写入应答报文并发送给主机 A。主机 A 收到应答后将其存入缓存，解析成功，随后将报文发往主机 B。</p>
-<img alt="../_images/%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5ARP.png" src="../_images/同一网段ARP.png" />
+<img alt="../_images/%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5ARP.png" src="../_images/%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5ARP.png" />
 </section>
 <section id="id6">
-<h3><span class="section-number">3.2.2. </span>不同网段的ARP解析过程<a class="headerlink" href="0intro.html#id6" title="Link to this heading"></a></h3>
+<h3><span class="section-number">3.2.2. </span>不同网段的ARP解析过程<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <p>如下图所示，当主机 A 要向主机 C 发送报文时，主机 A 首先会分析目的地址是否在同一网段。若不在同一网段，主机 A 需要将报文先发送给其默认网关，再由默认网关进行转发。若主机 A 未找到默认网关的硬件地址，会发送 ARP 请求报文来请求默认网关的硬件地址。默认网关收到请求后，会将自己的硬件地址写入应答报文并发送给主机 A。之后，主机 A 到主机 C 的报文会先被送到默认网关，默认网关再根据报文的目的 IP 地址进行转发，直至报文送达主机 C。主机 C 到主机 A 的报文则以相反的顺序发送。</p>
-<img alt="../_images/%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5ARP.png" src="../_images/不同网段ARP.png" />
+<img alt="../_images/%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5ARP.png" src="../_images/%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5ARP.png" />
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p><strong>默认网关</strong></p>
@@ -186,12 +186,12 @@
 </section>
 </section>
 <section id="id7">
-<h2><span class="section-number">3.3. </span>ARP协议报文格式<a class="headerlink" href="0intro.html#id7" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.3. </span>ARP协议报文格式<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>ARP 是一个独立的三层协议，因此 ARP 报文在向数据链路层传输时无需经过 IP 协议的封装，而是直接生成包含 ARP 报头的报文。到达数据链路层后，再由对应的数据链路层协议（如以太网协议）进行封装。ARP 报文分为 ARP 请求报文和 ARP 应答报文两种，其报文格式如下图所示。</p>
 <img alt="../_images/ARP.png" src="../_images/ARP.png" />
 <p>ARP报文每个字段的含义如下表所示：</p>
 <table class="docutils align-default" id="id15">
-<caption><span class="caption-text">ARP报文字段说明</span><a class="headerlink" href="0intro.html#id15" title="Link to this table"></a></caption>
+<caption><span class="caption-text">ARP报文字段说明</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 25.0%" />
 <col style="width: 15.0%" />
@@ -244,7 +244,7 @@
 </table>
 </section>
 <section id="id8">
-<h2><span class="section-number">3.4. </span>ARP表<a class="headerlink" href="0intro.html#id8" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.4. </span>ARP表<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
 <p>无论是主机、交换机还是路由器，都会有一个用于缓存同一网段设备 IP 地址和 MAC 地址的 ARP 映射表，该表用于数据帧的转发。设备通过 ARP 解析到目的 MAC 地址后，会在自己的 ARP 映射表中添加 IP 地址到 MAC 地址的映射项，以便后续向同一目的地转发数据帧。ARP 表项分为动态 ARP 表项和静态 ARP 表项。在本实验中，我们需要实现 <strong>动态 ARP 表项</strong>。</p>
 <p>动态 ARP 表项由 ARP 协议通过 ARP 报文自动生成和维护，这些表项可以老化、被新的 ARP 报文更新，也可能被静态 ARP 表项覆盖。当达到老化时间或接口关闭时，相应的动态 ARP 表项将被删除。</p>
 <p>在本实验中，我们提供了支持超时时间的 map 键值对容器框架，以减轻同学们的部分工作量。在用于获取 map 中指定键的值的 map_set() 函数中，会调用 map_entry_valid() 函数判断该键值对是否有效，判断标准中包含是否超时的判断。</p>
@@ -285,10 +285,10 @@
 </section>
 </section>
 <section id="id9">
-<h1><span class="section-number">4. </span>代码实现与检测<a class="headerlink" href="0intro.html#id9" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>代码实现与检测<a class="headerlink" href="#id9" title="Link to this heading"></a></h1>
 <p>同学们需认真研读本实验所提供的代码框架，将 src/arp.c 文件中的 arp_req() 函数、arp_out() 函数、arp_in() 函数和 arp_resp() 函数补充完整。</p>
 <section id="id10">
-<h2><span class="section-number">4.1. </span>ARP初始化<a class="headerlink" href="0intro.html#id10" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1. </span>ARP初始化<a class="headerlink" href="#id10" title="Link to this heading"></a></h2>
 <p>arp_init() 函数用于实现 ARP 初始化功能，具体初始化流程如下：</p>
 <p><strong>Step1.</strong> 初始化 ARP 表：</p>
 <p>调用 map_init() 函数，对用于存储 IP 地址和 MAC 地址的 ARP 表 arp_table 进行初始化，并将超时时间设置为 ARP_TIMEOUT_SEC。</p>
@@ -315,7 +315,7 @@
 <img alt="../_images/ARP-1.png" src="../_images/ARP-1.png" />
 </section>
 <section id="id11">
-<h2><span class="section-number">4.2. </span>ARP发送处理过程<a class="headerlink" href="0intro.html#id11" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.2. </span>ARP发送处理过程<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
 <p>同学们需要自行实现arp_out()函数，其具体功能步骤如下：</p>
 <p><strong>Step1.</strong> 查找 ARP 表：</p>
 <p>调用 map_get() 函数，依据 IP 地址在 ARP 表（arp_table）中进行查找。</p>
@@ -329,7 +329,7 @@
 </div>
 </section>
 <section id="id12">
-<h2><span class="section-number">4.3. </span>ARP接收处理过程<a class="headerlink" href="0intro.html#id12" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>ARP接收处理过程<a class="headerlink" href="#id12" title="Link to this heading"></a></h2>
 <p>同学们需要自行实现arp_in()函数，其具体功能步骤如下：</p>
 <p><strong>Step1.</strong> 检查数据长度：</p>
 <p>首先判断数据长度，若数据长度小于 ARP 头部长度，则认为数据包不完整，将其丢弃，不予处理。</p>
@@ -345,7 +345,7 @@
 </ul>
 </section>
 <section id="id13">
-<h2><span class="section-number">4.4. </span>ARP响应包<a class="headerlink" href="0intro.html#id13" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4. </span>ARP响应包<a class="headerlink" href="#id13" title="Link to this heading"></a></h2>
 <p>同学们需要自行实现arp_resp()，功能如下：</p>
 <p><strong>Step1.</strong> 初始化缓冲区：</p>
 <p>调用 buf_init() 函数初始化 txbuf。</p>
@@ -355,7 +355,7 @@
 <p>调用 ethernet_out() 函数将填充好的 ARP 报文发送出去。</p>
 </section>
 <section id="id14">
-<h2><span class="section-number">4.5. </span>实验自测<a class="headerlink" href="0intro.html#id14" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.5. </span>实验自测<a class="headerlink" href="#id14" title="Link to this heading"></a></h2>
 <p>ARP 自测步骤与 eth 自测步骤类似，具体如下：</p>
 <p>点击CMake工具栏，找到arp_test[arp_test.exe]，右键，选择“生成”进行编译。</p>
 <a class="reference internal image-reference" href="../_images/cmake6.png"><img alt="../_images/cmake6.png" src="../_images/cmake6.png" style="height: 500px;" /></a>
@@ -370,7 +370,7 @@
 <p>完成自测后，仍应使用 Wireshark 分别打开 <code class="docutils literal notranslate"><span class="pre">testing/data/arp_test/out.pcap</span></code> 和 <code class="docutils literal notranslate"><span class="pre">testing/data/arp_test/demo_out.pcap</span></code>，按报文顺序核对以太网目的/源 MAC 地址、以太类型，以及 ARP 的硬件类型、协议类型、硬件/协议地址长度、操作码、发送端和目标端 MAC/IP 地址。Wireshark 用法可参考 <a class="reference internal" href="../appendix-a/index.html"><span class="doc">附录 A：Wireshark 入门</span></a>。</p>
 </div>
 <section id="gdb">
-<h3><span class="section-number">4.5.1. </span>GDB调试<a class="headerlink" href="0intro.html#gdb" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.1. </span>GDB调试<a class="headerlink" href="#gdb" title="Link to this heading"></a></h3>
 <p>本实验支持使用GDB调试，请参考 <a class="reference internal" href="../appendix-b/1win.html"><span class="doc">Windows开发环境搭建</span></a> 中的“Windows下编译和调试”</p>
 </section>
 </section>

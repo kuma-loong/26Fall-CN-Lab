@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. Lab3 常见问题（ARP） &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -82,10 +82,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">常见问题</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="0bug-handbook.html">1. 典型 Bug 排查手册</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lab2.html">2. Lab2 常见问题（Eth）</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="lab3.html#">3. Lab3 常见问题（ARP）</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lab3.html#out-pcapdemo-pcap">3.1. out.pcap和demo.pcap文件对不上？</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab3.html#arp-insrc-macbufarpsender-mac">3.2. arp_in函数这第二个参数src_mac和buf里面arp报文的sender_mac有什么区别？</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lab3.html#gdbarp-map-setkey-value-map-get">3.3. GDB单步调试ARP，使用map_set设置一个键值对key-value，紧着使用map_get无法读出来？</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Lab3 常见问题（ARP）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#out-pcapdemo-pcap">3.1. out.pcap和demo.pcap文件对不上？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arp-insrc-macbufarpsender-mac">3.2. arp_in函数这第二个参数src_mac和buf里面arp报文的sender_mac有什么区别？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gdbarp-map-setkey-value-map-get">3.3. GDB单步调试ARP，使用map_set设置一个键值对key-value，紧着使用map_get无法读出来？</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lab7.html">4. Lab7 常见问题（UDP）</a></li>
@@ -120,11 +120,11 @@
            <div itemprop="articleBody">
              
   <section id="lab3-arp">
-<h1><span class="section-number">3. </span>Lab3 常见问题（ARP）<a class="headerlink" href="lab3.html#lab3-arp" title="Link to this heading"></a></h1>
+<h1><span class="section-number">3. </span>Lab3 常见问题（ARP）<a class="headerlink" href="#lab3-arp" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="out-pcapdemo-pcap">
-<h2><span class="section-number">3.1. </span>out.pcap和demo.pcap文件对不上？<a class="headerlink" href="lab3.html#out-pcapdemo-pcap" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.1. </span>out.pcap和demo.pcap文件对不上？<a class="headerlink" href="#out-pcapdemo-pcap" title="Link to this heading"></a></h2>
 <p>有同学在调试arp_test时，提示pcap与demo的不一样，如下图所示：</p>
 <img alt="../_images/lab3-1.png" src="../_images/lab3-1.png" />
 <p>从这个图来看，主要的问题是Protocol字段没有填对，也就是，调用arp_out函数发送的数据包不一定都是arp协议报文，还有可能是IP协议报文。</p>
@@ -134,13 +134,13 @@
 <p>那有同学可能问，为什么arp_out()函数中上层协议类型一定是IP协议，不能是其他协议吗？因为本协议栈是基于TCP/IP协议模型，网络层主要通过IP协议来实现数据包的传输（当然还需要众多支持IP的相关辅助技术，如ARP、ICMP等等），传输层中的TCP/UDP协议也都是在网络层的IP协议的基础上的。故，本协议栈arp_out()函数中上层协议类型只需关注IP协议即可。</p>
 </section>
 <section id="arp-insrc-macbufarpsender-mac">
-<h2><span class="section-number">3.2. </span>arp_in函数这第二个参数src_mac和buf里面arp报文的sender_mac有什么区别？<a class="headerlink" href="lab3.html#arp-insrc-macbufarpsender-mac" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.2. </span>arp_in函数这第二个参数src_mac和buf里面arp报文的sender_mac有什么区别？<a class="headerlink" href="#arp-insrc-macbufarpsender-mac" title="Link to this heading"></a></h2>
 <p>如下图：</p>
 <img alt="../_images/lab3-2.png" src="../_images/lab3-2.png" />
 <p>这两个参数应该是一样的。</p>
 </section>
 <section id="gdbarp-map-setkey-value-map-get">
-<h2><span class="section-number">3.3. </span>GDB单步调试ARP，使用map_set设置一个键值对key-value，紧着使用map_get无法读出来？<a class="headerlink" href="lab3.html#gdbarp-map-setkey-value-map-get" title="Link to this heading"></a></h2>
+<h2><span class="section-number">3.3. </span>GDB单步调试ARP，使用map_set设置一个键值对key-value，紧着使用map_get无法读出来？<a class="headerlink" href="#gdbarp-map-setkey-value-map-get" title="Link to this heading"></a></h2>
 <p>代码如下：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="n">map_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arp_buf</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
 <span class="linenos">2</span><span class="w"> </span><span class="n">buf_t</span><span class="w"> </span><span class="o">*</span><span class="n">old_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arp_buf</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="p">);</span>

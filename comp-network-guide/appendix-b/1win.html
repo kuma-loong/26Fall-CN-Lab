@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. Windows开发环境搭建 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -77,36 +77,36 @@
 <li class="toctree-l1"><a class="reference internal" href="../appendix-a/index.html">附录 A：Wireshark 入门</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">附录 B：网络编程实验环境</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="0checklist.html">1. 环境配置检查清单</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="1win.html#">2. Windows开发环境搭建</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="1win.html#id1">2.1. 实验工具</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#vscode">2.1.1. VSCode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#git">2.1.2. Git</a></li>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#npcap">2.1.3. npcap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#cmake">2.1.4. cmake</a></li>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#gcc">2.1.5. gcc</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Windows开发环境搭建</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.1. 实验工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vscode">2.1.1. VSCode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#git">2.1.2. Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#npcap">2.1.3. npcap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake">2.1.4. cmake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gcc">2.1.5. gcc</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="1win.html#id3">2.2. Windows下编译和调试</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#id4">2.2.1. 组件测试的调试方法</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#id7">2.2.1.1. 创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#gdb">2.2.1.2. 设置统一的 GDB 路径</a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#launch-json">2.2.1.3. 填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#tasks-json">2.2.1.4. 填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#ip">2.2.1.5. 设置协议栈 IP 并确认构建配置</a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#id9">2.2.1.6. 选择对应协议并启动调试</a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#id10">2.2.1.7. 命令行验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.2. Windows下编译和调试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.2.1. 组件测试的调试方法</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id7">2.2.1.1. 创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#gdb">2.2.1.2. 设置统一的 GDB 路径</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#launch-json">2.2.1.3. 填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#tasks-json">2.2.1.4. 填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ip">2.2.1.5. 设置协议栈 IP 并确认构建配置</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id9">2.2.1.6. 选择对应协议并启动调试</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id10">2.2.1.7. 命令行验证</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#id11">2.2.2. 集成测试的调试方法</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#id13">2.2.2.1. 使用 CMake 工具栏调试</a></li>
-<li class="toctree-l5"><a class="reference internal" href="1win.html#id14">2.2.2.2. 使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置调试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">2.2.2. 集成测试的调试方法</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id13">2.2.2.1. 使用 CMake 工具栏调试</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#id14">2.2.2.2. 使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置调试</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="1win.html#windows-test-network">2.3. 实验测试环境及网卡配置说明</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#eth-arp-ip-icmp-udp-tcp">2.3.1. 组件测试（Eth/ARP/IP/ICMP/UDP/TCP）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="1win.html#windows-udp-tcp-http">2.3.2. Windows 本地集成测试（UDP/TCP/HTTP）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-test-network">2.3. 实验测试环境及网卡配置说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eth-arp-ip-icmp-udp-tcp">2.3.1. 组件测试（Eth/ARP/IP/ICMP/UDP/TCP）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows-udp-tcp-http">2.3.2. Windows 本地集成测试（UDP/TCP/HTTP）</a></li>
 </ul>
 </li>
 </ul>
@@ -148,22 +148,22 @@
            <div itemprop="articleBody">
              
   <section id="windows">
-<h1><span class="section-number">2. </span>Windows开发环境搭建<a class="headerlink" href="1win.html#windows" title="Link to this heading"></a></h1>
+<h1><span class="section-number">2. </span>Windows开发环境搭建<a class="headerlink" href="#windows" title="Link to this heading"></a></h1>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <p>为了给同学们演示如何下载、编译、调试net-lab，我们录制了演示视频，请到bilibili上观看。</p>
 <p>【计算机网络协议栈编译和调试】 <a class="reference external" href="https://www.bilibili.com/video/BV1TkZ4YGEZz/?share_source=copy_web&amp;vd_source=a822dcda3537564ccdd0bb45aa0afe33">https://www.bilibili.com/video/BV1TkZ4YGEZz/?share_source=copy_web&amp;vd_source=a822dcda3537564ccdd0bb45aa0afe33</a></p>
 </div>
 <section id="id1">
-<h2><span class="section-number">2.1. </span>实验工具<a class="headerlink" href="1win.html#id1" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.1. </span>实验工具<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>本实验需要安装 VSCode、npcap、cmake、gcc 等工具，以下是实验工具介绍：</p>
 <section id="vscode">
-<h3><span class="section-number">2.1.1. </span>VSCode<a class="headerlink" href="1win.html#vscode" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.1.1. </span>VSCode<a class="headerlink" href="#vscode" title="Link to this heading"></a></h3>
 <p>Visual Studio Code 是一款功能强大的代码编辑器, 适用于几乎任何语言并可在任何操作系统上运行。通过 VSCode 的强大扩展库，我们可以在 VSCode 上一站式创建，编辑，构建，运行和调试远程主机上的工程文件，就像使用 Code::Blocks 操作本地工程一样。</p>
 <p>在https://code.visualstudio.com/ 下载并在物理机上安装 VSCode 软件。</p>
 </section>
 <section id="git">
-<h3><span class="section-number">2.1.2. </span>Git<a class="headerlink" href="1win.html#git" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.1.2. </span>Git<a class="headerlink" href="#git" title="Link to this heading"></a></h3>
 <p>Git 用于从课程仓库获取实验代码，并保存实验过程中的代码版本。</p>
 <p>如果尚未安装 Git，请访问 <a class="reference external" href="https://git-scm.com/download/win">Git for Windows</a> 下载并运行安装程序。安装过程中保持默认选项即可；如果安装程序询问是否将 Git 加入 PATH，请选择允许从命令行使用 Git。</p>
 <p>安装完成后，打开 PowerShell，执行下面的命令检查 Git 是否安装成功：</p>
@@ -173,7 +173,7 @@
 <p>如果输出类似 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">version</span> <span class="pre">2.47.1.windows.1</span></code> 的版本号，说明安装成功。若提示 <code class="docutils literal notranslate"><span class="pre">git</span></code> 不是命令，请重新打开 PowerShell；如果仍然无法识别，请重新运行 Git 安装程序并确认将 Git 加入 PATH。</p>
 </section>
 <section id="npcap">
-<h3><span class="section-number">2.1.3. </span>npcap<a class="headerlink" href="1win.html#npcap" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.1.3. </span>npcap<a class="headerlink" href="#npcap" title="Link to this heading"></a></h3>
 <p>npcap是一个网络数据包抓包工具，它是WinPcap的改进版，支持WIndows平台的回环数据包采集和发送。</p>
 <p>npcap下载地址：（<a class="reference external" href="https://file.cs-lab.top/s/ZvX5EPOqBUx15bs">点这里下载</a>）</p>
 <p>也可以到官网下载：</p>
@@ -191,7 +191,7 @@
 <img alt="../_images/npcap.png" src="../_images/npcap.png" />
 </section>
 <section id="cmake">
-<h3><span class="section-number">2.1.4. </span>cmake<a class="headerlink" href="1win.html#cmake" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.1.4. </span>cmake<a class="headerlink" href="#cmake" title="Link to this heading"></a></h3>
 <p>CMake 是一款跨平台的编译工具，其优势在于能够跨平台生成对应平台可用的 Makefile，这大大减轻了手动修改 Makefile 的工作量，使用起来十分方便。那它又是根据什么生成的makefile呢？就是一个叫CMakeLists.txt文件去生成Makefile，当然，这个CMakefile.txt是要我们自己编写的。本实验已经提供好了CMakefile.txt文件，可大家学习参考：）</p>
 <p>此外，CMake 自带 ctest 工具，可用于代码测试。当使用 CMakeLists.txt 文件编译工程时，CTest 会自动完成配置、构建、测试并展示测试结果。</p>
 <p>CMake的下载地址：（<a class="reference external" href="https://file.cs-lab.top/s/ZvX5EPOqBUx15bs">点这里下载</a>）</p>
@@ -203,7 +203,7 @@
 <a class="reference internal image-reference" href="../_images/cmake1.png"><img alt="../_images/cmake1.png" src="../_images/cmake1.png" style="width: 543.1999999999999px; height: 421.4px;" /></a>
 </section>
 <section id="gcc">
-<h3><span class="section-number">2.1.5. </span>gcc<a class="headerlink" href="1win.html#gcc" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.1.5. </span>gcc<a class="headerlink" href="#gcc" title="Link to this heading"></a></h3>
 <p>强烈推荐大家安装 tdm - gcc，它是专门为 Windows 系统设计的编译器套件，集成了 gcc、g++ 等多种实用工具，功能全面且工具齐全。</p>
 <p>tdm64-gcc下载地址：（<a class="reference external" href="https://file.cs-lab.top/s/ZvX5EPOqBUx15bs">点这里下载</a>）</p>
 <p>也可以从这里下载：</p>
@@ -212,7 +212,7 @@
 </section>
 </section>
 <section id="id3">
-<h2><span class="section-number">2.2. </span>Windows下编译和调试<a class="headerlink" href="1win.html#id3" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.2. </span>Windows下编译和调试<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>确认 Git 已安装后，在准备存放实验项目的目录中打开 PowerShell，执行：</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">://</span><span class="n">git</span><span class="p">.</span><span class="n">cs-lab</span><span class="p">.</span><span class="n">top</span><span class="p">/</span><span class="n">cslab</span><span class="p">/</span><span class="n">net-lab</span><span class="p">.</span><span class="n">git</span>
 </pre></div>
@@ -243,7 +243,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cmake</span></code>、<code class="docutils literal notranslate"><span class="pre">gcc</span></code>、<code class="docutils literal notranslate"><span class="pre">gdb</span></code> 能在终端中直接找到；</p></li>
 <li><p>CMake Kit 已选到 MinGW / GCC；</p></li>
-<li><p>已按 <a class="reference internal" href="1win.html#windows-integration-ip"><span class="std std-ref">Windows 网卡与协议栈 IP 配置</span></a> 填写 <code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>。</p></li>
+<li><p>已按 <a class="reference internal" href="#windows-integration-ip"><span class="std std-ref">Windows 网卡与协议栈 IP 配置</span></a> 填写 <code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>。</p></li>
 </ul>
 </div>
 <div class="admonition tip">
@@ -255,22 +255,22 @@
 </ul>
 </div>
 <section id="id4">
-<span id="id5"></span><h3><span class="section-number">2.2.1. </span>组件测试的调试方法<a class="headerlink" href="1win.html#id4" title="Link to this heading"></a></h3>
+<span id="id5"></span><h3><span class="section-number">2.2.1. </span>组件测试的调试方法<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <p>本节为以太网、ARP、IP、ICMP、UDP 和 TCP 等协议的离线组件测试提供 GDB 调试配置。将配置文件一次填写好后，切换协议时只需在“运行和调试”的下拉菜单中选择对应配置，不必反复修改 <code class="docutils literal notranslate"><span class="pre">program</span></code> 和 <code class="docutils literal notranslate"><span class="pre">args</span></code>。</p>
 <nav class="contents local" id="id6">
 <p class="topic-title">本节导航</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="1win.html#id7" id="id21">创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></p></li>
-<li><p><a class="reference internal" href="1win.html#gdb" id="id22">设置统一的 GDB 路径</a></p></li>
-<li><p><a class="reference internal" href="1win.html#launch-json" id="id23">填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></p></li>
-<li><p><a class="reference internal" href="1win.html#tasks-json" id="id24">填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></p></li>
-<li><p><a class="reference internal" href="1win.html#ip" id="id25">设置协议栈 IP 并确认构建配置</a></p></li>
-<li><p><a class="reference internal" href="1win.html#id9" id="id26">选择对应协议并启动调试</a></p></li>
-<li><p><a class="reference internal" href="1win.html#id10" id="id27">命令行验证</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id21">创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件</a></p></li>
+<li><p><a class="reference internal" href="#gdb" id="id22">设置统一的 GDB 路径</a></p></li>
+<li><p><a class="reference internal" href="#launch-json" id="id23">填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code></a></p></li>
+<li><p><a class="reference internal" href="#tasks-json" id="id24">填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code></a></p></li>
+<li><p><a class="reference internal" href="#ip" id="id25">设置协议栈 IP 并确认构建配置</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id26">选择对应协议并启动调试</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id27">命令行验证</a></p></li>
 </ul>
 </nav>
 <section id="id7">
-<h4><span class="section-number">2.2.1.1. </span>创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件<a class="headerlink" href="1win.html#id7" title="Link to this heading"></a></h4>
+<h4><span class="section-number">2.2.1.1. </span>创建 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 配置目录和文件<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <p>请先确认 VS Code 打开的是 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 项目根目录，而不是 <code class="docutils literal notranslate"><span class="pre">build</span></code> 或其他目录；项目根目录中应能看到 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>。</p>
 <ol class="arabic simple">
 <li><p>如果根目录下还没有 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹，点击资源管理器中的“新建文件夹”创建。文件夹名开头的英文句点 <code class="docutils literal notranslate"><span class="pre">.</span></code> 不要漏掉；如果已经存在，则直接打开。</p></li>
@@ -279,12 +279,12 @@
 <figure class="align-center" id="id16">
 <a class="reference internal image-reference" href="../_images/win-json.jpg"><img alt="VS Code 项目文件列表，.vscode 文件夹中包含 launch.json 和 tasks.json" src="../_images/win-json.jpg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">配置文件位置示例：图中的 <code class="docutils literal notranslate"><span class="pre">settings.json</span></code>、<code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 都位于项目根目录下的 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹中。</span><a class="headerlink" href="1win.html#id16" title="Link to this image"></a></p>
+<p><span class="caption-text">配置文件位置示例：图中的 <code class="docutils literal notranslate"><span class="pre">settings.json</span></code>、<code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 和 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code> 都位于项目根目录下的 <code class="docutils literal notranslate"><span class="pre">.vscode</span></code> 文件夹中。</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
 <section id="gdb">
-<h4><span class="section-number">2.2.1.2. </span>设置统一的 GDB 路径<a class="headerlink" href="1win.html#gdb" title="Link to this heading"></a></h4>
+<h4><span class="section-number">2.2.1.2. </span>设置统一的 GDB 路径<a class="headerlink" href="#gdb" title="Link to this heading"></a></h4>
 <p>先在 <code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code> 中填写 GDB 的实际路径：</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;cmake.debugConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -296,7 +296,7 @@
 <p>如果 TDM-GCC 安装在其他位置，只需修改这里的 <code class="docutils literal notranslate"><span class="pre">miDebuggerPath</span></code>。例如，安装在 D 盘时改为 <code class="docutils literal notranslate"><span class="pre">D:/TDM-GCC-64/bin/gdb.exe</span></code>。路径末尾应包含 <code class="docutils literal notranslate"><span class="pre">gdb.exe</span></code>，不要只填写 <code class="docutils literal notranslate"><span class="pre">bin</span></code> 文件夹。这里使用正斜杠 <code class="docutils literal notranslate"><span class="pre">/</span></code>，无需额外转义。</p>
 </section>
 <section id="launch-json">
-<span id="id8"></span><h4><span class="section-number">2.2.1.3. </span>填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code><a class="headerlink" href="1win.html#launch-json" title="Link to this heading"></a></h4>
+<span id="id8"></span><h4><span class="section-number">2.2.1.3. </span>填写 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code><a class="headerlink" href="#launch-json" title="Link to this heading"></a></h4>
 <p>下面的完整配置同时包含八个组件测试，以及后文使用的 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 三个集成测试程序。将以下完整内容复制到 <code class="docutils literal notranslate"><span class="pre">.vscode/launch.json</span></code> 并保存：</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
@@ -564,7 +564,7 @@
 <p>例如，<code class="docutils literal notranslate"><span class="pre">arp_test</span></code> 配置会启动 <code class="docutils literal notranslate"><span class="pre">build/arp_test.exe</span></code>，并读取 <code class="docutils literal notranslate"><span class="pre">testing/data/arp_test</span></code> 中的测试数据。<code class="docutils literal notranslate"><span class="pre">ip_frag_test</span></code> 读取其目录中的 <code class="docutils literal notranslate"><span class="pre">in.txt</span></code>，其他组件读取各自目录中的 <code class="docutils literal notranslate"><span class="pre">in.pcap</span></code>。</p>
 </section>
 <section id="tasks-json">
-<h4><span class="section-number">2.2.1.4. </span>填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code><a class="headerlink" href="1win.html#tasks-json" title="Link to this heading"></a></h4>
+<h4><span class="section-number">2.2.1.4. </span>填写 <code class="docutils literal notranslate"><span class="pre">tasks.json</span></code><a class="headerlink" href="#tasks-json" title="Link to this heading"></a></h4>
 <p>将以下完整内容复制到 <code class="docutils literal notranslate"><span class="pre">.vscode/tasks.json</span></code> 并保存：</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
@@ -606,15 +606,15 @@
 <p>使用 <code class="docutils literal notranslate"><span class="pre">--target</span></code> 后，每次切换组件都要同步修改目标名称；它必须与 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 中 <code class="docutils literal notranslate"><span class="pre">program</span></code> 指向的程序名一致，但不带 <code class="docutils literal notranslate"><span class="pre">.exe</span></code> 后缀。若不想重复修改，保留默认的全量编译配置即可。</p>
 </section>
 <section id="ip">
-<span id="windows-component-build-check"></span><h4><span class="section-number">2.2.1.5. </span>设置协议栈 IP 并确认构建配置<a class="headerlink" href="1win.html#ip" title="Link to this heading"></a></h4>
+<span id="windows-component-build-check"></span><h4><span class="section-number">2.2.1.5. </span>设置协议栈 IP 并确认构建配置<a class="headerlink" href="#ip" title="Link to this heading"></a></h4>
 <p>首次调试前，需要先填写协议栈 IP，再检查 CMake 配置。组件测试本身使用固定的测试 IP，但本节默认的构建任务还会编译 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 等集成测试程序。如果 <code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code> 仍保留 <code class="docutils literal notranslate"><span class="pre">XX</span></code> 占位符，编译时就会报 <code class="docutils literal notranslate"><span class="pre">XX</span></code> 未定义。</p>
 <ol class="arabic simple">
-<li><p>先完成 <a class="reference internal" href="1win.html#windows-integration-ip"><span class="std std-ref">2.3.2 的 Windows 网卡与协议栈 IP 配置</span></a>：根据 Windows 上选定网卡的 IPv4 地址和子网掩码，填写 <code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>，并保存文件。<code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支中的测试 IP 和 MAC 地址保持默认值。</p></li>
+<li><p>先完成 <a class="reference internal" href="#windows-integration-ip"><span class="std std-ref">2.3.2 的 Windows 网卡与协议栈 IP 配置</span></a>：根据 Windows 上选定网卡的 IPv4 地址和子网掩码，填写 <code class="docutils literal notranslate"><span class="pre">include/config.h</span></code> 中 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的 <code class="docutils literal notranslate"><span class="pre">NET_IF_IP</span></code>，并保存文件。<code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支中的测试 IP 和 MAC 地址保持默认值。</p></li>
 <li><p>按 <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> 打开命令面板，执行 <code class="docutils literal notranslate"><span class="pre">CMake:</span> <span class="pre">Select</span> <span class="pre">a</span> <span class="pre">Kit</span></code>，确认选择的是前面安装的 <code class="docutils literal notranslate"><span class="pre">x86_64</span> <span class="pre">GCC</span></code> 工具包。</p></li>
 </ol>
 </section>
 <section id="id9">
-<h4><span class="section-number">2.2.1.6. </span>选择对应协议并启动调试<a class="headerlink" href="1win.html#id9" title="Link to this heading"></a></h4>
+<h4><span class="section-number">2.2.1.6. </span>选择对应协议并启动调试<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
 <li><p>在 VS Code 左侧打开“运行和调试”。</p></li>
 <li><p>在顶部配置下拉菜单中选择要调试的协议对应的测试配置。例如，调试 ARP 协议时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span> <span class="pre">(Windows</span> <span class="pre">component</span> <span class="pre">test)</span></code>；调试以太网接收或发送流程时，分别选择 <code class="docutils literal notranslate"><span class="pre">eth_in</span></code> 或 <code class="docutils literal notranslate"><span class="pre">eth_out</span></code> 配置。</p></li>
@@ -624,19 +624,19 @@
 <figure class="align-center" id="id17">
 <a class="reference internal image-reference" href="../_images/vscode-run-gdb.jpg"><img alt="VS Code 运行和调试配置下拉菜单，包含 eth_in、eth_out 和 arp_test 等组件测试" src="../_images/vscode-run-gdb.jpg" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">调试某个协议时，应在图示下拉菜单中选择该协议对应的配置；例如调试 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>。</span><a class="headerlink" href="1win.html#id17" title="Link to this image"></a></p>
+<p><span class="caption-text">调试某个协议时，应在图示下拉菜单中选择该协议对应的配置；例如调试 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>。</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id18">
 <a class="reference internal image-reference" href="../_images/gdb-6.png"><img alt="VS Code 运行和调试入口、源代码断点及调试工具栏" src="../_images/gdb-6.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">界面位置示意。调试配置名称以本节提供的配置为准，请选择当前协议对应的配置。</span><a class="headerlink" href="1win.html#id18" title="Link to this image"></a></p>
+<p><span class="caption-text">界面位置示意。调试配置名称以本节提供的配置为准，请选择当前协议对应的配置。</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>如果选择了其他协议的配置，程序可能不会执行当前要调试的函数，断点也就不会命中。例如，调试 <code class="docutils literal notranslate"><span class="pre">src/arp.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">arp_out()</span></code> 时应选择 <code class="docutils literal notranslate"><span class="pre">arp_test</span></code>。</p>
 </section>
 <section id="id10">
-<h4><span class="section-number">2.2.1.7. </span>命令行验证<a class="headerlink" href="1win.html#id10" title="Link to this heading"></a></h4>
+<h4><span class="section-number">2.2.1.7. </span>命令行验证<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
 <p>也可以在 VS Code 的 Windows 终端中运行组件测试。先确认终端当前目录为 <code class="docutils literal notranslate"><span class="pre">net-lab</span></code> 根目录，再执行：</p>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.\</span><span class="n">build</span><span class="p">\</span><span class="n">eth_in</span><span class="p">.</span><span class="n">exe</span> <span class="n">testing</span><span class="p">/</span><span class="n">data</span><span class="p">/</span><span class="n">eth_in</span>
 <span class="p">.\</span><span class="n">build</span><span class="p">\</span><span class="n">arp_test</span><span class="p">.</span><span class="n">exe</span> <span class="n">testing</span><span class="p">/</span><span class="n">data</span><span class="p">/</span><span class="n">arp_test</span>
@@ -647,34 +647,34 @@
 </section>
 </section>
 <section id="id11">
-<h3><span class="section-number">2.2.2. </span>集成测试的调试方法<a class="headerlink" href="1win.html#id11" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.2.2. </span>集成测试的调试方法<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <p>调试 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 或 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 等集成测试程序时，可以使用 CMake 工具栏，也可以使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置。下面分别介绍这两种方法。</p>
 <nav class="contents local" id="id12">
 <p class="topic-title">本节导航</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="1win.html#id13" id="id28">使用 CMake 工具栏调试</a></p></li>
-<li><p><a class="reference internal" href="1win.html#id14" id="id29">使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置调试</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id28">使用 CMake 工具栏调试</a></p></li>
+<li><p><a class="reference internal" href="#id14" id="id29">使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置调试</a></p></li>
 </ul>
 </nav>
 <section id="id13">
-<h4><span class="section-number">2.2.2.1. </span>使用 CMake 工具栏调试<a class="headerlink" href="1win.html#id13" title="Link to this heading"></a></h4>
+<h4><span class="section-number">2.2.2.1. </span>使用 CMake 工具栏调试<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
 <p>udp_server、tcp_server或web_server程序的调试方法和上述的Eth、ARP、IP或ICMP程序的调试方法是不一样的。如果想要对udp_server、tcp_server或web_server进行编译和调试，可以在udp_server、tcp_server或web_server这一项点击右键，再点击“生成”进行编译。</p>
 <img alt="../_images/vscode10.png" src="../_images/vscode10.png" />
 <p>编译完成后，可以在代码行前增加断点，然后选择“调试”，接下来，也可以愉快地进行暂停、单步跳过、单步调试、单步跳出、重启、停止等这些调试操作了。</p>
 <img alt="../_images/vscode9.png" src="../_images/vscode9.png" />
 </section>
 <section id="id14">
-<h4><span class="section-number">2.2.2.2. </span>使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置调试<a class="headerlink" href="1win.html#id14" title="Link to this heading"></a></h4>
-<p>使用前文 <a class="reference internal" href="1win.html#launch-json"><span class="std std-ref">2.2.1.3 的完整 launch.json 配置</span></a>，并参照后续的调试步骤即可。在“运行和调试”下拉菜单中选择 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 或 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 对应的 <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">integration</span> <span class="pre">test</span></code> 配置，设置断点后按 <code class="docutils literal notranslate"><span class="pre">F5</span></code> 启动调试。</p>
+<h4><span class="section-number">2.2.2.2. </span>使用 <code class="docutils literal notranslate"><span class="pre">launch.json</span></code> 配置调试<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<p>使用前文 <a class="reference internal" href="#launch-json"><span class="std std-ref">2.2.1.3 的完整 launch.json 配置</span></a>，并参照后续的调试步骤即可。在“运行和调试”下拉菜单中选择 <code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 或 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 对应的 <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">integration</span> <span class="pre">test</span></code> 配置，设置断点后按 <code class="docutils literal notranslate"><span class="pre">F5</span></code> 启动调试。</p>
 <p>程序启动后，使用 UDP/TCP 调试工具或浏览器访问已配置的协议栈 IP，触发对应的协议处理流程。</p>
 </section>
 </section>
 </section>
 <section id="windows-test-network">
-<span id="id15"></span><h2><span class="section-number">2.3. </span>实验测试环境及网卡配置说明<a class="headerlink" href="1win.html#windows-test-network" title="Link to this heading"></a></h2>
-<p>本节说明两类测试分别使用什么 IP 地址。按前面的默认构建任务编译项目时，请先完成 <a class="reference internal" href="1win.html#windows-integration-ip"><span class="std std-ref">集成测试的 IP 配置</span></a>；填写完成后，回到 <a class="reference internal" href="1win.html#windows-component-build-check"><span class="std std-ref">2.2.1.5 设置协议栈 IP 并确认构建配置</span></a>，继续配置 CMake 和启动调试。</p>
+<span id="id15"></span><h2><span class="section-number">2.3. </span>实验测试环境及网卡配置说明<a class="headerlink" href="#windows-test-network" title="Link to this heading"></a></h2>
+<p>本节说明两类测试分别使用什么 IP 地址。按前面的默认构建任务编译项目时，请先完成 <a class="reference internal" href="#windows-integration-ip"><span class="std std-ref">集成测试的 IP 配置</span></a>；填写完成后，回到 <a class="reference internal" href="#windows-component-build-check"><span class="std std-ref">2.2.1.5 设置协议栈 IP 并确认构建配置</span></a>，继续配置 CMake 和启动调试。</p>
 <section id="eth-arp-ip-icmp-udp-tcp">
-<h3><span class="section-number">2.3.1. </span>组件测试（Eth/ARP/IP/ICMP/UDP/TCP）<a class="headerlink" href="1win.html#eth-arp-ip-icmp-udp-tcp" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.3.1. </span>组件测试（Eth/ARP/IP/ICMP/UDP/TCP）<a class="headerlink" href="#eth-arp-ip-icmp-udp-tcp" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>测试范围</strong></p></li>
 </ul>
@@ -715,7 +715,7 @@
 </div></blockquote>
 </section>
 <section id="windows-udp-tcp-http">
-<span id="windows-integration-ip"></span><h3><span class="section-number">2.3.2. </span>Windows 本地集成测试（UDP/TCP/HTTP）<a class="headerlink" href="1win.html#windows-udp-tcp-http" title="Link to this heading"></a></h3>
+<span id="windows-integration-ip"></span><h3><span class="section-number">2.3.2. </span>Windows 本地集成测试（UDP/TCP/HTTP）<a class="headerlink" href="#windows-udp-tcp-http" title="Link to this heading"></a></h3>
 <p>本节只适用于 <strong>Windows 本地 + Npcap</strong> 方案。</p>
 <p><code class="docutils literal notranslate"><span class="pre">udp_server</span></code>、<code class="docutils literal notranslate"><span class="pre">tcp_server</span></code> 和 <code class="docutils literal notranslate"><span class="pre">web_server</span></code> 用于验证整个协议栈的收发功能。Windows 本地方案通过 Npcap 在一张 <strong>现有网卡</strong> 上捕获和注入报文，不会在 Windows 中创建新的网卡。这里有两个不同的 IP 地址：</p>
 <ul class="simple">
@@ -734,7 +734,7 @@
 </li>
 <li><p>根据这张网卡的地址和掩码，选择同一网段内一个未被占用的地址，作为协议栈 IP。例如，所选网卡为 <code class="docutils literal notranslate"><span class="pre">192.168.56.1</span></code>，子网掩码为 <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code>，且 <code class="docutils literal notranslate"><span class="pre">192.168.56.2</span></code> 未被占用时，可使用以下地址关系：</p>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-text">IP 地址示例（请按自己的网卡信息填写）</span><a class="headerlink" href="1win.html#id19" title="Link to this table"></a></caption>
+<caption><span class="caption-text">IP 地址示例（请按自己的网卡信息填写）</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 55.0%" />
 <col style="width: 45.0%" />
@@ -767,12 +767,12 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支中的测试 IP 和 MAC 地址保持默认值，不要改成自己的网卡地址。</p>
 </li>
-<li><p>保存 <code class="docutils literal notranslate"><span class="pre">config.h</span></code>，返回 <a class="reference internal" href="1win.html#windows-component-build-check"><span class="std std-ref">2.2.1.5 设置协议栈 IP 并确认构建配置</span></a>，完成 CMake 配置后再按 <code class="docutils literal notranslate"><span class="pre">F5</span></code> 编译并调试。以后更换实验网卡或修改协议栈 IP 时，也需要保存文件并重新编译。</p></li>
+<li><p>保存 <code class="docutils literal notranslate"><span class="pre">config.h</span></code>，返回 <a class="reference internal" href="#windows-component-build-check"><span class="std std-ref">2.2.1.5 设置协议栈 IP 并确认构建配置</span></a>，完成 CMake 配置后再按 <code class="docutils literal notranslate"><span class="pre">F5</span></code> 编译并调试。以后更换实验网卡或修改协议栈 IP 时，也需要保存文件并重新编译。</p></li>
 </ol>
 <figure class="align-center" id="id20">
 <a class="reference internal image-reference" href="../_images/test3.png"><img alt="config.h 中的两个分支：测试网卡 IP 和 MAC 保持默认，自定义网卡 IP 根据实验环境填写" src="../_images/test3.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-text">只修改 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的自定义网卡 IP，保留 <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支的测试配置。</span><a class="headerlink" href="1win.html#id20" title="Link to this image"></a></p>
+<p><span class="caption-text">只修改 <code class="docutils literal notranslate"><span class="pre">#else</span></code> 分支的自定义网卡 IP，保留 <code class="docutils literal notranslate"><span class="pre">#ifdef</span> <span class="pre">TEST</span></code> 分支的测试配置。</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>运行集成测试时，UDP/TCP 调试工具或浏览器应访问填写的协议栈 IP，例如 <code class="docutils literal notranslate"><span class="pre">192.168.56.2</span></code>；Windows 网卡自身的 IP 在此例中为 <code class="docutils literal notranslate"><span class="pre">192.168.56.1</span></code>。</p>

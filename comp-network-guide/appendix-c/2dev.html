@@ -5,24 +5,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>实验硬件设备简介 &mdash; 计算机网络实验指导书 - 2026秋季 | 哈工大（深圳） v1.0 文档</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/my_style.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/my_style.css?v=1b1a5b7d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/copy-code.css?v=bbcb1bcc" />
 
   
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
-        <script src="../_static/js/baidu-tongji.js"></script>
-        <script src="../_static/js/copy-code.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5a3fd9cb"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=beaddf03"></script>
+        <script src="../_static/js/baidu-tongji.js?v=455e1e27"></script>
+        <script src="../_static/js/copy-code.js?v=c57f8a3d"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
@@ -109,11 +109,11 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>实验硬件设备简介<a class="headerlink" href="2dev.html#id1" title="Link to this heading"></a></h1>
+<h1>实验硬件设备简介<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <section id="id2">
-<h2>交换机<a class="headerlink" href="2dev.html#id2" title="Link to this heading"></a></h2>
+<h2>交换机<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>交换机（英文：Switch，意为“开关”）是一种用于电信号转发的网络设备，它可以为接入交换机的任意两个网络节点提供独享的电信号通路。交换机在通信系统中完成信息交换功能，其工作原理主要是根据通信两端传输信息的需要，通过人工或设备自动完成的方法，把要传输的信息送到符合要求的相应路由上。</p>
-<img alt="../_images/%E4%BA%A4%E6%8D%A2%E6%9C%BA.png" class="align-center" src="../_images/交换机.png" />
+<img alt="../_images/%E4%BA%A4%E6%8D%A2%E6%9C%BA.png" class="align-center" src="../_images/%E4%BA%A4%E6%8D%A2%E6%9C%BA.png" />
 <p>本实验室配备有二层交换机和三层交换机。</p>
 <p>二层交换机工作于OSI模型的第2层（数据链路层），故而称为二层交换机。二层交换机能够基于数据链路层的MAC首部信息，进行数据帧或VLAN（Virtual LAN）的传输工作。</p>
 <p>三层交换机是一种在二层交换机的基础上增加了路由选择功能的网络硬件，它同时具有几乎二层交换的速度，也能够基于三层网络层的IP首部信息，实现路由选择以及分组过滤等功能。</p>
@@ -124,10 +124,10 @@
 </div>
 </section>
 <section id="id3">
-<h2>路由器<a class="headerlink" href="2dev.html#id3" title="Link to this heading"></a></h2>
+<h2>路由器<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>路由器是工作在OSI参考模型第三层（网络层）的网络连接设备，它的基本功能是根据数据包的IP地址选择发送路径，转发数据包到相应网络。</p>
 <p>路由器的数据转发时基于路由表实现的，每个路由器都会维护一张路由器，根据路由表决定数据包的转发路径。</p>
-<img alt="../_images/%E8%B7%AF%E7%94%B1%E5%99%A8.png" class="align-center" src="../_images/路由器.png" />
+<img alt="../_images/%E8%B7%AF%E7%94%B1%E5%99%A8.png" class="align-center" src="../_images/%E8%B7%AF%E7%94%B1%E5%99%A8.png" />
 <p>当路由器接收到一个数据包后，首先对数据包进行校验，如果是发给路由器用于协议处理的数据包，路由器将交给相应模块去处理，而大多数是需要转发的数据包，路由器将查询路由表，然后根据查询结果转发数据包到相应的端口和网络。路由表由多个路由表表项构成，可以由管理者手动设置（即静态路由），也可以根据路由协议自动生成（即动态路由）。</p>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
@@ -135,7 +135,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>交换机和路由器的接口<a class="headerlink" href="2dev.html#id4" title="Link to this heading"></a></h2>
+<h2>交换机和路由器的接口<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>本实验室主要网络设备均是华为公司的 Quidway S系列交换机和路由器。</p>
 <p>实验中用到的二层交换机/三层交换机接口类型较少，主要两种类型的接口，分别是24/48个以太网端口（二层交换机是24个，三层交换机是48个）和一个配置口（Console 口）。以太网端口表示为G0/0/1～G0/0/24（G0/0/48），其中G为千兆以太网GigabitEthernet的缩写，后面数字采用三段式表示，左边第一个数字“0”表示该端口所在模块对应的槽位编号，第二个数字“0”表示子卡号，第三个数字表示该端口在这个模块上的编号，一般从 1 开始。</p>
 <p>二层交换机：</p>
