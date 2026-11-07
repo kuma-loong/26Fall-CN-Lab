@@ -1,0 +1,8 @@
+/build
+/.vscode
+log
+out.pcap
+/testing/Temporary/
+/Testing/Temporary/
+/commit.patch
+/.commit.patch-*.tmp

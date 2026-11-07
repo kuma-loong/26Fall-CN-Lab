@@ -1,0 +1,26 @@
+services:
+  lab:
+    image: cn-net-lab:ubuntu22.04
+    build:
+      context: ./net-lab
+      args:
+        BASE_IMAGE: ${BASE_IMAGE:-ubuntu:22.04}
+        LAB_UID: ${LAB_UID:-1000}
+        LAB_GID: ${LAB_GID:-1000}
+    container_name: cn-net-lab
+    init: true
+    working_dir: /app
+    command: ["sleep", "infinity"]
+    volumes:
+      - type: bind
+        source: ${NET_LAB_SOURCE:-../net-lab}
+        target: /app
+        bind:
+          create_host_path: false
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_PTRACE
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: "0"
+      net.ipv6.conf.default.disable_ipv6: "0"

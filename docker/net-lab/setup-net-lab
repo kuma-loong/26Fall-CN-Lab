@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Run inside the lab container when online integration tests are needed.
+# IPv6 is enabled by Compose; Docker can keep /proc/sys read-only at runtime.
+set -euo pipefail
+
+if (( EUID != 0 )); then
+    exec sudo -- "$0" "$@"
+fi
+
+if [[ ! -f /.dockerenv ]]; then
+    echo 'Run setup-net-lab inside the lab container.' >&2
+    exit 1
+fi
+
+if ip link show veth0 >/dev/null 2>&1; then
+    ip link del veth0
+fi
+ip link add veth0 type veth peer name veth1
+ip link set veth0 up
+ip link set veth1 up
+ip addr add 192.168.254.3/24 dev veth0
+ip addr add 192.168.254.1/24 dev veth1
+ip route del 192.168.254.0/24 dev veth0
+ethtool -K veth0 rx off tx off
+ethtool -K veth1 rx off tx off
+ip -6 addr add fd00::1/64 dev veth1
+ip link set dev veth0 arp off
+
+echo 'veth0: user-space stack; set NET_IF_IP to 192.168.254.2'
+echo 'veth1: Linux peer at 192.168.254.1; run clients in this container'
+ip route show 192.168.254.0/24

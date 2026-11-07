@@ -6,3 +6,25 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Per-host container settings
+/docker/.env
+/docker/*.log
+/docker/compose.local.yaml
+/docker/*proxy*.conf
+
+# Private course materials and submission artifacts
+/private/
+/artifacts/
+/reports/
+/submissions/
+*.doc
+*.docx
+*.pdf
+*.zip
+*.7z
+commit.patch
+__pycache__/
+
+# Windows SDK is unnecessary for the Linux container workflow
+/net-lab/Npcap/
