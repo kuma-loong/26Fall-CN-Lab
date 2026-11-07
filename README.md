@@ -1,42 +1,42 @@
 # 26Fall-CN-Lab
 
-哈尔滨工业大学（深圳）2026 年秋季计算机网络课程实验仓库。
+哈尔滨工业大学（深圳）2026 秋季计算机网络实验。
 
-## 仓库内容
+| 实验 | 内容 | 状态 |
+| --- | --- | --- |
+| Lab 2 | 以太网帧收发、首部处理、最小帧填充 | 完成 |
+| Lab 3 | ARP 请求/响应、地址缓存、待发送报文缓存 | 完成 |
 
-- [实验指导书](comp-network-guide/index.html)：课程实验指导书的离线网页，下载仓库后可用浏览器打开。
-- [指导书文本源文件](comp-network-guide/_sources/)：可直接查看的实验说明。
-- [离线全量目录](comp-network-guide/mirror-catalog.html)：包括官网索引中保留的历史页面；本学期实验以指导书首页导航为准。
-- 实验实现、设备配置与实验记录随课程进度补充。
+代码在 [`net-lab/src/`](net-lab/src/)，基于[课程框架](https://git.cs-lab.top/cslab/net-lab.git)；其余协议保留初始实现。课程测试及输入数据保持原样，另提供逐字节 pcap 核对工具。
 
-## 离线指导书
+## 实验环境
 
-2026-11-07 通过本机校内网络重新抓取 [课程官网](https://comp-network.p.cs-lab.top/index.html)。使用官网 `objects.inv` 与 `searchindex.js` 交叉核对，收录全部 97 篇文档及搜索、索引页，共 99 个原站 HTML 页面、97 份 RST 文本源文件，以及图片、字体、样式、脚本和站内下载附件。
+使用 [Docker 环境](docker/compose.yaml)：Ubuntu 22.04、GCC、CMake、libpcap、GDB、tcpdump/tshark。源码挂载到容器内的 `/app`。
 
-旧版遗漏了 42 篇文档；已有的 55 份 RST 文本与本次线上版本一致。本次保留网页及文本原文，并从官网链接的源码仓库恢复了 12 个因扩展名大小写错误而失效的图片路径。每个文件的来源、SHA-256、图片恢复记录见 [抓取清单](comp-network-guide/mirror-manifest.json)。源码仓库、网盘、视频等外部链接仍需联网访问。
-
-可以直接打开 `comp-network-guide/index.html` 阅读。使用完整搜索功能（含结果摘要）时，请在仓库根目录启动本地服务：
+首次启动（宿主机需已安装 Docker 和 Compose）：
 
 ```sh
-python3 -m http.server 8000 --bind 127.0.0.1 --directory comp-network-guide
+cd docker
+printf 'LAB_UID=%s\nLAB_GID=%s\n' "$(id -u)" "$(id -g)" > .env
+docker compose up -d --build
+docker compose exec lab bash
 ```
 
-然后访问 <http://127.0.0.1:8000/>。浏览器逐页检查已覆盖 99 个页面及 877 处图片引用，未发现缺图或缺失样式。官网原有的一处失效锚点 `appendix-g/lab7.html → appendix-b/1win.html#main` 保持原文，目标页面可以正常打开，详情记录在抓取清单中。
+## 快速运行
 
-后续更新可运行以下命令（需要校内网络，脚本自动绕过环境代理；输出目录必须不存在）：
+在容器的 `/app` 中执行：
 
 ```sh
-python3 tools/mirror_network_guide.py --output /tmp/comp-network-guide-new
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --target eth_in eth_out arp_test -j2
+ctest --test-dir build -R '^(eth_in|eth_out|arp_test)$' --output-on-failure
+python3 tools/verify_pcaps.py
 ```
 
-脚本下载后会检查文档覆盖、站内链接和资源完整性，校验通过后再用新目录替换当前快照。
+三项组件测试及报文字节核对均通过。后续在线实验需将非 `TEST` 分支 IP 设为 `192.168.254.2`，并在容器内运行 `setup-net-lab`。
 
-## 实验导航
+## 材料与提交
 
-| 实验 | 指导书 |
-| --- | --- |
-| 实验 1：VLAN 与接口模式配置 | [华为交换机配置与实验步骤](comp-network-guide/_sources/lab1-vlan/0huawei.rst.txt) |
-
-## 课程索引
-
-[HITsz-CS-Labs](https://github.com/kuma-loong/HITsz-CS-Labs)
+- [离线指导书](comp-network-guide/index.html) / [全量目录](comp-network-guide/mirror-catalog.html)，更新工具为 [`tools/mirror_network_guide.py`](tools/mirror_network_guide.py)。
+- 协议代码提交后，在仓库根目录执行 `python3 tools/export_lab_patch.py`，生成相对课程初始版本的 `private/submissions/commit.patch`。
+- 报告按课程统一模板填写，目前覆盖 Lab 2、3；最终在 Lab 9 后统一提交。报告、截图、日志、模板和提交包均保存在被 Git 忽略的 `private/`，不上传 GitHub。

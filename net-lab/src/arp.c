@@ -57,7 +57,12 @@ void arp_print() {
  * @param target_ip 想要知道的目标的ip地址
  */
 void arp_req(uint8_t *target_ip) {
-    // TO-DO
+    buf_init(&txbuf, sizeof(arp_pkt_t));
+    arp_pkt_t *pkt = (arp_pkt_t *)txbuf.data;
+    *pkt = arp_init_pkt;
+    pkt->opcode16 = swap16(ARP_REQUEST);
+    memcpy(pkt->target_ip, target_ip, NET_IP_LEN);
+    ethernet_out(&txbuf, ether_broadcast_mac, NET_PROTOCOL_ARP);
 }
 
 /**
@@ -67,7 +72,13 @@ void arp_req(uint8_t *target_ip) {
  * @param target_mac 目标mac地址
  */
 void arp_resp(uint8_t *target_ip, uint8_t *target_mac) {
-    // TO-DO
+    buf_init(&txbuf, sizeof(arp_pkt_t));
+    arp_pkt_t *pkt = (arp_pkt_t *)txbuf.data;
+    *pkt = arp_init_pkt;
+    pkt->opcode16 = swap16(ARP_REPLY);
+    memcpy(pkt->target_ip, target_ip, NET_IP_LEN);
+    memcpy(pkt->target_mac, target_mac, NET_MAC_LEN);
+    ethernet_out(&txbuf, target_mac, NET_PROTOCOL_ARP);
 }
 
 /**
@@ -77,7 +88,26 @@ void arp_resp(uint8_t *target_ip, uint8_t *target_mac) {
  * @param src_mac 源mac地址
  */
 void arp_in(buf_t *buf, uint8_t *src_mac) {
-    // TO-DO
+    if (buf->len < sizeof(arp_pkt_t))
+        return;
+
+    arp_pkt_t *pkt = (arp_pkt_t *)buf->data;
+    uint16_t opcode = swap16(pkt->opcode16);
+    if (pkt->hw_type16 != swap16(ARP_HW_ETHER) ||
+        pkt->pro_type16 != swap16(NET_PROTOCOL_IP) ||
+        pkt->hw_len != NET_MAC_LEN || pkt->pro_len != NET_IP_LEN ||
+        (opcode != ARP_REQUEST && opcode != ARP_REPLY))
+        return;
+
+    map_set(&arp_table, pkt->sender_ip, pkt->sender_mac);
+    buf_t *pending = map_get(&arp_buf, pkt->sender_ip);
+    if (pending) {
+        ethernet_out(pending, pkt->sender_mac, NET_PROTOCOL_IP);
+        map_delete(&arp_buf, pkt->sender_ip);
+    } else if (opcode == ARP_REQUEST &&
+               !memcmp(pkt->target_ip, net_if_ip, NET_IP_LEN)) {
+        arp_resp(pkt->sender_ip, pkt->sender_mac);
+    }
 }
 
 /**
@@ -87,7 +117,14 @@ void arp_in(buf_t *buf, uint8_t *src_mac) {
  * @param ip 目标ip地址
  */
 void arp_out(buf_t *buf, uint8_t *ip) {
-    // TO-DO
+    uint8_t *mac = map_get(&arp_table, ip);
+    if (mac) {
+        ethernet_out(buf, mac, NET_PROTOCOL_IP);
+    } else if (!map_get(&arp_buf, ip)) {
+        // Cache before arp_req() reuses the shared transmit buffer.
+        map_set(&arp_buf, ip, buf);
+        arp_req(ip);
+    }
 }
 
 /**
